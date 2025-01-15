@@ -7436,4 +7436,5 @@ local Exit = keysyst.Exit.Click
 end;
 task.spawn(C_222);
 
+game:GetService'StarterGui':SetCore("DevConsoleVisible", true)
 return G2L["1"], require;

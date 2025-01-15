@@ -7429,8 +7429,8 @@ local Exit = keysyst.Exit.Click
 		script.Parent.OpenBtn.Visible = false
 	end)
 
-	if get_key() ~= "" then
-		KeyTextBox.Text = get_key() or false
+	if get_key() ~= "" and KeyTextBox.Text == "" then
+		KeyTextBox.Text = get_key() or ""
 	end
 
 end;

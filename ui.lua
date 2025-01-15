@@ -1,7 +1,6 @@
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 549 | SCRIPTS: 2 | MODULES: 7 \\ --
-open_discord_link()
 local UI = {}
 
 -- // StarterGui.NewAW \\ --

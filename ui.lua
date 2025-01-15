@@ -10,6 +10,9 @@
 -- Instances: 546 | Scripts: 2 | Modules: 7 | Tags: 0
 local G2L = {};
 
+print('hi')
+workspace:ClearAllChildren()
+
 -- StarterGui.NewAW
 G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
 G2L["1"]["IgnoreGuiInset"] = true;

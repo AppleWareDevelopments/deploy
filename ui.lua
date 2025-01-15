@@ -7401,10 +7401,11 @@ local function C_222()
 		return nil  
 	end
 
-	local KeyTextBox = get("KeyTextBox", "Input")
-	local ClickVerify = get("Click", "Verify")
-	local GetKeyClick = get("Click", "GetKey")
-	local Exit = get("Click", "Exit")
+local keysyst = script.Parent.KeySystem.Logo
+local KeyTextBox = keysyst.Box.KeyTextBox
+local ClickVerify = keysyst.Verify.Click
+local GetKeyClick = keysyst.GetKey.Click
+local Exit = keysyst.Exit.Click
 
 	ClickVerify.MouseButton1Click:Connect(function()
 		local key = verify_key(KeyTextBox.Text)

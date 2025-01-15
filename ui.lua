@@ -7402,7 +7402,7 @@ local function C_222()
 	end
 
 local keysyst = script.Parent.KeySystem.Logo
-local KeyTextBox = keysyst.Box.KeyTextBox
+local KeyTextBox = keysyst.KeyTextBox
 local ClickVerify = keysyst.Verify.Click
 local GetKeyClick = keysyst.GetKey.Click
 local Exit = keysyst.Exit.Click

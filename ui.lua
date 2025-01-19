@@ -11,7 +11,7 @@
 local G2L = {};
 repeat wait() until game:IsLoaded() 
 -- StarterGui.NewAW
-G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"] = gethui()
 G2L["1"]["IgnoreGuiInset"] = true;
 G2L["1"]["DisplayOrder"] = 99;
 G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.None;

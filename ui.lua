@@ -10,11 +10,8 @@
 -- Instances: 546 | Scripts: 2 | Modules: 7 | Tags: 0
 local G2L = {};
 
-print('hi')
-workspace:ClearAllChildren()
-
 -- StarterGui.NewAW
-G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 G2L["1"]["IgnoreGuiInset"] = true;
 G2L["1"]["DisplayOrder"] = 99;
 G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.None;
@@ -35,7 +32,6 @@ G2L["2"]["Position"] = UDim2.new(0, 0, -0.00741, 0);
 
 -- StarterGui.NewAW.UI
 G2L["3"] = Instance.new("Frame", G2L["1"]);
-G2L["3"]["Visible"] = false;
 G2L["3"]["BorderSizePixel"] = 0;
 G2L["3"]["BackgroundColor3"] = Color3.fromRGB(16, 19, 27);
 G2L["3"]["ClipsDescendants"] = true;
@@ -198,6 +194,7 @@ G2L["12"]["ImageTransparency"] = 1;
 G2L["12"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
 G2L["12"]["Image"] = [[rbxassetid://76734110237026]];
 G2L["12"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
+G2L["12"]["Visible"] = false;
 G2L["12"]["ClipsDescendants"] = true;
 G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["12"]["BackgroundTransparency"] = 1;
@@ -250,7 +247,6 @@ G2L["15"]["BackgroundTransparency"] = 1;
 
 -- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source
 G2L["16"] = Instance.new("TextBox", G2L["15"]);
-G2L["16"]["CursorPosition"] = -1;
 G2L["16"]["Name"] = [[Source]];
 G2L["16"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["16"]["PlaceholderColor3"] = Color3.fromRGB(205, 205, 205);
@@ -1862,7 +1858,6 @@ G2L["be"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0);
 
 -- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.SearchFrame.SearchBox
 G2L["bf"] = Instance.new("TextBox", G2L["bc"]);
-G2L["bf"]["CursorPosition"] = -1;
 G2L["bf"]["Name"] = [[SearchBox]];
 G2L["bf"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["bf"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
@@ -1981,7 +1976,6 @@ G2L["ca"]["MaxTextSize"] = 14;
 
 -- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.ConsoleInput
 G2L["cb"] = Instance.new("TextBox", G2L["aa"]);
-G2L["cb"]["CursorPosition"] = -1;
 G2L["cb"]["Name"] = [[ConsoleInput]];
 G2L["cb"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["cb"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
@@ -2022,7 +2016,6 @@ G2L["ce"]["ImageTransparency"] = 1;
 G2L["ce"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
 G2L["ce"]["Image"] = [[rbxassetid://76734110237026]];
 G2L["ce"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["ce"]["Visible"] = false;
 G2L["ce"]["ClipsDescendants"] = true;
 G2L["ce"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["ce"]["BackgroundTransparency"] = 1;
@@ -2262,7 +2255,7 @@ G2L["e7"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.B
 G2L["e7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["e7"]["BackgroundTransparency"] = 1;
 G2L["e7"]["Size"] = UDim2.new(0.66145, 0, 0.18675, 0);
-G2L["e7"]["Text"] = [[Save Editor Input]];
+G2L["e7"]["Text"] = [[Unlock FPS]];
 G2L["e7"]["Name"] = [[LoadAnimLabel]];
 G2L["e7"]["Position"] = UDim2.new(0.16145, 0, 0.30723, 0);
 
@@ -2323,7 +2316,7 @@ G2L["ed"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.S
 G2L["ed"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
 G2L["ed"]["BackgroundTransparency"] = 1;
 G2L["ed"]["Size"] = UDim2.new(0.67346, 0, 0.15879, 0);
-G2L["ed"]["Text"] = [[Keeps code in the editor saved persistently.]];
+G2L["ed"]["Text"] = [[Gets rid of Roblox's 60FPS Limmit.]];
 G2L["ed"]["Name"] = [[descriptionLabel]];
 G2L["ed"]["Position"] = UDim2.new(0.16145, 0, 0.49398, 0);
 
@@ -4810,6 +4803,7 @@ G2L["1f5"]["CornerRadius"] = UDim.new(0, 220);
 
 -- StarterGui.NewAW.KeySystem
 G2L["1f6"] = Instance.new("Frame", G2L["1"]);
+G2L["1f6"]["Visible"] = false;
 G2L["1f6"]["BorderSizePixel"] = 0;
 G2L["1f6"]["BackgroundColor3"] = Color3.fromRGB(16, 19, 27);
 G2L["1f6"]["Size"] = UDim2.new(1.00104, 0, 1, 0);
@@ -4902,22 +4896,21 @@ G2L["1fd"] = Instance.new("UICorner", G2L["1fc"]);
 G2L["1fd"]["CornerRadius"] = UDim.new(0, 900);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input
+-- StarterGui.NewAW.KeySystem.Logo.Box
 G2L["1fe"] = Instance.new("Frame", G2L["1f7"]);
 G2L["1fe"]["BorderSizePixel"] = 0;
 G2L["1fe"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["1fe"]["Size"] = UDim2.new(0.67647, 0, 0.09507, 0);
 G2L["1fe"]["Position"] = UDim2.new(0.17374, 0, 0.39303, 0);
 G2L["1fe"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1fe"]["Name"] = [[Input]];
+G2L["1fe"]["Name"] = [[Box]];
 -- Attributes
 G2L["1fe"]:SetAttribute([[Input]], [[Logo]]);
 G2L["1fe"]:SetAttribute([[Frame]], [[Frame]]);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.KeyTextBox
+-- StarterGui.NewAW.KeySystem.Logo.Box.KeyTextBox
 G2L["1ff"] = Instance.new("TextBox", G2L["1fe"]);
-G2L["1ff"]["CursorPosition"] = -1;
 G2L["1ff"]["Name"] = [[KeyTextBox]];
 G2L["1ff"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["1ff"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
@@ -4939,19 +4932,19 @@ G2L["1ff"]["BackgroundTransparency"] = 1;
 G2L["1ff"]:SetAttribute([[KeyTextBox]], [[Input]]);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.KeyTextBox.UITextSizeConstraint
+-- StarterGui.NewAW.KeySystem.Logo.Box.KeyTextBox.UITextSizeConstraint
 G2L["200"] = Instance.new("UITextSizeConstraint", G2L["1ff"]);
 G2L["200"]["MaxTextSize"] = 30;
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.UICorner
+-- StarterGui.NewAW.KeySystem.Logo.Box.UICorner
 G2L["201"] = Instance.new("UICorner", G2L["1fe"]);
 G2L["201"]["CornerRadius"] = UDim.new(0.22, 0);
 -- Attributes
 G2L["201"]:SetAttribute([[UICorner]], [[Input]]);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.UIGradient
+-- StarterGui.NewAW.KeySystem.Logo.Box.UIGradient
 G2L["202"] = Instance.new("UIGradient", G2L["1fe"]);
 G2L["202"]["Rotation"] = 90;
 G2L["202"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(31, 37, 54)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(24, 28, 41))};
@@ -4959,14 +4952,14 @@ G2L["202"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.
 G2L["202"]:SetAttribute([[UIGradient]], [[Input]]);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.UIStroke
+-- StarterGui.NewAW.KeySystem.Logo.Box.UIStroke
 G2L["203"] = Instance.new("UIStroke", G2L["1fe"]);
 G2L["203"]["Color"] = Color3.fromRGB(16, 19, 27);
 -- Attributes
 G2L["203"]:SetAttribute([[UIStroke]], [[Input]]);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.barIdk1
+-- StarterGui.NewAW.KeySystem.Logo.Box.barIdk1
 G2L["204"] = Instance.new("ImageLabel", G2L["1fe"]);
 G2L["204"]["ZIndex"] = 2;
 G2L["204"]["BorderSizePixel"] = 0;
@@ -4981,7 +4974,7 @@ G2L["204"]["Position"] = UDim2.new(0.01395, 0, 0.17446, 0);
 G2L["204"]:SetAttribute([[barIdk1]], [[Input]]);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.barIdk1.UIGradient
+-- StarterGui.NewAW.KeySystem.Logo.Box.barIdk1.UIGradient
 G2L["205"] = Instance.new("UIGradient", G2L["204"]);
 G2L["205"]["Rotation"] = 91.10171;
 G2L["205"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))};
@@ -4989,7 +4982,7 @@ G2L["205"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.
 G2L["205"]:SetAttribute([[UIGradient]], [[barIdk1]]);
 
 
--- StarterGui.NewAW.KeySystem.Logo.Input.ShadowBackk
+-- StarterGui.NewAW.KeySystem.Logo.Box.ShadowBackk
 G2L["206"] = Instance.new("ImageLabel", G2L["1fe"]);
 G2L["206"]["BorderSizePixel"] = 0;
 G2L["206"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
@@ -5282,1143 +5275,1140 @@ G2L["222"]:SetAttribute([[LocalScript]], [[AppleWare]]);
 local G2L_REQUIRE = require;
 local G2L_MODULES = {};
 local function require(Module:ModuleScript)
-	local ModuleState = G2L_MODULES[Module];
-	if ModuleState then
-		if not ModuleState.Required then
-			ModuleState.Required = true;
-			ModuleState.Value = ModuleState.Closure();
-		end
-		return ModuleState.Value;
-	end;
-	return G2L_REQUIRE(Module);
+    local ModuleState = G2L_MODULES[Module];
+    if ModuleState then
+        if not ModuleState.Required then
+            ModuleState.Required = true;
+            ModuleState.Value = ModuleState.Closure();
+        end
+        return ModuleState.Value;
+    end;
+    return G2L_REQUIRE(Module);
 end
 
 G2L_MODULES[G2L["1e9"]] = {
-	Closure = function()
-		local script = G2L["1e9"];local module = {}
+Closure = function()
+    local script = G2L["1e9"];local module = {}
 
-		local highlighter = require(script.Highlighter)
-		local textbox2 = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2
-		local minimap = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source.Source2
-		local sourceLabel = textbox2.Parent.Parent.TextLabel
+local highlighter = require(script.Highlighter)
+local textbox2 = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2
+local minimap = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source.Source2
+local sourceLabel = textbox2.Parent.Parent.TextLabel
 
-		local writefile = writefile or function(fileName, content)
+local writefile = writefile or function(fileName, content)
+end
+
+local readfile = readfile or function(fileName)
+	return ""
+end
+
+local isfile = isfile or function(fileName)
+	return ""
+end
+
+local listfiles = listfiles or function(folderName)
+	return ''
+end
+
+
+function module.initialize()
+
+	local function getNumberOfLines(str)
+		local count = 1
+		for _ in string.gmatch(str, "\n") do
+			count += 1
 		end
+		return count
+	end
 
-		local readfile = readfile or function(fileName)
-			return ""
+	highlighter.highlight({
+		textObject = textbox2,
+		forceUpdate = true,
+		customLang = {"HttpGet", "Players", "CoreGui"},
+	})
+	highlighter.highlight({
+		textObject = minimap,
+		forceUpdate = true,
+		customLang = {"HttpGet", "Players", "CoreGui"},
+	})
+
+	local function syncText()
+		textbox2.Text = textbox2.Parent.Text
+		minimap.Text = textbox2.Parent.Text
+		textbox2.Transparency = 1
+	end
+	textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(syncText)
+	syncText()
+
+	local function updateLineNumbers()
+		local lines = getNumberOfLines(textbox2.Parent.Text)
+		local str = ""
+		for i = 1, lines do
+			str = str .. i .. "\n"
 		end
+		sourceLabel.Text = str
+	end
+	textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(updateLineNumbers)
+	updateLineNumbers()
 
-		local isfile = isfile or function(fileName)
-			return ""
+	local frame = textbox2.Parent.Parent
+	local function updateScrollFrameSize()
+		frame.CanvasSize = UDim2.new(0, 0, 0, textbox2.TextBounds.Y)
+	end
+	textbox2:GetPropertyChangedSignal("Text"):Connect(updateScrollFrameSize)
+	updateScrollFrameSize()
+end
+
+local TS = game:GetService("TweenService")
+
+function module.NotificationHandler(message, displayTime)
+	local notification = script.Parent.Parent.UI.MainGui.Alert:Clone()
+	local close = notification.Icon
+	notification.Parent = script.Parent.Parent.UI.MainGui.Alerts
+    notification.Visible, notification.TEXTLABEL.Text = true, message
+    local function animationidk(transparency)
+		TS:Create(notification, TweenInfo.new(1.5), { ImageTransparency = transparency }):Play()
+		TS:Create(notification.TEXTLABEL, TweenInfo.new(0.5), { TextTransparency = transparency }):Play()
+		TS:Create(notification.ImageLabel, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
+		TS:Create(notification.ShadowBackk, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
+		TS:Create(notification.Icon, TweenInfo.new(0.8), {ImageTransparency = transparency}):Play()
+	end
+	close.MouseButton1Click:Connect(function()
+		notification.Visible = false
+	end)
+    animationidk(0)
+    task.wait(displayTime)
+    animationidk(1)
+    task.wait(1)
+	notification:Destroy()
+end
+
+function module.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SBarButtons, Pages, SBarHiddenPos, SBarVisiPos, PHidepos, PVisipos)
+	local function createTween(object, properties, duration)
+		local tween = TS:Create(object, TweenInfo.new(duration), properties)
+		tween:Play()
+		return tween
+	end
+
+	local function toggleSidebar(isVisible)
+		if isVisible then
+			UI.Parent.Visible = true
+			createTween(UI.Parent, {BackgroundTransparency = 0}, 0.5)
+			createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 0}, 0.5)
+			createTween(UI.Parent.UIStroke, {Transparency = 0}, 0.5)
+
+			wait(0.5)
+			createTween(Sidebar, {Position = SBarVisiPos}, 0.5)
+			createTween(P, {Position = PVisipos}, 0.5)
+			createTween(open.Parent, {ImageTransparency = 1}, 0.5)
+			open.Parent.Visible = false
+		else
+			createTween(Sidebar, {Position = SBarHiddenPos}, 0.5)
+			createTween(P, {Position = PHidepos}, 0.5)
+			wait(0.5)
+			createTween(UI.Parent, {BackgroundTransparency = 1}, 0.5)
+			createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 1}, 0.5)
+			createTween(UI.Parent.UIStroke, {Transparency = 1}, 0.5)
+			UI.Parent.Visible = false
+			open.Parent.Visible = true
+			createTween(open.Parent, {ImageTransparency = 0}, 0.5)
 		end
+	end
 
-		local listfiles = listfiles or function(folderName)
-			return ''
-		end
+	local function switchPage(selectedButton)
+		for i, buttonName in ipairs(SBarButtons) do
+			local button = Sidebar:FindFirstChild(buttonName)
+			local page = P:FindFirstChild(Pages[i])
 
-
-		function module.initialize()
-
-			local function getNumberOfLines(str)
-				local count = 1
-				for _ in string.gmatch(str, "\n") do
-					count += 1
-				end
-				return count
-			end
-
-			highlighter.highlight({
-				textObject = textbox2,
-				forceUpdate = true,
-				customLang = {"HttpGet", "Players", "CoreGui"},
-			})
-			highlighter.highlight({
-				textObject = minimap,
-				forceUpdate = true,
-				customLang = {"HttpGet", "Players", "CoreGui"},
-			})
-
-			local function syncText()
-				textbox2.Text = textbox2.Parent.Text
-				minimap.Text = textbox2.Parent.Text
-				textbox2.Transparency = 1
-			end
-			textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(syncText)
-			syncText()
-
-			local function updateLineNumbers()
-				local lines = getNumberOfLines(textbox2.Parent.Text)
-				local str = ""
-				for i = 1, lines do
-					str = str .. i .. "\n"
-				end
-				sourceLabel.Text = str
-			end
-			textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(updateLineNumbers)
-			updateLineNumbers()
-
-			local frame = textbox2.Parent.Parent
-			local function updateScrollFrameSize()
-				frame.CanvasSize = UDim2.new(0, 0, 0, textbox2.TextBounds.Y)
-			end
-			textbox2:GetPropertyChangedSignal("Text"):Connect(updateScrollFrameSize)
-			updateScrollFrameSize()
-		end
-
-		local TS = game:GetService("TweenService")
-
-		function module.NotificationHandler(message, displayTime)
-			local notification = script.Parent.Parent.UI.MainGui.Alert:Clone()
-			local close = notification.Icon
-			notification.Parent = script.Parent.Parent.UI.MainGui.Alerts
-			notification.Visible, notification.TEXTLABEL.Text = true, message
-			local function animationidk(transparency)
-				TS:Create(notification, TweenInfo.new(1.5), { ImageTransparency = transparency }):Play()
-				TS:Create(notification.TEXTLABEL, TweenInfo.new(0.5), { TextTransparency = transparency }):Play()
-				TS:Create(notification.ImageLabel, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
-				TS:Create(notification.ShadowBackk, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
-				TS:Create(notification.Icon, TweenInfo.new(0.8), {ImageTransparency = transparency}):Play()
-			end
-			close.MouseButton1Click:Connect(function()
-				notification.Visible = false
-			end)
-			animationidk(0)
-			task.wait(displayTime)
-			animationidk(1)
-			task.wait(1)
-			notification:Destroy()
-		end
-
-		function module.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SBarButtons, Pages, SBarHiddenPos, SBarVisiPos, PHidepos, PVisipos)
-			local function createTween(object, properties, duration)
-				local tween = TS:Create(object, TweenInfo.new(duration), properties)
-				tween:Play()
-				return tween
-			end
-
-			local function toggleSidebar(isVisible)
-				if isVisible then
-					UI.Parent.Visible = true
-					createTween(UI.Parent, {BackgroundTransparency = 0}, 0.5)
-					createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 0}, 0.5)
-					createTween(UI.Parent.UIStroke, {Transparency = 0}, 0.5)
-
-					wait(0.5)
-					createTween(Sidebar, {Position = SBarVisiPos}, 0.5)
-					createTween(P, {Position = PVisipos}, 0.5)
-					createTween(open.Parent, {ImageTransparency = 1}, 0.5)
-					open.Parent.Visible = false
-				else
-					createTween(Sidebar, {Position = SBarHiddenPos}, 0.5)
-					createTween(P, {Position = PHidepos}, 0.5)
-					wait(0.5)
-					createTween(UI.Parent, {BackgroundTransparency = 1}, 0.5)
-					createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 1}, 0.5)
-					createTween(UI.Parent.UIStroke, {Transparency = 1}, 0.5)
-					UI.Parent.Visible = false
-					open.Parent.Visible = true
-					createTween(open.Parent, {ImageTransparency = 0}, 0.5)
-				end
-			end
-
-			local function switchPage(selectedButton)
-				for i, buttonName in ipairs(SBarButtons) do
-					local button = Sidebar:FindFirstChild(buttonName)
-					local page = P:FindFirstChild(Pages[i])
-
-					if buttonName == selectedButton then
-						createTween(button, {BackgroundTransparency = 0}, 0.5)
-						page.Visible = true
-					else
-						createTween(button, {BackgroundTransparency = 1}, 0.5)
-						page.Visible = false
-					end
-				end
-
-				local jsonData = game:GetService("HttpService"):JSONEncode({lastPage = selectedButton})
-				if not isfile("lastPage.json") then
-					writefile("lastPage.json", jsonData)
-				else
-					writefile("lastPage.json", jsonData)
-				end
-			end
-
-			local function getlastpage()
-				if isfile("lastPage.json") then
-					local lastPage = ""
-
-					local success, result = pcall(function()
-						local jsonData = readfile("lastPage.json")
-						local data = game:GetService("HttpService"):JSONDecode(jsonData)
-						return data.lastPage
-					end)
-					if success then
-						lastPage = result or ""
-					end
-
-					return lastPage
-				end
-			end
-
-			local function loadLastPage()
-				if isfile("lastPage.json") then
-					local lastPage = getlastpage()
-
-					if lastPage then
-						switchPage(lastPage)
-					else
-						return 
-					end
-				end
-			end
-
-			loadLastPage()
-
-			open.MouseButton1Click:Connect(function()
-				toggleSidebar(true)
-			end)
-
-			Slide.MouseButton1Click:Connect(function()
-				toggleSidebar(false)
-			end)
-
-			for _, buttonName in ipairs(SBarButtons) do
-				local button = Sidebar:FindFirstChild(buttonName)
-				if button then
-					button:FindFirstChild("Click").MouseButton1Click:Connect(function()
-						switchPage(buttonName)
-					end)
-				end
-			end
-		end
-
-		function EditorPageHandler(Option, source)
-			local Code = textbox2.Parent.Text or source
-			if Option == "Execute" then
-				local func, err
-
-				if type(applewarefunction) == "function" then
-					func, err = applewarefunction(Code)
-				end
-
-				if not func then
-					local success, result = pcall(function()
-						return loadstring(Code) 
-					end)
-
-					if success then
-						func = result  
-					else
-						err = result  
-					end
-				end
-
-				if not func then
-					module.NotificationHandler("Function Loader Not Handled", 2.5)
-				elseif err then
-					print(err)
-					module.NotificationHandler("Execute Error, Report it To Devs", 2.5)
-				end
-
-				if func then
-					local success, execErr = pcall(func)
-					if success then
-						return true, nil
-					else
-						print(err)
-						module.NotificationHandler(("Execute Error, Report it To Devs" or "Unknown error"), 2.5)
-						return false, execErr
-					end
-				else
-					print(err)
-					module.NotificationHandler(("Execute Error, Report it To Devs"), 2.5)
-					return false, err
-				end
-			elseif Option == "Paste" then
-				if getclipboard then
-					textbox2.Parent.Text = getclipboard()
-				else
-					module.NotificationHandler("Error: Cant access clipboard. Open a ticket and report the bug.", 2.5)
-				end
-			elseif Option == "Clear" then
-				textbox2.Parent.Text = ""
+			if buttonName == selectedButton then
+				createTween(button, {BackgroundTransparency = 0}, 0.5)
+				page.Visible = true
 			else
-				module.NotificationHandler("Error: open ticket if u see this bugs", 2.5)
-
+				createTween(button, {BackgroundTransparency = 1}, 0.5)
+				page.Visible = false
 			end
 		end
 
-		function module.EditorPageinstaller(Execute, Clear, Paste, Back)
-			Execute.MouseButton1Click:Connect(function()
-				EditorPageHandler("Execute")
-			end)
-			Clear.MouseButton1Click:Connect(function()
-				EditorPageHandler("Clear")
-			end)
-			Paste.MouseButton1Click:Connect(function()
-				EditorPageHandler("Paste")
-			end)
-			Back.HideBtn.Click.MouseButton1Click:Connect(function()
-				if Back.Minimap.Visible then
-					Back.Minimap.Visible = false
-					Back.HideBtn.Icon.Image = "rbxassetid://116112362871715"
-				else
-					Back.Minimap.Visible = true
-					Back.HideBtn.Icon.Image = "rbxassetid://97345729257968"
-				end
-			end)
+		local jsonData = game:GetService("HttpService"):JSONEncode({lastPage = selectedButton})
+		if not isfile("lastPage.json") then
+			writefile("lastPage.json", jsonData)
+		else
+			writefile("lastPage.json", jsonData)
+		end
+	end
+	
+	local function getlastpage()
+		if isfile("lastPage.json") then
+		local lastPage = ""
+
+		local success, result = pcall(function()
+			local jsonData = readfile("lastPage.json")
+			local data = game:GetService("HttpService"):JSONDecode(jsonData)
+			return data.lastPage
+		end)
+		if success then
+			lastPage = result or ""
 		end
 
-		function AddSearch(CF, Scrolling, scriptname, source)
-			local scriptFrame = CF
-			local newList = scriptFrame:Clone()
+		return lastPage
+		end
+	end
 
-			local execute = newList.Click
-			local scname = newList.ScriptName.ScriptName
-			newList.Name = scriptname
-			newList.Parent = Scrolling
-			newList.Visible = true
-			scname.Text = scriptname
+	local function loadLastPage()
+		if isfile("lastPage.json") then
+			local lastPage = getlastpage()
 
-			execute.MouseButton1Click:Connect(function()
-				EditorPageHandler("Execute", source)
+			if lastPage then
+				switchPage(lastPage)
+			else
+				return 
+			end
+		end
+	end
+
+	loadLastPage()
+
+	open.MouseButton1Click:Connect(function()
+		toggleSidebar(true)
+	end)
+
+	Slide.MouseButton1Click:Connect(function()
+		toggleSidebar(false)
+	end)
+
+	for _, buttonName in ipairs(SBarButtons) do
+		local button = Sidebar:FindFirstChild(buttonName)
+		if button then
+			button:FindFirstChild("Click").MouseButton1Click:Connect(function()
+				switchPage(buttonName)
 			end)
 		end
+	end
+end
 
-		function AddScript(CF, Scrolling, scriptname, source)
-			local scriptFrame = CF
-			local newList = scriptFrame:Clone()
+function EditorPageHandler(Option, source)
+	local Code = textbox2.Parent.Text or source
+	if Option == "Execute" then
+		local func, err
 
-			local execute = newList.Click
-			local scname = newList.ScriptName.ScriptName
-			newList.Name = scriptname
-			newList.Parent = Scrolling
-			newList.Visible = true
-			scname.Text = scriptname
-
-			execute.MouseButton1Click:Connect(function()
-				EditorPageHandler("Execute", source)
-			end)
+		if type(applewarefunction) == "function" then
+			func, err = applewarefunction(Code)
 		end
 
-		function module.CloudHandler(CloneFrame, SearchButton, MyScriptsButton, Scroller, TextBox, http)
-
-			SearchButton.MouseButton1Click:Connect(function()
-				TextBox.TextEditable = true
-				Scroller.Parent.Parent.CreatePageScripts.Visible = false
-				Scroller.Parent.Visible = true
+		if not func then
+			local success, result = pcall(function()
+				return loadstring(Code) 
 			end)
 
-			TextBox.FocusLost:Connect(function()
-				if TextBox.Text == "" or #TextBox.Text > 15 or Scroller.Parent.Visible == false then return end
-				for _, child in ipairs(Scroller:GetChildren()) do
-					if child:IsA("Frame") then child:Destroy() end
-				end
+			if success then
+				func = result  
+			else
+				err = result  
+			end
+		end
 
-				local url = "https://scriptblox.com/api/script/search?q=" .. string.gsub(TextBox.Text, " ", "%%20")
-				local success, response = pcall(game.HttpGetAsync, game, url)
-				if success then
-					local decodedSuccess, decoded = pcall(http.JSONDecode, http, response)
+		if not func then
+			module.NotificationHandler("Function Loader Not Handled", 2.5)
+		elseif err then
+			module.NotificationHandler("Execute Error, Report it To Devs", 2.5)
+		end
 
-					if decodedSuccess then
-						if decoded.result and decoded.result.scripts then
-							for _, scriptData in ipairs(decoded.result.scripts or {}) do
-								if not scriptData.isPatched then
-									task.wait(0.1)
-									AddSearch(CloneFrame, Scroller, scriptData.title, scriptData.script)
-								end
-							end
-						else
-							module.NotificationHandler("No scripts found in API.", 2.5)
+		if func then
+			local success, execErr = pcall(func)
+			if success then
+				return true, nil
+			else
+			module.NotificationHandler(("Execute Error, Report it To Devs" or "Unknown error"), 2.5)
+				return false, execErr
+			end
+		else
+			module.NotificationHandler(("Execute Error, Report it To Devs"), 2.5)
+			return false, err
+		end
+	elseif Option == "Paste" then
+		if getclipboard then
+			textbox2.Parent.Text = getclipboard()
+		else
+			module.NotificationHandler("Error: Cant access clipboard. Open a ticket and report the bug.", 2.5)
+		end
+	elseif Option == "Clear" then
+		textbox2.Parent.Text = ""
+	else
+		module.NotificationHandler("Error: open ticket if u see this bugs", 2.5)
+
+	end
+end
+
+function module.EditorPageinstaller(Execute, Clear, Paste, Back)
+	Execute.MouseButton1Click:Connect(function()
+		EditorPageHandler("Execute")
+	end)
+	Clear.MouseButton1Click:Connect(function()
+		EditorPageHandler("Clear")
+	end)
+	Paste.MouseButton1Click:Connect(function()
+		EditorPageHandler("Paste")
+	end)
+	Back.HideBtn.Click.MouseButton1Click:Connect(function()
+		if Back.Minimap.Visible then
+			Back.Minimap.Visible = false
+			Back.HideBtn.Icon.Image = "rbxassetid://116112362871715"
+		else
+			Back.Minimap.Visible = true
+			Back.HideBtn.Icon.Image = "rbxassetid://97345729257968"
+		end
+	end)
+end
+
+function AddSearch(CF, Scrolling, scriptname, source)
+	local scriptFrame = CF
+    local newList = scriptFrame:Clone()
+
+	local execute = newList.Click
+	local scname = newList.ScriptName.ScriptName
+	newList.Name = scriptname
+	newList.Parent = Scrolling
+	newList.Visible = true
+	scname.Text = scriptname
+
+	execute.MouseButton1Click:Connect(function()
+		EditorPageHandler("Execute", source)
+	end)
+end
+
+function AddScript(CF, Scrolling, scriptname, source)
+	local scriptFrame = CF
+	local newList = scriptFrame:Clone()
+
+	local execute = newList.Click
+	local scname = newList.ScriptName.ScriptName
+	newList.Name = scriptname
+	newList.Parent = Scrolling
+	newList.Visible = true
+	scname.Text = scriptname
+
+	execute.MouseButton1Click:Connect(function()
+		EditorPageHandler("Execute", source)
+	end)
+end
+
+function module.CloudHandler(CloneFrame, SearchButton, MyScriptsButton, Scroller, TextBox, http)
+	
+	SearchButton.MouseButton1Click:Connect(function()
+		TextBox.TextEditable = true
+		Scroller.Parent.Parent.CreatePageScripts.Visible = false
+		Scroller.Parent.Visible = true
+	end)
+	
+	TextBox.FocusLost:Connect(function()
+		if TextBox.Text == "" or #TextBox.Text > 15 or Scroller.Parent.Visible == false then return end
+		for _, child in ipairs(Scroller:GetChildren()) do
+			if child:IsA("Frame") then child:Destroy() end
+		end
+
+		local url = "https://scriptblox.com/api/script/search?q=" .. string.gsub(TextBox.Text, " ", "%%20")
+		local success, response = pcall(game.HttpGetAsync, game, url)
+		if success then
+			local decodedSuccess, decoded = pcall(http.JSONDecode, http, response)
+
+			if decodedSuccess then
+				if decoded.result and decoded.result.scripts then
+					for _, scriptData in ipairs(decoded.result.scripts or {}) do
+						if not scriptData.isPatched then
+							task.wait(0.1)
+							AddSearch(CloneFrame, Scroller, scriptData.title, scriptData.script)
 						end
-					else
-						module.NotificationHandler("Failed to Connected with the API")
 					end
 				else
-					module.NotificationHandler((response or "Unknown error"), 2.5)
+					module.NotificationHandler("No scripts found in API.", 2.5)
 				end
-			end)
-
-			MyScriptsButton.MouseButton1Click:Connect(function()
-				TextBox.TextEditable = false
-				Scroller.Parent.Parent.CreatePageScripts.Visible = true
-				Scroller.Parent.Visible = false
-				Scroller.Parent.Parent.Parent.ScriptSave.Visible = true
-			end)
-
-			local dur = 1.3
-			local hold = false
-
-			MyScriptsButton.MouseButton1Down:Connect(function()
-				hold = true
-				delay(dur, function()
-					if hold then
-						--	Scroller.Parent.Parent.Parent.ScriptSave.Visible = true
-					end
-				end)
-			end)
-		end
-
-		local function loadScripts()
-			if game:GetService("RunService"):IsStudio() then return end
-			local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
-			for _, child in ipairs(scroller9:GetChildren()) do
-				if child:IsA("Frame") then
-					child:Destroy()
-				end
-			end
-
-			for _, file in ipairs(listfiles("scripts")) do
-				local scriptName = file:sub(9, -5)
-				local scriptCode = readfile(file)
-				AddScript(scroller9.C.ScriptFrame, scroller9, scriptName, scriptCode)
-			end
-		end
-
-
-		function module.Script_Saver_system(CloseButton, CloseButton2, ScriptNameInput, ScriptCodeInput, button1, button2)
-			local ScriptName = ScriptNameInput
-			local ScriptCode = ScriptCodeInput
-			print(ScriptCode)
-			print(ScriptName)
-
-			CloseButton.MouseButton1Click:Connect(function()
-				CloseButton.Parent.Parent.Visible = false
-			end)
-
-			CloseButton2.MouseButton1Click:Connect(function()
-				CloseButton2.Parent.Parent.Visible = false
-			end)
-
-			button1.MouseButton1Click:Connect(function()
-				CloseButton.Parent.Visible = false
-				CloseButton2.Parent.Parent.Visible = true
-			end)
-
-			button2.MouseButton1Click:Connect(function()
-				CloseButton2.Parent.Parent.Visible = false
-				if ScriptCode == "" then 
-					return module.NotificationHandler("Script Code Empty") 
-				end
-				if ScriptName == "" then 
-					return module.NotificationHandler("Script Name Empty") 
-				end
-
-				local filePath = "scripts/" .. ScriptName .. ".txt"
-
-				if not isfile(filePath) then
-					local success, errorMsg = pcall(function()
-						writefile(filePath, ScriptCode)
-					end)
-
-					if not success then
-						return module.NotificationHandler("Error saving script: " .. errorMsg)
-					else
-						module.NotificationHandler("Script saved successfully!")
-						loadScripts()
-					end
-				else
-					module.NotificationHandler("Script with that name already exists!")
-				end
-			end)
-
-			local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
-			AddScript(scroller9.C.ScriptFrame, scroller9, "scriptname", "scriptcode")
-		end
-
-		-- console not now
-		local Types = { Toggle = true, OneClick = true }
-		local config = script.Parent.Parent.UI.MainGui.Pages.ConfigPage.ScrollingFrame
-
-		function module.ConfigMakeHandler(Type, Name, Icon, Description, ScriptCode)
-			local ConfigClone = config.Types.Toggle:Clone()
-
-			if Type == Types.Toggle then
-				ConfigClone.descriptionLabel.Text = Description
-				ConfigClone.LoadAnimLabel.Text = Name
-				ConfigClone.Box.Icon.Image = Icon
-				ConfigClone.Parent = config
-				ConfigClone.Visible = true
-				ConfigClone.Name = Name
-				local toggleState = false
-
-				local function setToggleState(state)
-					if state then
-						ConfigClone.ToggleOn.Rotation = 180
-					else
-						ConfigClone.ToggleOn.Rotation = 0
-					end
-				end
-
-				ConfigClone.Click.MouseButton1Click:Connect(function()
-					print(ScriptCode)
-					EditorPageHandler("Execute", ScriptCode)
-					toggleState = not toggleState
-					print(toggleState)
-					setToggleState(toggleState)
-				end)
-
-			elseif Type == Types.OneClick then
-			end
-		end
-
-		function module.TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf)
-
-			local function encode(data)
-				local j = "{"
-				for k, v in pairs(data) do
-					if type(v) == "string" then
-						v = v:gsub("\\", "\\\\"):gsub("\"", "\\\""):gsub("\n", "\\n")
-					end
-					j = j .. string.format("\"%s\":\"%s\",", k, v)
-				end
-				if #j > 1 then
-					j = j:sub(1, -2)
-				end
-				return j .. "}"
-			end
-
-			local function decode(json)
-				local d = {}
-				for k, v in json:gmatch('\"(.-)\":\"(.-)\"') do
-					v = v:gsub("\\\"", "\""):gsub("\\\\", "\\"):gsub("\\n", "\n")
-					d[k] = v
-				end
-				return d
-			end
-
-			if not isfile(tf) then
-				td = { Howmuch = 1, tab1 = "" }
-				writefile(tf, encode(td))
 			else
-				td = decode(readfile(tf))
-				if not td["tab1"] then
-					td["tab1"] = "--Welcome to AppleWareV2"
-					td.Howmuch = 1
-					writefile(tf, encode(td))
-				end
+				module.NotificationHandler("Failed to Connected with the API")
 			end
+		else
+			module.NotificationHandler((response or "Unknown error"), 2.5)
+		end
+	end)
 
-			local currentTab = "tab1"
-			local nextTabIndex = td.Howmuch + 1
+	MyScriptsButton.MouseButton1Click:Connect(function()
+		TextBox.TextEditable = false
+		Scroller.Parent.Parent.CreatePageScripts.Visible = true
+		Scroller.Parent.Visible = false
+		Scroller.Parent.Parent.Parent.ScriptSave.Visible = true
+	end)
+	
+	local dur = 1.3
+	local hold = false
 
-			for n, c in pairs(td) do
-				if n ~= "Howmuch" then
-					local nt = tc:Clone()
-					nt.Visible = true
-					nt.Main.TabName.Text = n
-					nt.Parent = Tabs
-
-					nt.Click.MouseButton1Click:Connect(function()
-						currentTab = n
-						sc.Text = td[n] or ""
-					end)
-
-					nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
-						print("hiii")
-						tcu.Visible = true
-					end)
-				end
+	MyScriptsButton.MouseButton1Down:Connect(function()
+		hold = true
+		delay(dur, function()
+			if hold then
+			--	Scroller.Parent.Parent.Parent.ScriptSave.Visible = true
 			end
+		end)
+	end)
+end
 
-			ab.MouseButton1Click:Connect(function()
+local function loadScripts()
+	if game:GetService("RunService"):IsStudio() then return end
+	local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
+	for _, child in ipairs(scroller9:GetChildren()) do
+		if child:IsA("Frame") then
+			child:Destroy()
+		end
+	end
+
+	for _, file in ipairs(listfiles("scripts")) do
+		local scriptName = file:sub(9, -5)
+		local scriptCode = readfile(file)
+		AddScript(scroller9.C.ScriptFrame, scroller9, scriptName, scriptCode)
+	end
+end
+
+
+function module.Script_Saver_system(CloseButton, CloseButton2, ScriptNameInput, ScriptCodeInput, button1, button2)
+	local ScriptName = ScriptNameInput
+	local ScriptCode = ScriptCodeInput
+	print(ScriptCode)
+	print(ScriptName)
+
+	CloseButton.MouseButton1Click:Connect(function()
+		CloseButton.Parent.Parent.Visible = false
+	end)
+
+	CloseButton2.MouseButton1Click:Connect(function()
+		CloseButton2.Parent.Parent.Visible = false
+	end)
+
+	button1.MouseButton1Click:Connect(function()
+		CloseButton.Parent.Visible = false
+		CloseButton2.Parent.Parent.Visible = true
+	end)
+
+	button2.MouseButton1Click:Connect(function()
+		CloseButton2.Parent.Parent.Visible = false
+		if ScriptCode == "" then 
+			return module.NotificationHandler("Script Code Empty") 
+		end
+		if ScriptName == "" then 
+			return module.NotificationHandler("Script Name Empty") 
+		end
+
+		local filePath = "scripts/" .. ScriptName .. ".txt"
+
+		if not isfile(filePath) then
+			local success, errorMsg = pcall(function()
+				writefile(filePath, ScriptCode)
+			end)
+
+			if not success then
+				return module.NotificationHandler("Error saving script: " .. errorMsg)
+			else
+				module.NotificationHandler("Script saved successfully!")
+				loadScripts()
+			end
+		else
+			module.NotificationHandler("Script with that name already exists!")
+		end
+	end)
+	
+	local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
+	AddScript(scroller9.C.ScriptFrame, scroller9, "scriptname", "scriptcode")
+end
+
+-- console not now
+local Types = { Toggle = true, OneClick = true }
+local config = script.Parent.Parent.UI.MainGui.Pages.ConfigPage.ScrollingFrame
+
+function module.ConfigMakeHandler(Type, Name, Icon, Description, ScriptCode)
+	local ConfigClone = config.Types.Toggle:Clone()
+
+	if Type == Types.Toggle then
+		ConfigClone.descriptionLabel.Text = Description
+		ConfigClone.LoadAnimLabel.Text = Name
+		ConfigClone.Box.Icon.Image = Icon
+		ConfigClone.Parent = config
+		ConfigClone.Visible = true
+		ConfigClone.Name = Name
+		local toggleState = false
+
+		local function setToggleState(state)
+			if state then
+				ConfigClone.ToggleOn.Rotation = 180
+			else
+				ConfigClone.ToggleOn.Rotation = 0
+			end
+		end
+
+		ConfigClone.Click.MouseButton1Click:Connect(function()
+			print(ScriptCode)
+			EditorPageHandler("Execute", ScriptCode)
+			toggleState = not toggleState
+			print(toggleState)
+			setToggleState(toggleState)
+		end)
+
+	elseif Type == Types.OneClick then
+	end
+end
+
+function module.TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf)
+
+	local function encode(data)
+		local j = "{"
+		for k, v in pairs(data) do
+			if type(v) == "string" then
+				v = v:gsub("\\", "\\\\"):gsub("\"", "\\\""):gsub("\n", "\\n")
+			end
+			j = j .. string.format("\"%s\":\"%s\",", k, v)
+		end
+		if #j > 1 then
+			j = j:sub(1, -2)
+		end
+		return j .. "}"
+	end
+
+	local function decode(json)
+		local d = {}
+		for k, v in json:gmatch('\"(.-)\":\"(.-)\"') do
+			v = v:gsub("\\\"", "\""):gsub("\\\\", "\\"):gsub("\\n", "\n")
+			d[k] = v
+		end
+		return d
+	end
+
+	if not isfile(tf) then
+		td = { Howmuch = 1, tab1 = "" }
+		writefile(tf, encode(td))
+	else
+		td = decode(readfile(tf))
+		if not td["tab1"] then
+			td["tab1"] = "--Welcome to AppleWareV2"
+			td.Howmuch = 1
+			writefile(tf, encode(td))
+		end
+	end
+
+	local currentTab = "tab1"
+	local nextTabIndex = td.Howmuch + 1
+
+	for n, c in pairs(td) do
+		if n ~= "Howmuch" then
+			local nt = tc:Clone()
+			nt.Visible = true
+			nt.Main.TabName.Text = n
+			nt.Parent = Tabs
+
+			nt.Click.MouseButton1Click:Connect(function()
+				currentTab = n
+				sc.Text = td[n] or ""
+			end)
+
+			nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
+				print("hiii")
 				tcu.Visible = true
 			end)
+		end
+	end
 
-			cb.MouseButton1Click:Connect(function()
-				local newTabName = "tab" .. nextTabIndex
-				nextTabIndex = nextTabIndex + 1
+	ab.MouseButton1Click:Connect(function()
+		tcu.Visible = true
+	end)
 
-				local nt = tc:Clone()
-				nt.Name = newTabName
-				nt.Main.TabName.Text = newTabName
-				nt.Parent = Tabs
-				nt.Visible = true
+	cb.MouseButton1Click:Connect(function()
+		local newTabName = "tab" .. nextTabIndex
+		nextTabIndex = nextTabIndex + 1
 
-				td[newTabName] = ""
-				td.Howmuch = td.Howmuch + 1
+		local nt = tc:Clone()
+		nt.Name = newTabName
+		nt.Main.TabName.Text = newTabName
+		nt.Parent = Tabs
+		nt.Visible = true
+
+		td[newTabName] = ""
+		td.Howmuch = td.Howmuch + 1
+		writefile(tf, encode(td))
+
+		nt.Click.MouseButton1Click:Connect(function()
+			currentTab = newTabName
+			sc.Text = td[newTabName] or ""
+		end)
+
+		nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
+			print("hi")
+			tcu.Visible = true
+		end)
+
+		nt.Del.MouseButton1Click:Connect(function()
+			local uduehf = script.Parent.Parent.UI.MainGui.Pages.TabWarn
+			uduehf.Visible = true
+			uduehf.ClearPage.DeleteBtn.Click.MouseButton1Click:Connect(function()
+				td[newTabName] = nil
+				td.Howmuch = td.Howmuch - 1
 				writefile(tf, encode(td))
-
-				nt.Click.MouseButton1Click:Connect(function()
-					currentTab = newTabName
-					sc.Text = td[newTabName] or ""
-				end)
-
-				nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
-					print("hi")
-					tcu.Visible = true
-				end)
-
-				nt.Del.MouseButton1Click:Connect(function()
-					local uduehf = script.Parent.Parent.UI.MainGui.Pages.TabWarn
-					uduehf.Visible = true
-					uduehf.ClearPage.DeleteBtn.Click.MouseButton1Click:Connect(function()
-						td[newTabName] = nil
-						td.Howmuch = td.Howmuch - 1
-						writefile(tf, encode(td))
-						nt:Destroy()
-					end)
-					uduehf.ClearPage.CancelBtn.Click.MouseButton1Click:Connect(function()
-						uduehf.Visible = false
-					end)
-				end)
-
-				tcu.Visible = false
+				nt:Destroy()
 			end)
-
-			cl.MouseButton1Click:Connect(function()
-				tcu.Visible = false
+			uduehf.ClearPage.CancelBtn.Click.MouseButton1Click:Connect(function()
+				uduehf.Visible = false
 			end)
+		end)
 
-			sc:GetPropertyChangedSignal("Text"):Connect(function()
-				if currentTab then
-					td[currentTab] = sc.Text
-					writefile(tf, encode(td))
-				end
-			end)
+		tcu.Visible = false
+	end)
+
+	cl.MouseButton1Click:Connect(function()
+		tcu.Visible = false
+	end)
+
+	sc:GetPropertyChangedSignal("Text"):Connect(function()
+		if currentTab then
+			td[currentTab] = sc.Text
+			writefile(tf, encode(td))
 		end
+	end)
+end
 
-		loadScripts()
+loadScripts()
 
-		function updateStrokeThickness(uiStroke)
-			local camera = game:GetService("Workspace"):WaitForChild("CurrentCamera") or ''
-			local BASE_WIDTH = 1920
-			local BASE_HEIGHT = 1080
-			local initialStrokeThickness = uiStroke.Thickness
-			local scaleX = camera.ViewportSize.X / BASE_WIDTH
-			local scaleY = camera.ViewportSize.Y / BASE_HEIGHT
-			local scale = (scaleX + scaleY) / 2 
+function updateStrokeThickness(uiStroke)
+	local camera = game:GetService("Workspace"):WaitForChild("CurrentCamera") or ''
+	local BASE_WIDTH = 1920
+	local BASE_HEIGHT = 1080
+	local initialStrokeThickness = uiStroke.Thickness
+	local scaleX = camera.ViewportSize.X / BASE_WIDTH
+	local scaleY = camera.ViewportSize.Y / BASE_HEIGHT
+	local scale = (scaleX + scaleY) / 2 
 
-			uiStroke.Thickness = initialStrokeThickness * scale
+	uiStroke.Thickness = initialStrokeThickness * scale
+end
+
+function module.updateAllStrokes()
+	for _, gui in pairs(script.Parent:GetDescendants()) do
+		if gui:IsA("UIStroke") then
+			updateStrokeThickness(gui)
 		end
+	end
+end
 
-		function module.updateAllStrokes()
-			for _, gui in pairs(script.Parent:GetDescendants()) do
-				if gui:IsA("UIStroke") then
-					updateStrokeThickness(gui)
-				end
-			end
-		end
-
-		return module
+return module
 
 --[[
 
 ]]
 
-	end;
+end;
 };
 G2L_MODULES[G2L["1ea"]] = {
-	Closure = function()
-		local script = G2L["1ea"];local types = require(script.types)
-		local utility = require(script.utility)
-		local theme = require(script.theme)
+Closure = function()
+    local script = G2L["1ea"];local types = require(script.types)
+local utility = require(script.utility)
+local theme = require(script.theme)
 
-		local Highlighter = {
-			defaultLexer = require(script.lexer) :: types.Lexer,
+local Highlighter = {
+	defaultLexer = require(script.lexer) :: types.Lexer,
 
-			_textObjectData = {} :: { [types.TextObject]: types.ObjectData },
-			_cleanups = {} :: { [types.TextObject]: () -> () },
-		}
+	_textObjectData = {} :: { [types.TextObject]: types.ObjectData },
+	_cleanups = {} :: { [types.TextObject]: () -> () },
+}
 
 --[[
 	Gathers the info that is needed in order to set up a line label.
 ]]
-		function Highlighter._getLabelingInfo(textObject: types.TextObject)
-			local data = Highlighter._textObjectData[textObject]
-			if not data then
-				return
-			end
+function Highlighter._getLabelingInfo(textObject: types.TextObject)
+	local data = Highlighter._textObjectData[textObject]
+	if not data then
+		return
+	end
 
-			local src = utility.convertTabsToSpaces(utility.removeControlChars(textObject.Text))
-			local numLines = #string.split(src, "\n")
-			if numLines == 0 then
-				return
-			end
+	local src = utility.convertTabsToSpaces(utility.removeControlChars(textObject.Text))
+	local numLines = #string.split(src, "\n")
+	if numLines == 0 then
+		return
+	end
 
-			local textBounds = utility.getTextBounds(textObject)
-			local textHeight = textBounds.Y / numLines
+	local textBounds = utility.getTextBounds(textObject)
+	local textHeight = textBounds.Y / numLines
 
-			return {
-				data = data,
-				numLines = numLines,
-				textBounds = textBounds,
-				textHeight = textHeight,
-				innerAbsoluteSize = utility.getInnerAbsoluteSize(textObject),
-				textColor = theme.getColor("iden"),
-				textFont = textObject.FontFace,
-				textSize = textObject.TextSize,
-				labelSize = UDim2.new(1, 0, 0, math.ceil(textHeight)),
-			}
-		end
+	return {
+		data = data,
+		numLines = numLines,
+		textBounds = textBounds,
+		textHeight = textHeight,
+		innerAbsoluteSize = utility.getInnerAbsoluteSize(textObject),
+		textColor = theme.getColor("iden"),
+		textFont = textObject.FontFace,
+		textSize = textObject.TextSize,
+		labelSize = UDim2.new(1, 0, 0, math.ceil(textHeight)),
+	}
+end
 
 --[[
 	Aligns and matches the line labels to the textObject.
 ]]
-		function Highlighter._alignLabels(textObject: types.TextObject)
-			local labelingInfo = Highlighter._getLabelingInfo(textObject)
-			if not labelingInfo then
-				return
-			end
+function Highlighter._alignLabels(textObject: types.TextObject)
+	local labelingInfo = Highlighter._getLabelingInfo(textObject)
+	if not labelingInfo then
+		return
+	end
 
-			for lineNumber, lineLabel in labelingInfo.data.Labels do
-				-- Align line label
-				lineLabel.TextColor3 = labelingInfo.textColor
-				lineLabel.FontFace = labelingInfo.textFont
-				lineLabel.TextSize = labelingInfo.textSize
-				lineLabel.Size = labelingInfo.labelSize
-				lineLabel.Position =
-					UDim2.fromScale(0, labelingInfo.textHeight * (lineNumber - 1) / labelingInfo.innerAbsoluteSize.Y)
-			end
-		end
+	for lineNumber, lineLabel in labelingInfo.data.Labels do
+		-- Align line label
+		lineLabel.TextColor3 = labelingInfo.textColor
+		lineLabel.FontFace = labelingInfo.textFont
+		lineLabel.TextSize = labelingInfo.textSize
+		lineLabel.Size = labelingInfo.labelSize
+		lineLabel.Position =
+			UDim2.fromScale(0, labelingInfo.textHeight * (lineNumber - 1) / labelingInfo.innerAbsoluteSize.Y)
+	end
+end
 
 --[[
 	Creates and populates the line labels with the appropriate rich text.
 ]]
-		function Highlighter._populateLabels(props: types.HighlightProps)
-			-- Gather props
-			local textObject = props.textObject
-			local src = utility.convertTabsToSpaces(utility.removeControlChars(props.src or textObject.Text))
-			local lexer = props.lexer or Highlighter.defaultLexer
-			local customLang = props.customLang
-			local forceUpdate = props.forceUpdate
+function Highlighter._populateLabels(props: types.HighlightProps)
+	-- Gather props
+	local textObject = props.textObject
+	local src = utility.convertTabsToSpaces(utility.removeControlChars(props.src or textObject.Text))
+	local lexer = props.lexer or Highlighter.defaultLexer
+	local customLang = props.customLang
+	local forceUpdate = props.forceUpdate
 
-			-- Avoid updating when unnecessary
-			local data = Highlighter._textObjectData[textObject]
-			if (data == nil) or (data.Text == src) then
-				if forceUpdate ~= true then
-					return
-				end
+	-- Avoid updating when unnecessary
+	local data = Highlighter._textObjectData[textObject]
+	if (data == nil) or (data.Text == src) then
+		if forceUpdate ~= true then
+			return
+		end
+	end
+
+	-- Ensure textObject matches sanitized src
+	textObject.Text = src
+
+	local lineLabels = data.Labels
+	local previousLines = data.Lines
+
+	local lines = string.split(src, "\n")
+
+	data.Lines = lines
+	data.Text = src
+	data.Lexer = lexer
+	data.CustomLang = customLang
+
+	-- Shortcut empty textObjects
+	if src == "" then
+		for l = 1, #lineLabels do
+			if lineLabels[l].Text == "" then
+				continue
+			end
+			lineLabels[l].Text = ""
+		end
+		return
+	end
+
+	local idenColor = theme.getColor("iden")
+	local labelingInfo = Highlighter._getLabelingInfo(textObject)
+
+	local richTextBuffer, bufferIndex, lineNumber = table.create(5), 0, 1
+	for token: types.TokenName, content: string in lexer.scan(src) do
+		local Color = if customLang and customLang[content]
+			then theme.getColor("custom")
+			else theme.getColor(token) or idenColor
+
+		local tokenLines = string.split(utility.sanitizeRichText(content), "\n")
+
+		for l, tokenLine in tokenLines do
+			-- Find line label
+			local lineLabel = lineLabels[lineNumber]
+			if not lineLabel then
+				local newLabel = Instance.new("TextLabel")
+				newLabel.Name = "Line_" .. lineNumber
+				newLabel.AutoLocalize = false
+				newLabel.RichText = true
+				newLabel.BackgroundTransparency = 1
+				newLabel.Text = ""
+				newLabel.TextXAlignment = Enum.TextXAlignment.Left
+				newLabel.TextYAlignment = Enum.TextYAlignment.Top
+				newLabel.TextColor3 = labelingInfo.textColor
+				newLabel.FontFace = labelingInfo.textFont
+				newLabel.TextSize = labelingInfo.textSize
+				newLabel.Size = labelingInfo.labelSize
+				newLabel.Position =
+					UDim2.fromScale(0, labelingInfo.textHeight * (lineNumber - 1) / labelingInfo.innerAbsoluteSize.Y)
+
+				newLabel.Parent = textObject.SyntaxHighlights
+				lineLabels[lineNumber] = newLabel
+				lineLabel = newLabel
 			end
 
-			-- Ensure textObject matches sanitized src
-			textObject.Text = src
-
-			local lineLabels = data.Labels
-			local previousLines = data.Lines
-
-			local lines = string.split(src, "\n")
-
-			data.Lines = lines
-			data.Text = src
-			data.Lexer = lexer
-			data.CustomLang = customLang
-
-			-- Shortcut empty textObjects
-			if src == "" then
-				for l = 1, #lineLabels do
-					if lineLabels[l].Text == "" then
-						continue
-					end
-					lineLabels[l].Text = ""
+			-- If multiline token, then set line & move to next
+			if l > 1 then
+				if forceUpdate or lines[lineNumber] ~= previousLines[lineNumber] then
+					-- Set line
+					lineLabels[lineNumber].Text = table.concat(richTextBuffer)
 				end
-				return
+				-- Move to next line
+				lineNumber += 1
+				bufferIndex = 0
+				table.clear(richTextBuffer)
 			end
 
-			local idenColor = theme.getColor("iden")
-			local labelingInfo = Highlighter._getLabelingInfo(textObject)
-
-			local richTextBuffer, bufferIndex, lineNumber = table.create(5), 0, 1
-			for token: types.TokenName, content: string in lexer.scan(src) do
-				local Color = if customLang and customLang[content]
-					then theme.getColor("custom")
-					else theme.getColor(token) or idenColor
-
-				local tokenLines = string.split(utility.sanitizeRichText(content), "\n")
-
-				for l, tokenLine in tokenLines do
-					-- Find line label
-					local lineLabel = lineLabels[lineNumber]
-					if not lineLabel then
-						local newLabel = Instance.new("TextLabel")
-						newLabel.Name = "Line_" .. lineNumber
-						newLabel.AutoLocalize = false
-						newLabel.RichText = true
-						newLabel.BackgroundTransparency = 1
-						newLabel.Text = ""
-						newLabel.TextXAlignment = Enum.TextXAlignment.Left
-						newLabel.TextYAlignment = Enum.TextYAlignment.Top
-						newLabel.TextColor3 = labelingInfo.textColor
-						newLabel.FontFace = labelingInfo.textFont
-						newLabel.TextSize = labelingInfo.textSize
-						newLabel.Size = labelingInfo.labelSize
-						newLabel.Position =
-							UDim2.fromScale(0, labelingInfo.textHeight * (lineNumber - 1) / labelingInfo.innerAbsoluteSize.Y)
-
-						newLabel.Parent = textObject.SyntaxHighlights
-						lineLabels[lineNumber] = newLabel
-						lineLabel = newLabel
-					end
-
-					-- If multiline token, then set line & move to next
-					if l > 1 then
-						if forceUpdate or lines[lineNumber] ~= previousLines[lineNumber] then
-							-- Set line
-							lineLabels[lineNumber].Text = table.concat(richTextBuffer)
-						end
-						-- Move to next line
-						lineNumber += 1
-						bufferIndex = 0
-						table.clear(richTextBuffer)
-					end
-
-					-- If changed, add token to line
-					if forceUpdate or lines[lineNumber] ~= previousLines[lineNumber] then
-						bufferIndex += 1
-						-- Only add RichText tags when the color is non-default and the characters are non-whitespace
-						if Color ~= idenColor and string.find(tokenLine, "[%S%C]") then
-							richTextBuffer[bufferIndex] = theme.getColoredRichText(Color, tokenLine)
-						else
-							richTextBuffer[bufferIndex] = tokenLine
-						end
-					end
+			-- If changed, add token to line
+			if forceUpdate or lines[lineNumber] ~= previousLines[lineNumber] then
+				bufferIndex += 1
+				-- Only add RichText tags when the color is non-default and the characters are non-whitespace
+				if Color ~= idenColor and string.find(tokenLine, "[%S%C]") then
+					richTextBuffer[bufferIndex] = theme.getColoredRichText(Color, tokenLine)
+				else
+					richTextBuffer[bufferIndex] = tokenLine
 				end
-			end
-
-			-- Set final line
-			if richTextBuffer[1] and lineLabels[lineNumber] then
-				lineLabels[lineNumber].Text = table.concat(richTextBuffer)
-			end
-
-			-- Clear unused line labels
-			for l = lineNumber + 1, #lineLabels do
-				if lineLabels[l].Text == "" then
-					continue
-				end
-				lineLabels[l].Text = ""
 			end
 		end
+	end
+
+	-- Set final line
+	if richTextBuffer[1] and lineLabels[lineNumber] then
+		lineLabels[lineNumber].Text = table.concat(richTextBuffer)
+	end
+
+	-- Clear unused line labels
+	for l = lineNumber + 1, #lineLabels do
+		if lineLabels[l].Text == "" then
+			continue
+		end
+		lineLabels[l].Text = ""
+	end
+end
 
 --[[
 	Highlights the given textObject with the given props and returns a cleanup function.
 	Highlighting will automatically update when needed, so the cleanup function will disconnect
 	those connections and remove all labels.
 ]]
-		function Highlighter.highlight(props: types.HighlightProps): () -> ()
-			-- Gather props
-			local textObject = props.textObject
-			local src = utility.convertTabsToSpaces(utility.removeControlChars(props.src or textObject.Text))
-			local lexer = props.lexer or Highlighter.defaultLexer
-			local customLang = props.customLang
+function Highlighter.highlight(props: types.HighlightProps): () -> ()
+	-- Gather props
+	local textObject = props.textObject
+	local src = utility.convertTabsToSpaces(utility.removeControlChars(props.src or textObject.Text))
+	local lexer = props.lexer or Highlighter.defaultLexer
+	local customLang = props.customLang
 
-			-- Avoid updating when unnecessary
-			if Highlighter._cleanups[textObject] then
-				-- Already been initialized, so just update
-				Highlighter._populateLabels(props)
-				Highlighter._alignLabels(textObject)
-				return Highlighter._cleanups[textObject]
-			end
+	-- Avoid updating when unnecessary
+	if Highlighter._cleanups[textObject] then
+		-- Already been initialized, so just update
+		Highlighter._populateLabels(props)
+		Highlighter._alignLabels(textObject)
+		return Highlighter._cleanups[textObject]
+	end
 
-			-- Ensure valid object properties
-			textObject.RichText = false
-			textObject.Text = src
-			textObject.TextXAlignment = Enum.TextXAlignment.Left
-			textObject.TextYAlignment = Enum.TextYAlignment.Top
-			textObject.BackgroundColor3 = theme.getColor("background")
-			textObject.TextColor3 = theme.getColor("iden")
-			textObject.TextTransparency = 0.5
+	-- Ensure valid object properties
+	textObject.RichText = false
+	textObject.Text = src
+	textObject.TextXAlignment = Enum.TextXAlignment.Left
+	textObject.TextYAlignment = Enum.TextYAlignment.Top
+	textObject.BackgroundColor3 = theme.getColor("background")
+	textObject.TextColor3 = theme.getColor("iden")
+	textObject.TextTransparency = 0.5
 
-			-- Build the highlight labels
-			local lineFolder = textObject:FindFirstChild("SyntaxHighlights")
-			if lineFolder == nil then
-				local newLineFolder = Instance.new("Folder")
-				newLineFolder.Name = "SyntaxHighlights"
-				newLineFolder.Parent = textObject
+	-- Build the highlight labels
+	local lineFolder = textObject:FindFirstChild("SyntaxHighlights")
+	if lineFolder == nil then
+		local newLineFolder = Instance.new("Folder")
+		newLineFolder.Name = "SyntaxHighlights"
+		newLineFolder.Parent = textObject
 
-				lineFolder = newLineFolder
-			end
+		lineFolder = newLineFolder
+	end
 
-			local data = {
-				Text = "",
-				Labels = {},
-				Lines = {},
-				Lexer = lexer,
-				CustomLang = customLang,
-			}
-			Highlighter._textObjectData[textObject] = data
+	local data = {
+		Text = "",
+		Labels = {},
+		Lines = {},
+		Lexer = lexer,
+		CustomLang = customLang,
+	}
+	Highlighter._textObjectData[textObject] = data
 
-			-- Add a cleanup handler for this textObject
-			local connections: { [string]: RBXScriptConnection } = {}
-			local function cleanup()
-				lineFolder:Destroy()
+	-- Add a cleanup handler for this textObject
+	local connections: { [string]: RBXScriptConnection } = {}
+	local function cleanup()
+		lineFolder:Destroy()
 
-				Highlighter._textObjectData[textObject] = nil
-				Highlighter._cleanups[textObject] = nil
+		Highlighter._textObjectData[textObject] = nil
+		Highlighter._cleanups[textObject] = nil
 
-				for _key, connection in connections do
-					connection:Disconnect()
-				end
-				table.clear(connections)
-			end
-			Highlighter._cleanups[textObject] = cleanup
-
-			connections["AncestryChanged"] = textObject.AncestryChanged:Connect(function()
-				if textObject.Parent then
-					return
-				end
-
-				cleanup()
-			end)
-			connections["TextChanged"] = textObject:GetPropertyChangedSignal("Text"):Connect(function()
-				Highlighter._populateLabels(props)
-			end)
-			connections["TextBoundsChanged"] = textObject:GetPropertyChangedSignal("TextBounds"):Connect(function()
-				Highlighter._alignLabels(textObject)
-			end)
-			connections["AbsoluteSizeChanged"] = textObject:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
-				Highlighter._alignLabels(textObject)
-			end)
-			connections["FontFaceChanged"] = textObject:GetPropertyChangedSignal("FontFace"):Connect(function()
-				Highlighter._alignLabels(textObject)
-			end)
-
-			-- Populate the labels
-			Highlighter._populateLabels(props)
-			Highlighter._alignLabels(textObject)
-
-			return cleanup
+		for _key, connection in connections do
+			connection:Disconnect()
 		end
+		table.clear(connections)
+	end
+	Highlighter._cleanups[textObject] = cleanup
+
+	connections["AncestryChanged"] = textObject.AncestryChanged:Connect(function()
+		if textObject.Parent then
+			return
+		end
+
+		cleanup()
+	end)
+	connections["TextChanged"] = textObject:GetPropertyChangedSignal("Text"):Connect(function()
+		Highlighter._populateLabels(props)
+	end)
+	connections["TextBoundsChanged"] = textObject:GetPropertyChangedSignal("TextBounds"):Connect(function()
+		Highlighter._alignLabels(textObject)
+	end)
+	connections["AbsoluteSizeChanged"] = textObject:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+		Highlighter._alignLabels(textObject)
+	end)
+	connections["FontFaceChanged"] = textObject:GetPropertyChangedSignal("FontFace"):Connect(function()
+		Highlighter._alignLabels(textObject)
+	end)
+
+	-- Populate the labels
+	Highlighter._populateLabels(props)
+	Highlighter._alignLabels(textObject)
+
+	return cleanup
+end
 
 --[[
 	Refreshes all highlighted textObjects. Used when the theme changes.
 ]]
-		function Highlighter.refresh(): ()
-			-- Rehighlight existing labels using latest colors
-			for textObject, data in Highlighter._textObjectData do
-				for _, lineLabel in data.Labels do
-					lineLabel.TextColor3 = theme.getColor("iden")
-				end
-
-				Highlighter.highlight({
-					textObject = textObject,
-					forceUpdate = true,
-					src = data.Text,
-					lexer = data.Lexer,
-					customLang = data.CustomLang,
-				})
-			end
+function Highlighter.refresh(): ()
+	-- Rehighlight existing labels using latest colors
+	for textObject, data in Highlighter._textObjectData do
+		for _, lineLabel in data.Labels do
+			lineLabel.TextColor3 = theme.getColor("iden")
 		end
+
+		Highlighter.highlight({
+			textObject = textObject,
+			forceUpdate = true,
+			src = data.Text,
+			lexer = data.Lexer,
+			customLang = data.CustomLang,
+		})
+	end
+end
 
 --[[
 	Sets the token colors to the given colors and refreshes all highlighted textObjects.
 ]]
-		function Highlighter.setTokenColors(colors: types.TokenColors): ()
-			theme.setColors(colors)
+function Highlighter.setTokenColors(colors: types.TokenColors): ()
+	theme.setColors(colors)
 
-			Highlighter.refresh()
-		end
+	Highlighter.refresh()
+end
 
 --[[
 	Gets a token color by name.
 	Mainly useful for setting "background" token color on other UI objects behind your text.
 ]]
-		function Highlighter.getTokenColor(tokenName: types.TokenName): Color3
-			return theme.getColor(tokenName)
-		end
+function Highlighter.getTokenColor(tokenName: types.TokenName): Color3
+	return theme.getColor(tokenName)
+end
 
 --[[
 	Matches the token colors to the Studio theme settings and refreshes all highlighted textObjects.
 	Does nothing when not run in a Studio plugin.
 ]]
-		function Highlighter.matchStudioSettings(): ()
-			local applied = theme.matchStudioSettings(Highlighter.refresh)
-			if applied then
-				Highlighter.refresh()
-			end
-		end
+function Highlighter.matchStudioSettings(): ()
+	local applied = theme.matchStudioSettings(Highlighter.refresh)
+	if applied then
+		Highlighter.refresh()
+	end
+end
 
-		return Highlighter
+return Highlighter
 
-	end;
+end;
 };
 G2L_MODULES[G2L["1eb"]] = {
-	Closure = function()
-		local script = G2L["1eb"];local types = require(script.Parent.types)
+Closure = function()
+    local script = G2L["1eb"];local types = require(script.Parent.types)
 
-		local Utility = {}
+local Utility = {}
 
-		function Utility.sanitizeRichText(s: string): string
-			return string.gsub(
-				string.gsub(string.gsub(string.gsub(string.gsub(s, "&", "&amp;"), "<", "&lt;"), ">", "&gt;"), '"', "&quot;"),
-				"'",
-				"&apos;"
-			)
-		end
+function Utility.sanitizeRichText(s: string): string
+	return string.gsub(
+		string.gsub(string.gsub(string.gsub(string.gsub(s, "&", "&amp;"), "<", "&lt;"), ">", "&gt;"), '"', "&quot;"),
+		"'",
+		"&apos;"
+	)
+end
 
-		function Utility.convertTabsToSpaces(s: string): string
-			return string.gsub(s, "\t", "    ")
-		end
+function Utility.convertTabsToSpaces(s: string): string
+	return string.gsub(s, "\t", "    ")
+end
 
-		function Utility.removeControlChars(s: string): string
-			return string.gsub(s, "[\0\1\2\3\4\5\6\7\8\11\12\13\14\15\16\17\18\19\20\21\22\23\24\25\26\27\28\29\30\31]+", "")
-		end
+function Utility.removeControlChars(s: string): string
+	return string.gsub(s, "[\0\1\2\3\4\5\6\7\8\11\12\13\14\15\16\17\18\19\20\21\22\23\24\25\26\27\28\29\30\31]+", "")
+end
 
-		function Utility.getInnerAbsoluteSize(textObject: types.TextObject): Vector2
-			local fullSize = textObject.AbsoluteSize
+function Utility.getInnerAbsoluteSize(textObject: types.TextObject): Vector2
+	local fullSize = textObject.AbsoluteSize
 
-			local padding: UIPadding? = textObject:FindFirstChildWhichIsA("UIPadding")
-			if padding then
-				local offsetX = padding.PaddingLeft.Offset + padding.PaddingRight.Offset
-				local scaleX = (fullSize.X * padding.PaddingLeft.Scale) + (fullSize.X * padding.PaddingRight.Scale)
-				local offsetY = padding.PaddingTop.Offset + padding.PaddingBottom.Offset
-				local scaleY = (fullSize.Y * padding.PaddingTop.Scale) + (fullSize.Y * padding.PaddingBottom.Scale)
-				return Vector2.new(fullSize.X - (scaleX + offsetX), fullSize.Y - (scaleY + offsetY))
-			else
-				return fullSize
-			end
-		end
+	local padding: UIPadding? = textObject:FindFirstChildWhichIsA("UIPadding")
+	if padding then
+		local offsetX = padding.PaddingLeft.Offset + padding.PaddingRight.Offset
+		local scaleX = (fullSize.X * padding.PaddingLeft.Scale) + (fullSize.X * padding.PaddingRight.Scale)
+		local offsetY = padding.PaddingTop.Offset + padding.PaddingBottom.Offset
+		local scaleY = (fullSize.Y * padding.PaddingTop.Scale) + (fullSize.Y * padding.PaddingBottom.Scale)
+		return Vector2.new(fullSize.X - (scaleX + offsetX), fullSize.Y - (scaleY + offsetY))
+	else
+		return fullSize
+	end
+end
 
-		function Utility.getTextBounds(textObject: types.TextObject): Vector2
-			if textObject.ContentText == "" then
-				return Vector2.zero
-			end
+function Utility.getTextBounds(textObject: types.TextObject): Vector2
+	if textObject.ContentText == "" then
+		return Vector2.zero
+	end
 
-			local textBounds = textObject.TextBounds
+	local textBounds = textObject.TextBounds
 
-			-- Wait for TextBounds to be non-NaN and non-zero because Roblox
-			while (textBounds.Y ~= textBounds.Y) or (textBounds.Y < 1) do
-				task.wait()
-				textBounds = textObject.TextBounds
-			end
-			return textBounds
-		end
+	-- Wait for TextBounds to be non-NaN and non-zero because Roblox
+	while (textBounds.Y ~= textBounds.Y) or (textBounds.Y < 1) do
+		task.wait()
+		textBounds = textObject.TextBounds
+	end
+	return textBounds
+end
 
-		return Utility
+return Utility
 
-	end;
+end;
 };
 G2L_MODULES[G2L["1ec"]] = {
-	Closure = function()
-		local script = G2L["1ec"];export type TextObject = TextLabel | TextBox
+Closure = function()
+    local script = G2L["1ec"];export type TextObject = TextLabel | TextBox
 
-		export type TokenName =
-			"background"
-		| "iden"
-		| "keyword"
-		| "builtin"
-		| "string"
-		| "number"
-		| "comment"
-		| "operator"
-		| "custom"
+export type TokenName =
+	"background"
+	| "iden"
+	| "keyword"
+	| "builtin"
+	| "string"
+	| "number"
+	| "comment"
+	| "operator"
+	| "custom"
 
-		export type TokenColors = {
-			["background"]: Color3?,
-			["iden"]: Color3?,
-			["keyword"]: Color3?,
-			["builtin"]: Color3?,
-			["string"]: Color3?,
-			["number"]: Color3?,
-			["comment"]: Color3?,
-			["operator"]: Color3?,
-			["custom"]: Color3?,
-		}
+export type TokenColors = {
+	["background"]: Color3?,
+	["iden"]: Color3?,
+	["keyword"]: Color3?,
+	["builtin"]: Color3?,
+	["string"]: Color3?,
+	["number"]: Color3?,
+	["comment"]: Color3?,
+	["operator"]: Color3?,
+	["custom"]: Color3?,
+}
 
-		export type HighlightProps = {
-			textObject: TextObject,
-			src: string?,
-			forceUpdate: boolean?,
-			lexer: Lexer?,
-			customLang: { [string]: string }?,
-		}
+export type HighlightProps = {
+	textObject: TextObject,
+	src: string?,
+	forceUpdate: boolean?,
+	lexer: Lexer?,
+	customLang: { [string]: string }?,
+}
 
-		export type Lexer = {
-			scan: (src: string) -> () -> (string, string),
-			navigator: () -> any,
-			finished: boolean?,
-		}
+export type Lexer = {
+	scan: (src: string) -> () -> (string, string),
+	navigator: () -> any,
+	finished: boolean?,
+}
 
-		export type ObjectData = {
-			Text: string,
-			Labels: { TextLabel },
-			Lines: { string },
-			Lexer: Lexer?,
-			CustomLang: { [string]: string }?,
-		}
+export type ObjectData = {
+	Text: string,
+	Labels: { TextLabel },
+	Lines: { string },
+	Lexer: Lexer?,
+	CustomLang: { [string]: string }?,
+}
 
-		return nil
+return nil
 
-	end;
+end;
 };
 G2L_MODULES[G2L["1ed"]] = {
-	Closure = function()
-		local script = G2L["1ed"];local DEFAULT_TOKEN_COLORS = {
-			["background"] = Color3.fromRGB(40, 42, 54),
-			["iden"] = Color3.fromRGB(150, 171, 193),
-			["keyword"] = Color3.fromRGB(102, 102, 219),
-			["builtin"] = Color3.fromRGB(100, 149, 237),
-			["string"] = Color3.fromRGB(136, 167, 181),
-			["number"] = Color3.fromRGB(161, 138, 205),
-			["comment"] = Color3.fromRGB(88, 88, 99),
-			["operator"] = Color3.fromRGB(103, 116, 238),
-			["custom"] = Color3.fromRGB(87, 87, 226)
-		}
+Closure = function()
+    local script = G2L["1ed"];local DEFAULT_TOKEN_COLORS = {
+		["background"] = Color3.fromRGB(40, 42, 54),
+		["iden"] = Color3.fromRGB(150, 171, 193),
+		["keyword"] = Color3.fromRGB(102, 102, 219),
+		["builtin"] = Color3.fromRGB(100, 149, 237),
+		["string"] = Color3.fromRGB(136, 167, 181),
+		["number"] = Color3.fromRGB(161, 138, 205),
+		["comment"] = Color3.fromRGB(88, 88, 99),
+		["operator"] = Color3.fromRGB(103, 116, 238),
+		["custom"] = Color3.fromRGB(87, 87, 226)
+}
 
-		local types = require(script.Parent.types)
+local types = require(script.Parent.types)
 
-		local Theme = {
-			tokenColors = {},
-			tokenRichTextFormatter = {},
-		}
+local Theme = {
+	tokenColors = {},
+	tokenRichTextFormatter = {},
+}
 
-		function Theme.setColors(tokenColors: types.TokenColors)
-			assert(type(tokenColors) == "table", "Theme.updateColors expects a table")
+function Theme.setColors(tokenColors: types.TokenColors)
+	assert(type(tokenColors) == "table", "Theme.updateColors expects a table")
 
-			for tokenName, color in tokenColors do
-				Theme.tokenColors[tokenName] = color
-			end
+	for tokenName, color in tokenColors do
+		Theme.tokenColors[tokenName] = color
+	end
+end
+
+function Theme.getColoredRichText(color: Color3, text: string): string
+	return '<font color="#' .. color:ToHex() .. '">' .. text .. "</font>"
+end
+
+function Theme.getColor(tokenName: types.TokenName): Color3
+	return Theme.tokenColors[tokenName]
+end
+
+function Theme.matchStudioSettings(refreshCallback: () -> ()): boolean
+	local success = pcall(function()
+		-- When not used in a Studio plugin, this will error
+		-- and the pcall will just silently return
+		local studio = settings().Studio
+		local studioTheme = studio.Theme
+
+		local function getTokens()
+			return {
+				["background"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptBackground),
+				["iden"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptText),
+				["keyword"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptKeyword),
+				["builtin"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptBuiltInFunction),
+				["string"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptString),
+				["number"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptNumber),
+				["comment"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptComment),
+				["operator"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptOperator),
+				["custom"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptBool),
+			}
 		end
 
-		function Theme.getColoredRichText(color: Color3, text: string): string
-			return '<font color="#' .. color:ToHex() .. '">' .. text .. "</font>"
-		end
+		Theme.setColors(getTokens())
+		studio.ThemeChanged:Connect(function()
+			studioTheme = studio.Theme
+			Theme.setColors(getTokens())
+            refreshCallback()
+		end)
+	end)
+	return success
+end
 
-		function Theme.getColor(tokenName: types.TokenName): Color3
-			return Theme.tokenColors[tokenName]
-		end
+-- Initialize
+Theme.setColors(DEFAULT_TOKEN_COLORS)
 
-		function Theme.matchStudioSettings(refreshCallback: () -> ()): boolean
-			local success = pcall(function()
-				-- When not used in a Studio plugin, this will error
-				-- and the pcall will just silently return
-				local studio = settings().Studio
-				local studioTheme = studio.Theme
+return Theme
 
-				local function getTokens()
-					return {
-						["background"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptBackground),
-						["iden"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptText),
-						["keyword"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptKeyword),
-						["builtin"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptBuiltInFunction),
-						["string"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptString),
-						["number"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptNumber),
-						["comment"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptComment),
-						["operator"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptOperator),
-						["custom"] = studioTheme:GetColor(Enum.StudioStyleGuideColor.ScriptBool),
-					}
-				end
-
-				Theme.setColors(getTokens())
-				studio.ThemeChanged:Connect(function()
-					studioTheme = studio.Theme
-					Theme.setColors(getTokens())
-					refreshCallback()
-				end)
-			end)
-			return success
-		end
-
-		-- Initialize
-		Theme.setColors(DEFAULT_TOKEN_COLORS)
-
-		return Theme
-
-	end;
+end;
 };
 G2L_MODULES[G2L["1ee"]] = {
-	Closure = function()
-		local script = G2L["1ee"];--[=[
+Closure = function()
+    local script = G2L["1ee"];--[=[
 	Lexical scanner for creating a sequence of tokens from Lua source code.
 	This is a heavily modified and Roblox-optimized version of
 	the original Penlight Lexer module:
@@ -6445,883 +6435,883 @@ G2L_MODULES[G2L["1ee"]] = {
 		- operator
 --]=]
 
-		local lexer = {}
+local lexer = {}
 
-		local Prefix, Suffix, Cleaner = "^[%c%s]*", "[%c%s]*", "[%c%s]+"
-		local UNICODE = "[%z\x01-\x7F\xC2-\xF4][\x80-\xBF]+"
-		local NUMBER_A = "0[xX][%da-fA-F_]+"
-		local NUMBER_B = "0[bB][01_]+"
-		local NUMBER_C = "%d+%.?%d*[eE][%+%-]?%d+"
-		local NUMBER_D = "%d+[%._]?[%d_eE]*"
-		local OPERATORS = "[:;<>/~%*%(%)%-={},%.#%^%+%%]+"
-		local BRACKETS = "[%[%]]+" -- needs to be separate pattern from other operators or it'll mess up multiline strings
-		local IDEN = "[%a_][%w_]*"
-		local STRING_EMPTY = "(['\"])%1" --Empty String
-		local STRING_PLAIN = "(['\"])[^\n]-([^\\]%1)" --TODO: Handle escaping escapes
-		local STRING_INTER = "`[^\n]-`"
-		local STRING_INCOMP_A = "(['\"]).-\n" --Incompleted String with next line
-		local STRING_INCOMP_B = "(['\"])[^\n]*" --Incompleted String without next line
-		local STRING_MULTI = "%[(=*)%[.-%]%1%]" --Multiline-String
-		local STRING_MULTI_INCOMP = "%[=*%[.-.*" --Incompleted Multiline-String
-		local COMMENT_MULTI = "%-%-%[(=*)%[.-%]%1%]" --Completed Multiline-Comment
-		local COMMENT_MULTI_INCOMP = "%-%-%[=*%[.-.*" --Incompleted Multiline-Comment
-		local COMMENT_PLAIN = "%-%-.-\n" --Completed Singleline-Comment
-		local COMMENT_INCOMP = "%-%-.*" --Incompleted Singleline-Comment
-		-- local TYPED_VAR = ":%s*([%w%?%| \t]+%s*)" --Typed variable, parameter, function
+local Prefix, Suffix, Cleaner = "^[%c%s]*", "[%c%s]*", "[%c%s]+"
+local UNICODE = "[%z\x01-\x7F\xC2-\xF4][\x80-\xBF]+"
+local NUMBER_A = "0[xX][%da-fA-F_]+"
+local NUMBER_B = "0[bB][01_]+"
+local NUMBER_C = "%d+%.?%d*[eE][%+%-]?%d+"
+local NUMBER_D = "%d+[%._]?[%d_eE]*"
+local OPERATORS = "[:;<>/~%*%(%)%-={},%.#%^%+%%]+"
+local BRACKETS = "[%[%]]+" -- needs to be separate pattern from other operators or it'll mess up multiline strings
+local IDEN = "[%a_][%w_]*"
+local STRING_EMPTY = "(['\"])%1" --Empty String
+local STRING_PLAIN = "(['\"])[^\n]-([^\\]%1)" --TODO: Handle escaping escapes
+local STRING_INTER = "`[^\n]-`"
+local STRING_INCOMP_A = "(['\"]).-\n" --Incompleted String with next line
+local STRING_INCOMP_B = "(['\"])[^\n]*" --Incompleted String without next line
+local STRING_MULTI = "%[(=*)%[.-%]%1%]" --Multiline-String
+local STRING_MULTI_INCOMP = "%[=*%[.-.*" --Incompleted Multiline-String
+local COMMENT_MULTI = "%-%-%[(=*)%[.-%]%1%]" --Completed Multiline-Comment
+local COMMENT_MULTI_INCOMP = "%-%-%[=*%[.-.*" --Incompleted Multiline-Comment
+local COMMENT_PLAIN = "%-%-.-\n" --Completed Singleline-Comment
+local COMMENT_INCOMP = "%-%-.*" --Incompleted Singleline-Comment
+-- local TYPED_VAR = ":%s*([%w%?%| \t]+%s*)" --Typed variable, parameter, function
 
-		local lang = require(script.language)
-		local lua_keyword = lang.keyword
-		local lua_builtin = lang.builtin
-		local lua_libraries = lang.libraries
+local lang = require(script.language)
+local lua_keyword = lang.keyword
+local lua_builtin = lang.builtin
+local lua_libraries = lang.libraries
 
-		lexer.language = lang
+lexer.language = lang
 
-		local lua_matches = {
-			-- Indentifiers
-			{ Prefix .. IDEN .. Suffix, "var" },
+local lua_matches = {
+	-- Indentifiers
+	{ Prefix .. IDEN .. Suffix, "var" },
 
-			-- Numbers
-			{ Prefix .. NUMBER_A .. Suffix, "number" },
-			{ Prefix .. NUMBER_B .. Suffix, "number" },
-			{ Prefix .. NUMBER_C .. Suffix, "number" },
-			{ Prefix .. NUMBER_D .. Suffix, "number" },
+	-- Numbers
+	{ Prefix .. NUMBER_A .. Suffix, "number" },
+	{ Prefix .. NUMBER_B .. Suffix, "number" },
+	{ Prefix .. NUMBER_C .. Suffix, "number" },
+	{ Prefix .. NUMBER_D .. Suffix, "number" },
 
-			-- Strings
-			{ Prefix .. STRING_EMPTY .. Suffix, "string" },
-			{ Prefix .. STRING_PLAIN .. Suffix, "string" },
-			{ Prefix .. STRING_INCOMP_A .. Suffix, "string" },
-			{ Prefix .. STRING_INCOMP_B .. Suffix, "string" },
-			{ Prefix .. STRING_MULTI .. Suffix, "string" },
-			{ Prefix .. STRING_MULTI_INCOMP .. Suffix, "string" },
-			{ Prefix .. STRING_INTER .. Suffix, "string_inter" },
+	-- Strings
+	{ Prefix .. STRING_EMPTY .. Suffix, "string" },
+	{ Prefix .. STRING_PLAIN .. Suffix, "string" },
+	{ Prefix .. STRING_INCOMP_A .. Suffix, "string" },
+	{ Prefix .. STRING_INCOMP_B .. Suffix, "string" },
+	{ Prefix .. STRING_MULTI .. Suffix, "string" },
+	{ Prefix .. STRING_MULTI_INCOMP .. Suffix, "string" },
+	{ Prefix .. STRING_INTER .. Suffix, "string_inter" },
 
-			-- Comments
-			{ Prefix .. COMMENT_MULTI .. Suffix, "comment" },
-			{ Prefix .. COMMENT_MULTI_INCOMP .. Suffix, "comment" },
-			{ Prefix .. COMMENT_PLAIN .. Suffix, "comment" },
-			{ Prefix .. COMMENT_INCOMP .. Suffix, "comment" },
+	-- Comments
+	{ Prefix .. COMMENT_MULTI .. Suffix, "comment" },
+	{ Prefix .. COMMENT_MULTI_INCOMP .. Suffix, "comment" },
+	{ Prefix .. COMMENT_PLAIN .. Suffix, "comment" },
+	{ Prefix .. COMMENT_INCOMP .. Suffix, "comment" },
 
-			-- Operators
-			{ Prefix .. OPERATORS .. Suffix, "operator" },
-			{ Prefix .. BRACKETS .. Suffix, "operator" },
+	-- Operators
+	{ Prefix .. OPERATORS .. Suffix, "operator" },
+	{ Prefix .. BRACKETS .. Suffix, "operator" },
 
-			-- Unicode
-			{ Prefix .. UNICODE .. Suffix, "iden" },
+	-- Unicode
+	{ Prefix .. UNICODE .. Suffix, "iden" },
 
-			-- Unknown
-			{ "^.", "iden" },
-		}
+	-- Unknown
+	{ "^.", "iden" },
+}
 
-		-- To reduce the amount of table indexing during lexing, we separate the matches now
-		local PATTERNS, TOKENS = {}, {}
-		for i, m in lua_matches do
-			PATTERNS[i] = m[1]
-			TOKENS[i] = m[2]
-		end
+-- To reduce the amount of table indexing during lexing, we separate the matches now
+local PATTERNS, TOKENS = {}, {}
+for i, m in lua_matches do
+	PATTERNS[i] = m[1]
+	TOKENS[i] = m[2]
+end
 
-		--- Create a plain token iterator from a string.
-		-- @tparam string s a string.
+--- Create a plain token iterator from a string.
+-- @tparam string s a string.
 
-		function lexer.scan(s: string)
-			local index = 1
-			local size = #s
-			local previousContent1, previousContent2, previousContent3, previousToken = "", "", "", ""
+function lexer.scan(s: string)
+	local index = 1
+	local size = #s
+	local previousContent1, previousContent2, previousContent3, previousToken = "", "", "", ""
 
-			local thread = coroutine.create(function()
-				while index <= size do
-					local matched = false
-					for tokenType, pattern in ipairs(PATTERNS) do
-						-- Find match
-						local start, finish = string.find(s, pattern, index)
-						if start == nil then
-							continue
-						end
-
-						-- Move head
-						index = finish + 1
-						matched = true
-
-						-- Gather results
-						local content = string.sub(s, start, finish)
-						local rawToken = TOKENS[tokenType]
-						local processedToken = rawToken
-
-						-- Process token
-						if rawToken == "var" then
-							-- Since we merge spaces into the tok, we need to remove them
-							-- in order to check the actual word it contains
-							local cleanContent = string.gsub(content, Cleaner, "")
-
-							if lua_keyword[cleanContent] then
-								processedToken = "keyword"
-							elseif lua_builtin[cleanContent] then
-								processedToken = "builtin"
-							elseif string.find(previousContent1, "%.[%s%c]*$") and previousToken ~= "comment" then
-								-- The previous was a . so we need to special case indexing things
-								local parent = string.gsub(previousContent2, Cleaner, "")
-								local lib = lua_libraries[parent]
-								if lib and lib[cleanContent] and not string.find(previousContent3, "%.[%s%c]*$") then
-									-- Indexing a builtin lib with existing item, treat as a builtin
-									processedToken = "builtin"
-								else
-									-- Indexing a non builtin, can't be treated as a keyword/builtin
-									processedToken = "iden"
-								end
-								-- print("indexing",parent,"with",cleanTok,"as",t2)
-							else
-								processedToken = "iden"
-							end
-						elseif rawToken == "string_inter" then
-							if not string.find(content, "[^\\]{") then
-								-- This inter string doesnt actually have any inters
-								processedToken = "string"
-							else
-								-- We're gonna do our own yields, so the main loop won't need to
-								-- Our yields will be a mix of string and whatever is inside the inters
-								processedToken = nil
-
-								local isString = true
-								local subIndex = 1
-								local subSize = #content
-								while subIndex <= subSize do
-									-- Find next brace
-									local subStart, subFinish = string.find(content, "^.-[^\\][{}]", subIndex)
-									if subStart == nil then
-										-- No more braces, all string
-										coroutine.yield("string", string.sub(content, subIndex))
-										break
-									end
-
-									if isString then
-										-- We are currently a string
-										subIndex = subFinish + 1
-										coroutine.yield("string", string.sub(content, subStart, subFinish))
-
-										-- This brace opens code
-										isString = false
-									else
-										-- We are currently in code
-										subIndex = subFinish
-										local subContent = string.sub(content, subStart, subFinish - 1)
-										for innerToken, innerContent in lexer.scan(subContent) do
-											coroutine.yield(innerToken, innerContent)
-										end
-
-										-- This brace opens string/closes code
-										isString = true
-									end
-								end
-							end
-						end
-
-						-- Record last 3 tokens for the indexing context check
-						previousContent3 = previousContent2
-						previousContent2 = previousContent1
-						previousContent1 = content
-						previousToken = processedToken or rawToken
-						if processedToken then
-							coroutine.yield(processedToken, content)
-						end
-						break
-					end
-
-					-- No matches found
-					if not matched then
-						return
-					end
+	local thread = coroutine.create(function()
+		while index <= size do
+			local matched = false
+			for tokenType, pattern in ipairs(PATTERNS) do
+				-- Find match
+				local start, finish = string.find(s, pattern, index)
+				if start == nil then
+					continue
 				end
 
-				-- Completed the scan
-				return
-			end)
+				-- Move head
+				index = finish + 1
+				matched = true
 
-			return function()
-				if coroutine.status(thread) == "dead" then
-					return
-				end
+				-- Gather results
+				local content = string.sub(s, start, finish)
+				local rawToken = TOKENS[tokenType]
+				local processedToken = rawToken
 
-				local success, token, content = coroutine.resume(thread)
-				if success and token then
-					return token, content
-				end
+				-- Process token
+				if rawToken == "var" then
+					-- Since we merge spaces into the tok, we need to remove them
+					-- in order to check the actual word it contains
+					local cleanContent = string.gsub(content, Cleaner, "")
 
-				return
-			end
-		end
-
-		function lexer.navigator()
-			local nav = {
-				Source = "",
-				TokenCache = table.create(50),
-
-				_RealIndex = 0,
-				_UserIndex = 0,
-				_ScanThread = nil,
-			}
-
-			function nav:Destroy()
-				self.Source = nil
-				self._RealIndex = nil
-				self._UserIndex = nil
-				self.TokenCache = nil
-				self._ScanThread = nil
-			end
-
-			function nav:SetSource(SourceString)
-				self.Source = SourceString
-
-				self._RealIndex = 0
-				self._UserIndex = 0
-				table.clear(self.TokenCache)
-
-				self._ScanThread = coroutine.create(function()
-					for Token, Src in lexer.scan(self.Source) do
-						self._RealIndex += 1
-						self.TokenCache[self._RealIndex] = { Token, Src }
-						coroutine.yield(Token, Src)
-					end
-				end)
-			end
-
-			function nav.Next()
-				nav._UserIndex += 1
-
-				if nav._RealIndex >= nav._UserIndex then
-					-- Already scanned, return cached
-					return table.unpack(nav.TokenCache[nav._UserIndex])
-				else
-					if coroutine.status(nav._ScanThread) == "dead" then
-						-- Scan thread dead
-						return
-					else
-						local success, token, src = coroutine.resume(nav._ScanThread)
-						if success and token then
-							-- Scanned new data
-							return token, src
+					if lua_keyword[cleanContent] then
+						processedToken = "keyword"
+					elseif lua_builtin[cleanContent] then
+						processedToken = "builtin"
+					elseif string.find(previousContent1, "%.[%s%c]*$") and previousToken ~= "comment" then
+						-- The previous was a . so we need to special case indexing things
+						local parent = string.gsub(previousContent2, Cleaner, "")
+						local lib = lua_libraries[parent]
+						if lib and lib[cleanContent] and not string.find(previousContent3, "%.[%s%c]*$") then
+							-- Indexing a builtin lib with existing item, treat as a builtin
+							processedToken = "builtin"
 						else
-							-- Lex completed
-							return
+							-- Indexing a non builtin, can't be treated as a keyword/builtin
+							processedToken = "iden"
 						end
-					end
-				end
-			end
-
-			function nav.Peek(PeekAmount)
-				local GoalIndex = nav._UserIndex + PeekAmount
-
-				if nav._RealIndex >= GoalIndex then
-					-- Already scanned, return cached
-					if GoalIndex > 0 then
-						return table.unpack(nav.TokenCache[GoalIndex])
+						-- print("indexing",parent,"with",cleanTok,"as",t2)
 					else
-						-- Invalid peek
-						return
+						processedToken = "iden"
 					end
-				else
-					if coroutine.status(nav._ScanThread) == "dead" then
-						-- Scan thread dead
-						return
+				elseif rawToken == "string_inter" then
+					if not string.find(content, "[^\\]{") then
+						-- This inter string doesnt actually have any inters
+						processedToken = "string"
 					else
-						local IterationsAway = GoalIndex - nav._RealIndex
+						-- We're gonna do our own yields, so the main loop won't need to
+						-- Our yields will be a mix of string and whatever is inside the inters
+						processedToken = nil
 
-						local success, token, src = nil, nil, nil
-
-						for _ = 1, IterationsAway do
-							success, token, src = coroutine.resume(nav._ScanThread)
-							if not (success or token) then
-								-- Lex completed
+						local isString = true
+						local subIndex = 1
+						local subSize = #content
+						while subIndex <= subSize do
+							-- Find next brace
+							local subStart, subFinish = string.find(content, "^.-[^\\][{}]", subIndex)
+							if subStart == nil then
+								-- No more braces, all string
+								coroutine.yield("string", string.sub(content, subIndex))
 								break
 							end
-						end
 
-						return token, src
+							if isString then
+								-- We are currently a string
+								subIndex = subFinish + 1
+								coroutine.yield("string", string.sub(content, subStart, subFinish))
+
+								-- This brace opens code
+								isString = false
+							else
+								-- We are currently in code
+								subIndex = subFinish
+								local subContent = string.sub(content, subStart, subFinish - 1)
+								for innerToken, innerContent in lexer.scan(subContent) do
+									coroutine.yield(innerToken, innerContent)
+								end
+
+								-- This brace opens string/closes code
+								isString = true
+							end
+						end
 					end
 				end
+
+				-- Record last 3 tokens for the indexing context check
+				previousContent3 = previousContent2
+				previousContent2 = previousContent1
+				previousContent1 = content
+				previousToken = processedToken or rawToken
+				if processedToken then
+					coroutine.yield(processedToken, content)
+				end
+				break
 			end
 
-			return nav
+			-- No matches found
+			if not matched then
+				return
+			end
 		end
 
-		return lexer
+		-- Completed the scan
+		return
+	end)
 
-	end;
+	return function()
+		if coroutine.status(thread) == "dead" then
+			return
+		end
+
+		local success, token, content = coroutine.resume(thread)
+		if success and token then
+			return token, content
+		end
+
+		return
+	end
+end
+
+function lexer.navigator()
+	local nav = {
+		Source = "",
+		TokenCache = table.create(50),
+
+		_RealIndex = 0,
+		_UserIndex = 0,
+		_ScanThread = nil,
+	}
+
+	function nav:Destroy()
+		self.Source = nil
+		self._RealIndex = nil
+		self._UserIndex = nil
+		self.TokenCache = nil
+		self._ScanThread = nil
+	end
+
+	function nav:SetSource(SourceString)
+		self.Source = SourceString
+
+		self._RealIndex = 0
+		self._UserIndex = 0
+		table.clear(self.TokenCache)
+
+		self._ScanThread = coroutine.create(function()
+			for Token, Src in lexer.scan(self.Source) do
+				self._RealIndex += 1
+				self.TokenCache[self._RealIndex] = { Token, Src }
+				coroutine.yield(Token, Src)
+			end
+		end)
+	end
+
+	function nav.Next()
+		nav._UserIndex += 1
+
+		if nav._RealIndex >= nav._UserIndex then
+			-- Already scanned, return cached
+			return table.unpack(nav.TokenCache[nav._UserIndex])
+		else
+			if coroutine.status(nav._ScanThread) == "dead" then
+				-- Scan thread dead
+				return
+			else
+				local success, token, src = coroutine.resume(nav._ScanThread)
+				if success and token then
+					-- Scanned new data
+					return token, src
+				else
+					-- Lex completed
+					return
+				end
+			end
+		end
+	end
+
+	function nav.Peek(PeekAmount)
+		local GoalIndex = nav._UserIndex + PeekAmount
+
+		if nav._RealIndex >= GoalIndex then
+			-- Already scanned, return cached
+			if GoalIndex > 0 then
+				return table.unpack(nav.TokenCache[GoalIndex])
+			else
+				-- Invalid peek
+				return
+			end
+		else
+			if coroutine.status(nav._ScanThread) == "dead" then
+				-- Scan thread dead
+				return
+			else
+				local IterationsAway = GoalIndex - nav._RealIndex
+
+				local success, token, src = nil, nil, nil
+
+				for _ = 1, IterationsAway do
+					success, token, src = coroutine.resume(nav._ScanThread)
+					if not (success or token) then
+						-- Lex completed
+						break
+					end
+				end
+
+				return token, src
+			end
+		end
+	end
+
+	return nav
+end
+
+return lexer
+
+end;
 };
 G2L_MODULES[G2L["1ef"]] = {
-	Closure = function()
-		local script = G2L["1ef"];local language = {
-			keyword = {
-				["and"] = "keyword",
-				["break"] = "keyword",
-				["continue"] = "keyword",
-				["do"] = "keyword",
-				["else"] = "keyword",
-				["elseif"] = "keyword",
-				["end"] = "keyword",
-				["export"] = "keyword",
-				["false"] = "keyword",
-				["for"] = "keyword",
-				["function"] = "keyword",
-				["if"] = "keyword",
-				["in"] = "keyword",
-				["local"] = "keyword",
-				["nil"] = "keyword",
-				["not"] = "keyword",
-				["or"] = "keyword",
-				["repeat"] = "keyword",
-				["return"] = "keyword",
-				["self"] = "keyword",
-				["then"] = "keyword",
-				["true"] = "keyword",
-				["type"] = "keyword",
-				["typeof"] = "keyword",
-				["until"] = "keyword",
-				["while"] = "keyword",
-			},
-
-			builtin = {
-				-- Luau Functions
-				["assert"] = "function",
-				["error"] = "function",
-				["getfenv"] = "function",
-				["getmetatable"] = "function",
-				["ipairs"] = "function",
-				["loadstring"] = "function",
-				["newproxy"] = "function",
-				["next"] = "function",
-				["pairs"] = "function",
-				["pcall"] = "function",
-				["print"] = "function",
-				["rawequal"] = "function",
-				["rawget"] = "function",
-				["rawlen"] = "function",
-				["rawset"] = "function",
-				["select"] = "function",
-				["setfenv"] = "function",
-				["setmetatable"] = "function",
-				["tonumber"] = "function",
-				["tostring"] = "function",
-				["unpack"] = "function",
-				["xpcall"] = "function",
-
-				-- Luau Functions (Deprecated)
-				["collectgarbage"] = "function",
-
-				-- Luau Variables
-				["_G"] = "table",
-				["_VERSION"] = "string",
-
-				-- Luau Tables
-				["bit32"] = "table",
-				["coroutine"] = "table",
-				["debug"] = "table",
-				["math"] = "table",
-				["os"] = "table",
-				["string"] = "table",
-				["table"] = "table",
-				["utf8"] = "table",
-
-				-- Roblox Functions
-				["DebuggerManager"] = "function",
-				["delay"] = "function",
-				["gcinfo"] = "function",
-				["PluginManager"] = "function",
-				["require"] = "function",
-				["settings"] = "function",
-				["spawn"] = "function",
-				["tick"] = "function",
-				["time"] = "function",
-				["UserSettings"] = "function",
-				["wait"] = "function",
-				["warn"] = "function",
-
-				-- Roblox Functions (Deprecated)
-				["Delay"] = "function",
-				["ElapsedTime"] = "function",
-				["elapsedTime"] = "function",
-				["printidentity"] = "function",
-				["Spawn"] = "function",
-				["Stats"] = "function",
-				["stats"] = "function",
-				["Version"] = "function",
-				["version"] = "function",
-				["Wait"] = "function",
-				["ypcall"] = "function",
-
-				-- Roblox Variables
-				["game"] = "Instance",
-				["plugin"] = "Instance",
-				["script"] = "Instance",
-				["shared"] = "Instance",
-				["workspace"] = "Instance",
-
-				-- Roblox Variables (Deprecated)
-				["Game"] = "Instance",
-				["Workspace"] = "Instance",
-
-				-- Roblox Tables
-				["Axes"] = "table",
-				["BrickColor"] = "table",
-				["CatalogSearchParams"] = "table",
-				["CFrame"] = "table",
-				["Color3"] = "table",
-				["ColorSequence"] = "table",
-				["ColorSequenceKeypoint"] = "table",
-				["DateTime"] = "table",
-				["DockWidgetPluginGuiInfo"] = "table",
-				["Enum"] = "table",
-				["Faces"] = "table",
-				["FloatCurveKey"] = "table",
-				["Font"] = "table",
-				["Instance"] = "table",
-				["NumberRange"] = "table",
-				["NumberSequence"] = "table",
-				["NumberSequenceKeypoint"] = "table",
-				["OverlapParams"] = "table",
-				["PathWaypoint"] = "table",
-				["PhysicalProperties"] = "table",
-				["Random"] = "table",
-				["Ray"] = "table",
-				["RaycastParams"] = "table",
-				["Rect"] = "table",
-				["Region3"] = "table",
-				["Region3int16"] = "table",
-				["RotationCurveKey"] = "table",
-				["SharedTable"] = "table",
-				["task"] = "table",
-				["TweenInfo"] = "table",
-				["UDim"] = "table",
-				["UDim2"] = "table",
-				["Vector2"] = "table",
-				["Vector2int16"] = "table",
-				["Vector3"] = "table",
-				["Vector3int16"] = "table",
-			},
-
-			libraries = {
-
-				-- Luau Libraries
-				bit32 = {
-					arshift = "function",
-					band = "function",
-					bnot = "function",
-					bor = "function",
-					btest = "function",
-					bxor = "function",
-					countlz = "function",
-					countrz = "function",
-					extract = "function",
-					lrotate = "function",
-					lshift = "function",
-					replace = "function",
-					rrotate = "function",
-					rshift = "function",
-				},
-
-				buffer = {
-					copy = "function",
-					create = "function",
-					fill = "function",
-					fromstring = "function",
-					len = "function",
-					readf32 = "function",
-					readf64 = "function",
-					readi8 = "function",
-					readi16 = "function",
-					readi32 = "function",
-					readu16 = "function",
-					readu32 = "function",
-					readu8 = "function",
-					readstring = "function",
-					tostring = "function",
-					writef32 = "function",
-					writef64 = "function",
-					writei16 = "function",
-					writei32 = "function",
-					writei8 = "function",
-					writestring = "function",
-					writeu16 = "function",
-					writeu32 = "function",
-					writeu8 = "function",
-				},
-
-				coroutine = {
-					close = "function",
-					create = "function",
-					isyieldable = "function",
-					resume = "function",
-					running = "function",
-					status = "function",
-					wrap = "function",
-					yield = "function",
-				},
-
-				debug = {
-					dumpheap = "function",
-					getmemorycategory = "function",
-					info = "function",
-					loadmodule = "function",
-					profilebegin = "function",
-					profileend = "function",
-					resetmemorycategory = "function",
-					setmemorycategory = "function",
-					traceback = "function",
-				},
-
-				math = {
-					abs = "function",
-					acos = "function",
-					asin = "function",
-					atan2 = "function",
-					atan = "function",
-					ceil = "function",
-					clamp = "function",
-					cos = "function",
-					cosh = "function",
-					deg = "function",
-					exp = "function",
-					floor = "function",
-					fmod = "function",
-					frexp = "function",
-					ldexp = "function",
-					log10 = "function",
-					log = "function",
-					max = "function",
-					min = "function",
-					modf = "function",
-					noise = "function",
-					pow = "function",
-					rad = "function",
-					random = "function",
-					randomseed = "function",
-					round = "function",
-					sign = "function",
-					sin = "function",
-					sinh = "function",
-					sqrt = "function",
-					tan = "function",
-					tanh = "function",
-
-					huge = "number",
-					pi = "number",
-				},
-
-				os = {
-					clock = "function",
-					date = "function",
-					difftime = "function",
-					time = "function",
-				},
-
-				string = {
-					byte = "function",
-					char = "function",
-					find = "function",
-					format = "function",
-					gmatch = "function",
-					gsub = "function",
-					len = "function",
-					lower = "function",
-					match = "function",
-					pack = "function",
-					packsize = "function",
-					rep = "function",
-					reverse = "function",
-					split = "function",
-					sub = "function",
-					unpack = "function",
-					upper = "function",
-				},
-
-				table = {
-					clear = "function",
-					clone = "function",
-					concat = "function",
-					create = "function",
-					find = "function",
-					foreach = "function",
-					foreachi = "function",
-					freeze = "function",
-					getn = "function",
-					insert = "function",
-					isfrozen = "function",
-					maxn = "function",
-					move = "function",
-					pack = "function",
-					remove = "function",
-					sort = "function",
-					unpack = "function",
-				},
-
-				utf8 = {
-					char = "function",
-					codepoint = "function",
-					codes = "function",
-					graphemes = "function",
-					len = "function",
-					nfcnormalize = "function",
-					nfdnormalize = "function",
-					offset = "function",
-
-					charpattern = "string",
-				},
-
-				-- Roblox Libraries
-				Axes = {
-					new = "function",
-				},
-
-				BrickColor = {
-					Black = "function",
-					Blue = "function",
-					DarkGray = "function",
-					Gray = "function",
-					Green = "function",
-					new = "function",
-					New = "function",
-					palette = "function",
-					Random = "function",
-					random = "function",
-					Red = "function",
-					White = "function",
-					Yellow = "function",
-				},
-
-				CatalogSearchParams = {
-					new = "function",
-				},
-
-				CFrame = {
-					Angles = "function",
-					fromAxisAngle = "function",
-					fromEulerAngles = "function",
-					fromEulerAnglesXYZ = "function",
-					fromEulerAnglesYXZ = "function",
-					fromMatrix = "function",
-					fromOrientation = "function",
-					lookAt = "function",
-					new = "function",
-
-					identity = "CFrame",
-				},
-
-				Color3 = {
-					fromHex = "function",
-					fromHSV = "function",
-					fromRGB = "function",
-					new = "function",
-					toHSV = "function",
-				},
-
-				ColorSequence = {
-					new = "function",
-				},
-
-				ColorSequenceKeypoint = {
-					new = "function",
-				},
-
-				DateTime = {
-					fromIsoDate = "function",
-					fromLocalTime = "function",
-					fromUniversalTime = "function",
-					fromUnixTimestamp = "function",
-					fromUnixTimestampMillis = "function",
-					now = "function",
-				},
-
-				DockWidgetPluginGuiInfo = {
-					new = "function",
-				},
-
-				Enum = {},
-
-				Faces = {
-					new = "function",
-				},
-
-				FloatCurveKey = {
-					new = "function",
-				},
-
-				Font = {
-					fromEnum = "function",
-					fromId = "function",
-					fromName = "function",
-					new = "function",
-				},
-
-				Instance = {
-					new = "function",
-				},
-
-				NumberRange = {
-					new = "function",
-				},
-
-				NumberSequence = {
-					new = "function",
-				},
-
-				NumberSequenceKeypoint = {
-					new = "function",
-				},
-
-				OverlapParams = {
-					new = "function",
-				},
-
-				PathWaypoint = {
-					new = "function",
-				},
-
-				PhysicalProperties = {
-					new = "function",
-				},
-
-				Random = {
-					new = "function",
-				},
-
-				Ray = {
-					new = "function",
-				},
-
-				RaycastParams = {
-					new = "function",
-				},
-
-				Rect = {
-					new = "function",
-				},
-
-				Region3 = {
-					new = "function",
-				},
-
-				Region3int16 = {
-					new = "function",
-				},
-
-				RotationCurveKey = {
-					new = "function",
-				},
-
-				SharedTable = {
-					clear = "function",
-					clone = "function",
-					cloneAndFreeze = "function",
-					increment = "function",
-					isFrozen = "function",
-					new = "function",
-					size = "function",
-					update = "function",
-				},
-
-				task = {
-					cancel = "function",
-					defer = "function",
-					delay = "function",
-					desynchronize = "function",
-					spawn = "function",
-					synchronize = "function",
-					wait = "function",
-				},
-
-				TweenInfo = {
-					new = "function",
-				},
-
-				UDim = {
-					new = "function",
-				},
-
-				UDim2 = {
-					fromOffset = "function",
-					fromScale = "function",
-					new = "function",
-				},
-
-				Vector2 = {
-					new = "function",
-
-					one = "Vector2",
-					xAxis = "Vector2",
-					yAxis = "Vector2",
-					zero = "Vector2",
-				},
-
-				Vector2int16 = {
-					new = "function",
-				},
-
-				Vector3 = {
-					fromAxis = "function",
-					FromAxis = "function",
-					fromNormalId = "function",
-					FromNormalId = "function",
-					new = "function",
-
-					one = "Vector3",
-					xAxis = "Vector3",
-					yAxis = "Vector3",
-					zAxis = "Vector3",
-					zero = "Vector3",
-				},
-
-				Vector3int16 = {
-					new = "function",
-				},
-			},
-		}
-
-		-- Filling up language.libraries.Enum table
-		local enumLibraryTable = language.libraries.Enum
-
-		for _, enum in ipairs(Enum:GetEnums()) do
-			--TODO: Remove tostring from here once there is a better way to get the name of an Enum
-			enumLibraryTable[tostring(enum)] = "Enum"
-		end
-
-		return language
-
-	end;
+Closure = function()
+    local script = G2L["1ef"];local language = {
+	keyword = {
+		["and"] = "keyword",
+		["break"] = "keyword",
+		["continue"] = "keyword",
+		["do"] = "keyword",
+		["else"] = "keyword",
+		["elseif"] = "keyword",
+		["end"] = "keyword",
+		["export"] = "keyword",
+		["false"] = "keyword",
+		["for"] = "keyword",
+		["function"] = "keyword",
+		["if"] = "keyword",
+		["in"] = "keyword",
+		["local"] = "keyword",
+		["nil"] = "keyword",
+		["not"] = "keyword",
+		["or"] = "keyword",
+		["repeat"] = "keyword",
+		["return"] = "keyword",
+		["self"] = "keyword",
+		["then"] = "keyword",
+		["true"] = "keyword",
+		["type"] = "keyword",
+		["typeof"] = "keyword",
+		["until"] = "keyword",
+		["while"] = "keyword",
+	},
+
+	builtin = {
+		-- Luau Functions
+		["assert"] = "function",
+		["error"] = "function",
+		["getfenv"] = "function",
+		["getmetatable"] = "function",
+		["ipairs"] = "function",
+		["loadstring"] = "function",
+		["newproxy"] = "function",
+		["next"] = "function",
+		["pairs"] = "function",
+		["pcall"] = "function",
+		["print"] = "function",
+		["rawequal"] = "function",
+		["rawget"] = "function",
+		["rawlen"] = "function",
+		["rawset"] = "function",
+		["select"] = "function",
+		["setfenv"] = "function",
+		["setmetatable"] = "function",
+		["tonumber"] = "function",
+		["tostring"] = "function",
+		["unpack"] = "function",
+		["xpcall"] = "function",
+
+		-- Luau Functions (Deprecated)
+		["collectgarbage"] = "function",
+
+		-- Luau Variables
+		["_G"] = "table",
+		["_VERSION"] = "string",
+
+		-- Luau Tables
+		["bit32"] = "table",
+		["coroutine"] = "table",
+		["debug"] = "table",
+		["math"] = "table",
+		["os"] = "table",
+		["string"] = "table",
+		["table"] = "table",
+		["utf8"] = "table",
+
+		-- Roblox Functions
+		["DebuggerManager"] = "function",
+		["delay"] = "function",
+		["gcinfo"] = "function",
+		["PluginManager"] = "function",
+		["require"] = "function",
+		["settings"] = "function",
+		["spawn"] = "function",
+		["tick"] = "function",
+		["time"] = "function",
+		["UserSettings"] = "function",
+		["wait"] = "function",
+		["warn"] = "function",
+
+		-- Roblox Functions (Deprecated)
+		["Delay"] = "function",
+		["ElapsedTime"] = "function",
+		["elapsedTime"] = "function",
+		["printidentity"] = "function",
+		["Spawn"] = "function",
+		["Stats"] = "function",
+		["stats"] = "function",
+		["Version"] = "function",
+		["version"] = "function",
+		["Wait"] = "function",
+		["ypcall"] = "function",
+
+		-- Roblox Variables
+		["game"] = "Instance",
+		["plugin"] = "Instance",
+		["script"] = "Instance",
+		["shared"] = "Instance",
+		["workspace"] = "Instance",
+
+		-- Roblox Variables (Deprecated)
+		["Game"] = "Instance",
+		["Workspace"] = "Instance",
+
+		-- Roblox Tables
+		["Axes"] = "table",
+		["BrickColor"] = "table",
+		["CatalogSearchParams"] = "table",
+		["CFrame"] = "table",
+		["Color3"] = "table",
+		["ColorSequence"] = "table",
+		["ColorSequenceKeypoint"] = "table",
+		["DateTime"] = "table",
+		["DockWidgetPluginGuiInfo"] = "table",
+		["Enum"] = "table",
+		["Faces"] = "table",
+		["FloatCurveKey"] = "table",
+		["Font"] = "table",
+		["Instance"] = "table",
+		["NumberRange"] = "table",
+		["NumberSequence"] = "table",
+		["NumberSequenceKeypoint"] = "table",
+		["OverlapParams"] = "table",
+		["PathWaypoint"] = "table",
+		["PhysicalProperties"] = "table",
+		["Random"] = "table",
+		["Ray"] = "table",
+		["RaycastParams"] = "table",
+		["Rect"] = "table",
+		["Region3"] = "table",
+		["Region3int16"] = "table",
+		["RotationCurveKey"] = "table",
+		["SharedTable"] = "table",
+		["task"] = "table",
+		["TweenInfo"] = "table",
+		["UDim"] = "table",
+		["UDim2"] = "table",
+		["Vector2"] = "table",
+		["Vector2int16"] = "table",
+		["Vector3"] = "table",
+		["Vector3int16"] = "table",
+	},
+
+	libraries = {
+
+		-- Luau Libraries
+		bit32 = {
+			arshift = "function",
+			band = "function",
+			bnot = "function",
+			bor = "function",
+			btest = "function",
+			bxor = "function",
+			countlz = "function",
+			countrz = "function",
+			extract = "function",
+			lrotate = "function",
+			lshift = "function",
+			replace = "function",
+			rrotate = "function",
+			rshift = "function",
+		},
+
+		buffer = {
+			copy = "function",
+			create = "function",
+			fill = "function",
+			fromstring = "function",
+			len = "function",
+			readf32 = "function",
+			readf64 = "function",
+			readi8 = "function",
+			readi16 = "function",
+			readi32 = "function",
+			readu16 = "function",
+			readu32 = "function",
+			readu8 = "function",
+			readstring = "function",
+			tostring = "function",
+			writef32 = "function",
+			writef64 = "function",
+			writei16 = "function",
+			writei32 = "function",
+			writei8 = "function",
+			writestring = "function",
+			writeu16 = "function",
+			writeu32 = "function",
+			writeu8 = "function",
+		},
+
+		coroutine = {
+			close = "function",
+			create = "function",
+			isyieldable = "function",
+			resume = "function",
+			running = "function",
+			status = "function",
+			wrap = "function",
+			yield = "function",
+		},
+
+		debug = {
+			dumpheap = "function",
+			getmemorycategory = "function",
+			info = "function",
+			loadmodule = "function",
+			profilebegin = "function",
+			profileend = "function",
+			resetmemorycategory = "function",
+			setmemorycategory = "function",
+			traceback = "function",
+		},
+
+		math = {
+			abs = "function",
+			acos = "function",
+			asin = "function",
+			atan2 = "function",
+			atan = "function",
+			ceil = "function",
+			clamp = "function",
+			cos = "function",
+			cosh = "function",
+			deg = "function",
+			exp = "function",
+			floor = "function",
+			fmod = "function",
+			frexp = "function",
+			ldexp = "function",
+			log10 = "function",
+			log = "function",
+			max = "function",
+			min = "function",
+			modf = "function",
+			noise = "function",
+			pow = "function",
+			rad = "function",
+			random = "function",
+			randomseed = "function",
+			round = "function",
+			sign = "function",
+			sin = "function",
+			sinh = "function",
+			sqrt = "function",
+			tan = "function",
+			tanh = "function",
+
+			huge = "number",
+			pi = "number",
+		},
+
+		os = {
+			clock = "function",
+			date = "function",
+			difftime = "function",
+			time = "function",
+		},
+
+		string = {
+			byte = "function",
+			char = "function",
+			find = "function",
+			format = "function",
+			gmatch = "function",
+			gsub = "function",
+			len = "function",
+			lower = "function",
+			match = "function",
+			pack = "function",
+			packsize = "function",
+			rep = "function",
+			reverse = "function",
+			split = "function",
+			sub = "function",
+			unpack = "function",
+			upper = "function",
+		},
+
+		table = {
+			clear = "function",
+			clone = "function",
+			concat = "function",
+			create = "function",
+			find = "function",
+			foreach = "function",
+			foreachi = "function",
+			freeze = "function",
+			getn = "function",
+			insert = "function",
+			isfrozen = "function",
+			maxn = "function",
+			move = "function",
+			pack = "function",
+			remove = "function",
+			sort = "function",
+			unpack = "function",
+		},
+
+		utf8 = {
+			char = "function",
+			codepoint = "function",
+			codes = "function",
+			graphemes = "function",
+			len = "function",
+			nfcnormalize = "function",
+			nfdnormalize = "function",
+			offset = "function",
+
+			charpattern = "string",
+		},
+
+		-- Roblox Libraries
+		Axes = {
+			new = "function",
+		},
+
+		BrickColor = {
+			Black = "function",
+			Blue = "function",
+			DarkGray = "function",
+			Gray = "function",
+			Green = "function",
+			new = "function",
+			New = "function",
+			palette = "function",
+			Random = "function",
+			random = "function",
+			Red = "function",
+			White = "function",
+			Yellow = "function",
+		},
+
+		CatalogSearchParams = {
+			new = "function",
+		},
+
+		CFrame = {
+			Angles = "function",
+			fromAxisAngle = "function",
+			fromEulerAngles = "function",
+			fromEulerAnglesXYZ = "function",
+			fromEulerAnglesYXZ = "function",
+			fromMatrix = "function",
+			fromOrientation = "function",
+			lookAt = "function",
+			new = "function",
+
+			identity = "CFrame",
+		},
+
+		Color3 = {
+			fromHex = "function",
+			fromHSV = "function",
+			fromRGB = "function",
+			new = "function",
+			toHSV = "function",
+		},
+
+		ColorSequence = {
+			new = "function",
+		},
+
+		ColorSequenceKeypoint = {
+			new = "function",
+		},
+
+		DateTime = {
+			fromIsoDate = "function",
+			fromLocalTime = "function",
+			fromUniversalTime = "function",
+			fromUnixTimestamp = "function",
+			fromUnixTimestampMillis = "function",
+			now = "function",
+		},
+
+		DockWidgetPluginGuiInfo = {
+			new = "function",
+		},
+
+		Enum = {},
+
+		Faces = {
+			new = "function",
+		},
+
+		FloatCurveKey = {
+			new = "function",
+		},
+
+		Font = {
+			fromEnum = "function",
+			fromId = "function",
+			fromName = "function",
+			new = "function",
+		},
+
+		Instance = {
+			new = "function",
+		},
+
+		NumberRange = {
+			new = "function",
+		},
+
+		NumberSequence = {
+			new = "function",
+		},
+
+		NumberSequenceKeypoint = {
+			new = "function",
+		},
+
+		OverlapParams = {
+			new = "function",
+		},
+
+		PathWaypoint = {
+			new = "function",
+		},
+
+		PhysicalProperties = {
+			new = "function",
+		},
+
+		Random = {
+			new = "function",
+		},
+
+		Ray = {
+			new = "function",
+		},
+
+		RaycastParams = {
+			new = "function",
+		},
+
+		Rect = {
+			new = "function",
+		},
+
+		Region3 = {
+			new = "function",
+		},
+
+		Region3int16 = {
+			new = "function",
+		},
+
+		RotationCurveKey = {
+			new = "function",
+		},
+
+		SharedTable = {
+			clear = "function",
+			clone = "function",
+			cloneAndFreeze = "function",
+			increment = "function",
+			isFrozen = "function",
+			new = "function",
+			size = "function",
+			update = "function",
+		},
+
+		task = {
+			cancel = "function",
+			defer = "function",
+			delay = "function",
+			desynchronize = "function",
+			spawn = "function",
+			synchronize = "function",
+			wait = "function",
+		},
+
+		TweenInfo = {
+			new = "function",
+		},
+
+		UDim = {
+			new = "function",
+		},
+
+		UDim2 = {
+			fromOffset = "function",
+			fromScale = "function",
+			new = "function",
+		},
+
+		Vector2 = {
+			new = "function",
+
+			one = "Vector2",
+			xAxis = "Vector2",
+			yAxis = "Vector2",
+			zero = "Vector2",
+		},
+
+		Vector2int16 = {
+			new = "function",
+		},
+
+		Vector3 = {
+			fromAxis = "function",
+			FromAxis = "function",
+			fromNormalId = "function",
+			FromNormalId = "function",
+			new = "function",
+
+			one = "Vector3",
+			xAxis = "Vector3",
+			yAxis = "Vector3",
+			zAxis = "Vector3",
+			zero = "Vector3",
+		},
+
+		Vector3int16 = {
+			new = "function",
+		},
+	},
+}
+
+-- Filling up language.libraries.Enum table
+local enumLibraryTable = language.libraries.Enum
+
+for _, enum in ipairs(Enum:GetEnums()) do
+	--TODO: Remove tostring from here once there is a better way to get the name of an Enum
+	enumLibraryTable[tostring(enum)] = "Enum"
+end
+
+return language
+
+end;
 };
 -- StarterGui.NewAW.Handler
 local function C_1e8()
-	local script = G2L["1e8"];
+local script = G2L["1e8"];
 	local service = setmetatable({}, { 
 		__index = function(_, k)
 			return game:GetService(k)
 		end
 	})
-
+	
 	local TS = service.TweenService
 	local HS = service.HttpService
-
+	
 	local MainModule = require(script.Func)
-
+	
 	local SidebarButtons = {"Editor", "Cloud", "Console", "Config"}
 	local Pages = {"EditorPage", "CloudPage", "ConsolePage", "ConfigPage"}
-
+	
 	local Positions = {
 		SidebarHidden = UDim2.new(-0.3, 0, 0, 0),
 		SidebarVisible = UDim2.new(0, 0, 0, 0),
 		PageHidden = UDim2.new(1, 0, -0.006, 0),
 		PageVisible = UDim2.new(0.255, 0,0, 0),
 	}
-
+	
 	local Types = { Toggle = true, OneClick = true }
-
+	
 	local UI = script.Parent:FindFirstChild("UI"):FindFirstChild("MainGui")
 	local open = UI.Parent.Parent.OpenBtn.OpenClick
 	local P = UI:FindFirstChild("Pages")
 	local Sidebar = UI:FindFirstChild("Sidebar")
 	local Slide = Sidebar:WaitForChild("Close"):WaitForChild("Slide")
-
-
+	
+	
 	MainModule.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SidebarButtons, Pages, Positions.SidebarHidden, Positions.SidebarVisible, Positions.PageHidden, Positions.PageVisible)
 	MainModule.initialize()
-
+	
 	--<<Editor Page Handler>>--
 	local back = P.EditorPage.Buttons
 	local Execute = back.Execute.Click
@@ -7336,10 +7326,10 @@ local function C_1e8()
 	local C_Scroller = CloudPage.CloudPageScripts.Scrolling
 	local C_Text = CloudPage.SearchFrame.SearchBox
 	MainModule.CloudHandler(CF, CS, CC, C_Scroller, C_Text, HS)
-
+	
 	--<<Console Page Handler>>--
 	--not now
-
+	
 	MainModule.ConfigMakeHandler(
 		Types.Toggle, 
 		"Unlock FPS",         
@@ -7347,7 +7337,7 @@ local function C_1e8()
 		"Gets rid of Roblox's 60FPS Limit.",
 		'print("hi")'
 	)
-
+	
 	local tc = P.EditorPage.Tabs.Tab1
 	local ts = P.EditorPage.Tabs
 	local ab = tc.AddTab.AddBtn
@@ -7355,18 +7345,18 @@ local function C_1e8()
 	local db = tc.Del
 	local sb = tc.Click
 	local sc = P.EditorPage.EditorPage.txtbox.EditorFrame.Source
-
+	
 	local tcu = P.TabCreate
 	local tnt = tcu.ScriptPage1.input.InputText
 	local cb = tcu.ScriptPage1.NextBtn.Click
 	local cl = tcu.ScriptPage1.CloseBtn.Click
-
+	
 	local td = {}
 	local tf = "Tabs.json"
 	local tcc = 2
-
+	
 	MainModule.TabsLoader(tc, ts, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf, tcc)
-
+	
 	local Pageidk = P.ScriptSave
 	local button1 = Pageidk.ScriptPage1.NextBtn.Click
 	local button2 = Pageidk.ScriptPage2.saveBtn.Click
@@ -7375,13 +7365,13 @@ local function C_1e8()
 	local ScriptNameInput = Pageidk.ScriptPage1.input.InputText.Text
 	local ScriptCode = Pageidk.ScriptPage2.Input1.InputText1.Text
 	MainModule.Script_Saver_system(CloseButtonS, CloseButtonS2, ScriptNameInput, ScriptCode, button1, button2)
-
+	
 	MainModule.updateAllStrokes()
 end;
 task.spawn(C_1e8);
 -- StarterGui.NewAW.LocalScript
 local function C_222()
-	local script = G2L["222"];
+local script = G2L["222"];
 	--Key System Handler
 	local function Protect(func)
 		if not func then
@@ -7392,12 +7382,12 @@ local function C_222()
 		setfenv(func, env) 
 		return func
 	end 
-
-	--local verify_key = Protect(verify_key)
-	--local get_key = Protect(get_key)
-	--local get_key_link = Protect(get_key_link)
-	--local setclipboard = Protect(setclipboard)
-
+	
+	local verify_key = Protect(verify_key)
+	local get_key = Protect(get_key)
+	local get_key_link = Protect(get_key_link)
+	local setclipboard = Protect(setclipboard)
+	
 	local function get(NameOfOBJ, parentName)
 		for _, obj in ipairs(script.Parent:GetDescendants()) do
 			if obj:GetAttribute(NameOfOBJ) == parentName then
@@ -7406,39 +7396,39 @@ local function C_222()
 		end
 		return nil  
 	end
-
-local keysyst = script.Parent.KeySystem.Logo
-local KeyTextBox = keysyst.Input.KeyTextBox
-local ClickVerify = keysyst.Verify.Click
-local GetKeyClick = keysyst.GetKey.Click
-local Exit = keysyst.Exit.Click
-
+	
+	local keysyst = script.Parent.KeySystem.Logo
+	local KeyTextBox = keysyst.Box.KeyTextBox
+	local ClickVerify = keysyst.Verify.Click
+	local GetKeyClick = keysyst.GetKey.Click
+	local Exit = keysyst.Exit.Click
+	
 	ClickVerify.MouseButton1Click:Connect(function()
 		local key = verify_key(KeyTextBox.Text)
 		if key then
 			script.Parent.KeySystem:Destroy()
 			script.Parent.UI.Visible = false
 			script.Parent.OpenBtn.Visible = true
-
+	
 		else
 			KeyTextBox.Text = "Please activate key"
 		end
 	end)
-
+	
 	GetKeyClick.MouseButton1Click:Connect(function()
 		setclipboard(get_key_link())
 	end)
-
+	
 	Exit.MouseButton1Click:Connect(function()
 		script.Parent.KeySystem:Destroy()
 		script.Parent.UI.Visible = false
 		script.Parent.OpenBtn.Visible = false
 	end)
-
-	if get_key() ~= "" and KeyTextBox.Text == "" then
-		KeyTextBox.Text = get_key() or ""
+	
+	if get_key() ~= "" then
+		KeyTextBox.Text = get_key() or false
 	end
-
+	
 end;
 task.spawn(C_222);
 

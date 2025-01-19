@@ -9,7 +9,7 @@
 
 -- Instances: 546 | Scripts: 2 | Modules: 7 | Tags: 0
 local G2L = {};
-
+repeat wait() until game:IsLoaded() 
 -- StarterGui.NewAW
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 G2L["1"]["IgnoreGuiInset"] = true;

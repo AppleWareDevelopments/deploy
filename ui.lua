@@ -5517,6 +5517,7 @@ G2L_MODULES[G2L["1e9"]] = {
 				if not func then
 					module.NotificationHandler("Function Loader Not Handled", 2.5)
 				elseif err then
+					print(err)
 					module.NotificationHandler("Execute Error, Report it To Devs", 2.5)
 				end
 
@@ -5525,10 +5526,12 @@ G2L_MODULES[G2L["1e9"]] = {
 					if success then
 						return true, nil
 					else
+						print(err)
 						module.NotificationHandler(("Execute Error, Report it To Devs" or "Unknown error"), 2.5)
 						return false, execErr
 					end
 				else
+					print(err)
 					module.NotificationHandler(("Execute Error, Report it To Devs"), 2.5)
 					return false, err
 				end

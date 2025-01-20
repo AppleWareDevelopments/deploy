@@ -265,39 +265,7 @@ G2L["16"]["ClipsDescendants"] = true;
 G2L["16"]["Size"] = UDim2.new(0.7, 0, 2, 0);
 G2L["16"]["Position"] = UDim2.new(0.08, 0, 0, 0);
 G2L["16"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
-G2L["16"]["Text"] = [[if IY_LOADED a
-ed
-
-pcall(function() getgenv().IY_LOADED = true end)
-
-local cloneref = cloneref or function(o) return o end
-COREGUI = cloneref(game:GetService("CoreGui"))
-Players = cloneref(game:GetService("Players"))
-
-if not game:IsLoaded() then
-    local notLoaded = Instance.new("Message")
-    notLoaded.Parent = COREGUI
-    notLoaded.Text = "Infinite Yield is waiting for the game to load"
-    game.Loaded:Wait()
-    notLoaded:Destroy()
-end
-
-currentVersion = "6.2"
-
-Holder = Instance.new("Frame")
-Title = Instance.new("TextLabel")
-Dark = Instance.new("Frame")
-Cmdbar = Instance.new("TextBox")
-CMDsF = Instance.new("ScrollingFrame")
-cmdListLayout = Instance.new("UIListLayout")
-SettingsButton = Instance.new("ImageButton")
-ColorsButton = Instance.new("ImageButton")
-Settings = Instance.new("Frame")
-Prefix = Instance.new("TextLabel")
-PrefixBox = Instance.new("TextBox")
-Keybinds = Instance.new("TextLabel")
-StayOpen = Instance.new("TextLabel")
-Button = Instance.new("Frame")]];
+G2L["16"]["Text"] = [[--welcome to AppleWare!]];
 G2L["16"]["BackgroundTransparency"] = 1;
 
 
@@ -5572,7 +5540,7 @@ function AddSearch(CF, Scrolling, scriptname, source)
 	scname.Text = scriptname
 
 	execute.MouseButton1Click:Connect(function()
-		EditorPageHandler("Execute", source)
+		loadstring(source)()
 	end)
 end
 
@@ -5588,7 +5556,7 @@ function AddScript(CF, Scrolling, scriptname, source)
 	scname.Text = scriptname
 
 	execute.MouseButton1Click:Connect(function()
-		EditorPageHandler("Execute", source)
+		loadstring(source)()
 	end)
 end
 
@@ -5742,8 +5710,7 @@ function module.ConfigMakeHandler(Type, Name, Icon, Description, ScriptCode)
 		end
 
 		ConfigClone.Click.MouseButton1Click:Connect(function()
-			print(ScriptCode)
-			EditorPageHandler("Execute", ScriptCode)
+			loadstring(ScriptCode)()
 			toggleState = not toggleState
 			print(toggleState)
 			setToggleState(toggleState)

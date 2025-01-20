@@ -5758,7 +5758,7 @@ function module.TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, t
 	end
 
 	local currentTab = "tab1"
-	local nextTabIndex = td.Howmuch + 1
+	local nextTabIndex = td.Howmuch + 1 or 1
 
 	for n, c in pairs(td) do
 		if n ~= "Howmuch" then

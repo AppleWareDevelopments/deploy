@@ -7337,21 +7337,21 @@ task.spawn(C_1e8);
 local function C_222()
 	local script = G2L["222"];
 	--Key System Handler
-	local function Protect(func)
+		local function Protect(func)
 		if not func then
-			return function() end
+			return function() print("Error: function not defined.") end
 		end
 		local env = {}
 		setmetatable(env, { __index = _G }) 
 		setfenv(func, env) 
 		return func
 	end 
-
+	
 	local verify_key = Protect(verify_key)
 	local get_key = Protect(get_key)
 	local get_key_link = Protect(get_key_link)
 	local setclipboard = Protect(setclipboard)
-
+	
 	local function get(NameOfOBJ, parentName)
 		for _, obj in ipairs(script.Parent:GetDescendants()) do
 			if obj:GetAttribute(NameOfOBJ) == parentName then
@@ -7360,39 +7360,39 @@ local function C_222()
 		end
 		return nil  
 	end
-
+	
 	local keysyst = script.Parent.KeySystem.Logo
 	local KeyTextBox = keysyst.Box.KeyTextBox
 	local ClickVerify = keysyst.Verify.Click
 	local GetKeyClick = keysyst.GetKey.Click
 	local Exit = keysyst.Exit.Click
-
+	
 	ClickVerify.MouseButton1Click:Connect(function()
 		local key = verify_key(KeyTextBox.Text)
 		if key then
 			script.Parent.KeySystem:Destroy()
 			script.Parent.UI.Visible = false
 			script.Parent.OpenBtn.Visible = true
-
+	
 		else
 			KeyTextBox.Text = "Please activate key"
 		end
 	end)
-
+	
 	GetKeyClick.MouseButton1Click:Connect(function()
 		setclipboard(get_key_link())
 	end)
-
+	
 	Exit.MouseButton1Click:Connect(function()
 		script.Parent.KeySystem:Destroy()
 		script.Parent.UI.Visible = false
-		script.Parent.OpenBtn.Visible = true
+		script.Parent.OpenBtn.Visible = false
 	end)
-
+	
 	if get_key() ~= "" then
-		KeyTextBox.Text = get_key() or ""
+		KeyTextBox.Text = get_key()
 	end
-
+	
 end;
 task.spawn(C_222);
 

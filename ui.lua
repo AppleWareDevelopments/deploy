@@ -13,7 +13,7 @@ repeat wait() until game:IsLoaded()
 -- StarterGui.NewAW
 G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
 G2L["1"]["IgnoreGuiInset"] = true;
-G2L["1"]["DisplayOrder"] = 9999999999;
+G2L["1"]["DisplayOrder"] = 1;
 G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.None;
 G2L["1"]["Name"] = [[NewAW]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;

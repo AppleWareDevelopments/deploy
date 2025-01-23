@@ -7337,20 +7337,6 @@ task.spawn(C_1e8);
 local function C_222()
 	local script = G2L["222"];
 	--Key System Handler
-		local function Protect(func)
-		if not func then
-			return function() print("Error: function not defined.") end
-		end
-		local env = {}
-		setmetatable(env, { __index = _G }) 
-		setfenv(func, env) 
-		return func
-	end 
-	
-	local verify_key = Protect(verify_key)
-	local get_key = Protect(get_key)
-	local get_key_link = Protect(get_key_link)
-	local setclipboard = Protect(setclipboard)
 	
 	local function get(NameOfOBJ, parentName)
 		for _, obj in ipairs(script.Parent:GetDescendants()) do

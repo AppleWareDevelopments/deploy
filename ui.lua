@@ -4137,11 +4137,7 @@ local function require(Module:ModuleScript)
 end
 
 G2L_MODULES[UI["1d2"]] = {
-	Closure = function()
-		local script = UI["1d2"]
-		local module = {}
-
-		local highlighter = require(script.Highlighter)
+	local highlighter = require(script.Highlighter)
 		local textbox2 = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2
 		local minimap = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source.Source2
 		local sourceLabel = textbox2.Parent.Parent.TextLabel
@@ -4160,12 +4156,6 @@ G2L_MODULES[UI["1d2"]] = {
 		local listfiles = listfiles or function(folderName)
 			return ''
 		end
-
-		local service = setmetatable({}, { 
-			__index = function(_, k)
-				return game:GetService(k)
-			end
-		})
 
 		function module.initialize()
 
@@ -4215,7 +4205,7 @@ G2L_MODULES[UI["1d2"]] = {
 			updateScrollFrameSize()
 		end
 
-		local TS = service.TweenService
+		local TS = game:GetService("TweenService")
 
 		function module.NotificationHandler(message, displayTime)
 			local notification = script.Parent.Parent.UI.MainGui.Alert:Clone()
@@ -4285,7 +4275,7 @@ G2L_MODULES[UI["1d2"]] = {
 					end
 				end
 
-				local jsonData = service.HttpService:JSONEncode({lastPage = selectedButton})
+				local jsonData = game:GetService("HttpService"):JSONEncode({lastPage = selectedButton})
 				if not isfile("lastPage.json") then
 					writefile("lastPage.json", jsonData)
 				else
@@ -4299,7 +4289,7 @@ G2L_MODULES[UI["1d2"]] = {
 
 					local success, result = pcall(function()
 						local jsonData = readfile("lastPage.json")
-						local data = service.HttpService:JSONDecode(jsonData)
+						local data = game:GetService("HttpService"):JSONDecode(jsonData)
 						return data.lastPage
 					end)
 					if success then
@@ -4345,20 +4335,16 @@ G2L_MODULES[UI["1d2"]] = {
 
 		function customLoadstring(scriptCode)
 			if loadstring then
-				local success, result = pcall(function()
-					return loadstring(scriptCode)
-				end)
+				local success, result = pcall(loadstring, scriptCode)
 				if success then
-					return loadstring(scriptCode)
+					return result
 				else
 					module.NotificationHandler("Error: " .. tostring(result), 3)
-					-- Suppress the error from appearing in the console
 				end
 			else
 				module.NotificationHandler("Error from Execute", 3)
 			end
 		end
-
 
 		function EditorPageHandler(Option, source)
 			local Code = textbox2.Parent.Text or source
@@ -4411,42 +4397,39 @@ G2L_MODULES[UI["1d2"]] = {
 			newList.Parent = Scrolling
 			newList.Visible = true
 			scname.Text = scriptname
-
-			if type(Description) ~= "string" then
-				sdname.Text = tostring(Description)
-			else
-				sdname.Text = Description
-			end
+			sdname.Text = Description
 
 			execute.MouseButton1Click:Connect(function()
 				customLoadstring(source)
 			end)
 		end
 
+--[[
+function AddScript(CF, Scrolling, scriptname, source)
+	local scriptFrame = CF
+	local newList = scriptFrame:Clone()
+
+	local execute = newList.Click
+	local scname = newList.ScriptName.ScriptName
+	newList.Name = scriptname
+	newList.Parent = Scrolling
+	newList.Visible = true
+	scname.Text = scriptname
+
+	execute.MouseButton1Click:Connect(function()
+		customLoadstring(source)
+	end)
+end
+]]
+
 		function module.CloudHandler(CloneFrame, SearchButton, MyScriptsButton, Scroller, TextBox, http)
 
 			SearchButton.MouseButton1Click:Connect(function()
 				TextBox.TextEditable = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = true
+				Scroller.Parent.Parent.CreatePageScripts.Visible = false
+				Scroller.Parent.Visible = true
 			end)
-
-			MyScriptsButton.MouseButton1Click:Connect(function()
-				TextBox.TextEditable = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = false
-			end)
-			script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.AddBtn.MouseButton1Click:Connect(function()
-				script.Parent.Parent.UI.MainGui.Pages.ScriptSave.Visible = true
-			end)
-
-
+            
 			TextBox.FocusLost:Connect(function()
 				if TextBox.Text == "" or #TextBox.Text > 15 or Scroller.Parent.Visible == false then return end
 				for _, child in ipairs(Scroller:GetChildren()) do
@@ -4478,7 +4461,108 @@ G2L_MODULES[UI["1d2"]] = {
 			end)
 		end
 
+--[[
+local function loadScripts()
+	if game:GetService("RunService"):IsStudio() then return end
+	local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
+	for _, child in ipairs(scroller9:GetChildren()) do
+		if child:IsA("Frame") then
+			child:Destroy()
+		end
+	end
+
+	for _, file in ipairs(listfiles("scripts")) do
+		local scriptName = file:sub(9, -5)
+		local scriptCode = readfile(file)
+		AddScript(scroller9.C.ScriptFrame, scroller9, scriptName, scriptCode)
+	end
+end
+
+function module.Script_Saver_system(CloseButton, CloseButton2, ScriptNameInput, ScriptCodeInput, button1, button2)
+	local ScriptName = ScriptNameInput
+	local ScriptCode = ScriptCodeInput
+	print(ScriptCode)
+	print(ScriptName)
+
+	CloseButton.MouseButton1Click:Connect(function()
+		CloseButton.Parent.Parent.Visible = false
+	end)
+
+	CloseButton2.MouseButton1Click:Connect(function()
+		CloseButton2.Parent.Parent.Visible = false
+	end)
+
+	button1.MouseButton1Click:Connect(function()
+		CloseButton.Parent.Visible = false
+		CloseButton2.Parent.Parent.Visible = true
+	end)
+
+	button2.MouseButton1Click:Connect(function()
+		CloseButton2.Parent.Parent.Visible = false
+		if ScriptCode == "" then 
+			return module.NotificationHandler("Script Code Empty") 
+		end
+		if ScriptName == "" then 
+			return module.NotificationHandler("Script Name Empty") 
+		end
+
+		local filePath = "scripts/" .. ScriptName .. ".txt"
+
+		if not isfile(filePath) then
+			local success, errorMsg = pcall(function()
+				writefile(filePath, ScriptCode)
+			end)
+
+			if not success then
+				return module.NotificationHandler("Error saving script: " .. errorMsg)
+			else
+				module.NotificationHandler("Script saved successfully!")
+				loadScripts()
+			end
+		else
+			module.NotificationHandler("Script with that name already exists!")
+		end
+	end)
+	
+	local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
+	AddScript(scroller9.C.ScriptFrame, scroller9, "scriptname", "scriptcode")
+end
+]]
+
 		-- console not now
+		local Types = { Toggle = true, OneClick = true }
+		local config = script.Parent.Parent.UI.MainGui.Pages.ConfigPage.ScrollingFrame
+
+		function module.ConfigMakeHandler(Type, Name, Icon, Description, ScriptCode)
+			local ConfigClone = config.Types.Toggle:Clone()
+
+			if Type == Types.Toggle then
+				ConfigClone.descriptionLabel.Text = Description
+				ConfigClone.LoadAnimLabel.Text = Name
+				ConfigClone.Box.Icon.Image = Icon
+				ConfigClone.Parent = config
+				ConfigClone.Visible = true
+				ConfigClone.Name = Name
+				local toggleState = false
+
+				local function setToggleState(state)
+					if state then
+						ConfigClone.ToggleOn.Rotation = 180
+					else
+						ConfigClone.ToggleOn.Rotation = 0
+					end
+				end
+
+				ConfigClone.Click.MouseButton1Click:Connect(function()
+					customLoadstring(ScriptCode)
+					toggleState = not toggleState
+					setToggleState(toggleState)
+				end)
+
+			elseif Type == Types.OneClick then
+			end
+		end
+
 		function module.TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf)
 
 			local function encode(data)
@@ -4517,7 +4601,7 @@ G2L_MODULES[UI["1d2"]] = {
 			end
 
 			local currentTab = "tab1"
-			local nextTabIndex = td.Howmuch + 1
+			local nextTabIndex = td.Howmuch + 1 or "1"
 
 			for n, c in pairs(td) do
 				if n ~= "Howmuch" then
@@ -4595,7 +4679,7 @@ G2L_MODULES[UI["1d2"]] = {
 		end
 
 		function updateStrokeThickness(uiStroke)
-			local camera = service.Workspace:WaitForChild("CurrentCamera") or ''
+			local camera = game:GetService("Workspace"):WaitForChild("CurrentCamera") or ''
 			local BASE_WIDTH = 1920
 			local BASE_HEIGHT = 1080
 			local initialStrokeThickness = uiStroke.Thickness
@@ -4612,129 +4696,6 @@ G2L_MODULES[UI["1d2"]] = {
 					updateStrokeThickness(gui)
 				end
 			end
-		end
-
-
-		--saving handler
-
-		function makeScript(scriptname, scriptcode)
-			for _, v in pairs(script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling:GetChildren()) do
-				if v:IsA("Frame") then
-					v:Destroy()
-				end
-			end
-			local clonedpage = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame:Clone()
-			local SN = clonedpage.ScriptName.ScriptName
-			local SC = clonedpage.Click
-			clonedpage.Parent = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
-			clonedpage.Visible = true
-			SN.Text = scriptname
-			SC.MouseButton1Click:Connect(function()
-				print(scriptcode)
-				customLoadstring(scriptcode)
-			end)
-		end
-
-		function SavingSystem(name, source)
-			writefile("scripts/" .. (name:match("%.lua$") and name or name .. ".lua"), source)
-			makeScript(name, source)
-		end
-
-		function module.SavingHandler()
-
-			local Page29 = script.Parent.Parent.UI.MainGui.Pages.ScriptSave
-			local NameS = Page29.ScriptPage1
-			local CodeS = Page29.ScriptPage2
-
-			local NInput = NameS.input.InputText
-			local NNext = NameS.NextBtn.Click
-			local NExit = NameS.CloseBtn.Click
-
-			local CInput = CodeS.Input1.InputText1
-			local Saving = CodeS.saveBtn.Click
-			local CExit = CodeS.CloseBtn1.Click
-
-			local Code = CInput
-			local TextName = NInput
-
-			local function closeSaving()
-				Page29.Visible = false
-				NameS.Visible = true
-				CodeS.Visible = false
-			end
-
-			NNext.MouseButton1Click:Connect(function()
-				NameS.Visible = false
-				CodeS.Visible = true
-			end)
-
-			Saving.MouseButton1Click:Connect(function()
-				SavingSystem(TextName.Text, Code.Text)
-				print(TextName.Text, Code.Text)
-				closeSaving()
-			end)
-
-			--close handler
-
-			NExit.MouseButton1Click:Connect(function()
-				closeSaving()
-			end)
-			CExit.MouseButton1Click:Connect(function()
-				closeSaving()
-			end)
-			if game:GetService("RunService"):IsStudio() then return end
-			local oldfiles = {}
-			for _, file in ipairs(listfiles("scripts")) do
-				local scriptName = file:sub(9, -5)
-				local scriptCode = readfile(file)
-				makeScript(scriptName, scriptCode)
-			end
-			while true do
-				local currentFiles = listfiles("scripts")
-				if #currentFiles ~= #oldfiles then
-					oldfiles = currentFiles
-					for _, file in ipairs(currentFiles) do
-						local scriptName = file:sub(9, -5)
-						local scriptCode = readfile(file)
-						makeScript(scriptName, scriptCode)
-					end
-				end
-				wait(2)
-			end
-		end
-
-		function module.drag(frame)
-			local dragging, dragStart, startPos = false, nil, nil
-
-			local function update(input)
-				local delta = input.Position - dragStart
-				frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-			end
-
-			frame.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-					dragging = true
-					dragStart = input.Position
-					startPos = frame.Position
-					input.Changed:Connect(function()
-						if input.UserInputState == Enum.UserInputState.End then
-							dragging = false
-						end
-					end)
-				end
-			end)
-
-			frame.InputChanged:Connect(function(input)
-				if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-					update(input)
-				end
-			end)
-
-			service.UserInputService.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-					dragging = false
-				end
-			end)
 		end
 
 		return module

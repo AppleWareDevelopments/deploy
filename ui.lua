@@ -6131,7 +6131,98 @@ G2L_MODULES[UI["1d8"]] = {
 -- // StarterGui.ApplewareNew.Handler \\ --
 local function SCRIPT_1d1()
 	local script = UI["1d1"]
+	local service = setmetatable({}, { 
+		__index = function(_, k)
+			return game:GetService(k)
+		end
+	})
 
+	local TS = service.TweenService
+	local HS = service.HttpService
+
+	local MainModule = require(script.Func)
+
+	local SidebarButtons = {"Editor", "Cloud", "Console", "Config"}
+	local Pages = {"EditorPage", "CloudPage", "ConsolePage", "ConfigPage"}
+
+	local Positions = {
+		SidebarHidden = UDim2.new(-0.3, 0, 0, 0),
+		SidebarVisible = UDim2.new(0, 0, 0, 0),
+		PageHidden = UDim2.new(1, 0, -0.006, 0),
+		PageVisible = UDim2.new(0.255, 0,0, 0),
+	}
+
+	local Types = { Toggle = true, OneClick = true }
+
+	local UI = script.Parent:FindFirstChild("UI"):FindFirstChild("MainGui")
+	local open = UI.Parent.Parent.OpenBtn.OpenClick
+	local P = UI:FindFirstChild("Pages")
+	local Sidebar = UI:FindFirstChild("Sidebar")
+	local Slide = Sidebar:WaitForChild("Close"):WaitForChild("Slide")
+
+
+	MainModule.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SidebarButtons, Pages, Positions.SidebarHidden, Positions.SidebarVisible, Positions.PageHidden, Positions.PageVisible)
+	MainModule.initialize()
+
+	local premium = Sidebar.UpgradeBtn.Click
+
+	premium.MouseButton1Click:Connect(function()
+		open_discord_link()
+	end)
+	--<<Editor Page Handler>>--
+	local back = P.EditorPage.Buttons
+	local Execute = back.Execute.Click
+	local Paste = back.Paste.Click
+	local Clear = back.Clear.Click
+	MainModule.EditorPageinstaller(Execute, Clear, Paste, back.Parent.EditorPage)
+	--<<Cloud Page Handler>>--
+	local CloudPage = P.CloudPage
+	local CF = CloudPage.CloudPageScripts.C.ScriptFrame
+	local CS = CloudPage.Buttons.CloudPage.Click
+	local CC = CloudPage.Buttons.CreatePage.Click
+	local C_Scroller = CloudPage.CloudPageScripts.Scrolling
+	local C_Text = CloudPage.SearchFrame.SearchBox
+	MainModule.CloudHandler(CF, CS, CC, C_Scroller, C_Text, HS)
+
+	--<<Console Page Handler>>--
+	--not now
+
+	MainModule.ConfigMakeHandler(
+		Types.Toggle, 
+		"Unlock FPS",         
+		"rbxassetid://72861080961830",
+		"Gets rid of Roblox's 60FPS Limit.",
+		'setclipboard(240)'
+	)
+
+	local tc = P.EditorPage.Tabs.Tab1
+	local ts = P.EditorPage.Tabs
+	local ab = tc.AddTab.AddBtn
+	local tn = tc.Main.TabName
+	local db = tc.Del
+	local sb = tc.Click
+	local sc = P.EditorPage.EditorPage.txtbox.EditorFrame.Source
+
+	local tcu = P.TabCreate
+	local tnt = tcu.ScriptPage1.input.InputText
+	local cb = tcu.ScriptPage1.NextBtn.Click
+	local cl = tcu.ScriptPage1.CloseBtn.Click
+
+	local td = {}
+	local tf = "Tabs.json"
+	local tcc = 2
+
+	MainModule.TabsLoader(tc, ts, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf, tcc)
+
+	local Pageidk = P.ScriptSave
+	local button1 = Pageidk.ScriptPage1.NextBtn.Click
+	local button2 = Pageidk.ScriptPage2.saveBtn.Click
+	local CloseButtonS = Pageidk.ScriptPage1.CloseBtn.Click
+	local CloseButtonS2 = Pageidk.ScriptPage2.CloseBtn1.Click
+	local ScriptNameInput = Pageidk.ScriptPage1.input.InputText.Text
+	local ScriptCode = Pageidk.ScriptPage2.Input1.InputText1.Text
+
+	MainModule.updateAllStrokes()
 end
 task.spawn(SCRIPT_1d1)
 -- // StarterGui.ApplewareNew.LocalScript \\ --

@@ -3,8 +3,7 @@
 -- // INSTANCES: 473 | SCRIPTS: 2 | MODULES: 7 \\ --
 
 local UI = {}
-print("HIDDEN UI")
-print(gethui())
+
 -- // StarterGui.ApplewareNew \\ --
 UI["1"] = Instance.new("ScreenGui", gethui())
 UI["1"]["IgnoreGuiInset"] = true
@@ -222,7 +221,6 @@ UI["15"]["BackgroundTransparency"] = 1
 
 -- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source \\ --
 UI["16"] = Instance.new("TextBox", UI["15"])
-UI["16"]["CursorPosition"] = -1
 UI["16"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["16"]["PlaceholderColor3"] = Color3.fromRGB(205, 205, 205)
 UI["16"]["ZIndex"] = 3
@@ -1445,7 +1443,6 @@ UI["a3"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0)
 -- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox \\ --
 UI["a4"] = Instance.new("TextBox", UI["a1"])
 UI["a4"]["Visible"] = false
-UI["a4"]["CursorPosition"] = -1
 UI["a4"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
 UI["a4"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
 UI["a4"]["BorderSizePixel"] = 0
@@ -2176,7 +2173,8 @@ UI["f6"]["Name"] = [[Icon1]]
 UI["f6"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0)
 
 -- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.barIdk1 \\ --
-UI["f7"] = Insta = 2
+UI["f7"] = Instance.new("ImageLabel", UI["f4"])
+UI["f7"]["ZIndex"] = 2
 UI["f7"]["BorderSizePixel"] = 0
 UI["f7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 UI["f7"]["Image"] = [[rbxassetid://107516337694688]]
@@ -3669,7 +3667,6 @@ UI["1a4"]["CornerRadius"] = UDim.new(0, 220)
 
 -- // StarterGui.ApplewareNew.KeySystem \\ --
 UI["1a5"] = Instance.new("Frame", UI["1"])
-UI["1a5"]["Visible"] = false
 UI["1a5"]["BorderSizePixel"] = 0
 UI["1a5"]["BackgroundColor3"] = Color3.fromRGB(16, 19, 27)
 UI["1a5"]["Size"] = UDim2.new(1.00104, 0, 1, 0)
@@ -6134,103 +6131,7 @@ G2L_MODULES[UI["1d8"]] = {
 -- // StarterGui.ApplewareNew.Handler \\ --
 local function SCRIPT_1d1()
 	local script = UI["1d1"]
-	local service = setmetatable({}, { 
-		__index = function(_, k)
-			return game:GetService(k)
-		end
-	})
 
-	local TS = service.TweenService
-	local HS = service.HttpService
-
-	local MainModule = require(script.Func)
-
-	local SidebarButtons = {"Editor", "Cloud", "Config"}
-	local Pages = {"EditorPage", "CloudPage", "ConfigPage"}
-
-	local Positions = {
-		SidebarHidden = UDim2.new(-0.3, 0, 0, 0),
-		SidebarVisible = UDim2.new(0, 0, 0, 0),
-		PageHidden = UDim2.new(1, 0, -0.006, 0),
-		PageVisible = UDim2.new(0.255, 0,0, 0),
-	}
-
-	local Types = { Toggle = true, OneClick = true }
-
-	local UI = script.Parent:FindFirstChild("UI"):FindFirstChild("MainGui")
-	local open = UI.Parent.Parent.OpenBtn.OpenClick
-	local P = UI:FindFirstChild("Pages")
-	local Sidebar = UI:FindFirstChild("Sidebar")
-	local Slide = Sidebar:WaitForChild("Close"):WaitForChild("Slide")
-
-	MainModule.drag(open.Parent)
-
-	MainModule.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SidebarButtons, Pages, Positions.SidebarHidden, Positions.SidebarVisible, Positions.PageHidden, Positions.PageVisible)
-	MainModule.initialize()
-
-	local premium = Sidebar.UpgradeBtn.Click
-
-	premium.MouseButton1Click:Connect(function()
-		open_discord_link()
-	end)
-	--<<Editor Page Handler>>--
-	local back = P.EditorPage.Buttons
-	local Execute = back.Execute.Click
-	local Paste = back.Paste.Click
-	local Clear = back.Clear.Click
-	MainModule.EditorPageinstaller(Execute, Clear, Paste, back.Parent.EditorPage)
-	--<<Cloud Page Handler>>--
-	local CloudPage = P.CloudPage
-	local CF = CloudPage.CloudPageScripts.C.ScriptFrame
-	local CS = CloudPage.Buttons.CloudPage.Click
-	local CC = CloudPage.Buttons.CreatePage.Click
-	local C_Scroller = CloudPage.CloudPageScripts.Scrolling
-	local C_Text = CloudPage.SearchFrame.SearchBox
-	MainModule.CloudHandler(CF, CS, CC, C_Scroller, C_Text, HS)
-
-	--tab system
-	local tc = P.EditorPage.Tabs.Tab1
-	local ts = P.EditorPage.Tabs
-	local ab = tc.AddTab.AddBtn
-	local tn = tc.Main.TabName
-	local db = tc.Del
-	local sb = tc.Click
-	local sc = P.EditorPage.EditorPage.txtbox.EditorFrame.Source
-
-	local tcu = P.TabCreate
-	local tnt = tcu.ScriptPage1.input.InputText
-	local cb = tcu.ScriptPage1.NextBtn.Click
-	local cl = tcu.ScriptPage1.CloseBtn.Click
-
-	local td = {}
-	local tf = "Tabs.json"
-	local tcc = 2
-
-	MainModule.TabsLoader(tc, ts, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf, tcc)
-
-	MainModule.updateAllStrokes()
-
-	local ConfigClone = P.ConfigPage.ScrollingFrame.FPS
-	local tSS = false
-
-	local function setn(state)
-		if state then
-			ConfigClone.ToggleOn.Visible = true
-			ConfigClone.ToggleOff.Visible = false
-			setfpscap(240)
-		else
-			ConfigClone.ToggleOn.Visible = false
-			ConfigClone.ToggleOff.Visible = true
-			setfpscap(60)
-		end
-	end
-
-	ConfigClone.Click.MouseButton1Click:Connect(function()
-		tSS = not tSS
-		setn(tSS)
-	end)
-
-	MainModule.SavingHandler()
 end
 task.spawn(SCRIPT_1d1)
 -- // StarterGui.ApplewareNew.LocalScript \\ --
@@ -6271,5 +6172,4 @@ local function SCRIPT_1d9()
 end
 task.spawn(SCRIPT_1d9)
 
-return UI["1"], require;nce.new("ImageLabel", UI["f4"])
-UI["f7"]["ZIndex"]
+return UI["1"], require;

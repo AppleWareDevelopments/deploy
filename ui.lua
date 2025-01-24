@@ -1,271 +1,246 @@
---[=[
- ______     ______   ______   __         ______     __     __     ______     ______     ______    
-/\  __ \   /\  == \ /\  == \ /\ \       /\  ___\   /\ \  _ \ \   /\  __ \   /\  == \   /\  ___\   
-\ \  __ \  \ \  _-/ \ \  _-/ \ \ \____  \ \  __\   \ \ \/ ".\ \  \ \  __ \  \ \  __<   \ \  __\   
- \ \_\ \_\  \ \_\    \ \_\    \ \_____\  \ \_____\  \ \__/".~\_\  \ \_\ \_\  \ \_\ \_\  \ \_____\ 
-  \/_/\/_/   \/_/     \/_/     \/_____/   \/_____/   \/_/   \/_/   \/_/\/_/   \/_/ /_/   \/_____/                                                                                   
-]=]
+-- // GUI TO LUA \\ --
 
--- Instances: 546 | Scripts: 2 | Modules: 7 | Tags: 0
-local G2L = {};
-repeat wait() until game:IsLoaded() 
+-- // INSTANCES: 473 | SCRIPTS: 2 | MODULES: 7 \\ --
 
--- StarterGui.NewAW
-G2L["1"] = Instance.new("ScreenGui", gethui()); --"nigga said; 'i am using gethui' "
-G2L["1"]["IgnoreGuiInset"] = true;
-G2L["1"]["DisplayOrder"] = 1;
-G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.None;
-G2L["1"]["Name"] = [[NewAW]];
-G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+local UI = {}
 
+-- // StarterGui.ApplewareNew \\ --
+UI["1"] = Instance.new("ScreenGui", gethui())
+UI["1"]["IgnoreGuiInset"] = true
+UI["1"]["DisplayOrder"] = 999999999
+UI["1"]["ScreenInsets"] = Enum.ScreenInsets.None
+UI["1"]["Name"] = [[ApplewareNew]]
+UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 
--- StarterGui.NewAW.ImageLabel
-G2L["2"] = Instance.new("ImageLabel", G2L["1"]);
-G2L["2"]["BorderSizePixel"] = 0;
-G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["2"]["Image"] = [[rbxassetid://102455275740647]];
-G2L["2"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["2"]["Visible"] = false;
-G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["2"]["Position"] = UDim2.new(0, 0, -0.00741, 0);
+-- // StarterGui.ApplewareNew.ImageLabel \\ --
+UI["2"] = Instance.new("ImageLabel", UI["1"])
+UI["2"]["BorderSizePixel"] = 0
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["2"]["Image"] = [[rbxassetid://102455275740647]]
+UI["2"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["2"]["Visible"] = false
+UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2"]["Position"] = UDim2.new(0, 0, -0.00741, 0)
 
+-- // StarterGui.ApplewareNew.UI \\ --
+UI["3"] = Instance.new("Frame", UI["1"])
+UI["3"]["Visible"] = false
+UI["3"]["BorderSizePixel"] = 0
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(16, 19, 27)
+UI["3"]["ClipsDescendants"] = true
+UI["3"]["Size"] = UDim2.new(0.96403, 0, 0.93611, 0)
+UI["3"]["Position"] = UDim2.new(0.01762, 0, 0.03138, 0)
+UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3"]["Name"] = [[UI]]
 
--- StarterGui.NewAW.UI
-G2L["3"] = Instance.new("Frame", G2L["1"]);
-G2L["3"]["Visible"] = false;
-G2L["3"]["BorderSizePixel"] = 0;
-G2L["3"]["BackgroundColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["3"]["ClipsDescendants"] = true;
-G2L["3"]["Size"] = UDim2.new(0.96403, 0, 0.93611, 0);
-G2L["3"]["Position"] = UDim2.new(0.01762, 0, 0.03138, 0);
-G2L["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["3"]["Name"] = [[UI]];
+-- // StarterGui.ApplewareNew.UI.UICorner \\ --
+UI["4"] = Instance.new("UICorner", UI["3"])
+UI["4"]["CornerRadius"] = UDim.new(0.04, 0)
 
+-- // StarterGui.ApplewareNew.UI.UIStroke \\ --
+UI["5"] = Instance.new("UIStroke", UI["3"])
+UI["5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+UI["5"]["Thickness"] = 10
+UI["5"]["Color"] = Color3.fromRGB(35, 39, 54)
 
--- StarterGui.NewAW.UI.UICorner
-G2L["4"] = Instance.new("UICorner", G2L["3"]);
-G2L["4"]["CornerRadius"] = UDim.new(0.04, 0);
+-- // StarterGui.ApplewareNew.UI.MainGui \\ --
+UI["6"] = Instance.new("Folder", UI["3"])
+UI["6"]["Name"] = [[MainGui]]
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert \\ --
+UI["7"] = Instance.new("ImageLabel", UI["6"])
+UI["7"]["ZIndex"] = 6
+UI["7"]["BorderSizePixel"] = 0
+UI["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["7"]["ImageColor3"] = Color3.fromRGB(36, 42, 60)
+UI["7"]["Image"] = [[rbxassetid://133620562515152]]
+UI["7"]["Size"] = UDim2.new(0.31368, 0, 0.18497, 0)
+UI["7"]["Visible"] = false
+UI["7"]["ClipsDescendants"] = true
+UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7"]["BackgroundTransparency"] = 1
+UI["7"]["Name"] = [[Alert]]
+UI["7"]["Position"] = UDim2.new(0.39798, 0, 0.07387, 0)
 
--- StarterGui.NewAW.UI.UIStroke
-G2L["5"] = Instance.new("UIStroke", G2L["3"]);
-G2L["5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["5"]["Thickness"] = 10;
-G2L["5"]["Color"] = Color3.fromRGB(35, 39, 54);
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.TextLabel \\ --
+UI["8"] = Instance.new("TextLabel", UI["7"])
+UI["8"]["TextWrapped"] = true
+UI["8"]["LineHeight"] = 0
+UI["8"]["BorderSizePixel"] = 0
+UI["8"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["8"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["8"]["TextScaled"] = true
+UI["8"]["TextSize"] = 31
+UI["8"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["BackgroundTransparency"] = 1
+UI["8"]["Size"] = UDim2.new(0.50517, 0, 0.17468, 0)
+UI["8"]["Text"] = [[AppleWare Error]]
+UI["8"]["Position"] = UDim2.new(0.14655, 0, 0.21035, 0)
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.TextLabel.UITextSizeConstraint \\ --
+UI["9"] = Instance.new("UITextSizeConstraint", UI["8"])
+UI["9"]["MaxTextSize"] = 31
 
--- StarterGui.NewAW.UI.MainGui
-G2L["6"] = Instance.new("Folder", G2L["3"]);
-G2L["6"]["Name"] = [[MainGui]];
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.TEXTLABEL \\ --
+UI["a"] = Instance.new("TextLabel", UI["7"])
+UI["a"]["TextWrapped"] = true
+UI["a"]["BorderSizePixel"] = 0
+UI["a"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["a"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["a"]["TextScaled"] = true
+UI["a"]["TextSize"] = 23
+UI["a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["a"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["a"]["BackgroundTransparency"] = 1
+UI["a"]["Size"] = UDim2.new(0.45, 0, 0.32086, 0)
+UI["a"]["Text"] = [[Offers a smoother Experience and more!]]
+UI["a"]["Name"] = [[TEXTLABEL]]
+UI["a"]["Position"] = UDim2.new(0.14828, 0, 0.4492, 0)
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.TEXTLABEL.UITextSizeConstraint \\ --
+UI["b"] = Instance.new("UITextSizeConstraint", UI["a"])
+UI["b"]["MaxTextSize"] = 23
 
--- StarterGui.NewAW.UI.MainGui.Alert
-G2L["7"] = Instance.new("ImageLabel", G2L["6"]);
-G2L["7"]["ZIndex"] = 6;
-G2L["7"]["BorderSizePixel"] = 0;
-G2L["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["7"]["ImageColor3"] = Color3.fromRGB(36, 42, 60);
-G2L["7"]["Image"] = [[rbxassetid://133620562515152]];
-G2L["7"]["Size"] = UDim2.new(0.31368, 0, 0.18497, 0);
-G2L["7"]["Visible"] = false;
-G2L["7"]["ClipsDescendants"] = true;
-G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["7"]["BackgroundTransparency"] = 1;
-G2L["7"]["Name"] = [[Alert]];
-G2L["7"]["Position"] = UDim2.new(0.39798, 0, 0.07387, 0);
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.ImageLabel \\ --
+UI["c"] = Instance.new("ImageLabel", UI["7"])
+UI["c"]["ZIndex"] = 2
+UI["c"]["BorderSizePixel"] = 0
+UI["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["c"]["Image"] = [[rbxassetid://107516337694688]]
+UI["c"]["Size"] = UDim2.new(0.03103, 0, 0.54011, 0)
+UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c"]["BackgroundTransparency"] = 1
+UI["c"]["Position"] = UDim2.new(0.05852, 0, 0.21035, 0)
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.ImageLabel.UIGradient \\ --
+UI["d"] = Instance.new("UIGradient", UI["c"])
+UI["d"]["Rotation"] = 91.10171
+UI["d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))}
 
--- StarterGui.NewAW.UI.MainGui.Alert.TextLabel
-G2L["8"] = Instance.new("TextLabel", G2L["7"]);
-G2L["8"]["TextWrapped"] = true;
-G2L["8"]["LineHeight"] = 0;
-G2L["8"]["BorderSizePixel"] = 0;
-G2L["8"]["TextSize"] = 31;
-G2L["8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["8"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["8"]["TextScaled"] = true;
-G2L["8"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["8"]["BackgroundTransparency"] = 1;
-G2L["8"]["Size"] = UDim2.new(0.50517, 0, 0.17468, 0);
-G2L["8"]["Text"] = [[AppleWare Error]];
-G2L["8"]["Position"] = UDim2.new(0.14655, 0, 0.21035, 0);
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.ShadowBackk \\ --
+UI["e"] = Instance.new("ImageLabel", UI["7"])
+UI["e"]["BorderSizePixel"] = 0
+UI["e"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["e"]["Image"] = [[rbxassetid://82022759470861]]
+UI["e"]["Size"] = UDim2.new(0.06724, 0, 0.94118, 0)
+UI["e"]["BackgroundTransparency"] = 1
+UI["e"]["Name"] = [[ShadowBackk]]
+UI["e"]["Position"] = UDim2.new(0.03621, 0, 0, 0)
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Alert.Icon \\ --
+UI["f"] = Instance.new("ImageButton", UI["7"])
+UI["f"]["BorderSizePixel"] = 0
+UI["f"]["Image"] = [[rbxassetid://88951128464748]]
+UI["f"]["Size"] = UDim2.new(0.05, 0, 0.16043, 0)
+UI["f"]["BackgroundTransparency"] = 1
+UI["f"]["Name"] = [[Icon]]
+UI["f"]["Position"] = UDim2.new(0.83966, 0, 0.39572, 0)
 
--- StarterGui.NewAW.UI.MainGui.Alert.TextLabel.UITextSizeConstraint
-G2L["9"] = Instance.new("UITextSizeConstraint", G2L["8"]);
-G2L["9"]["MaxTextSize"] = 31;
+-- // StarterGui.ApplewareNew.UI.MainGui.shadow \\ --
+UI["10"] = Instance.new("ImageLabel", UI["6"])
+UI["10"]["ZIndex"] = 22
+UI["10"]["BorderSizePixel"] = 0
+UI["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["10"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["10"]["Image"] = [[rbxassetid://102023075611323]]
+UI["10"]["Size"] = UDim2.new(0.01947, 0, 1, 0)
+UI["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["10"]["BackgroundTransparency"] = 1
+UI["10"]["Name"] = [[shadow]]
+UI["10"]["Position"] = UDim2.new(0.25403, 0, 0, 0)
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages \\ --
+UI["11"] = Instance.new("ImageLabel", UI["6"])
+UI["11"]["BorderSizePixel"] = 0
+UI["11"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["11"]["ImageTransparency"] = 1
+UI["11"]["ImageColor3"] = Color3.fromRGB(13, 15, 20)
+UI["11"]["Image"] = [[rbxassetid://76734110237026]]
+UI["11"]["Size"] = UDim2.new(0.74473, 0, 1, 0)
+UI["11"]["ClipsDescendants"] = true
+UI["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["11"]["BackgroundTransparency"] = 1
+UI["11"]["Name"] = [[Pages]]
+UI["11"]["Position"] = UDim2.new(0.25499, 0, 0, 0)
 
--- StarterGui.NewAW.UI.MainGui.Alert.TEXTLABEL
-G2L["a"] = Instance.new("TextLabel", G2L["7"]);
-G2L["a"]["TextWrapped"] = true;
-G2L["a"]["BorderSizePixel"] = 0;
-G2L["a"]["TextSize"] = 23;
-G2L["a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["a"]["TextScaled"] = true;
-G2L["a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["a"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["a"]["BackgroundTransparency"] = 1;
-G2L["a"]["Size"] = UDim2.new(0.45, 0, 0.32086, 0);
-G2L["a"]["Text"] = [[Offers a smoother Experience and more!]];
-G2L["a"]["Name"] = [[TEXTLABEL]];
-G2L["a"]["Position"] = UDim2.new(0.14828, 0, 0.4492, 0);
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage \\ --
+UI["12"] = Instance.new("ImageLabel", UI["11"])
+UI["12"]["BorderSizePixel"] = 0
+UI["12"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["12"]["ImageTransparency"] = 1
+UI["12"]["ImageColor3"] = Color3.fromRGB(13, 15, 20)
+UI["12"]["Image"] = [[rbxassetid://76734110237026]]
+UI["12"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
+UI["12"]["Visible"] = false
+UI["12"]["ClipsDescendants"] = true
+UI["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["12"]["BackgroundTransparency"] = 1
+UI["12"]["Name"] = [[EditorPage]]
+UI["12"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0)
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage \\ --
+UI["13"] = Instance.new("ImageLabel", UI["12"])
+UI["13"]["BorderSizePixel"] = 0
+UI["13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["13"]["ImageColor3"] = Color3.fromRGB(32, 39, 57)
+UI["13"]["Image"] = [[rbxassetid://136761835814725]]
+UI["13"]["Size"] = UDim2.new(1.00073, 0, 0.83581, 0)
+UI["13"]["ClipsDescendants"] = true
+UI["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["13"]["BackgroundTransparency"] = 1
+UI["13"]["Name"] = [[EditorPage]]
+UI["13"]["Position"] = UDim2.new(-0.00064, 0, 0.16248, 0)
 
--- StarterGui.NewAW.UI.MainGui.Alert.TEXTLABEL.UITextSizeConstraint
-G2L["b"] = Instance.new("UITextSizeConstraint", G2L["a"]);
-G2L["b"]["MaxTextSize"] = 23;
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox \\ --
+UI["14"] = Instance.new("Frame", UI["13"])
+UI["14"]["BorderSizePixel"] = 0
+UI["14"]["BackgroundColor3"] = Color3.fromRGB(24, 24, 32)
+UI["14"]["Size"] = UDim2.new(1, 0, 0.68651, 0)
+UI["14"]["Position"] = UDim2.new(0, 0, 0.05377, 0)
+UI["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["14"]["Name"] = [[txtbox]]
+UI["14"]["BackgroundTransparency"] = 0.9
 
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame \\ --
+UI["15"] = Instance.new("ScrollingFrame", UI["14"])
+UI["15"]["ElasticBehavior"] = Enum.ElasticBehavior.Always
+UI["15"]["TopImage"] = [[rbxassetid://148970562]]
+UI["15"]["MidImage"] = [[rbxassetid://148970562]]
+UI["15"]["VerticalScrollBarInset"] = Enum.ScrollBarInset.Always
+UI["15"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32)
+UI["15"]["Name"] = [[EditorFrame]]
+UI["15"]["ScrollBarImageTransparency"] = 1
+UI["15"]["HorizontalScrollBarInset"] = Enum.ScrollBarInset.Always
+UI["15"]["BottomImage"] = [[rbxassetid://148970562]]
+UI["15"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["15"]["ScrollBarImageColor3"] = Color3.fromRGB(38, 40, 46)
+UI["15"]["BorderColor3"] = Color3.fromRGB(62, 62, 62)
+UI["15"]["ScrollBarThickness"] = 10
+UI["15"]["BackgroundTransparency"] = 1
 
--- StarterGui.NewAW.UI.MainGui.Alert.ImageLabel
-G2L["c"] = Instance.new("ImageLabel", G2L["7"]);
-G2L["c"]["ZIndex"] = 2;
-G2L["c"]["BorderSizePixel"] = 0;
-G2L["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["c"]["Image"] = [[rbxassetid://107516337694688]];
-G2L["c"]["Size"] = UDim2.new(0.03103, 0, 0.54011, 0);
-G2L["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["c"]["BackgroundTransparency"] = 1;
-G2L["c"]["Position"] = UDim2.new(0.05852, 0, 0.21035, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Alert.ImageLabel.UIGradient
-G2L["d"] = Instance.new("UIGradient", G2L["c"]);
-G2L["d"]["Rotation"] = 91.10171;
-G2L["d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))};
-
-
--- StarterGui.NewAW.UI.MainGui.Alert.ShadowBackk
-G2L["e"] = Instance.new("ImageLabel", G2L["7"]);
-G2L["e"]["BorderSizePixel"] = 0;
-G2L["e"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["e"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["e"]["Size"] = UDim2.new(0.06724, 0, 0.94118, 0);
-G2L["e"]["BackgroundTransparency"] = 1;
-G2L["e"]["Name"] = [[ShadowBackk]];
-G2L["e"]["Position"] = UDim2.new(0.03621, 0, 0, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Alert.Icon
-G2L["f"] = Instance.new("ImageButton", G2L["7"]);
-G2L["f"]["BorderSizePixel"] = 0;
-G2L["f"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["f"]["Size"] = UDim2.new(0.05, 0, 0.16043, 0);
-G2L["f"]["BackgroundTransparency"] = 1;
-G2L["f"]["Name"] = [[Icon]];
-G2L["f"]["Position"] = UDim2.new(0.83966, 0, 0.39572, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.shadow
-G2L["10"] = Instance.new("ImageLabel", G2L["6"]);
-G2L["10"]["ZIndex"] = 22;
-G2L["10"]["BorderSizePixel"] = 0;
-G2L["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["10"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["10"]["Image"] = [[rbxassetid://102023075611323]];
-G2L["10"]["Size"] = UDim2.new(0.01947, 0, 1, 0);
-G2L["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["10"]["BackgroundTransparency"] = 1;
-G2L["10"]["Name"] = [[shadow]];
-G2L["10"]["Position"] = UDim2.new(0.25403, 0, 0, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages
-G2L["11"] = Instance.new("ImageLabel", G2L["6"]);
-G2L["11"]["BorderSizePixel"] = 0;
-G2L["11"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["11"]["ImageTransparency"] = 1;
-G2L["11"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
-G2L["11"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["11"]["Size"] = UDim2.new(0.74473, 0, 1, 0);
-G2L["11"]["ClipsDescendants"] = true;
-G2L["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["11"]["BackgroundTransparency"] = 1;
-G2L["11"]["Name"] = [[Pages]];
-G2L["11"]["Position"] = UDim2.new(0.25499, 0, 0, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage
-G2L["12"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["12"]["BorderSizePixel"] = 0;
-G2L["12"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["12"]["ImageTransparency"] = 1;
-G2L["12"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
-G2L["12"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["12"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["12"]["ClipsDescendants"] = true;
-G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["12"]["BackgroundTransparency"] = 1;
-G2L["12"]["Name"] = [[EditorPage]];
-G2L["12"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage
-G2L["13"] = Instance.new("ImageLabel", G2L["12"]);
-G2L["13"]["BorderSizePixel"] = 0;
-G2L["13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["13"]["ImageColor3"] = Color3.fromRGB(32, 39, 57);
-G2L["13"]["Image"] = [[rbxassetid://136761835814725]];
-G2L["13"]["Size"] = UDim2.new(1.00073, 0, 0.83581, 0);
-G2L["13"]["ClipsDescendants"] = true;
-G2L["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["13"]["BackgroundTransparency"] = 1;
-G2L["13"]["Name"] = [[EditorPage]];
-G2L["13"]["Position"] = UDim2.new(-0.00064, 0, 0.16248, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox
-G2L["14"] = Instance.new("Frame", G2L["13"]);
-G2L["14"]["BorderSizePixel"] = 0;
-G2L["14"]["BackgroundColor3"] = Color3.fromRGB(24, 24, 32);
-G2L["14"]["Size"] = UDim2.new(1, 0, 0.68651, 0);
-G2L["14"]["Position"] = UDim2.new(0, 0, 0.05377, 0);
-G2L["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["14"]["Name"] = [[txtbox]];
-G2L["14"]["BackgroundTransparency"] = 0.9;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame
-G2L["15"] = Instance.new("ScrollingFrame", G2L["14"]);
-G2L["15"]["ElasticBehavior"] = Enum.ElasticBehavior.Always;
-G2L["15"]["TopImage"] = [[rbxassetid://148970562]];
-G2L["15"]["MidImage"] = [[rbxassetid://148970562]];
-G2L["15"]["VerticalScrollBarInset"] = Enum.ScrollBarInset.Always;
-G2L["15"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32);
-G2L["15"]["Name"] = [[EditorFrame]];
-G2L["15"]["ScrollBarImageTransparency"] = 1;
-G2L["15"]["HorizontalScrollBarInset"] = Enum.ScrollBarInset.Always;
-G2L["15"]["BottomImage"] = [[rbxassetid://148970562]];
-G2L["15"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["15"]["ScrollBarImageColor3"] = Color3.fromRGB(38, 40, 46);
-G2L["15"]["BorderColor3"] = Color3.fromRGB(62, 62, 62);
-G2L["15"]["ScrollBarThickness"] = 10;
-G2L["15"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source
-G2L["16"] = Instance.new("TextBox", G2L["15"]);
-G2L["16"]["Name"] = [[Source]];
-G2L["16"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["16"]["PlaceholderColor3"] = Color3.fromRGB(205, 205, 205);
-G2L["16"]["ZIndex"] = 3;
-G2L["16"]["TextWrapped"] = true;
-G2L["16"]["TextTransparency"] = 1;
-G2L["16"]["TextSize"] = 23;
-G2L["16"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["16"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["16"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["16"]["RichText"] = true;
-G2L["16"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
-G2L["16"]["MultiLine"] = true;
-G2L["16"]["ClearTextOnFocus"] = false;
-G2L["16"]["ClipsDescendants"] = true;
-G2L["16"]["Size"] = UDim2.new(0.7, 0, 2, 0);
-G2L["16"]["Position"] = UDim2.new(0.08, 0, 0, 0);
-G2L["16"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
-G2L["16"]["Text"] = [[if IY_LOADED a
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source \\ --
+UI["16"] = Instance.new("TextBox", UI["15"])
+UI["16"]["CursorPosition"] = -1
+UI["16"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["16"]["PlaceholderColor3"] = Color3.fromRGB(205, 205, 205)
+UI["16"]["ZIndex"] = 3
+UI["16"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["16"]["TextWrapped"] = true
+UI["16"]["TextTransparency"] = 1
+UI["16"]["TextSize"] = 23
+UI["16"]["Name"] = [[Source]]
+UI["16"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["16"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["16"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+UI["16"]["RichText"] = true
+UI["16"]["MultiLine"] = true
+UI["16"]["ClearTextOnFocus"] = false
+UI["16"]["ClipsDescendants"] = true
+UI["16"]["Size"] = UDim2.new(0.73281, 0, 8, 0)
+UI["16"]["Position"] = UDim2.new(0.066, 0, 0, 0)
+UI["16"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["16"]["Text"] = [[if IY_LOADED a
 ed
 
 pcall(function() getgenv().IY_LOADED = true end)
@@ -297,4979 +272,3856 @@ Prefix = Instance.new("TextLabel")
 PrefixBox = Instance.new("TextBox")
 Keybinds = Instance.new("TextLabel")
 StayOpen = Instance.new("TextLabel")
-Button = Instance.new("Frame")]];
-G2L["16"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2
-G2L["17"] = Instance.new("TextLabel", G2L["16"]);
-G2L["17"]["TextWrapped"] = true;
-G2L["17"]["BorderSizePixel"] = 0;
-G2L["17"]["TextSize"] = 23;
-G2L["17"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["17"]["TextTransparency"] = 1;
-G2L["17"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["17"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["17"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
-G2L["17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["17"]["BackgroundTransparency"] = 1;
-G2L["17"]["RichText"] = true;
-G2L["17"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["17"]["Text"] = [[]];
-G2L["17"]["Name"] = [[Source2]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.TextLabel
-G2L["18"] = Instance.new("TextLabel", G2L["15"]);
-G2L["18"]["TextWrapped"] = true;
-G2L["18"]["BorderSizePixel"] = 0;
-G2L["18"]["TextSize"] = 25;
-G2L["18"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["18"]["TextScaled"] = true;
-G2L["18"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32);
-G2L["18"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["18"]["TextColor3"] = Color3.fromRGB(193, 191, 235);
-G2L["18"]["BackgroundTransparency"] = 1;
-G2L["18"]["Size"] = UDim2.new(0.05, 0, 2, 0);
-G2L["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["18"]["Text"] = [[1]];
-G2L["18"]["Position"] = UDim2.new(0.02103, 0, -0.00262, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.TextLabel.UITextSizeConstraint
-G2L["19"] = Instance.new("UITextSizeConstraint", G2L["18"]);
-G2L["19"]["MaxTextSize"] = 25;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.UICorner
-G2L["1a"] = Instance.new("UICorner", G2L["15"]);
-
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Frame
-G2L["1b"] = Instance.new("Frame", G2L["15"]);
-G2L["1b"]["BorderSizePixel"] = 0;
-G2L["1b"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32);
-G2L["1b"]["Size"] = UDim2.new(0.195, 0, 2, 0);
-G2L["1b"]["Position"] = UDim2.new(0.803, 0, -0.004, 0);
-G2L["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1b"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn
-G2L["1c"] = Instance.new("Frame", G2L["13"]);
-G2L["1c"]["ZIndex"] = 2;
-G2L["1c"]["BorderSizePixel"] = 0;
-G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1c"]["Size"] = UDim2.new(0.05729, 0, 0.09349, 0);
-G2L["1c"]["Position"] = UDim2.new(0.9131, 0, 0.54643, 0);
-G2L["1c"]["Name"] = [[HideBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.UICorner
-G2L["1d"] = Instance.new("UICorner", G2L["1c"]);
-G2L["1d"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Icon
-G2L["1e"] = Instance.new("ImageLabel", G2L["1c"]);
-G2L["1e"]["ZIndex"] = 2;
-G2L["1e"]["BorderSizePixel"] = 0;
-G2L["1e"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1e"]["Image"] = [[rbxassetid://116112362871715]];
-G2L["1e"]["Size"] = UDim2.new(0.48101, 0, 0.49367, 0);
-G2L["1e"]["BackgroundTransparency"] = 1;
-G2L["1e"]["Name"] = [[Icon]];
-G2L["1e"]["Position"] = UDim2.new(0.26582, 0, 0.25316, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.UIGradient
-G2L["1f"] = Instance.new("UIGradient", G2L["1c"]);
-G2L["1f"]["Rotation"] = 90;
-G2L["1f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click
-G2L["20"] = Instance.new("TextButton", G2L["1c"]);
-G2L["20"]["TextWrapped"] = true;
-G2L["20"]["BorderSizePixel"] = 0;
-G2L["20"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["20"]["TextSize"] = 14;
-G2L["20"]["TextScaled"] = true;
-G2L["20"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["20"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["20"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["20"]["BackgroundTransparency"] = 1;
-G2L["20"]["Name"] = [[Click]];
-G2L["20"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["20"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click.UICorner
-G2L["21"] = Instance.new("UICorner", G2L["20"]);
-G2L["21"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click.UITextSizeConstraint
-G2L["22"] = Instance.new("UITextSizeConstraint", G2L["20"]);
-G2L["22"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click
-G2L["23"] = Instance.new("TextButton", G2L["1c"]);
-G2L["23"]["TextWrapped"] = true;
-G2L["23"]["BorderSizePixel"] = 0;
-G2L["23"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["23"]["TextSize"] = 14;
-G2L["23"]["TextScaled"] = true;
-G2L["23"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["23"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["23"]["ZIndex"] = 3;
-G2L["23"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["23"]["BackgroundTransparency"] = 1;
-G2L["23"]["Name"] = [[Click]];
-G2L["23"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["23"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click.UICorner
-G2L["24"] = Instance.new("UICorner", G2L["23"]);
-G2L["24"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click.UITextSizeConstraint
-G2L["25"] = Instance.new("UITextSizeConstraint", G2L["23"]);
-G2L["25"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.UIAspectRatioConstraint
-G2L["26"] = Instance.new("UIAspectRatioConstraint", G2L["1c"]);
-
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Minimap
-G2L["27"] = Instance.new("ImageLabel", G2L["13"]);
-G2L["27"]["BorderSizePixel"] = 0;
-G2L["27"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["27"]["ImageColor3"] = Color3.fromRGB(36, 42, 60);
-G2L["27"]["Image"] = [[rbxassetid://113289091580128]];
-G2L["27"]["Size"] = UDim2.new(0.13996, 0, 0.22959, 0);
-G2L["27"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["27"]["BackgroundTransparency"] = 1;
-G2L["27"]["Name"] = [[Minimap]];
-G2L["27"]["Position"] = UDim2.new(0.82379, 0, 0.07219, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Frame
-G2L["28"] = Instance.new("Frame", G2L["27"]);
-G2L["28"]["BorderSizePixel"] = 0;
-G2L["28"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32);
-G2L["28"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["28"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source
-G2L["29"] = Instance.new("TextBox", G2L["27"]);
-G2L["29"]["Name"] = [[Source]];
-G2L["29"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["29"]["PlaceholderColor3"] = Color3.fromRGB(205, 205, 205);
-G2L["29"]["ZIndex"] = 2;
-G2L["29"]["TextWrapped"] = true;
-G2L["29"]["TextSize"] = 5;
-G2L["29"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["29"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["29"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["29"]["RichText"] = true;
-G2L["29"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.ExtraLight, Enum.FontStyle.Normal);
-G2L["29"]["MultiLine"] = true;
-G2L["29"]["ClearTextOnFocus"] = false;
-G2L["29"]["ClipsDescendants"] = true;
-G2L["29"]["Size"] = UDim2.new(0.867, 0, 0.82143, 0);
-G2L["29"]["Position"] = UDim2.new(0.084, 0, 0.095, 0);
-G2L["29"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
-G2L["29"]["Text"] = [[local player = game.Players.LocalPlayer.PlayerGui]];
-G2L["29"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source.Source2
-G2L["2a"] = Instance.new("TextLabel", G2L["29"]);
-G2L["2a"]["TextWrapped"] = true;
-G2L["2a"]["ZIndex"] = 2;
-G2L["2a"]["BorderSizePixel"] = 0;
-G2L["2a"]["TextSize"] = 5;
-G2L["2a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["2a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["2a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["2a"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.ExtraLight, Enum.FontStyle.Normal);
-G2L["2a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["2a"]["BackgroundTransparency"] = 1;
-G2L["2a"]["RichText"] = true;
-G2L["2a"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["2a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["2a"]["Text"] = [[local player = game.Players.LocalPlayer.PlayerGui]];
-G2L["2a"]["Name"] = [[Source2]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug
-G2L["2b"] = Instance.new("Frame", G2L["13"]);
-G2L["2b"]["ZIndex"] = 2;
-G2L["2b"]["BorderSizePixel"] = 0;
-G2L["2b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["2b"]["Size"] = UDim2.new(0.05729, 0, 0.09349, 0);
-G2L["2b"]["Position"] = UDim2.new(0.83986, 0, 0.54643, 0);
-G2L["2b"]["Name"] = [[Debug]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug.UICorner
-G2L["2c"] = Instance.new("UICorner", G2L["2b"]);
-G2L["2c"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Icon
-G2L["2d"] = Instance.new("ImageLabel", G2L["2b"]);
-G2L["2d"]["ZIndex"] = 2;
-G2L["2d"]["BorderSizePixel"] = 0;
-G2L["2d"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["2d"]["Image"] = [[rbxassetid://119860431224150]];
-G2L["2d"]["Size"] = UDim2.new(0.40506, 0, 0.49367, 0);
-G2L["2d"]["BackgroundTransparency"] = 1;
-G2L["2d"]["Name"] = [[Icon]];
-G2L["2d"]["Position"] = UDim2.new(0.29114, 0, 0.25316, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug.UIGradient
-G2L["2e"] = Instance.new("UIGradient", G2L["2b"]);
-G2L["2e"]["Rotation"] = 90;
-G2L["2e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Click
-G2L["2f"] = Instance.new("TextButton", G2L["2b"]);
-G2L["2f"]["TextWrapped"] = true;
-G2L["2f"]["BorderSizePixel"] = 0;
-G2L["2f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["2f"]["TextSize"] = 14;
-G2L["2f"]["TextScaled"] = true;
-G2L["2f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["2f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["2f"]["ZIndex"] = 3;
-G2L["2f"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["2f"]["BackgroundTransparency"] = 1;
-G2L["2f"]["Name"] = [[Click]];
-G2L["2f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["2f"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Click.UICorner
-G2L["30"] = Instance.new("UICorner", G2L["2f"]);
-G2L["30"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Click.UITextSizeConstraint
-G2L["31"] = Instance.new("UITextSizeConstraint", G2L["2f"]);
-G2L["31"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Debug.UIAspectRatioConstraint
-G2L["32"] = Instance.new("UIAspectRatioConstraint", G2L["2b"]);
-
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Shadow1
-G2L["33"] = Instance.new("ImageLabel", G2L["13"]);
-G2L["33"]["BorderSizePixel"] = 0;
-G2L["33"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["33"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["33"]["Size"] = UDim2.new(0.11313, 0, 0.24852, 0);
-G2L["33"]["BackgroundTransparency"] = 1;
-G2L["33"]["Name"] = [[Shadow1]];
-G2L["33"]["Position"] = UDim2.new(0.81146, 0, 0.46864, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.EditorPage.Shadow2
-G2L["34"] = Instance.new("ImageLabel", G2L["13"]);
-G2L["34"]["BorderSizePixel"] = 0;
-G2L["34"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["34"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["34"]["Size"] = UDim2.new(0.11313, 0, 0.24852, 0);
-G2L["34"]["BackgroundTransparency"] = 1;
-G2L["34"]["Name"] = [[Shadow2]];
-G2L["34"]["Position"] = UDim2.new(0.8847, 0, 0.46864, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.BorderLine
-G2L["35"] = Instance.new("ImageLabel", G2L["12"]);
-G2L["35"]["ZIndex"] = 2;
-G2L["35"]["BorderSizePixel"] = 0;
-G2L["35"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["35"]["ImageColor3"] = Color3.fromRGB(34, 41, 58);
-G2L["35"]["Image"] = [[rbxassetid://107651131030598]];
-G2L["35"]["Size"] = UDim2.new(1.00632, 0, 0.015, 0);
-G2L["35"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["35"]["BackgroundTransparency"] = 1;
-G2L["35"]["Name"] = [[BorderLine]];
-G2L["35"]["Position"] = UDim2.new(-0.00632, 0, 0.15409, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons
-G2L["36"] = Instance.new("ImageLabel", G2L["12"]);
-G2L["36"]["ZIndex"] = 2;
-G2L["36"]["BorderSizePixel"] = 0;
-G2L["36"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["36"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["36"]["Image"] = [[rbxassetid://123590482033481]];
-G2L["36"]["Size"] = UDim2.new(1.00073, 0, 0.27102, 0);
-G2L["36"]["ClipsDescendants"] = true;
-G2L["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["36"]["BackgroundTransparency"] = 1;
-G2L["36"]["Name"] = [[Buttons]];
-G2L["36"]["Position"] = UDim2.new(-0.00064, 0, 0.72623, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute
-G2L["37"] = Instance.new("Frame", G2L["36"]);
-G2L["37"]["BorderSizePixel"] = 0;
-G2L["37"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["37"]["Size"] = UDim2.new(0.2074, 0, 0.32482, 0);
-G2L["37"]["Position"] = UDim2.new(0.0429, 0, 0.36993, 0);
-G2L["37"]["Name"] = [[Execute]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.UICorner
-G2L["38"] = Instance.new("UICorner", G2L["37"]);
-G2L["38"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.UIGradient
-G2L["39"] = Instance.new("UIGradient", G2L["37"]);
-G2L["39"]["Rotation"] = 90;
-G2L["39"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.Upgrade Plan
-G2L["3a"] = Instance.new("TextLabel", G2L["37"]);
-G2L["3a"]["TextWrapped"] = true;
-G2L["3a"]["BorderSizePixel"] = 0;
-G2L["3a"]["TextSize"] = 28;
-G2L["3a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["3a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["3a"]["TextScaled"] = true;
-G2L["3a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["3a"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["3a"]["BackgroundTransparency"] = 1;
-G2L["3a"]["Size"] = UDim2.new(0.617, 0, 0.337, 0);
-G2L["3a"]["Text"] = [[Execute Script]];
-G2L["3a"]["Name"] = [[Upgrade Plan]];
-G2L["3a"]["Position"] = UDim2.new(0.27622, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.Upgrade Plan.UITextSizeConstraint
-G2L["3b"] = Instance.new("UITextSizeConstraint", G2L["3a"]);
-G2L["3b"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.icons8-key-100 145
-G2L["3c"] = Instance.new("ImageLabel", G2L["37"]);
-G2L["3c"]["BorderSizePixel"] = 0;
-G2L["3c"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["3c"]["Image"] = [[rbxassetid://89434276213036]];
-G2L["3c"]["Size"] = UDim2.new(0.0979, 0, 0.35955, 0);
-G2L["3c"]["BackgroundTransparency"] = 1;
-G2L["3c"]["Name"] = [[icons8-key-100 145]];
-G2L["3c"]["Position"] = UDim2.new(0.1014, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.Click
-G2L["3d"] = Instance.new("TextButton", G2L["37"]);
-G2L["3d"]["TextWrapped"] = true;
-G2L["3d"]["BorderSizePixel"] = 0;
-G2L["3d"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["3d"]["TextSize"] = 14;
-G2L["3d"]["TextScaled"] = true;
-G2L["3d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["3d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["3d"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["3d"]["BackgroundTransparency"] = 1;
-G2L["3d"]["Name"] = [[Click]];
-G2L["3d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["3d"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.Click.UICorner
-G2L["3e"] = Instance.new("UICorner", G2L["3d"]);
-G2L["3e"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Execute.Click.UITextSizeConstraint
-G2L["3f"] = Instance.new("UITextSizeConstraint", G2L["3d"]);
-G2L["3f"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear
-G2L["40"] = Instance.new("Frame", G2L["36"]);
-G2L["40"]["BorderSizePixel"] = 0;
-G2L["40"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["40"]["Size"] = UDim2.new(0.2074, 0, 0.32482, 0);
-G2L["40"]["Position"] = UDim2.new(0.26915, 0, 0.36993, 0);
-G2L["40"]["Name"] = [[Clear]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.UICorner
-G2L["41"] = Instance.new("UICorner", G2L["40"]);
-G2L["41"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.Upgrade Plan
-G2L["42"] = Instance.new("TextLabel", G2L["40"]);
-G2L["42"]["TextWrapped"] = true;
-G2L["42"]["BorderSizePixel"] = 0;
-G2L["42"]["TextSize"] = 28;
-G2L["42"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["42"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["42"]["TextScaled"] = true;
-G2L["42"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["42"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["42"]["BackgroundTransparency"] = 1;
-G2L["42"]["Size"] = UDim2.new(0.617, 0, 0.337, 0);
-G2L["42"]["Text"] = [[Clear Editor]];
-G2L["42"]["Name"] = [[Upgrade Plan]];
-G2L["42"]["Position"] = UDim2.new(0.3042, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.Upgrade Plan.UITextSizeConstraint
-G2L["43"] = Instance.new("UITextSizeConstraint", G2L["42"]);
-G2L["43"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.icons8-key-100 145
-G2L["44"] = Instance.new("ImageLabel", G2L["40"]);
-G2L["44"]["BorderSizePixel"] = 0;
-G2L["44"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["44"]["Image"] = [[rbxassetid://73909411554012]];
-G2L["44"]["Size"] = UDim2.new(0.13986, 0, 0.35955, 0);
-G2L["44"]["BackgroundTransparency"] = 1;
-G2L["44"]["Name"] = [[icons8-key-100 145]];
-G2L["44"]["Position"] = UDim2.new(0.1014, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.UIGradient
-G2L["45"] = Instance.new("UIGradient", G2L["40"]);
-G2L["45"]["Rotation"] = 90;
-G2L["45"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.Click
-G2L["46"] = Instance.new("TextButton", G2L["40"]);
-G2L["46"]["TextWrapped"] = true;
-G2L["46"]["BorderSizePixel"] = 0;
-G2L["46"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["46"]["TextSize"] = 14;
-G2L["46"]["TextScaled"] = true;
-G2L["46"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["46"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["46"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["46"]["BackgroundTransparency"] = 1;
-G2L["46"]["Name"] = [[Click]];
-G2L["46"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["46"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.Click.UICorner
-G2L["47"] = Instance.new("UICorner", G2L["46"]);
-G2L["47"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Clear.Click.UITextSizeConstraint
-G2L["48"] = Instance.new("UITextSizeConstraint", G2L["46"]);
-G2L["48"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste
-G2L["49"] = Instance.new("Frame", G2L["36"]);
-G2L["49"]["BorderSizePixel"] = 0;
-G2L["49"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["49"]["Size"] = UDim2.new(0.21175, 0, 0.32482, 0);
-G2L["49"]["Position"] = UDim2.new(0.49613, 0, 0.36993, 0);
-G2L["49"]["Name"] = [[Paste]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.UICorner
-G2L["4a"] = Instance.new("UICorner", G2L["49"]);
-G2L["4a"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.Upgrade Plan
-G2L["4b"] = Instance.new("TextLabel", G2L["49"]);
-G2L["4b"]["TextWrapped"] = true;
-G2L["4b"]["BorderSizePixel"] = 0;
-G2L["4b"]["TextSize"] = 28;
-G2L["4b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["4b"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["4b"]["TextScaled"] = true;
-G2L["4b"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["4b"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["4b"]["BackgroundTransparency"] = 1;
-G2L["4b"]["Size"] = UDim2.new(0.61654, 0, 0.33708, 0);
-G2L["4b"]["Text"] = [[Paste Clipboard]];
-G2L["4b"]["Name"] = [[Upgrade Plan]];
-G2L["4b"]["Position"] = UDim2.new(0.29795, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.Upgrade Plan.UITextSizeConstraint
-G2L["4c"] = Instance.new("UITextSizeConstraint", G2L["4b"]);
-G2L["4c"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.icons8-key-100 145
-G2L["4d"] = Instance.new("ImageLabel", G2L["49"]);
-G2L["4d"]["BorderSizePixel"] = 0;
-G2L["4d"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["4d"]["Image"] = [[rbxassetid://133018045821797]];
-G2L["4d"]["Size"] = UDim2.new(0.13699, 0, 0.35955, 0);
-G2L["4d"]["BackgroundTransparency"] = 1;
-G2L["4d"]["Name"] = [[icons8-key-100 145]];
-G2L["4d"]["Position"] = UDim2.new(0.09932, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.UIGradient
-G2L["4e"] = Instance.new("UIGradient", G2L["49"]);
-G2L["4e"]["Rotation"] = 90;
-G2L["4e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.Click
-G2L["4f"] = Instance.new("TextButton", G2L["49"]);
-G2L["4f"]["TextWrapped"] = true;
-G2L["4f"]["BorderSizePixel"] = 0;
-G2L["4f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["4f"]["TextSize"] = 14;
-G2L["4f"]["TextScaled"] = true;
-G2L["4f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["4f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["4f"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["4f"]["BackgroundTransparency"] = 1;
-G2L["4f"]["Name"] = [[Click]];
-G2L["4f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["4f"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.Click.UICorner
-G2L["50"] = Instance.new("UICorner", G2L["4f"]);
-G2L["50"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Buttons.Paste.Click.UITextSizeConstraint
-G2L["51"] = Instance.new("UITextSizeConstraint", G2L["4f"]);
-G2L["51"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs
-G2L["52"] = Instance.new("ImageLabel", G2L["12"]);
-G2L["52"]["ZIndex"] = 2;
-G2L["52"]["BorderSizePixel"] = 0;
-G2L["52"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["52"]["ImageTransparency"] = 1;
-G2L["52"]["ImageColor3"] = Color3.fromRGB(27, 33, 51);
-G2L["52"]["Size"] = UDim2.new(0.82949, 0, 0.0633, 0);
-G2L["52"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["52"]["BackgroundTransparency"] = 1;
-G2L["52"]["Name"] = [[Tabs]];
-G2L["52"]["Position"] = UDim2.new(-0.006, 0, 0.095, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.UIPadding
-G2L["53"] = Instance.new("UIPadding", G2L["52"]);
-
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.UIListLayout
-G2L["54"] = Instance.new("UIListLayout", G2L["52"]);
-G2L["54"]["Padding"] = UDim.new(-0.03, 0);
-G2L["54"]["FillDirection"] = Enum.FillDirection.Horizontal;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1
-G2L["55"] = Instance.new("ImageLabel", G2L["52"]);
-G2L["55"]["ZIndex"] = 2;
-G2L["55"]["BorderSizePixel"] = 0;
-G2L["55"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["55"]["ImageColor3"] = Color3.fromRGB(27, 33, 51);
-G2L["55"]["Image"] = [[rbxassetid://114720967242252]];
-G2L["55"]["Size"] = UDim2.new(0.214, 0, 1, 0);
-G2L["55"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["55"]["BackgroundTransparency"] = 1;
-G2L["55"]["Name"] = [[Tab1]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Click
-G2L["56"] = Instance.new("TextButton", G2L["55"]);
-G2L["56"]["TextWrapped"] = true;
-G2L["56"]["BorderSizePixel"] = 0;
-G2L["56"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["56"]["TextSize"] = 14;
-G2L["56"]["TextScaled"] = true;
-G2L["56"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["56"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["56"]["ZIndex"] = 3;
-G2L["56"]["Size"] = UDim2.new(0.72014, 0, 1, 0);
-G2L["56"]["BackgroundTransparency"] = 1;
-G2L["56"]["Name"] = [[Click]];
-G2L["56"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["56"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Click.UICorner
-G2L["57"] = Instance.new("UICorner", G2L["56"]);
-G2L["57"]["CornerRadius"] = UDim.new(0, 14);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Click.UITextSizeConstraint
-G2L["58"] = Instance.new("UITextSizeConstraint", G2L["56"]);
-G2L["58"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main
-G2L["59"] = Instance.new("ImageLabel", G2L["55"]);
-G2L["59"]["ZIndex"] = 2;
-G2L["59"]["BorderSizePixel"] = 0;
-G2L["59"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["59"]["Image"] = [[rbxassetid://101101408411462]];
-G2L["59"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["59"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["59"]["BackgroundTransparency"] = 1;
-G2L["59"]["Name"] = [[Main]];
-G2L["59"]["Position"] = UDim2.new(-0.0032, 0, -0.003, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main.TabName
-G2L["5a"] = Instance.new("TextLabel", G2L["59"]);
-G2L["5a"]["TextWrapped"] = true;
-G2L["5a"]["BorderSizePixel"] = 0;
-G2L["5a"]["TextSize"] = 24;
-G2L["5a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["5a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["5a"]["TextScaled"] = true;
-G2L["5a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["5a"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["5a"]["BackgroundTransparency"] = 1;
-G2L["5a"]["Size"] = UDim2.new(0.44898, 0, 0.42188, 0);
-G2L["5a"]["Text"] = [[tab1]];
-G2L["5a"]["Name"] = [[TabName]];
-G2L["5a"]["Position"] = UDim2.new(0.14694, 0, 0.5, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main.TabName.UITextSizeConstraint
-G2L["5b"] = Instance.new("UITextSizeConstraint", G2L["5a"]);
-G2L["5b"]["MaxTextSize"] = 24;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main.AddTab
-G2L["5c"] = Instance.new("ImageLabel", G2L["59"]);
-G2L["5c"]["BorderSizePixel"] = 0;
-G2L["5c"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["5c"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["5c"]["Size"] = UDim2.new(0.0927, 0, 0.43731, 0);
-G2L["5c"]["BackgroundTransparency"] = 1;
-G2L["5c"]["Name"] = [[AddTab]];
-G2L["5c"]["Position"] = UDim2.new(0.8, 0, 0.45, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Frame
-G2L["5d"] = Instance.new("Frame", G2L["55"]);
-G2L["5d"]["BorderSizePixel"] = 0;
-G2L["5d"]["BackgroundColor3"] = Color3.fromRGB(27, 33, 51);
-G2L["5d"]["Size"] = UDim2.new(0.85865, 0, 0.87734, 0);
-G2L["5d"]["Position"] = UDim2.new(0.084, 0, 0.293, 0);
-G2L["5d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab
-G2L["5e"] = Instance.new("ImageLabel", G2L["55"]);
-G2L["5e"]["BorderSizePixel"] = 0;
-G2L["5e"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["5e"]["ImageColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["5e"]["Image"] = [[http://www.roblox.com/asset/?id=6035047377]];
-G2L["5e"]["Size"] = UDim2.new(0.11814, 0, 0.581, 0);
-G2L["5e"]["BackgroundTransparency"] = 1;
-G2L["5e"]["Name"] = [[AddTab]];
-G2L["5e"]["Position"] = UDim2.new(1.05, 0, 0.25, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab.AddBtn
-G2L["5f"] = Instance.new("TextButton", G2L["5e"]);
-G2L["5f"]["TextWrapped"] = true;
-G2L["5f"]["BorderSizePixel"] = 0;
-G2L["5f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["5f"]["TextSize"] = 14;
-G2L["5f"]["TextScaled"] = true;
-G2L["5f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["5f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["5f"]["ZIndex"] = 4;
-G2L["5f"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["5f"]["BackgroundTransparency"] = 1;
-G2L["5f"]["Name"] = [[AddBtn]];
-G2L["5f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["5f"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab.AddBtn.UICorner
-G2L["60"] = Instance.new("UICorner", G2L["5f"]);
-G2L["60"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab.AddBtn.UITextSizeConstraint
-G2L["61"] = Instance.new("UITextSizeConstraint", G2L["5f"]);
-G2L["61"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Del
-G2L["62"] = Instance.new("TextButton", G2L["55"]);
-G2L["62"]["TextWrapped"] = true;
-G2L["62"]["BorderSizePixel"] = 0;
-G2L["62"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["62"]["TextSize"] = 14;
-G2L["62"]["TextScaled"] = true;
-G2L["62"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["62"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["62"]["ZIndex"] = 3;
-G2L["62"]["Size"] = UDim2.new(0.22251, 0, 0.75, 0);
-G2L["62"]["BackgroundTransparency"] = 1;
-G2L["62"]["Name"] = [[Del]];
-G2L["62"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["62"]["Text"] = [[  ]];
-G2L["62"]["Position"] = UDim2.new(0.72014, 0, 0.25, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Del.UICorner
-G2L["63"] = Instance.new("UICorner", G2L["62"]);
-G2L["63"]["CornerRadius"] = UDim.new(0, 14);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Del.UITextSizeConstraint
-G2L["64"] = Instance.new("UITextSizeConstraint", G2L["62"]);
-G2L["64"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage
-G2L["65"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["65"]["BorderSizePixel"] = 0;
-G2L["65"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["65"]["ImageTransparency"] = 1;
-G2L["65"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
-G2L["65"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["65"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["65"]["Visible"] = false;
-G2L["65"]["ClipsDescendants"] = true;
-G2L["65"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["65"]["BackgroundTransparency"] = 1;
-G2L["65"]["Name"] = [[CloudPage]];
-G2L["65"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons
-G2L["66"] = Instance.new("ImageLabel", G2L["65"]);
-G2L["66"]["ZIndex"] = 2;
-G2L["66"]["BorderSizePixel"] = 0;
-G2L["66"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["66"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["66"]["Image"] = [[rbxassetid://123590482033481]];
-G2L["66"]["Size"] = UDim2.new(1.00073, 0, 0.27102, 0);
-G2L["66"]["ClipsDescendants"] = true;
-G2L["66"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["66"]["BackgroundTransparency"] = 1;
-G2L["66"]["Name"] = [[Buttons]];
-G2L["66"]["Position"] = UDim2.new(-0.00064, 0, 0.72623, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage
-G2L["67"] = Instance.new("Frame", G2L["66"]);
-G2L["67"]["ZIndex"] = 2;
-G2L["67"]["BorderSizePixel"] = 0;
-G2L["67"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["67"]["Size"] = UDim2.new(0.07832, 0, 0.39416, 0);
-G2L["67"]["Position"] = UDim2.new(0.77803, 0, 0.36835, 0);
-G2L["67"]["Name"] = [[CloudPage]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.UICorner
-G2L["68"] = Instance.new("UICorner", G2L["67"]);
-G2L["68"]["CornerRadius"] = UDim.new(1, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Icon
-G2L["69"] = Instance.new("ImageLabel", G2L["67"]);
-G2L["69"]["ZIndex"] = 2;
-G2L["69"]["BorderSizePixel"] = 0;
-G2L["69"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["69"]["Image"] = [[rbxassetid://118013866377216]];
-G2L["69"]["Size"] = UDim2.new(0.2963, 0, 0.36111, 0);
-G2L["69"]["BackgroundTransparency"] = 1;
-G2L["69"]["Name"] = [[Icon]];
-G2L["69"]["Position"] = UDim2.new(0.35185, 0, 0.31481, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.UIGradient
-G2L["6a"] = Instance.new("UIGradient", G2L["67"]);
-G2L["6a"]["Rotation"] = 90;
-G2L["6a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Click
-G2L["6b"] = Instance.new("TextButton", G2L["67"]);
-G2L["6b"]["TextWrapped"] = true;
-G2L["6b"]["BorderSizePixel"] = 0;
-G2L["6b"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["6b"]["TextSize"] = 14;
-G2L["6b"]["TextScaled"] = true;
-G2L["6b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["6b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["6b"]["ZIndex"] = 3;
-G2L["6b"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["6b"]["BackgroundTransparency"] = 1;
-G2L["6b"]["Name"] = [[Click]];
-G2L["6b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["6b"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Click.UICorner
-G2L["6c"] = Instance.new("UICorner", G2L["6b"]);
-G2L["6c"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Click.UITextSizeConstraint
-G2L["6d"] = Instance.new("UITextSizeConstraint", G2L["6b"]);
-G2L["6d"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.UIAspectRatioConstraint
-G2L["6e"] = Instance.new("UIAspectRatioConstraint", G2L["67"]);
-G2L["6e"]["AspectRatio"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage
-G2L["6f"] = Instance.new("Frame", G2L["66"]);
-G2L["6f"]["ZIndex"] = 2;
-G2L["6f"]["BorderSizePixel"] = 0;
-G2L["6f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["6f"]["Size"] = UDim2.new(0.07832, 0, 0.39416, 0);
-G2L["6f"]["Position"] = UDim2.new(0.87905, 0, 0.36835, 0);
-G2L["6f"]["Name"] = [[CreatePage]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.UICorner
-G2L["70"] = Instance.new("UICorner", G2L["6f"]);
-G2L["70"]["CornerRadius"] = UDim.new(1, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Icon
-G2L["71"] = Instance.new("ImageLabel", G2L["6f"]);
-G2L["71"]["ZIndex"] = 2;
-G2L["71"]["BorderSizePixel"] = 0;
-G2L["71"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["71"]["Image"] = [[rbxassetid://128679881757557]];
-G2L["71"]["Size"] = UDim2.new(0.35185, 0, 0.36111, 0);
-G2L["71"]["BackgroundTransparency"] = 1;
-G2L["71"]["Name"] = [[Icon]];
-G2L["71"]["Position"] = UDim2.new(0.32407, 0, 0.31481, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.UIGradient
-G2L["72"] = Instance.new("UIGradient", G2L["6f"]);
-G2L["72"]["Rotation"] = 90;
-G2L["72"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Click
-G2L["73"] = Instance.new("TextButton", G2L["6f"]);
-G2L["73"]["TextWrapped"] = true;
-G2L["73"]["BorderSizePixel"] = 0;
-G2L["73"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["73"]["TextSize"] = 14;
-G2L["73"]["TextScaled"] = true;
-G2L["73"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["73"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["73"]["ZIndex"] = 3;
-G2L["73"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["73"]["BackgroundTransparency"] = 1;
-G2L["73"]["Name"] = [[Click]];
-G2L["73"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["73"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Click.UICorner
-G2L["74"] = Instance.new("UICorner", G2L["73"]);
-G2L["74"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Click.UITextSizeConstraint
-G2L["75"] = Instance.new("UITextSizeConstraint", G2L["73"]);
-G2L["75"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.UIAspectRatioConstraint
-G2L["76"] = Instance.new("UIAspectRatioConstraint", G2L["6f"]);
-G2L["76"]["AspectRatio"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts
-G2L["77"] = Instance.new("Frame", G2L["65"]);
-G2L["77"]["BorderSizePixel"] = 0;
-G2L["77"]["BackgroundColor3"] = Color3.fromRGB(40, 43, 63);
-G2L["77"]["ClipsDescendants"] = true;
-G2L["77"]["Size"] = UDim2.new(0.94557, 0, 0.72601, 0);
-G2L["77"]["Position"] = UDim2.new(0.03609, 0, 0.20582, 0);
-G2L["77"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["77"]["Name"] = [[CreatePageScripts]];
-G2L["77"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.UICorner
-G2L["78"] = Instance.new("UICorner", G2L["77"]);
-G2L["78"]["CornerRadius"] = UDim.new(0, 32);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
-G2L["79"] = Instance.new("ScrollingFrame", G2L["77"]);
-G2L["79"]["Active"] = true;
-G2L["79"]["BorderSizePixel"] = 0;
-G2L["79"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["79"]["Name"] = [[Scrolling]];
-G2L["79"]["ScrollBarImageTransparency"] = 1;
-G2L["79"]["Size"] = UDim2.new(0.99616, 0, 1, 0);
-G2L["79"]["ScrollBarImageColor3"] = Color3.fromRGB(143, 163, 221);
-G2L["79"]["Position"] = UDim2.new(0.00316, 0, 0, 0);
-G2L["79"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["79"]["ScrollBarThickness"] = 8;
-G2L["79"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.UIListLayout
-G2L["7a"] = Instance.new("UIListLayout", G2L["79"]);
-G2L["7a"]["Wraps"] = true;
-G2L["7a"]["Padding"] = UDim.new(0, 142);
-G2L["7a"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
-G2L["7a"]["FillDirection"] = Enum.FillDirection.Horizontal;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.UIPadding
-G2L["7b"] = Instance.new("UIPadding", G2L["79"]);
-G2L["7b"]["PaddingTop"] = UDim.new(0, 16);
-G2L["7b"]["PaddingLeft"] = UDim.new(0, 36);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C
-G2L["7c"] = Instance.new("Folder", G2L["79"]);
-G2L["7c"]["Name"] = [[C]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame
-G2L["7d"] = Instance.new("Frame", G2L["7c"]);
-G2L["7d"]["Visible"] = false;
-G2L["7d"]["BorderSizePixel"] = 0;
-G2L["7d"]["BackgroundColor3"] = Color3.fromRGB(26, 31, 43);
-G2L["7d"]["ClipsDescendants"] = true;
-G2L["7d"]["Size"] = UDim2.new(0.225, 0, 0.184, 0);
-G2L["7d"]["Position"] = UDim2.new(-0.00002, 0, 0, 0);
-G2L["7d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["7d"]["Name"] = [[ScriptFrame]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.UIStroke
-G2L["7e"] = Instance.new("UIStroke", G2L["7d"]);
-G2L["7e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["7e"]["Thickness"] = 7;
-G2L["7e"]["Color"] = Color3.fromRGB(30, 36, 51);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptDescription
-G2L["7f"] = Instance.new("TextLabel", G2L["7d"]);
-G2L["7f"]["TextWrapped"] = true;
-G2L["7f"]["BorderSizePixel"] = 0;
-G2L["7f"]["TextSize"] = 28;
-G2L["7f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["7f"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["7f"]["TextScaled"] = true;
-G2L["7f"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
-G2L["7f"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["7f"]["BackgroundTransparency"] = 1;
-G2L["7f"]["Size"] = UDim2.new(0.88732, 0, 0.1875, 0);
-G2L["7f"]["Text"] = [[My first ever created Script.]];
-G2L["7f"]["Name"] = [[ScriptDescription]];
-G2L["7f"]["Position"] = UDim2.new(0.08099, 0, 0.54647, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptDescription.UITextSizeConstraint
-G2L["80"] = Instance.new("UITextSizeConstraint", G2L["7f"]);
-G2L["80"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.EditIcon
-G2L["81"] = Instance.new("ImageLabel", G2L["7d"]);
-G2L["81"]["BorderSizePixel"] = 0;
-G2L["81"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["81"]["Image"] = [[rbxassetid://132459372294887]];
-G2L["81"]["Size"] = UDim2.new(0.11268, 0, 0.13011, 0);
-G2L["81"]["BackgroundTransparency"] = 1;
-G2L["81"]["Name"] = [[EditIcon]];
-G2L["81"]["Position"] = UDim2.new(0.76408, 0, 0.75465, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.GradientDown
-G2L["82"] = Instance.new("Frame", G2L["7d"]);
-G2L["82"]["BorderSizePixel"] = 0;
-G2L["82"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["82"]["ClipsDescendants"] = true;
-G2L["82"]["Size"] = UDim2.new(1, 0, 0.32342, 0);
-G2L["82"]["Position"] = UDim2.new(-0.00111, 0, 0.12927, 0);
-G2L["82"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["82"]["Name"] = [[GradientDown]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.GradientDown.UIGradient
-G2L["83"] = Instance.new("UIGradient", G2L["82"]);
-G2L["83"]["Rotation"] = 90;
-G2L["83"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName
-G2L["84"] = Instance.new("Frame", G2L["7d"]);
-G2L["84"]["BorderSizePixel"] = 0;
-G2L["84"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["84"]["ClipsDescendants"] = true;
-G2L["84"]["Size"] = UDim2.new(1, 0, 0.45353, 0);
-G2L["84"]["Position"] = UDim2.new(-0.00111, 0, 0, 0);
-G2L["84"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["84"]["Name"] = [[ScriptName]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.ScriptName
-G2L["85"] = Instance.new("TextLabel", G2L["84"]);
-G2L["85"]["TextWrapped"] = true;
-G2L["85"]["BorderSizePixel"] = 0;
-G2L["85"]["TextSize"] = 34;
-G2L["85"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["85"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["85"]["TextScaled"] = true;
-G2L["85"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Heavy, Enum.FontStyle.Normal);
-G2L["85"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["85"]["BackgroundTransparency"] = 1;
-G2L["85"]["Size"] = UDim2.new(0.65493, 0, 0.28689, 0);
-G2L["85"]["ClipsDescendants"] = true;
-G2L["85"]["Text"] = [[First Script]];
-G2L["85"]["Name"] = [[ScriptName]];
-G2L["85"]["Position"] = UDim2.new(0.19718, 0, 0.43443, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.ScriptName.UITextSizeConstraint
-G2L["86"] = Instance.new("UITextSizeConstraint", G2L["85"]);
-G2L["86"]["MaxTextSize"] = 34;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.UIGradient
-G2L["87"] = Instance.new("UIGradient", G2L["84"]);
-G2L["87"]["Rotation"] = 90;
-G2L["87"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.UICorner
-G2L["88"] = Instance.new("UICorner", G2L["84"]);
-G2L["88"]["CornerRadius"] = UDim.new(0.4, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.Click
-G2L["89"] = Instance.new("TextButton", G2L["7d"]);
-G2L["89"]["TextWrapped"] = true;
-G2L["89"]["BorderSizePixel"] = 0;
-G2L["89"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["89"]["TextSize"] = 14;
-G2L["89"]["TextScaled"] = true;
-G2L["89"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["89"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["89"]["ZIndex"] = 3;
-G2L["89"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["89"]["BackgroundTransparency"] = 1;
-G2L["89"]["Name"] = [[Click]];
-G2L["89"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["89"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.Click.UICorner
-G2L["8a"] = Instance.new("UICorner", G2L["89"]);
-G2L["8a"]["CornerRadius"] = UDim.new(0, 44);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.Click.UITextSizeConstraint
-G2L["8b"] = Instance.new("UITextSizeConstraint", G2L["89"]);
-G2L["8b"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.UICorner
-G2L["8c"] = Instance.new("UICorner", G2L["7d"]);
-G2L["8c"]["CornerRadius"] = UDim.new(0.15, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.UIAspectRatioConstraint
-G2L["8d"] = Instance.new("UIAspectRatioConstraint", G2L["7d"]);
-G2L["8d"]["AspectRatio"] = 1.06281;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts
-G2L["8e"] = Instance.new("Frame", G2L["65"]);
-G2L["8e"]["BorderSizePixel"] = 0;
-G2L["8e"]["BackgroundColor3"] = Color3.fromRGB(40, 43, 63);
-G2L["8e"]["ClipsDescendants"] = true;
-G2L["8e"]["Size"] = UDim2.new(0.94557, 0, 0.72601, 0);
-G2L["8e"]["Position"] = UDim2.new(0.03609, 0, 0.20582, 0);
-G2L["8e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["8e"]["Name"] = [[CloudPageScripts]];
-G2L["8e"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.UICorner
-G2L["8f"] = Instance.new("UICorner", G2L["8e"]);
-G2L["8f"]["CornerRadius"] = UDim.new(0, 32);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling
-G2L["90"] = Instance.new("ScrollingFrame", G2L["8e"]);
-G2L["90"]["Active"] = true;
-G2L["90"]["BorderSizePixel"] = 0;
-G2L["90"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["90"]["Name"] = [[Scrolling]];
-G2L["90"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["90"]["ScrollBarImageColor3"] = Color3.fromRGB(143, 163, 221);
-G2L["90"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["90"]["ScrollBarThickness"] = 8;
-G2L["90"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.UIListLayout
-G2L["91"] = Instance.new("UIListLayout", G2L["90"]);
-G2L["91"]["Wraps"] = true;
-G2L["91"]["Padding"] = UDim.new(0, 20);
-G2L["91"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
-G2L["91"]["FillDirection"] = Enum.FillDirection.Horizontal;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.UIPadding
-G2L["92"] = Instance.new("UIPadding", G2L["90"]);
-G2L["92"]["PaddingTop"] = UDim.new(0, 16);
-G2L["92"]["PaddingLeft"] = UDim.new(0, 35);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C
-G2L["93"] = Instance.new("Folder", G2L["8e"]);
-G2L["93"]["Name"] = [[C]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame
-G2L["94"] = Instance.new("Frame", G2L["93"]);
-G2L["94"]["Visible"] = false;
-G2L["94"]["BorderSizePixel"] = 0;
-G2L["94"]["BackgroundColor3"] = Color3.fromRGB(26, 31, 43);
-G2L["94"]["ClipsDescendants"] = true;
-G2L["94"]["Size"] = UDim2.new(0.16786, 0, 0.37028, 0);
-G2L["94"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["94"]["Name"] = [[ScriptFrame]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.UIStroke
-G2L["95"] = Instance.new("UIStroke", G2L["94"]);
-G2L["95"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["95"]["Thickness"] = 3;
-G2L["95"]["Color"] = Color3.fromRGB(30, 36, 51);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptDescription
-G2L["96"] = Instance.new("TextLabel", G2L["94"]);
-G2L["96"]["TextWrapped"] = true;
-G2L["96"]["BorderSizePixel"] = 0;
-G2L["96"]["TextSize"] = 28;
-G2L["96"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["96"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["96"]["TextScaled"] = true;
-G2L["96"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
-G2L["96"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["96"]["BackgroundTransparency"] = 1;
-G2L["96"]["Size"] = UDim2.new(0.88732, 0, 0.25952, 0);
-G2L["96"]["Text"] = [[Frontlines Aimbot.
-   FPS-Shooter.]];
-G2L["96"]["Name"] = [[ScriptDescription]];
-G2L["96"]["Position"] = UDim2.new(0.08099, 0, 0.54647, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptDescription.UITextSizeConstraint
-G2L["97"] = Instance.new("UITextSizeConstraint", G2L["96"]);
-G2L["97"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.GradientDown
-G2L["98"] = Instance.new("Frame", G2L["94"]);
-G2L["98"]["BorderSizePixel"] = 0;
-G2L["98"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["98"]["ClipsDescendants"] = true;
-G2L["98"]["Size"] = UDim2.new(1, 0, 0.32342, 0);
-G2L["98"]["Position"] = UDim2.new(-0.00111, 0, 0.12927, 0);
-G2L["98"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["98"]["Name"] = [[GradientDown]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.GradientDown.UIGradient
-G2L["99"] = Instance.new("UIGradient", G2L["98"]);
-G2L["99"]["Rotation"] = 90;
-G2L["99"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName
-G2L["9a"] = Instance.new("Frame", G2L["94"]);
-G2L["9a"]["BorderSizePixel"] = 0;
-G2L["9a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["9a"]["ClipsDescendants"] = true;
-G2L["9a"]["Size"] = UDim2.new(1, 0, 0.45353, 0);
-G2L["9a"]["Position"] = UDim2.new(-0.00111, 0, 0, 0);
-G2L["9a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["9a"]["Name"] = [[ScriptName]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.ScriptName
-G2L["9b"] = Instance.new("TextLabel", G2L["9a"]);
-G2L["9b"]["TextWrapped"] = true;
-G2L["9b"]["BorderSizePixel"] = 0;
-G2L["9b"]["TextSize"] = 34;
-G2L["9b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["9b"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["9b"]["TextScaled"] = true;
-G2L["9b"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Heavy, Enum.FontStyle.Normal);
-G2L["9b"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["9b"]["BackgroundTransparency"] = 1;
-G2L["9b"]["Size"] = UDim2.new(0.65493, 0, 0.28689, 0);
-G2L["9b"]["ClipsDescendants"] = true;
-G2L["9b"]["Text"] = [[FRONTLINES]];
-G2L["9b"]["Name"] = [[ScriptName]];
-G2L["9b"]["Position"] = UDim2.new(0.19718, 0, 0.43443, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.ScriptName.UITextSizeConstraint
-G2L["9c"] = Instance.new("UITextSizeConstraint", G2L["9b"]);
-G2L["9c"]["MaxTextSize"] = 34;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.UIGradient
-G2L["9d"] = Instance.new("UIGradient", G2L["9a"]);
-G2L["9d"]["Rotation"] = 90;
-G2L["9d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.UICorner
-G2L["9e"] = Instance.new("UICorner", G2L["9a"]);
-G2L["9e"]["CornerRadius"] = UDim.new(0.4, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.Click
-G2L["9f"] = Instance.new("TextButton", G2L["94"]);
-G2L["9f"]["TextWrapped"] = true;
-G2L["9f"]["BorderSizePixel"] = 0;
-G2L["9f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["9f"]["TextSize"] = 14;
-G2L["9f"]["TextScaled"] = true;
-G2L["9f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["9f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["9f"]["ZIndex"] = 3;
-G2L["9f"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["9f"]["BackgroundTransparency"] = 1;
-G2L["9f"]["Name"] = [[Click]];
-G2L["9f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["9f"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.Click.UICorner
-G2L["a0"] = Instance.new("UICorner", G2L["9f"]);
-G2L["a0"]["CornerRadius"] = UDim.new(0, 44);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.Click.UITextSizeConstraint
-G2L["a1"] = Instance.new("UITextSizeConstraint", G2L["9f"]);
-G2L["a1"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.UICorner
-G2L["a2"] = Instance.new("UICorner", G2L["94"]);
-G2L["a2"]["CornerRadius"] = UDim.new(0.15, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.UIAspectRatioConstraint
-G2L["a3"] = Instance.new("UIAspectRatioConstraint", G2L["94"]);
-G2L["a3"]["AspectRatio"] = 1.06281;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.SearchFrame
-G2L["a4"] = Instance.new("Frame", G2L["65"]);
-G2L["a4"]["BorderSizePixel"] = 0;
-G2L["a4"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51);
-G2L["a4"]["ClipsDescendants"] = true;
-G2L["a4"]["Size"] = UDim2.new(0.88244, 0, 0.08902, 0);
-G2L["a4"]["Position"] = UDim2.new(0.05818, 0, 0.0665, 0);
-G2L["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a4"]["Name"] = [[SearchFrame]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.SearchFrame.UICorner
-G2L["a5"] = Instance.new("UICorner", G2L["a4"]);
-G2L["a5"]["CornerRadius"] = UDim.new(0.28, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.SearchFrame.Icon
-G2L["a6"] = Instance.new("ImageLabel", G2L["a4"]);
-G2L["a6"]["BorderSizePixel"] = 0;
-G2L["a6"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["a6"]["Image"] = [[rbxassetid://126215064299468]];
-G2L["a6"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0);
-G2L["a6"]["BackgroundTransparency"] = 1;
-G2L["a6"]["Name"] = [[Icon]];
-G2L["a6"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox
-G2L["a7"] = Instance.new("TextBox", G2L["a4"]);
-G2L["a7"]["Name"] = [[SearchBox]];
-G2L["a7"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["a7"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["a7"]["BorderSizePixel"] = 0;
-G2L["a7"]["TextWrapped"] = true;
-G2L["a7"]["TextSize"] = 32;
-G2L["a7"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["a7"]["TextScaled"] = true;
-G2L["a7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a7"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["a7"]["PlaceholderText"] = [[Search for Scripts here..]];
-G2L["a7"]["Size"] = UDim2.new(0.2574, 0, 0.27778, 0);
-G2L["a7"]["Position"] = UDim2.new(0.37089, 0, 0.35556, 0);
-G2L["a7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a7"]["Text"] = [[]];
-G2L["a7"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.UITextSizeConstraint
-G2L["a8"] = Instance.new("UITextSizeConstraint", G2L["a7"]);
-G2L["a8"]["MaxTextSize"] = 32;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.CloudPage.SearchFrame.Icon
-G2L["a9"] = Instance.new("ImageLabel", G2L["a4"]);
-G2L["a9"]["BorderSizePixel"] = 0;
-G2L["a9"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["a9"]["Image"] = [[rbxassetid://126215064299468]];
-G2L["a9"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0);
-G2L["a9"]["BackgroundTransparency"] = 1;
-G2L["a9"]["Name"] = [[Icon]];
-G2L["a9"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage
-G2L["aa"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["aa"]["BorderSizePixel"] = 0;
-G2L["aa"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["aa"]["ImageTransparency"] = 1;
-G2L["aa"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
-G2L["aa"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["aa"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["aa"]["Visible"] = false;
-G2L["aa"]["ClipsDescendants"] = true;
-G2L["aa"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["aa"]["BackgroundTransparency"] = 1;
-G2L["aa"]["Name"] = [[ConsolePage]];
-G2L["aa"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons
-G2L["ab"] = Instance.new("ImageLabel", G2L["aa"]);
-G2L["ab"]["ZIndex"] = 2;
-G2L["ab"]["BorderSizePixel"] = 0;
-G2L["ab"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ab"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["ab"]["Image"] = [[rbxassetid://123590482033481]];
-G2L["ab"]["Size"] = UDim2.new(1.00073, 0, 0.27102, 0);
-G2L["ab"]["ClipsDescendants"] = true;
-G2L["ab"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ab"]["BackgroundTransparency"] = 1;
-G2L["ab"]["Name"] = [[Buttons]];
-G2L["ab"]["Position"] = UDim2.new(-0.00064, 0, 0.72623, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn
-G2L["ac"] = Instance.new("Frame", G2L["ab"]);
-G2L["ac"]["ZIndex"] = 2;
-G2L["ac"]["BorderSizePixel"] = 0;
-G2L["ac"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ac"]["Size"] = UDim2.new(0.07832, 0, 0.39416, 0);
-G2L["ac"]["Position"] = UDim2.new(0.78592, 0, 0.36835, 0);
-G2L["ac"]["Name"] = [[SaveBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn.UICorner
-G2L["ad"] = Instance.new("UICorner", G2L["ac"]);
-G2L["ad"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn.Icon
-G2L["ae"] = Instance.new("ImageLabel", G2L["ac"]);
-G2L["ae"]["ZIndex"] = 2;
-G2L["ae"]["BorderSizePixel"] = 0;
-G2L["ae"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["ae"]["Image"] = [[rbxassetid://128679881757557]];
-G2L["ae"]["Size"] = UDim2.new(0.2963, 0, 0.36111, 0);
-G2L["ae"]["BackgroundTransparency"] = 1;
-G2L["ae"]["Name"] = [[Icon]];
-G2L["ae"]["Position"] = UDim2.new(0.35185, 0, 0.31481, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn.UIGradient
-G2L["af"] = Instance.new("UIGradient", G2L["ac"]);
-G2L["af"]["Rotation"] = 90;
-G2L["af"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn.Click
-G2L["b0"] = Instance.new("TextButton", G2L["ac"]);
-G2L["b0"]["TextWrapped"] = true;
-G2L["b0"]["BorderSizePixel"] = 0;
-G2L["b0"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["b0"]["TextSize"] = 14;
-G2L["b0"]["TextScaled"] = true;
-G2L["b0"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["b0"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["b0"]["ZIndex"] = 3;
-G2L["b0"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["b0"]["BackgroundTransparency"] = 1;
-G2L["b0"]["Name"] = [[Click]];
-G2L["b0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["b0"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn.Click.UICorner
-G2L["b1"] = Instance.new("UICorner", G2L["b0"]);
-G2L["b1"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn.Click.UITextSizeConstraint
-G2L["b2"] = Instance.new("UITextSizeConstraint", G2L["b0"]);
-G2L["b2"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.SaveBtn.UIAspectRatioConstraint
-G2L["b3"] = Instance.new("UIAspectRatioConstraint", G2L["ac"]);
-G2L["b3"]["AspectRatio"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn
-G2L["b4"] = Instance.new("Frame", G2L["ab"]);
-G2L["b4"]["ZIndex"] = 2;
-G2L["b4"]["BorderSizePixel"] = 0;
-G2L["b4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["b4"]["Size"] = UDim2.new(0.07832, 0, 0.39416, 0);
-G2L["b4"]["Position"] = UDim2.new(0.87905, 0, 0.36835, 0);
-G2L["b4"]["Name"] = [[ClearBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn.UICorner
-G2L["b5"] = Instance.new("UICorner", G2L["b4"]);
-G2L["b5"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn.Icon
-G2L["b6"] = Instance.new("ImageLabel", G2L["b4"]);
-G2L["b6"]["ZIndex"] = 2;
-G2L["b6"]["BorderSizePixel"] = 0;
-G2L["b6"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["b6"]["Image"] = [[rbxassetid://73909411554012]];
-G2L["b6"]["Size"] = UDim2.new(0.35185, 0, 0.36111, 0);
-G2L["b6"]["BackgroundTransparency"] = 1;
-G2L["b6"]["Name"] = [[Icon]];
-G2L["b6"]["Position"] = UDim2.new(0.32407, 0, 0.31481, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn.UIGradient
-G2L["b7"] = Instance.new("UIGradient", G2L["b4"]);
-G2L["b7"]["Rotation"] = 90;
-G2L["b7"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn.Click
-G2L["b8"] = Instance.new("TextButton", G2L["b4"]);
-G2L["b8"]["TextWrapped"] = true;
-G2L["b8"]["BorderSizePixel"] = 0;
-G2L["b8"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["b8"]["TextSize"] = 14;
-G2L["b8"]["TextScaled"] = true;
-G2L["b8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["b8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["b8"]["ZIndex"] = 3;
-G2L["b8"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["b8"]["BackgroundTransparency"] = 1;
-G2L["b8"]["Name"] = [[Click]];
-G2L["b8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["b8"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn.Click.UICorner
-G2L["b9"] = Instance.new("UICorner", G2L["b8"]);
-G2L["b9"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn.Click.UITextSizeConstraint
-G2L["ba"] = Instance.new("UITextSizeConstraint", G2L["b8"]);
-G2L["ba"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.Buttons.ClearBtn.UIAspectRatioConstraint
-G2L["bb"] = Instance.new("UIAspectRatioConstraint", G2L["b4"]);
-G2L["bb"]["AspectRatio"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.SearchFrame
-G2L["bc"] = Instance.new("Frame", G2L["aa"]);
-G2L["bc"]["BorderSizePixel"] = 0;
-G2L["bc"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51);
-G2L["bc"]["ClipsDescendants"] = true;
-G2L["bc"]["Size"] = UDim2.new(0.88244, 0, 0.08902, 0);
-G2L["bc"]["Position"] = UDim2.new(0.05818, 0, 0.0665, 0);
-G2L["bc"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["bc"]["Name"] = [[SearchFrame]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.SearchFrame.UICorner
-G2L["bd"] = Instance.new("UICorner", G2L["bc"]);
-G2L["bd"]["CornerRadius"] = UDim.new(0, 28);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.SearchFrame.Icon
-G2L["be"] = Instance.new("ImageLabel", G2L["bc"]);
-G2L["be"]["BorderSizePixel"] = 0;
-G2L["be"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["be"]["Image"] = [[rbxassetid://126215064299468]];
-G2L["be"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0);
-G2L["be"]["BackgroundTransparency"] = 1;
-G2L["be"]["Name"] = [[Icon]];
-G2L["be"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.SearchFrame.SearchBox
-G2L["bf"] = Instance.new("TextBox", G2L["bc"]);
-G2L["bf"]["Name"] = [[SearchBox]];
-G2L["bf"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["bf"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["bf"]["BorderSizePixel"] = 0;
-G2L["bf"]["TextWrapped"] = true;
-G2L["bf"]["TextSize"] = 32;
-G2L["bf"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["bf"]["TextScaled"] = true;
-G2L["bf"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["bf"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["bf"]["PlaceholderText"] = [[Search for Errors here..]];
-G2L["bf"]["Size"] = UDim2.new(0.2574, 0, 0.31111, 0);
-G2L["bf"]["Position"] = UDim2.new(0.37089, 0, 0.35556, 0);
-G2L["bf"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["bf"]["Text"] = [[]];
-G2L["bf"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.SearchFrame.SearchBox.UITextSizeConstraint
-G2L["c0"] = Instance.new("UITextSizeConstraint", G2L["bf"]);
-G2L["c0"]["MaxTextSize"] = 32;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.SearchFrame.Icon
-G2L["c1"] = Instance.new("ImageLabel", G2L["bc"]);
-G2L["c1"]["BorderSizePixel"] = 0;
-G2L["c1"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["c1"]["Image"] = [[rbxassetid://126215064299468]];
-G2L["c1"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0);
-G2L["c1"]["BackgroundTransparency"] = 1;
-G2L["c1"]["Name"] = [[Icon]];
-G2L["c1"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript
-G2L["c2"] = Instance.new("Frame", G2L["aa"]);
-G2L["c2"]["BorderSizePixel"] = 0;
-G2L["c2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["c2"]["ClipsDescendants"] = true;
-G2L["c2"]["Size"] = UDim2.new(0.88244, 0, 0.08902, 0);
-G2L["c2"]["Position"] = UDim2.new(0.05818, 0, 0.16943, 0);
-G2L["c2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["c2"]["Name"] = [[FixScript]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.UIGradient
-G2L["c3"] = Instance.new("UIGradient", G2L["c2"]);
-G2L["c3"]["Rotation"] = 90;
-G2L["c3"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.Icon
-G2L["c4"] = Instance.new("ImageLabel", G2L["c2"]);
-G2L["c4"]["BorderSizePixel"] = 0;
-G2L["c4"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["c4"]["Image"] = [[rbxassetid://131795848435057]];
-G2L["c4"]["Size"] = UDim2.new(0.03289, 0, 0.35556, 0);
-G2L["c4"]["BackgroundTransparency"] = 1;
-G2L["c4"]["Name"] = [[Icon]];
-G2L["c4"]["Position"] = UDim2.new(0.39638, 0, 0.32222, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.fixscriptLabel
-G2L["c5"] = Instance.new("TextLabel", G2L["c2"]);
-G2L["c5"]["TextWrapped"] = true;
-G2L["c5"]["BorderSizePixel"] = 0;
-G2L["c5"]["TextSize"] = 28;
-G2L["c5"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["c5"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["c5"]["TextScaled"] = true;
-G2L["c5"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["c5"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["c5"]["BackgroundTransparency"] = 1;
-G2L["c5"]["Size"] = UDim2.new(0.15954, 0, 0.35556, 0);
-G2L["c5"]["Text"] = [[Fix this script]];
-G2L["c5"]["Name"] = [[fixscriptLabel]];
-G2L["c5"]["Position"] = UDim2.new(0.44408, 0, 0.33333, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.fixscriptLabel.UITextSizeConstraint
-G2L["c6"] = Instance.new("UITextSizeConstraint", G2L["c5"]);
-G2L["c6"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.UICorner
-G2L["c7"] = Instance.new("UICorner", G2L["c2"]);
-G2L["c7"]["CornerRadius"] = UDim.new(0, 28);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.Click
-G2L["c8"] = Instance.new("TextButton", G2L["c2"]);
-G2L["c8"]["TextWrapped"] = true;
-G2L["c8"]["BorderSizePixel"] = 0;
-G2L["c8"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["c8"]["TextSize"] = 14;
-G2L["c8"]["TextScaled"] = true;
-G2L["c8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["c8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["c8"]["ZIndex"] = 3;
-G2L["c8"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["c8"]["BackgroundTransparency"] = 1;
-G2L["c8"]["Name"] = [[Click]];
-G2L["c8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["c8"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.Click.UICorner
-G2L["c9"] = Instance.new("UICorner", G2L["c8"]);
-G2L["c9"]["CornerRadius"] = UDim.new(0, 28);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.FixScript.Click.UITextSizeConstraint
-G2L["ca"] = Instance.new("UITextSizeConstraint", G2L["c8"]);
-G2L["ca"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.ConsoleInput
-G2L["cb"] = Instance.new("TextBox", G2L["aa"]);
-G2L["cb"]["Name"] = [[ConsoleInput]];
-G2L["cb"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["cb"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["cb"]["BorderSizePixel"] = 0;
-G2L["cb"]["TextWrapped"] = true;
-G2L["cb"]["TextSize"] = 25;
-G2L["cb"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["cb"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["cb"]["TextScaled"] = true;
-G2L["cb"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51);
-G2L["cb"]["RichText"] = true;
-G2L["cb"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["cb"]["PlaceholderText"] = [[Welcome to AppleWare V2!
->  Experience our stunning new UI.
-  > Console Handler Not Loaded, We Will Fix it on V2.1]];
-G2L["cb"]["Size"] = UDim2.new(0.88244, 0, 0.08939, 0);
-G2L["cb"]["Position"] = UDim2.new(0.05806, 0, 0.29476, 0);
-G2L["cb"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["cb"]["Text"] = [[]];
-G2L["cb"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.ConsoleInput.UICorner
-G2L["cc"] = Instance.new("UICorner", G2L["cb"]);
-G2L["cc"]["CornerRadius"] = UDim.new(0, 26);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConsolePage.ConsoleInput.UITextSizeConstraint
-G2L["cd"] = Instance.new("UITextSizeConstraint", G2L["cb"]);
-G2L["cd"]["MaxTextSize"] = 25;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage
-G2L["ce"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["ce"]["BorderSizePixel"] = 0;
-G2L["ce"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ce"]["ImageTransparency"] = 1;
-G2L["ce"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
-G2L["ce"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["ce"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["ce"]["Visible"] = false;
-G2L["ce"]["ClipsDescendants"] = true;
-G2L["ce"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ce"]["BackgroundTransparency"] = 1;
-G2L["ce"]["Name"] = [[ConfigPage]];
-G2L["ce"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.SearchFrame
-G2L["cf"] = Instance.new("Frame", G2L["ce"]);
-G2L["cf"]["BorderSizePixel"] = 0;
-G2L["cf"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51);
-G2L["cf"]["ClipsDescendants"] = true;
-G2L["cf"]["Size"] = UDim2.new(0.88244, 0, 0.08902, 0);
-G2L["cf"]["Position"] = UDim2.new(0.05818, 0, 0.0665, 0);
-G2L["cf"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["cf"]["Name"] = [[SearchFrame]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.SearchFrame.UICorner
-G2L["d0"] = Instance.new("UICorner", G2L["cf"]);
-G2L["d0"]["CornerRadius"] = UDim.new(0.28, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.SearchFrame.Icon
-G2L["d1"] = Instance.new("ImageLabel", G2L["cf"]);
-G2L["d1"]["BorderSizePixel"] = 0;
-G2L["d1"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["d1"]["Image"] = [[rbxassetid://126215064299468]];
-G2L["d1"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0);
-G2L["d1"]["BackgroundTransparency"] = 1;
-G2L["d1"]["Name"] = [[Icon]];
-G2L["d1"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.SearchFrame.SearchBox
-G2L["d2"] = Instance.new("TextBox", G2L["cf"]);
-G2L["d2"]["Name"] = [[SearchBox]];
-G2L["d2"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["d2"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["d2"]["BorderSizePixel"] = 0;
-G2L["d2"]["TextWrapped"] = true;
-G2L["d2"]["TextSize"] = 32;
-G2L["d2"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["d2"]["TextScaled"] = true;
-G2L["d2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["d2"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["d2"]["PlaceholderText"] = [[Search for Settings here..]];
-G2L["d2"]["Size"] = UDim2.new(0.2574, 0, 0.27778, 0);
-G2L["d2"]["Position"] = UDim2.new(0.37089, 0, 0.35556, 0);
-G2L["d2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["d2"]["Text"] = [[]];
-G2L["d2"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.SearchFrame.SearchBox.UITextSizeConstraint
-G2L["d3"] = Instance.new("UITextSizeConstraint", G2L["d2"]);
-G2L["d3"]["MaxTextSize"] = 32;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.SearchFrame.Icon
-G2L["d4"] = Instance.new("ImageLabel", G2L["cf"]);
-G2L["d4"]["BorderSizePixel"] = 0;
-G2L["d4"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["d4"]["Image"] = [[rbxassetid://126215064299468]];
-G2L["d4"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0);
-G2L["d4"]["BackgroundTransparency"] = 1;
-G2L["d4"]["Name"] = [[Icon]];
-G2L["d4"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons
-G2L["d5"] = Instance.new("ImageLabel", G2L["ce"]);
-G2L["d5"]["ZIndex"] = 2;
-G2L["d5"]["BorderSizePixel"] = 0;
-G2L["d5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["d5"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["d5"]["Image"] = [[rbxassetid://123590482033481]];
-G2L["d5"]["Size"] = UDim2.new(1.00073, 0, 0.27102, 0);
-G2L["d5"]["ClipsDescendants"] = true;
-G2L["d5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["d5"]["BackgroundTransparency"] = 1;
-G2L["d5"]["Name"] = [[Buttons]];
-G2L["d5"]["Position"] = UDim2.new(-0.00064, 0, 0.72623, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn
-G2L["d6"] = Instance.new("Frame", G2L["d5"]);
-G2L["d6"]["ZIndex"] = 2;
-G2L["d6"]["BorderSizePixel"] = 0;
-G2L["d6"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51);
-G2L["d6"]["Size"] = UDim2.new(0.24438, 0, 0.51825, 0);
-G2L["d6"]["Position"] = UDim2.new(0.71865, 0, 0.26472, 0);
-G2L["d6"]["Name"] = [[ResetBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.UICorner
-G2L["d7"] = Instance.new("UICorner", G2L["d6"]);
-G2L["d7"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame
-G2L["d8"] = Instance.new("Frame", G2L["d6"]);
-G2L["d8"]["ZIndex"] = 2;
-G2L["d8"]["BorderSizePixel"] = 0;
-G2L["d8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["d8"]["Size"] = UDim2.new(0.32047, 0, 0.76056, 0);
-G2L["d8"]["Position"] = UDim2.new(0.05618, 0, 0.13364, 0);
-G2L["d8"]["Name"] = [[IconFrame]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame.UICorner
-G2L["d9"] = Instance.new("UICorner", G2L["d8"]);
-G2L["d9"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame.Icon
-G2L["da"] = Instance.new("ImageLabel", G2L["d8"]);
-G2L["da"]["ZIndex"] = 2;
-G2L["da"]["BorderSizePixel"] = 0;
-G2L["da"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["da"]["Image"] = [[rbxassetid://128679881757557]];
-G2L["da"]["Size"] = UDim2.new(0.35185, 0, 0.36111, 0);
-G2L["da"]["BackgroundTransparency"] = 1;
-G2L["da"]["Name"] = [[Icon]];
-G2L["da"]["Position"] = UDim2.new(0.32407, 0, 0.31481, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame.UIGradient
-G2L["db"] = Instance.new("UIGradient", G2L["d8"]);
-G2L["db"]["Rotation"] = 90;
-G2L["db"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Editor
-G2L["dc"] = Instance.new("TextLabel", G2L["d6"]);
-G2L["dc"]["TextWrapped"] = true;
-G2L["dc"]["BorderSizePixel"] = 0;
-G2L["dc"]["TextSize"] = 40;
-G2L["dc"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["dc"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["dc"]["TextScaled"] = true;
-G2L["dc"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["dc"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["dc"]["BackgroundTransparency"] = 1;
-G2L["dc"]["Size"] = UDim2.new(0.32803, 0, 0.28153, 0);
-G2L["dc"]["Text"] = [[Reset]];
-G2L["dc"]["Name"] = [[Editor]];
-G2L["dc"]["Position"] = UDim2.new(0.51335, 0, 0.3662, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Editor.UITextSizeConstraint
-G2L["dd"] = Instance.new("UITextSizeConstraint", G2L["dc"]);
-G2L["dd"]["MaxTextSize"] = 40;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Click
-G2L["de"] = Instance.new("TextButton", G2L["d6"]);
-G2L["de"]["TextWrapped"] = true;
-G2L["de"]["BorderSizePixel"] = 0;
-G2L["de"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["de"]["TextSize"] = 14;
-G2L["de"]["TextScaled"] = true;
-G2L["de"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["de"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["de"]["ZIndex"] = 3;
-G2L["de"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["de"]["BackgroundTransparency"] = 1;
-G2L["de"]["Name"] = [[Click]];
-G2L["de"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["de"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Click.UICorner
-G2L["df"] = Instance.new("UICorner", G2L["de"]);
-G2L["df"]["CornerRadius"] = UDim.new(0, 245);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Click.UITextSizeConstraint
-G2L["e0"] = Instance.new("UITextSizeConstraint", G2L["de"]);
-G2L["e0"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame
-G2L["e1"] = Instance.new("ScrollingFrame", G2L["ce"]);
-G2L["e1"]["Active"] = true;
-G2L["e1"]["BorderSizePixel"] = 0;
-G2L["e1"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51);
-G2L["e1"]["ScrollBarImageTransparency"] = 1;
-G2L["e1"]["Size"] = UDim2.new(0.92961, 0, 0.60633, 0);
-G2L["e1"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["e1"]["Position"] = UDim2.new(0.06, 0, 0.183, 0);
-G2L["e1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["e1"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.UICorner
-G2L["e2"] = Instance.new("UICorner", G2L["e1"]);
-G2L["e2"]["CornerRadius"] = UDim.new(0.1575, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.UIListLayout
-G2L["e3"] = Instance.new("UIListLayout", G2L["e1"]);
-G2L["e3"]["Padding"] = UDim.new(0, 18);
-G2L["e3"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types
-G2L["e4"] = Instance.new("Folder", G2L["e1"]);
-G2L["e4"]["Name"] = [[Types]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle
-G2L["e5"] = Instance.new("Frame", G2L["e4"]);
-G2L["e5"]["BorderSizePixel"] = 0;
-G2L["e5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["e5"]["ClipsDescendants"] = true;
-G2L["e5"]["Size"] = UDim2.new(0.948, 0, 0, 166);
-G2L["e5"]["Position"] = UDim2.new(0, 0, -0, 0);
-G2L["e5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["e5"]["Name"] = [[Toggle]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.UICorner
-G2L["e6"] = Instance.new("UICorner", G2L["e5"]);
-G2L["e6"]["CornerRadius"] = UDim.new(0.21, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.LoadAnimLabel
-G2L["e7"] = Instance.new("TextLabel", G2L["e5"]);
-G2L["e7"]["TextWrapped"] = true;
-G2L["e7"]["BorderSizePixel"] = 0;
-G2L["e7"]["TextSize"] = 31;
-G2L["e7"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["e7"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["e7"]["TextScaled"] = true;
-G2L["e7"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["e7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["e7"]["BackgroundTransparency"] = 1;
-G2L["e7"]["Size"] = UDim2.new(0.66145, 0, 0.18675, 0);
-G2L["e7"]["Text"] = [[Unlock FPS]];
-G2L["e7"]["Name"] = [[LoadAnimLabel]];
-G2L["e7"]["Position"] = UDim2.new(0.16145, 0, 0.30723, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.LoadAnimLabel.UITextSizeConstraint
-G2L["e8"] = Instance.new("UITextSizeConstraint", G2L["e7"]);
-G2L["e8"]["MaxTextSize"] = 31;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.ToggleOn
-G2L["e9"] = Instance.new("ImageLabel", G2L["e5"]);
-G2L["e9"]["BorderSizePixel"] = 0;
-G2L["e9"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["e9"]["ImageColor3"] = Color3.fromRGB(64, 80, 109);
-G2L["e9"]["Image"] = [[rbxassetid://123778903107043]];
-G2L["e9"]["Size"] = UDim2.new(0.12932, 0, 0.43976, 0);
-G2L["e9"]["BackgroundTransparency"] = 1;
-G2L["e9"]["Name"] = [[ToggleOn]];
-G2L["e9"]["Position"] = UDim2.new(0.85173, 0, 0.28916, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.Click
-G2L["ea"] = Instance.new("TextButton", G2L["e5"]);
-G2L["ea"]["TextWrapped"] = true;
-G2L["ea"]["BorderSizePixel"] = 0;
-G2L["ea"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ea"]["TextSize"] = 14;
-G2L["ea"]["TextScaled"] = true;
-G2L["ea"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ea"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["ea"]["ZIndex"] = 3;
-G2L["ea"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["ea"]["BackgroundTransparency"] = 1;
-G2L["ea"]["Name"] = [[Click]];
-G2L["ea"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ea"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.Click.UICorner
-G2L["eb"] = Instance.new("UICorner", G2L["ea"]);
-G2L["eb"]["CornerRadius"] = UDim.new(0, 32);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.Click.UITextSizeConstraint
-G2L["ec"] = Instance.new("UITextSizeConstraint", G2L["ea"]);
-G2L["ec"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.descriptionLabel
-G2L["ed"] = Instance.new("TextLabel", G2L["e5"]);
-G2L["ed"]["TextWrapped"] = true;
-G2L["ed"]["BorderSizePixel"] = 0;
-G2L["ed"]["TextSize"] = 26;
-G2L["ed"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["ed"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["ed"]["TextScaled"] = true;
-G2L["ed"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["ed"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["ed"]["BackgroundTransparency"] = 1;
-G2L["ed"]["Size"] = UDim2.new(0.67346, 0, 0.15879, 0);
-G2L["ed"]["Text"] = [[Gets rid of Roblox's 60FPS Limmit.]];
-G2L["ed"]["Name"] = [[descriptionLabel]];
-G2L["ed"]["Position"] = UDim2.new(0.16145, 0, 0.49398, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.descriptionLabel.UITextSizeConstraint
-G2L["ee"] = Instance.new("UITextSizeConstraint", G2L["ed"]);
-G2L["ee"]["MaxTextSize"] = 26;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.Box
-G2L["ef"] = Instance.new("Frame", G2L["e5"]);
-G2L["ef"]["BorderSizePixel"] = 0;
-G2L["ef"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ef"]["Size"] = UDim2.new(0.04695, 0, 0.33735, 0);
-G2L["ef"]["Position"] = UDim2.new(0.04327, 0, 0.32651, 0);
-G2L["ef"]["Name"] = [[Box]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.Box.UICorner
-G2L["f0"] = Instance.new("UICorner", G2L["ef"]);
-G2L["f0"]["CornerRadius"] = UDim.new(0, 14);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.Box.Icon
-G2L["f1"] = Instance.new("ImageLabel", G2L["ef"]);
-G2L["f1"]["BorderSizePixel"] = 0;
-G2L["f1"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["f1"]["Image"] = [[rbxassetid://129853704073107]];
-G2L["f1"]["Size"] = UDim2.new(0.50877, 0, 0.5, 0);
-G2L["f1"]["BackgroundTransparency"] = 1;
-G2L["f1"]["Name"] = [[Icon]];
-G2L["f1"]["Position"] = UDim2.new(0.24561, 0, 0.25, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.Box.UIGradient
-G2L["f2"] = Instance.new("UIGradient", G2L["ef"]);
-G2L["f2"]["Rotation"] = 90;
-G2L["f2"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(66, 79, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(36, 44, 63))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.UIGradient
-G2L["f3"] = Instance.new("UIGradient", G2L["e5"]);
-G2L["f3"]["Rotation"] = 90.65106;
-G2L["f3"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(30, 36, 51)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(21, 26, 36))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ConfigPage.ScrollingFrame.Types.Toggle.UIAspectRatioConstraint
-G2L["f4"] = Instance.new("UIAspectRatioConstraint", G2L["e5"]);
-G2L["f4"]["AspectRatio"] = 7.31559;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave
-G2L["f5"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["f5"]["ZIndex"] = 50;
-G2L["f5"]["BorderSizePixel"] = 0;
-G2L["f5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["f5"]["ImageTransparency"] = 0.2;
-G2L["f5"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["f5"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["f5"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["f5"]["Visible"] = false;
-G2L["f5"]["ClipsDescendants"] = true;
-G2L["f5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["f5"]["BackgroundTransparency"] = 1;
-G2L["f5"]["Name"] = [[ScriptSave]];
-G2L["f5"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1
-G2L["f6"] = Instance.new("ImageLabel", G2L["f5"]);
-G2L["f6"]["BorderSizePixel"] = 0;
-G2L["f6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["f6"]["ImageColor3"] = Color3.fromRGB(27, 32, 45);
-G2L["f6"]["Image"] = [[rbxassetid://105963070530458]];
-G2L["f6"]["Size"] = UDim2.new(0.67997, 0, 0.55984, 0);
-G2L["f6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["f6"]["BackgroundTransparency"] = 1;
-G2L["f6"]["Name"] = [[ScriptPage1]];
-G2L["f6"]["Position"] = UDim2.new(0.15904, 0, 0.21365, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.title
-G2L["f7"] = Instance.new("TextLabel", G2L["f6"]);
-G2L["f7"]["TextWrapped"] = true;
-G2L["f7"]["LineHeight"] = 0;
-G2L["f7"]["BorderSizePixel"] = 0;
-G2L["f7"]["TextSize"] = 31;
-G2L["f7"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["f7"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["f7"]["TextScaled"] = true;
-G2L["f7"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["f7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["f7"]["BackgroundTransparency"] = 1;
-G2L["f7"]["Size"] = UDim2.new(0.3127, 0, 0.05447, 0);
-G2L["f7"]["Text"] = [[Save your script]];
-G2L["f7"]["Name"] = [[title]];
-G2L["f7"]["Position"] = UDim2.new(0.14408, 0, 0.15932, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.title.UITextSizeConstraint
-G2L["f8"] = Instance.new("UITextSizeConstraint", G2L["f7"]);
-G2L["f8"]["MaxTextSize"] = 31;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.description
-G2L["f9"] = Instance.new("TextLabel", G2L["f6"]);
-G2L["f9"]["TextWrapped"] = true;
-G2L["f9"]["BorderSizePixel"] = 0;
-G2L["f9"]["TextSize"] = 23;
-G2L["f9"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["f9"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["f9"]["TextScaled"] = true;
-G2L["f9"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["f9"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["f9"]["BackgroundTransparency"] = 1;
-G2L["f9"]["Size"] = UDim2.new(0.31163, 0, 0.06956, 0);
-G2L["f9"]["Text"] = [[What will you create today?]];
-G2L["f9"]["Name"] = [[description]];
-G2L["f9"]["Position"] = UDim2.new(0.14514, 0, 0.23498, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.description.UITextSizeConstraint
-G2L["fa"] = Instance.new("UITextSizeConstraint", G2L["f9"]);
-G2L["fa"]["MaxTextSize"] = 23;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input
-G2L["fb"] = Instance.new("Frame", G2L["f6"]);
-G2L["fb"]["BorderSizePixel"] = 0;
-G2L["fb"]["BackgroundColor3"] = Color3.fromRGB(35, 43, 60);
-G2L["fb"]["Size"] = UDim2.new(0.72785, 0, 0.15724, 0);
-G2L["fb"]["Position"] = UDim2.new(0.14472, 0, 0.35798, 0);
-G2L["fb"]["Name"] = [[input]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.UICorner
-G2L["fc"] = Instance.new("UICorner", G2L["fb"]);
-G2L["fc"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.Icon
-G2L["fd"] = Instance.new("ImageLabel", G2L["fb"]);
-G2L["fd"]["BorderSizePixel"] = 0;
-G2L["fd"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["fd"]["ImageColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["fd"]["Image"] = [[rbxassetid://125200284008170]];
-G2L["fd"]["Size"] = UDim2.new(0.05865, 0, 0.35955, 0);
-G2L["fd"]["BackgroundTransparency"] = 1;
-G2L["fd"]["Name"] = [[Icon]];
-G2L["fd"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.barIdk
-G2L["fe"] = Instance.new("ImageLabel", G2L["fb"]);
-G2L["fe"]["ZIndex"] = 2;
-G2L["fe"]["BorderSizePixel"] = 0;
-G2L["fe"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["fe"]["Image"] = [[rbxassetid://107516337694688]];
-G2L["fe"]["Size"] = UDim2.new(0.01906, 0, 0.62921, 0);
-G2L["fe"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["fe"]["BackgroundTransparency"] = 1;
-G2L["fe"]["Name"] = [[barIdk]];
-G2L["fe"]["Position"] = UDim2.new(0.02181, 0, 0.18816, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.barIdk.UIGradient
-G2L["ff"] = Instance.new("UIGradient", G2L["fe"]);
-G2L["ff"]["Rotation"] = 91.10171;
-G2L["ff"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.ShadowBackk
-G2L["100"] = Instance.new("ImageLabel", G2L["fb"]);
-G2L["100"]["BorderSizePixel"] = 0;
-G2L["100"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["100"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["100"]["Size"] = UDim2.new(0.05718, 0, 1.02247, 0);
-G2L["100"]["BackgroundTransparency"] = 1;
-G2L["100"]["Name"] = [[ShadowBackk]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.InputText
-G2L["101"] = Instance.new("TextBox", G2L["fb"]);
-G2L["101"]["Name"] = [[InputText]];
-G2L["101"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["101"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["101"]["BorderSizePixel"] = 0;
-G2L["101"]["TextWrapped"] = true;
-G2L["101"]["TextSize"] = 28;
-G2L["101"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["101"]["TextScaled"] = true;
-G2L["101"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["101"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["101"]["PlaceholderText"] = [[Script Name..]];
-G2L["101"]["Size"] = UDim2.new(0.81525, 0, 0.35955, 0);
-G2L["101"]["Position"] = UDim2.new(0.14956, 0, 0.29213, 0);
-G2L["101"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["101"]["Text"] = [[]];
-G2L["101"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.InputText.UITextSizeConstraint
-G2L["102"] = Instance.new("UITextSizeConstraint", G2L["101"]);
-G2L["102"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.UIStroke
-G2L["103"] = Instance.new("UIStroke", G2L["fb"]);
-G2L["103"]["Thickness"] = 2;
-G2L["103"]["Color"] = Color3.fromRGB(24, 29, 40);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn
-G2L["104"] = Instance.new("ImageLabel", G2L["f6"]);
-G2L["104"]["BorderSizePixel"] = 0;
-G2L["104"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["104"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["104"]["Size"] = UDim2.new(0.03095, 0, 0.053, 0);
-G2L["104"]["BackgroundTransparency"] = 1;
-G2L["104"]["Name"] = [[CloseBtn]];
-G2L["104"]["Position"] = UDim2.new(0.84205, 0, 0.15901, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn.Click
-G2L["105"] = Instance.new("TextButton", G2L["104"]);
-G2L["105"]["TextWrapped"] = true;
-G2L["105"]["BorderSizePixel"] = 0;
-G2L["105"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["105"]["TextSize"] = 14;
-G2L["105"]["TextScaled"] = true;
-G2L["105"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["105"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["105"]["ZIndex"] = 4;
-G2L["105"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["105"]["BackgroundTransparency"] = 1;
-G2L["105"]["Name"] = [[Click]];
-G2L["105"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["105"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn.Click.UICorner
-G2L["106"] = Instance.new("UICorner", G2L["105"]);
-G2L["106"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn.Click.UITextSizeConstraint
-G2L["107"] = Instance.new("UITextSizeConstraint", G2L["105"]);
-G2L["107"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn
-G2L["108"] = Instance.new("Frame", G2L["f6"]);
-G2L["108"]["BorderSizePixel"] = 0;
-G2L["108"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["108"]["Size"] = UDim2.new(0.21558, 0, 0.15724, 0);
-G2L["108"]["Position"] = UDim2.new(0.65738, 0, 0.57525, 0);
-G2L["108"]["Name"] = [[NextBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.UICorner
-G2L["109"] = Instance.new("UICorner", G2L["108"]);
-G2L["109"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.btnText
-G2L["10a"] = Instance.new("TextLabel", G2L["108"]);
-G2L["10a"]["TextWrapped"] = true;
-G2L["10a"]["BorderSizePixel"] = 0;
-G2L["10a"]["TextSize"] = 28;
-G2L["10a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["10a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["10a"]["TextScaled"] = true;
-G2L["10a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["10a"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["10a"]["BackgroundTransparency"] = 1;
-G2L["10a"]["Size"] = UDim2.new(0.39109, 0, 0.30337, 0);
-G2L["10a"]["Text"] = [[Next]];
-G2L["10a"]["Name"] = [[btnText]];
-G2L["10a"]["Position"] = UDim2.new(0.49505, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.btnText.UITextSizeConstraint
-G2L["10b"] = Instance.new("UITextSizeConstraint", G2L["10a"]);
-G2L["10b"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Icon
-G2L["10c"] = Instance.new("ImageLabel", G2L["108"]);
-G2L["10c"]["BorderSizePixel"] = 0;
-G2L["10c"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["10c"]["Image"] = [[rbxassetid://84835028822243]];
-G2L["10c"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["10c"]["BackgroundTransparency"] = 1;
-G2L["10c"]["Name"] = [[Icon]];
-G2L["10c"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.UIGradient
-G2L["10d"] = Instance.new("UIGradient", G2L["108"]);
-G2L["10d"]["Rotation"] = 90;
-G2L["10d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Click
-G2L["10e"] = Instance.new("TextButton", G2L["108"]);
-G2L["10e"]["TextWrapped"] = true;
-G2L["10e"]["BorderSizePixel"] = 0;
-G2L["10e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["10e"]["TextSize"] = 14;
-G2L["10e"]["TextScaled"] = true;
-G2L["10e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["10e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["10e"]["ZIndex"] = 4;
-G2L["10e"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["10e"]["BackgroundTransparency"] = 1;
-G2L["10e"]["Name"] = [[Click]];
-G2L["10e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["10e"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Click.UICorner
-G2L["10f"] = Instance.new("UICorner", G2L["10e"]);
-G2L["10f"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Click.UITextSizeConstraint
-G2L["110"] = Instance.new("UITextSizeConstraint", G2L["10e"]);
-G2L["110"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2
-G2L["111"] = Instance.new("ImageLabel", G2L["f5"]);
-G2L["111"]["BorderSizePixel"] = 0;
-G2L["111"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["111"]["ImageColor3"] = Color3.fromRGB(27, 32, 45);
-G2L["111"]["Image"] = [[rbxassetid://105963070530458]];
-G2L["111"]["Size"] = UDim2.new(0.67997, 0, 0.55984, 0);
-G2L["111"]["Visible"] = false;
-G2L["111"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["111"]["BackgroundTransparency"] = 1;
-G2L["111"]["Name"] = [[ScriptPage2]];
-G2L["111"]["Position"] = UDim2.new(0.15904, 0, 0.21365, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.title1
-G2L["112"] = Instance.new("TextLabel", G2L["111"]);
-G2L["112"]["TextWrapped"] = true;
-G2L["112"]["LineHeight"] = 0;
-G2L["112"]["BorderSizePixel"] = 0;
-G2L["112"]["TextSize"] = 31;
-G2L["112"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["112"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["112"]["TextScaled"] = true;
-G2L["112"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["112"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["112"]["BackgroundTransparency"] = 1;
-G2L["112"]["Size"] = UDim2.new(0.3127, 0, 0.04064, 0);
-G2L["112"]["Text"] = [[Save your script]];
-G2L["112"]["Name"] = [[title1]];
-G2L["112"]["Position"] = UDim2.new(0.14408, 0, 0.17314, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.title1.UITextSizeConstraint
-G2L["113"] = Instance.new("UITextSizeConstraint", G2L["112"]);
-G2L["113"]["MaxTextSize"] = 31;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.description1
-G2L["114"] = Instance.new("TextLabel", G2L["111"]);
-G2L["114"]["TextWrapped"] = true;
-G2L["114"]["BorderSizePixel"] = 0;
-G2L["114"]["TextSize"] = 23;
-G2L["114"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["114"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["114"]["TextScaled"] = true;
-G2L["114"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["114"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["114"]["BackgroundTransparency"] = 1;
-G2L["114"]["Size"] = UDim2.new(0.27855, 0, 0.10601, 0);
-G2L["114"]["Text"] = [[What will you create today?]];
-G2L["114"]["Name"] = [[description1]];
-G2L["114"]["Position"] = UDim2.new(0.14514, 0, 0.23498, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.description1.UITextSizeConstraint
-G2L["115"] = Instance.new("UITextSizeConstraint", G2L["114"]);
-G2L["115"]["MaxTextSize"] = 23;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1
-G2L["116"] = Instance.new("Frame", G2L["111"]);
-G2L["116"]["BorderSizePixel"] = 0;
-G2L["116"]["BackgroundColor3"] = Color3.fromRGB(35, 43, 60);
-G2L["116"]["Size"] = UDim2.new(0.72785, 0, 0.15724, 0);
-G2L["116"]["Position"] = UDim2.new(0.14472, 0, 0.35798, 0);
-G2L["116"]["Name"] = [[Input1]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.UICorner
-G2L["117"] = Instance.new("UICorner", G2L["116"]);
-G2L["117"]["CornerRadius"] = UDim.new(0.22, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.Icon1
-G2L["118"] = Instance.new("ImageLabel", G2L["116"]);
-G2L["118"]["BorderSizePixel"] = 0;
-G2L["118"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["118"]["ImageColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["118"]["Image"] = [[rbxassetid://85225882076323]];
-G2L["118"]["Size"] = UDim2.new(0.05865, 0, 0.35955, 0);
-G2L["118"]["BackgroundTransparency"] = 1;
-G2L["118"]["Name"] = [[Icon1]];
-G2L["118"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.barIdk1
-G2L["119"] = Instance.new("ImageLabel", G2L["116"]);
-G2L["119"]["ZIndex"] = 2;
-G2L["119"]["BorderSizePixel"] = 0;
-G2L["119"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["119"]["Image"] = [[rbxassetid://107516337694688]];
-G2L["119"]["Size"] = UDim2.new(0.01906, 0, 0.62921, 0);
-G2L["119"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["119"]["BackgroundTransparency"] = 1;
-G2L["119"]["Name"] = [[barIdk1]];
-G2L["119"]["Position"] = UDim2.new(0.02181, 0, 0.18816, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.barIdk1.UIGradient
-G2L["11a"] = Instance.new("UIGradient", G2L["119"]);
-G2L["11a"]["Rotation"] = 91.10171;
-G2L["11a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.ShadowBackk
-G2L["11b"] = Instance.new("ImageLabel", G2L["116"]);
-G2L["11b"]["BorderSizePixel"] = 0;
-G2L["11b"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["11b"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["11b"]["Size"] = UDim2.new(0.05718, 0, 1.02247, 0);
-G2L["11b"]["BackgroundTransparency"] = 1;
-G2L["11b"]["Name"] = [[ShadowBackk]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.InputText1
-G2L["11c"] = Instance.new("TextBox", G2L["116"]);
-G2L["11c"]["Name"] = [[InputText1]];
-G2L["11c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["11c"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["11c"]["BorderSizePixel"] = 0;
-G2L["11c"]["TextWrapped"] = true;
-G2L["11c"]["TextSize"] = 28;
-G2L["11c"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["11c"]["TextScaled"] = true;
-G2L["11c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["11c"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["11c"]["PlaceholderText"] = [[Script code..]];
-G2L["11c"]["Size"] = UDim2.new(0.81525, 0, 0.35955, 0);
-G2L["11c"]["Position"] = UDim2.new(0.14956, 0, 0.29213, 0);
-G2L["11c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["11c"]["Text"] = [[]];
-G2L["11c"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.InputText1.UITextSizeConstraint
-G2L["11d"] = Instance.new("UITextSizeConstraint", G2L["11c"]);
-G2L["11d"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.UIStroke
-G2L["11e"] = Instance.new("UIStroke", G2L["116"]);
-G2L["11e"]["Thickness"] = 2;
-G2L["11e"]["Color"] = Color3.fromRGB(24, 29, 40);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1
-G2L["11f"] = Instance.new("ImageLabel", G2L["111"]);
-G2L["11f"]["BorderSizePixel"] = 0;
-G2L["11f"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["11f"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["11f"]["Size"] = UDim2.new(0.03095, 0, 0.053, 0);
-G2L["11f"]["BackgroundTransparency"] = 1;
-G2L["11f"]["Name"] = [[CloseBtn1]];
-G2L["11f"]["Position"] = UDim2.new(0.84205, 0, 0.15901, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1.Click
-G2L["120"] = Instance.new("TextButton", G2L["11f"]);
-G2L["120"]["TextWrapped"] = true;
-G2L["120"]["BorderSizePixel"] = 0;
-G2L["120"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["120"]["TextSize"] = 14;
-G2L["120"]["TextScaled"] = true;
-G2L["120"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["120"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["120"]["ZIndex"] = 4;
-G2L["120"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["120"]["BackgroundTransparency"] = 1;
-G2L["120"]["Name"] = [[Click]];
-G2L["120"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["120"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1.Click.UICorner
-G2L["121"] = Instance.new("UICorner", G2L["120"]);
-G2L["121"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1.Click.UITextSizeConstraint
-G2L["122"] = Instance.new("UITextSizeConstraint", G2L["120"]);
-G2L["122"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn
-G2L["123"] = Instance.new("Frame", G2L["111"]);
-G2L["123"]["BorderSizePixel"] = 0;
-G2L["123"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["123"]["Size"] = UDim2.new(0.21558, 0, 0.15724, 0);
-G2L["123"]["Position"] = UDim2.new(0.65738, 0, 0.57525, 0);
-G2L["123"]["Name"] = [[saveBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.UICorner
-G2L["124"] = Instance.new("UICorner", G2L["123"]);
-G2L["124"]["CornerRadius"] = UDim.new(0.22, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.btnText1
-G2L["125"] = Instance.new("TextLabel", G2L["123"]);
-G2L["125"]["TextWrapped"] = true;
-G2L["125"]["BorderSizePixel"] = 0;
-G2L["125"]["TextSize"] = 28;
-G2L["125"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["125"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["125"]["TextScaled"] = true;
-G2L["125"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["125"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["125"]["BackgroundTransparency"] = 1;
-G2L["125"]["Size"] = UDim2.new(0.39109, 0, 0.30337, 0);
-G2L["125"]["Text"] = [[Save]];
-G2L["125"]["Name"] = [[btnText1]];
-G2L["125"]["Position"] = UDim2.new(0.49505, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.btnText1.UITextSizeConstraint
-G2L["126"] = Instance.new("UITextSizeConstraint", G2L["125"]);
-G2L["126"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Icon
-G2L["127"] = Instance.new("ImageLabel", G2L["123"]);
-G2L["127"]["BorderSizePixel"] = 0;
-G2L["127"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["127"]["Image"] = [[rbxassetid://128679881757557]];
-G2L["127"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["127"]["BackgroundTransparency"] = 1;
-G2L["127"]["Name"] = [[Icon]];
-G2L["127"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.UIGradient
-G2L["128"] = Instance.new("UIGradient", G2L["123"]);
-G2L["128"]["Rotation"] = 90;
-G2L["128"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Click
-G2L["129"] = Instance.new("TextButton", G2L["123"]);
-G2L["129"]["TextWrapped"] = true;
-G2L["129"]["BorderSizePixel"] = 0;
-G2L["129"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["129"]["TextSize"] = 14;
-G2L["129"]["TextScaled"] = true;
-G2L["129"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["129"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["129"]["ZIndex"] = 4;
-G2L["129"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["129"]["BackgroundTransparency"] = 1;
-G2L["129"]["Name"] = [[Click]];
-G2L["129"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["129"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Click.UICorner
-G2L["12a"] = Instance.new("UICorner", G2L["129"]);
-G2L["12a"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Click.UITextSizeConstraint
-G2L["12b"] = Instance.new("UITextSizeConstraint", G2L["129"]);
-G2L["12b"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.LockBtnBackground
-G2L["12c"] = Instance.new("TextButton", G2L["f5"]);
-G2L["12c"]["TextWrapped"] = true;
-G2L["12c"]["BorderSizePixel"] = 0;
-G2L["12c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["12c"]["TextSize"] = 14;
-G2L["12c"]["TextScaled"] = true;
-G2L["12c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["12c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["12c"]["ZIndex"] = 0;
-G2L["12c"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0);
-G2L["12c"]["BackgroundTransparency"] = 1;
-G2L["12c"]["Name"] = [[LockBtnBackground]];
-G2L["12c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["12c"]["Text"] = [[  ]];
-G2L["12c"]["Position"] = UDim2.new(-0, 0, -0.01234, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ScriptSave.LockBtnBackground.UITextSizeConstraint
-G2L["12d"] = Instance.new("UITextSizeConstraint", G2L["12c"]);
-G2L["12d"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate
-G2L["12e"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["12e"]["ZIndex"] = 50;
-G2L["12e"]["BorderSizePixel"] = 0;
-G2L["12e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["12e"]["ImageTransparency"] = 0.2;
-G2L["12e"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["12e"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["12e"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["12e"]["Visible"] = false;
-G2L["12e"]["ClipsDescendants"] = true;
-G2L["12e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["12e"]["BackgroundTransparency"] = 1;
-G2L["12e"]["Name"] = [[TabCreate]];
-G2L["12e"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1
-G2L["12f"] = Instance.new("ImageLabel", G2L["12e"]);
-G2L["12f"]["BorderSizePixel"] = 0;
-G2L["12f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["12f"]["ImageColor3"] = Color3.fromRGB(27, 32, 45);
-G2L["12f"]["Image"] = [[rbxassetid://105963070530458]];
-G2L["12f"]["Size"] = UDim2.new(0.67997, 0, 0.55984, 0);
-G2L["12f"]["Visible"] = false;
-G2L["12f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["12f"]["BackgroundTransparency"] = 1;
-G2L["12f"]["Name"] = [[ScriptPage1]];
-G2L["12f"]["Position"] = UDim2.new(0.15904, 0, 0.21365, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.title
-G2L["130"] = Instance.new("TextLabel", G2L["12f"]);
-G2L["130"]["TextWrapped"] = true;
-G2L["130"]["LineHeight"] = 0;
-G2L["130"]["BorderSizePixel"] = 0;
-G2L["130"]["TextSize"] = 31;
-G2L["130"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["130"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["130"]["TextScaled"] = true;
-G2L["130"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["130"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["130"]["BackgroundTransparency"] = 1;
-G2L["130"]["Size"] = UDim2.new(0.3127, 0, 0.05477, 0);
-G2L["130"]["Text"] = [[Create New Tab]];
-G2L["130"]["Name"] = [[title]];
-G2L["130"]["Position"] = UDim2.new(0.14408, 0, 0.15901, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.title.UITextSizeConstraint
-G2L["131"] = Instance.new("UITextSizeConstraint", G2L["130"]);
-G2L["131"]["MaxTextSize"] = 31;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.description
-G2L["132"] = Instance.new("TextLabel", G2L["12f"]);
-G2L["132"]["TextWrapped"] = true;
-G2L["132"]["BorderSizePixel"] = 0;
-G2L["132"]["TextSize"] = 23;
-G2L["132"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["132"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["132"]["TextScaled"] = true;
-G2L["132"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["132"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["132"]["BackgroundTransparency"] = 1;
-G2L["132"]["Size"] = UDim2.new(0.31163, 0, 0.10601, 0);
-G2L["132"]["Text"] = [[What will you create today?]];
-G2L["132"]["Name"] = [[description]];
-G2L["132"]["Position"] = UDim2.new(0.14514, 0, 0.23498, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.description.UITextSizeConstraint
-G2L["133"] = Instance.new("UITextSizeConstraint", G2L["132"]);
-G2L["133"]["MaxTextSize"] = 23;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input
-G2L["134"] = Instance.new("Frame", G2L["12f"]);
-G2L["134"]["BorderSizePixel"] = 0;
-G2L["134"]["BackgroundColor3"] = Color3.fromRGB(35, 43, 60);
-G2L["134"]["Size"] = UDim2.new(0.72785, 0, 0.15724, 0);
-G2L["134"]["Position"] = UDim2.new(0.14472, 0, 0.35798, 0);
-G2L["134"]["Name"] = [[input]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.UICorner
-G2L["135"] = Instance.new("UICorner", G2L["134"]);
-G2L["135"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.Icon
-G2L["136"] = Instance.new("ImageLabel", G2L["134"]);
-G2L["136"]["BorderSizePixel"] = 0;
-G2L["136"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["136"]["ImageColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["136"]["Image"] = [[rbxassetid://125200284008170]];
-G2L["136"]["Size"] = UDim2.new(0.05865, 0, 0.35955, 0);
-G2L["136"]["BackgroundTransparency"] = 1;
-G2L["136"]["Name"] = [[Icon]];
-G2L["136"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.barIdk
-G2L["137"] = Instance.new("ImageLabel", G2L["134"]);
-G2L["137"]["ZIndex"] = 2;
-G2L["137"]["BorderSizePixel"] = 0;
-G2L["137"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["137"]["Image"] = [[rbxassetid://107516337694688]];
-G2L["137"]["Size"] = UDim2.new(0.01906, 0, 0.62921, 0);
-G2L["137"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["137"]["BackgroundTransparency"] = 1;
-G2L["137"]["Name"] = [[barIdk]];
-G2L["137"]["Position"] = UDim2.new(0.02181, 0, 0.18816, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.barIdk.UIGradient
-G2L["138"] = Instance.new("UIGradient", G2L["137"]);
-G2L["138"]["Rotation"] = 91.10171;
-G2L["138"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.ShadowBackk
-G2L["139"] = Instance.new("ImageLabel", G2L["134"]);
-G2L["139"]["BorderSizePixel"] = 0;
-G2L["139"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["139"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["139"]["Size"] = UDim2.new(0.05718, 0, 1.02247, 0);
-G2L["139"]["BackgroundTransparency"] = 1;
-G2L["139"]["Name"] = [[ShadowBackk]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.InputText
-G2L["13a"] = Instance.new("TextBox", G2L["134"]);
-G2L["13a"]["Name"] = [[InputText]];
-G2L["13a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["13a"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["13a"]["BorderSizePixel"] = 0;
-G2L["13a"]["TextWrapped"] = true;
-G2L["13a"]["TextSize"] = 28;
-G2L["13a"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["13a"]["TextScaled"] = true;
-G2L["13a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["13a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["13a"]["PlaceholderText"] = [[Tab Name]];
-G2L["13a"]["Size"] = UDim2.new(0.81525, 0, 0.35955, 0);
-G2L["13a"]["Position"] = UDim2.new(0.14956, 0, 0.29213, 0);
-G2L["13a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["13a"]["Text"] = [[]];
-G2L["13a"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.InputText.UITextSizeConstraint
-G2L["13b"] = Instance.new("UITextSizeConstraint", G2L["13a"]);
-G2L["13b"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.input.UIStroke
-G2L["13c"] = Instance.new("UIStroke", G2L["134"]);
-G2L["13c"]["Thickness"] = 2;
-G2L["13c"]["Color"] = Color3.fromRGB(24, 29, 40);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn
-G2L["13d"] = Instance.new("ImageLabel", G2L["12f"]);
-G2L["13d"]["BorderSizePixel"] = 0;
-G2L["13d"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["13d"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["13d"]["Size"] = UDim2.new(0.03095, 0, 0.053, 0);
-G2L["13d"]["BackgroundTransparency"] = 1;
-G2L["13d"]["Name"] = [[CloseBtn]];
-G2L["13d"]["Position"] = UDim2.new(0.84205, 0, 0.15901, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn.Click
-G2L["13e"] = Instance.new("TextButton", G2L["13d"]);
-G2L["13e"]["TextWrapped"] = true;
-G2L["13e"]["BorderSizePixel"] = 0;
-G2L["13e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["13e"]["TextSize"] = 14;
-G2L["13e"]["TextScaled"] = true;
-G2L["13e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["13e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["13e"]["ZIndex"] = 4;
-G2L["13e"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["13e"]["BackgroundTransparency"] = 1;
-G2L["13e"]["Name"] = [[Click]];
-G2L["13e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["13e"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn.Click.UICorner
-G2L["13f"] = Instance.new("UICorner", G2L["13e"]);
-G2L["13f"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn.Click.UITextSizeConstraint
-G2L["140"] = Instance.new("UITextSizeConstraint", G2L["13e"]);
-G2L["140"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn
-G2L["141"] = Instance.new("Frame", G2L["12f"]);
-G2L["141"]["BorderSizePixel"] = 0;
-G2L["141"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["141"]["Size"] = UDim2.new(0.21558, 0, 0.15724, 0);
-G2L["141"]["Position"] = UDim2.new(0.65738, 0, 0.57525, 0);
-G2L["141"]["Name"] = [[NextBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.UICorner
-G2L["142"] = Instance.new("UICorner", G2L["141"]);
-G2L["142"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.btnText
-G2L["143"] = Instance.new("TextLabel", G2L["141"]);
-G2L["143"]["TextWrapped"] = true;
-G2L["143"]["BorderSizePixel"] = 0;
-G2L["143"]["TextSize"] = 28;
-G2L["143"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["143"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["143"]["TextScaled"] = true;
-G2L["143"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["143"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["143"]["BackgroundTransparency"] = 1;
-G2L["143"]["Size"] = UDim2.new(0.39109, 0, 0.30337, 0);
-G2L["143"]["Text"] = [[Create]];
-G2L["143"]["Name"] = [[btnText]];
-G2L["143"]["Position"] = UDim2.new(0.45, 0, 0.348, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.btnText.UITextSizeConstraint
-G2L["144"] = Instance.new("UITextSizeConstraint", G2L["143"]);
-G2L["144"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Icon
-G2L["145"] = Instance.new("ImageLabel", G2L["141"]);
-G2L["145"]["BorderSizePixel"] = 0;
-G2L["145"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["145"]["Image"] = [[rbxassetid://84835028822243]];
-G2L["145"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["145"]["BackgroundTransparency"] = 1;
-G2L["145"]["Name"] = [[Icon]];
-G2L["145"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.UIGradient
-G2L["146"] = Instance.new("UIGradient", G2L["141"]);
-G2L["146"]["Rotation"] = 90;
-G2L["146"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Click
-G2L["147"] = Instance.new("TextButton", G2L["141"]);
-G2L["147"]["TextWrapped"] = true;
-G2L["147"]["BorderSizePixel"] = 0;
-G2L["147"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["147"]["TextSize"] = 14;
-G2L["147"]["TextScaled"] = true;
-G2L["147"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["147"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["147"]["ZIndex"] = 4;
-G2L["147"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["147"]["BackgroundTransparency"] = 1;
-G2L["147"]["Name"] = [[Click]];
-G2L["147"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["147"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Click.UICorner
-G2L["148"] = Instance.new("UICorner", G2L["147"]);
-G2L["148"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Click.UITextSizeConstraint
-G2L["149"] = Instance.new("UITextSizeConstraint", G2L["147"]);
-G2L["149"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.LockBtnBackground
-G2L["14a"] = Instance.new("TextButton", G2L["12e"]);
-G2L["14a"]["TextWrapped"] = true;
-G2L["14a"]["BorderSizePixel"] = 0;
-G2L["14a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["14a"]["TextSize"] = 14;
-G2L["14a"]["TextScaled"] = true;
-G2L["14a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["14a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["14a"]["ZIndex"] = 0;
-G2L["14a"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0);
-G2L["14a"]["BackgroundTransparency"] = 1;
-G2L["14a"]["Name"] = [[LockBtnBackground]];
-G2L["14a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["14a"]["Text"] = [[  ]];
-G2L["14a"]["Position"] = UDim2.new(-0, 0, -0.01234, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabCreate.LockBtnBackground.UITextSizeConstraint
-G2L["14b"] = Instance.new("UITextSizeConstraint", G2L["14a"]);
-G2L["14b"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn
-G2L["14c"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["14c"]["ZIndex"] = 50;
-G2L["14c"]["BorderSizePixel"] = 0;
-G2L["14c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["14c"]["ImageTransparency"] = 0.2;
-G2L["14c"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["14c"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["14c"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["14c"]["Visible"] = false;
-G2L["14c"]["ClipsDescendants"] = true;
-G2L["14c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["14c"]["BackgroundTransparency"] = 1;
-G2L["14c"]["Name"] = [[ClearWarn]];
-G2L["14c"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage
-G2L["14d"] = Instance.new("ImageLabel", G2L["14c"]);
-G2L["14d"]["BorderSizePixel"] = 0;
-G2L["14d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["14d"]["ImageColor3"] = Color3.fromRGB(27, 32, 45);
-G2L["14d"]["Image"] = [[rbxassetid://105963070530458]];
-G2L["14d"]["Size"] = UDim2.new(0.46946, 0, 0.39685, 0);
-G2L["14d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["14d"]["BackgroundTransparency"] = 1;
-G2L["14d"]["Name"] = [[ClearPage]];
-G2L["14d"]["Position"] = UDim2.new(0.26484, 0, 0.29575, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.title
-G2L["14e"] = Instance.new("TextLabel", G2L["14d"]);
-G2L["14e"]["TextWrapped"] = true;
-G2L["14e"]["LineHeight"] = 0;
-G2L["14e"]["BorderSizePixel"] = 0;
-G2L["14e"]["TextSize"] = 31;
-G2L["14e"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["14e"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["14e"]["TextScaled"] = true;
-G2L["14e"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["14e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["14e"]["BackgroundTransparency"] = 1;
-G2L["14e"]["Size"] = UDim2.new(0.31334, 0, 0.09362, 0);
-G2L["14e"]["Text"] = [[Clear Editor]];
-G2L["14e"]["Name"] = [[title]];
-G2L["14e"]["Position"] = UDim2.new(0.15117, 0, 0.17314, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.title.UITextSizeConstraint
-G2L["14f"] = Instance.new("UITextSizeConstraint", G2L["14e"]);
-G2L["14f"]["MaxTextSize"] = 31;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.description
-G2L["150"] = Instance.new("TextLabel", G2L["14d"]);
-G2L["150"]["TextWrapped"] = true;
-G2L["150"]["BorderSizePixel"] = 0;
-G2L["150"]["TextSize"] = 23;
-G2L["150"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["150"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["150"]["TextScaled"] = true;
-G2L["150"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["150"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["150"]["BackgroundTransparency"] = 1;
-G2L["150"]["Size"] = UDim2.new(0.63279, 0, 0.12049, 0);
-G2L["150"]["Text"] = [[Are you sure you want to clear the editor? This action can't be undone.]];
-G2L["150"]["Name"] = [[description]];
-G2L["150"]["Position"] = UDim2.new(0.15117, 0, 0.27425, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.description.UITextSizeConstraint
-G2L["151"] = Instance.new("UITextSizeConstraint", G2L["150"]);
-G2L["151"]["MaxTextSize"] = 23;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CloseBtn
-G2L["152"] = Instance.new("ImageLabel", G2L["14d"]);
-G2L["152"]["BorderSizePixel"] = 0;
-G2L["152"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["152"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["152"]["Size"] = UDim2.new(0.05225, 0, 0.07122, 0);
-G2L["152"]["BackgroundTransparency"] = 1;
-G2L["152"]["Name"] = [[CloseBtn]];
-G2L["152"]["Position"] = UDim2.new(0.82074, 0, 0.15652, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CloseBtn.Click
-G2L["153"] = Instance.new("TextButton", G2L["152"]);
-G2L["153"]["TextWrapped"] = true;
-G2L["153"]["BorderSizePixel"] = 0;
-G2L["153"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["153"]["TextSize"] = 14;
-G2L["153"]["TextScaled"] = true;
-G2L["153"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["153"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["153"]["ZIndex"] = 4;
-G2L["153"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["153"]["BackgroundTransparency"] = 1;
-G2L["153"]["Name"] = [[Click]];
-G2L["153"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["153"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CloseBtn.Click.UICorner
-G2L["154"] = Instance.new("UICorner", G2L["153"]);
-G2L["154"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CloseBtn.Click.UITextSizeConstraint
-G2L["155"] = Instance.new("UITextSizeConstraint", G2L["153"]);
-G2L["155"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn
-G2L["156"] = Instance.new("Frame", G2L["14d"]);
-G2L["156"]["BorderSizePixel"] = 0;
-G2L["156"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["156"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0);
-G2L["156"]["Position"] = UDim2.new(0.14792, 0, 0.47645, 0);
-G2L["156"]["Name"] = [[CancelBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.UICorner
-G2L["157"] = Instance.new("UICorner", G2L["156"]);
-G2L["157"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.btnText
-G2L["158"] = Instance.new("TextLabel", G2L["156"]);
-G2L["158"]["TextWrapped"] = true;
-G2L["158"]["BorderSizePixel"] = 0;
-G2L["158"]["TextSize"] = 28;
-G2L["158"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["158"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["158"]["TextScaled"] = true;
-G2L["158"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["158"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["158"]["BackgroundTransparency"] = 1;
-G2L["158"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0);
-G2L["158"]["Text"] = [[Cancel]];
-G2L["158"]["Name"] = [[btnText]];
-G2L["158"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.btnText.UITextSizeConstraint
-G2L["159"] = Instance.new("UITextSizeConstraint", G2L["158"]);
-G2L["159"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.Icon
-G2L["15a"] = Instance.new("ImageLabel", G2L["156"]);
-G2L["15a"]["BorderSizePixel"] = 0;
-G2L["15a"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["15a"]["ImageColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["15a"]["Image"] = [[rbxassetid://108986189876354]];
-G2L["15a"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["15a"]["BackgroundTransparency"] = 1;
-G2L["15a"]["Name"] = [[Icon]];
-G2L["15a"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.Click
-G2L["15b"] = Instance.new("TextButton", G2L["156"]);
-G2L["15b"]["TextWrapped"] = true;
-G2L["15b"]["BorderSizePixel"] = 0;
-G2L["15b"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["15b"]["TextSize"] = 14;
-G2L["15b"]["TextScaled"] = true;
-G2L["15b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["15b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["15b"]["ZIndex"] = 4;
-G2L["15b"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["15b"]["BackgroundTransparency"] = 1;
-G2L["15b"]["Name"] = [[Click]];
-G2L["15b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["15b"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.Click.UICorner
-G2L["15c"] = Instance.new("UICorner", G2L["15b"]);
-G2L["15c"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.Click.UITextSizeConstraint
-G2L["15d"] = Instance.new("UITextSizeConstraint", G2L["15b"]);
-G2L["15d"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.CancelBtn.UIGradient
-G2L["15e"] = Instance.new("UIGradient", G2L["156"]);
-G2L["15e"]["Rotation"] = 91.27303;
-G2L["15e"]["Offset"] = Vector2.new(-0.00346, 0.02966);
-G2L["15e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(48, 58, 81)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(37, 45, 62))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn
-G2L["15f"] = Instance.new("Frame", G2L["14d"]);
-G2L["15f"]["BorderSizePixel"] = 0;
-G2L["15f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["15f"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0);
-G2L["15f"]["Position"] = UDim2.new(0.51737, 0, 0.47645, 0);
-G2L["15f"]["Name"] = [[ClearBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.UICorner
-G2L["160"] = Instance.new("UICorner", G2L["15f"]);
-G2L["160"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.btnText
-G2L["161"] = Instance.new("TextLabel", G2L["15f"]);
-G2L["161"]["TextWrapped"] = true;
-G2L["161"]["BorderSizePixel"] = 0;
-G2L["161"]["TextSize"] = 28;
-G2L["161"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["161"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["161"]["TextScaled"] = true;
-G2L["161"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["161"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["161"]["BackgroundTransparency"] = 1;
-G2L["161"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0);
-G2L["161"]["Text"] = [[Clear]];
-G2L["161"]["Name"] = [[btnText]];
-G2L["161"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.btnText.UITextSizeConstraint
-G2L["162"] = Instance.new("UITextSizeConstraint", G2L["161"]);
-G2L["162"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.Icon
-G2L["163"] = Instance.new("ImageLabel", G2L["15f"]);
-G2L["163"]["BorderSizePixel"] = 0;
-G2L["163"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["163"]["Image"] = [[rbxassetid://73909411554012]];
-G2L["163"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["163"]["BackgroundTransparency"] = 1;
-G2L["163"]["Name"] = [[Icon]];
-G2L["163"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.UIGradient
-G2L["164"] = Instance.new("UIGradient", G2L["15f"]);
-G2L["164"]["Rotation"] = 90;
-G2L["164"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.Click
-G2L["165"] = Instance.new("TextButton", G2L["15f"]);
-G2L["165"]["TextWrapped"] = true;
-G2L["165"]["BorderSizePixel"] = 0;
-G2L["165"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["165"]["TextSize"] = 14;
-G2L["165"]["TextScaled"] = true;
-G2L["165"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["165"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["165"]["ZIndex"] = 4;
-G2L["165"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["165"]["BackgroundTransparency"] = 1;
-G2L["165"]["Name"] = [[Click]];
-G2L["165"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["165"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.Click.UICorner
-G2L["166"] = Instance.new("UICorner", G2L["165"]);
-G2L["166"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ClearPage.ClearBtn.Click.UITextSizeConstraint
-G2L["167"] = Instance.new("UITextSizeConstraint", G2L["165"]);
-G2L["167"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2
-G2L["168"] = Instance.new("ImageLabel", G2L["14c"]);
-G2L["168"]["BorderSizePixel"] = 0;
-G2L["168"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["168"]["ImageColor3"] = Color3.fromRGB(27, 32, 45);
-G2L["168"]["Image"] = [[rbxassetid://105963070530458]];
-G2L["168"]["Size"] = UDim2.new(0.67997, 0, 0.55984, 0);
-G2L["168"]["Visible"] = false;
-G2L["168"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["168"]["BackgroundTransparency"] = 1;
-G2L["168"]["Name"] = [[ScriptPage2]];
-G2L["168"]["Position"] = UDim2.new(0.15904, 0, 0.21365, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.title1
-G2L["169"] = Instance.new("TextLabel", G2L["168"]);
-G2L["169"]["TextWrapped"] = true;
-G2L["169"]["LineHeight"] = 0;
-G2L["169"]["BorderSizePixel"] = 0;
-G2L["169"]["TextSize"] = 31;
-G2L["169"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["169"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["169"]["TextScaled"] = true;
-G2L["169"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["169"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["169"]["BackgroundTransparency"] = 1;
-G2L["169"]["Size"] = UDim2.new(0.3127, 0, 0.04064, 0);
-G2L["169"]["Text"] = [[Save your script]];
-G2L["169"]["Name"] = [[title1]];
-G2L["169"]["Position"] = UDim2.new(0.14408, 0, 0.17314, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.title1.UITextSizeConstraint
-G2L["16a"] = Instance.new("UITextSizeConstraint", G2L["169"]);
-G2L["16a"]["MaxTextSize"] = 31;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.description1
-G2L["16b"] = Instance.new("TextLabel", G2L["168"]);
-G2L["16b"]["TextWrapped"] = true;
-G2L["16b"]["BorderSizePixel"] = 0;
-G2L["16b"]["TextSize"] = 23;
-G2L["16b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["16b"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["16b"]["TextScaled"] = true;
-G2L["16b"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["16b"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["16b"]["BackgroundTransparency"] = 1;
-G2L["16b"]["Size"] = UDim2.new(0.27855, 0, 0.10601, 0);
-G2L["16b"]["Text"] = [[What will you create today?]];
-G2L["16b"]["Name"] = [[description1]];
-G2L["16b"]["Position"] = UDim2.new(0.14514, 0, 0.23498, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.description1.UITextSizeConstraint
-G2L["16c"] = Instance.new("UITextSizeConstraint", G2L["16b"]);
-G2L["16c"]["MaxTextSize"] = 23;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1
-G2L["16d"] = Instance.new("Frame", G2L["168"]);
-G2L["16d"]["BorderSizePixel"] = 0;
-G2L["16d"]["BackgroundColor3"] = Color3.fromRGB(35, 43, 60);
-G2L["16d"]["Size"] = UDim2.new(0.72785, 0, 0.15724, 0);
-G2L["16d"]["Position"] = UDim2.new(0.14472, 0, 0.35798, 0);
-G2L["16d"]["Name"] = [[Input1]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.UICorner
-G2L["16e"] = Instance.new("UICorner", G2L["16d"]);
-G2L["16e"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.Icon1
-G2L["16f"] = Instance.new("ImageLabel", G2L["16d"]);
-G2L["16f"]["BorderSizePixel"] = 0;
-G2L["16f"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["16f"]["ImageColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["16f"]["Image"] = [[rbxassetid://85225882076323]];
-G2L["16f"]["Size"] = UDim2.new(0.05865, 0, 0.35955, 0);
-G2L["16f"]["BackgroundTransparency"] = 1;
-G2L["16f"]["Name"] = [[Icon1]];
-G2L["16f"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.barIdk1
-G2L["170"] = Instance.new("ImageLabel", G2L["16d"]);
-G2L["170"]["ZIndex"] = 2;
-G2L["170"]["BorderSizePixel"] = 0;
-G2L["170"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["170"]["Image"] = [[rbxassetid://107516337694688]];
-G2L["170"]["Size"] = UDim2.new(0.01906, 0, 0.62921, 0);
-G2L["170"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["170"]["BackgroundTransparency"] = 1;
-G2L["170"]["Name"] = [[barIdk1]];
-G2L["170"]["Position"] = UDim2.new(0.02181, 0, 0.18816, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.barIdk1.UIGradient
-G2L["171"] = Instance.new("UIGradient", G2L["170"]);
-G2L["171"]["Rotation"] = 91.10171;
-G2L["171"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.ShadowBackk
-G2L["172"] = Instance.new("ImageLabel", G2L["16d"]);
-G2L["172"]["BorderSizePixel"] = 0;
-G2L["172"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["172"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["172"]["Size"] = UDim2.new(0.05718, 0, 1.02247, 0);
-G2L["172"]["BackgroundTransparency"] = 1;
-G2L["172"]["Name"] = [[ShadowBackk]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.InputText1
-G2L["173"] = Instance.new("TextBox", G2L["16d"]);
-G2L["173"]["Name"] = [[InputText1]];
-G2L["173"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["173"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["173"]["BorderSizePixel"] = 0;
-G2L["173"]["TextWrapped"] = true;
-G2L["173"]["TextSize"] = 28;
-G2L["173"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["173"]["TextScaled"] = true;
-G2L["173"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["173"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["173"]["PlaceholderText"] = [[Script code..]];
-G2L["173"]["Size"] = UDim2.new(0.81525, 0, 0.35955, 0);
-G2L["173"]["Position"] = UDim2.new(0.14956, 0, 0.29213, 0);
-G2L["173"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["173"]["Text"] = [[]];
-G2L["173"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.InputText1.UITextSizeConstraint
-G2L["174"] = Instance.new("UITextSizeConstraint", G2L["173"]);
-G2L["174"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.Input1.UIStroke
-G2L["175"] = Instance.new("UIStroke", G2L["16d"]);
-G2L["175"]["Thickness"] = 2;
-G2L["175"]["Color"] = Color3.fromRGB(24, 29, 40);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.CloseBtn1
-G2L["176"] = Instance.new("ImageLabel", G2L["168"]);
-G2L["176"]["BorderSizePixel"] = 0;
-G2L["176"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["176"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["176"]["Size"] = UDim2.new(0.03095, 0, 0.053, 0);
-G2L["176"]["BackgroundTransparency"] = 1;
-G2L["176"]["Name"] = [[CloseBtn1]];
-G2L["176"]["Position"] = UDim2.new(0.84205, 0, 0.15901, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.CloseBtn1.Click
-G2L["177"] = Instance.new("TextButton", G2L["176"]);
-G2L["177"]["TextWrapped"] = true;
-G2L["177"]["BorderSizePixel"] = 0;
-G2L["177"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["177"]["TextSize"] = 14;
-G2L["177"]["TextScaled"] = true;
-G2L["177"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["177"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["177"]["ZIndex"] = 4;
-G2L["177"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["177"]["BackgroundTransparency"] = 1;
-G2L["177"]["Name"] = [[Click]];
-G2L["177"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["177"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.CloseBtn1.Click.UICorner
-G2L["178"] = Instance.new("UICorner", G2L["177"]);
-G2L["178"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.CloseBtn1.Click.UITextSizeConstraint
-G2L["179"] = Instance.new("UITextSizeConstraint", G2L["177"]);
-G2L["179"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn
-G2L["17a"] = Instance.new("Frame", G2L["168"]);
-G2L["17a"]["BorderSizePixel"] = 0;
-G2L["17a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["17a"]["Size"] = UDim2.new(0.21558, 0, 0.15724, 0);
-G2L["17a"]["Position"] = UDim2.new(0.65738, 0, 0.57525, 0);
-G2L["17a"]["Name"] = [[saveBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.UICorner
-G2L["17b"] = Instance.new("UICorner", G2L["17a"]);
-G2L["17b"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.btnText1
-G2L["17c"] = Instance.new("TextLabel", G2L["17a"]);
-G2L["17c"]["TextWrapped"] = true;
-G2L["17c"]["BorderSizePixel"] = 0;
-G2L["17c"]["TextSize"] = 28;
-G2L["17c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["17c"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["17c"]["TextScaled"] = true;
-G2L["17c"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["17c"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["17c"]["BackgroundTransparency"] = 1;
-G2L["17c"]["Size"] = UDim2.new(0.39109, 0, 0.30337, 0);
-G2L["17c"]["Text"] = [[Save]];
-G2L["17c"]["Name"] = [[btnText1]];
-G2L["17c"]["Position"] = UDim2.new(0.49505, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.btnText1.UITextSizeConstraint
-G2L["17d"] = Instance.new("UITextSizeConstraint", G2L["17c"]);
-G2L["17d"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.Icon
-G2L["17e"] = Instance.new("ImageLabel", G2L["17a"]);
-G2L["17e"]["BorderSizePixel"] = 0;
-G2L["17e"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["17e"]["Image"] = [[rbxassetid://128679881757557]];
-G2L["17e"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["17e"]["BackgroundTransparency"] = 1;
-G2L["17e"]["Name"] = [[Icon]];
-G2L["17e"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.UIGradient
-G2L["17f"] = Instance.new("UIGradient", G2L["17a"]);
-G2L["17f"]["Rotation"] = 90;
-G2L["17f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.Click
-G2L["180"] = Instance.new("TextButton", G2L["17a"]);
-G2L["180"]["TextWrapped"] = true;
-G2L["180"]["BorderSizePixel"] = 0;
-G2L["180"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["180"]["TextSize"] = 14;
-G2L["180"]["TextScaled"] = true;
-G2L["180"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["180"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["180"]["ZIndex"] = 4;
-G2L["180"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["180"]["BackgroundTransparency"] = 1;
-G2L["180"]["Name"] = [[Click]];
-G2L["180"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["180"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.Click.UICorner
-G2L["181"] = Instance.new("UICorner", G2L["180"]);
-G2L["181"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.ScriptPage2.saveBtn.Click.UITextSizeConstraint
-G2L["182"] = Instance.new("UITextSizeConstraint", G2L["180"]);
-G2L["182"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.LockBtnBackground
-G2L["183"] = Instance.new("TextButton", G2L["14c"]);
-G2L["183"]["TextWrapped"] = true;
-G2L["183"]["BorderSizePixel"] = 0;
-G2L["183"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["183"]["TextSize"] = 14;
-G2L["183"]["TextScaled"] = true;
-G2L["183"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["183"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["183"]["ZIndex"] = 0;
-G2L["183"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0);
-G2L["183"]["BackgroundTransparency"] = 1;
-G2L["183"]["Name"] = [[LockBtnBackground]];
-G2L["183"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["183"]["Text"] = [[  ]];
-G2L["183"]["Position"] = UDim2.new(-0, 0, -0.01234, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.ClearWarn.LockBtnBackground.UITextSizeConstraint
-G2L["184"] = Instance.new("UITextSizeConstraint", G2L["183"]);
-G2L["184"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn
-G2L["185"] = Instance.new("ImageLabel", G2L["11"]);
-G2L["185"]["ZIndex"] = 50;
-G2L["185"]["BorderSizePixel"] = 0;
-G2L["185"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["185"]["ImageTransparency"] = 0.2;
-G2L["185"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["185"]["Image"] = [[rbxassetid://76734110237026]];
-G2L["185"]["Size"] = UDim2.new(1.00073, 0, 1, 0);
-G2L["185"]["Visible"] = false;
-G2L["185"]["ClipsDescendants"] = true;
-G2L["185"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["185"]["BackgroundTransparency"] = 1;
-G2L["185"]["Name"] = [[TabWarn]];
-G2L["185"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage
-G2L["186"] = Instance.new("ImageLabel", G2L["185"]);
-G2L["186"]["BorderSizePixel"] = 0;
-G2L["186"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["186"]["ImageColor3"] = Color3.fromRGB(27, 32, 45);
-G2L["186"]["Image"] = [[rbxassetid://105963070530458]];
-G2L["186"]["Size"] = UDim2.new(0.46946, 0, 0.39685, 0);
-G2L["186"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["186"]["BackgroundTransparency"] = 1;
-G2L["186"]["Name"] = [[ClearPage]];
-G2L["186"]["Position"] = UDim2.new(0.26484, 0, 0.29575, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.title
-G2L["187"] = Instance.new("TextLabel", G2L["186"]);
-G2L["187"]["TextWrapped"] = true;
-G2L["187"]["LineHeight"] = 0;
-G2L["187"]["BorderSizePixel"] = 0;
-G2L["187"]["TextSize"] = 31;
-G2L["187"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["187"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["187"]["TextScaled"] = true;
-G2L["187"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["187"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["187"]["BackgroundTransparency"] = 1;
-G2L["187"]["Size"] = UDim2.new(0.633, 0, 0.078, 0);
-G2L["187"]["Text"] = [[Delete Tab:  <Tab Name>]];
-G2L["187"]["Name"] = [[title]];
-G2L["187"]["Position"] = UDim2.new(0.15117, 0, 0.17314, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.title.UITextSizeConstraint
-G2L["188"] = Instance.new("UITextSizeConstraint", G2L["187"]);
-G2L["188"]["MaxTextSize"] = 31;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.description
-G2L["189"] = Instance.new("TextLabel", G2L["186"]);
-G2L["189"]["TextWrapped"] = true;
-G2L["189"]["BorderSizePixel"] = 0;
-G2L["189"]["TextSize"] = 23;
-G2L["189"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["189"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["189"]["TextScaled"] = true;
-G2L["189"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["189"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["189"]["BackgroundTransparency"] = 1;
-G2L["189"]["Size"] = UDim2.new(0.63279, 0, 0.13245, 0);
-G2L["189"]["Text"] = [[Are you sure you want to delete this Tab? This action can't be undone.]];
-G2L["189"]["Name"] = [[description]];
-G2L["189"]["Position"] = UDim2.new(0.15117, 0, 0.27425, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.description.UITextSizeConstraint
-G2L["18a"] = Instance.new("UITextSizeConstraint", G2L["189"]);
-G2L["18a"]["MaxTextSize"] = 23;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn
-G2L["18b"] = Instance.new("ImageLabel", G2L["186"]);
-G2L["18b"]["BorderSizePixel"] = 0;
-G2L["18b"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["18b"]["Image"] = [[rbxassetid://88951128464748]];
-G2L["18b"]["Size"] = UDim2.new(0.05225, 0, 0.07122, 0);
-G2L["18b"]["BackgroundTransparency"] = 1;
-G2L["18b"]["Name"] = [[CloseBtn]];
-G2L["18b"]["Position"] = UDim2.new(0.82074, 0, 0.15652, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click
-G2L["18c"] = Instance.new("TextButton", G2L["18b"]);
-G2L["18c"]["TextWrapped"] = true;
-G2L["18c"]["BorderSizePixel"] = 0;
-G2L["18c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["18c"]["TextSize"] = 14;
-G2L["18c"]["TextScaled"] = true;
-G2L["18c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["18c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["18c"]["ZIndex"] = 4;
-G2L["18c"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["18c"]["BackgroundTransparency"] = 1;
-G2L["18c"]["Name"] = [[Click]];
-G2L["18c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["18c"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click.UICorner
-G2L["18d"] = Instance.new("UICorner", G2L["18c"]);
-G2L["18d"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click.UITextSizeConstraint
-G2L["18e"] = Instance.new("UITextSizeConstraint", G2L["18c"]);
-G2L["18e"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn
-G2L["18f"] = Instance.new("Frame", G2L["186"]);
-G2L["18f"]["BorderSizePixel"] = 0;
-G2L["18f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["18f"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0);
-G2L["18f"]["Position"] = UDim2.new(0.14792, 0, 0.47645, 0);
-G2L["18f"]["Name"] = [[CancelBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.UICorner
-G2L["190"] = Instance.new("UICorner", G2L["18f"]);
-G2L["190"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.btnText
-G2L["191"] = Instance.new("TextLabel", G2L["18f"]);
-G2L["191"]["TextWrapped"] = true;
-G2L["191"]["BorderSizePixel"] = 0;
-G2L["191"]["TextSize"] = 28;
-G2L["191"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["191"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["191"]["TextScaled"] = true;
-G2L["191"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["191"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["191"]["BackgroundTransparency"] = 1;
-G2L["191"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0);
-G2L["191"]["Text"] = [[Cancel]];
-G2L["191"]["Name"] = [[btnText]];
-G2L["191"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.btnText.UITextSizeConstraint
-G2L["192"] = Instance.new("UITextSizeConstraint", G2L["191"]);
-G2L["192"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Icon
-G2L["193"] = Instance.new("ImageLabel", G2L["18f"]);
-G2L["193"]["BorderSizePixel"] = 0;
-G2L["193"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["193"]["ImageColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["193"]["Image"] = [[rbxassetid://108986189876354]];
-G2L["193"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["193"]["BackgroundTransparency"] = 1;
-G2L["193"]["Name"] = [[Icon]];
-G2L["193"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click
-G2L["194"] = Instance.new("TextButton", G2L["18f"]);
-G2L["194"]["TextWrapped"] = true;
-G2L["194"]["BorderSizePixel"] = 0;
-G2L["194"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["194"]["TextSize"] = 14;
-G2L["194"]["TextScaled"] = true;
-G2L["194"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["194"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["194"]["ZIndex"] = 4;
-G2L["194"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["194"]["BackgroundTransparency"] = 1;
-G2L["194"]["Name"] = [[Click]];
-G2L["194"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["194"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click.UICorner
-G2L["195"] = Instance.new("UICorner", G2L["194"]);
-G2L["195"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click.UITextSizeConstraint
-G2L["196"] = Instance.new("UITextSizeConstraint", G2L["194"]);
-G2L["196"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.UIGradient
-G2L["197"] = Instance.new("UIGradient", G2L["18f"]);
-G2L["197"]["Rotation"] = 91.27303;
-G2L["197"]["Offset"] = Vector2.new(-0.00346, 0.02966);
-G2L["197"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(48, 58, 81)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(37, 45, 62))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn
-G2L["198"] = Instance.new("Frame", G2L["186"]);
-G2L["198"]["BorderSizePixel"] = 0;
-G2L["198"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["198"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0);
-G2L["198"]["Position"] = UDim2.new(0.51737, 0, 0.47645, 0);
-G2L["198"]["Name"] = [[DeleteBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.UICorner
-G2L["199"] = Instance.new("UICorner", G2L["198"]);
-G2L["199"]["CornerRadius"] = UDim.new(0.2, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.btnText
-G2L["19a"] = Instance.new("TextLabel", G2L["198"]);
-G2L["19a"]["TextWrapped"] = true;
-G2L["19a"]["BorderSizePixel"] = 0;
-G2L["19a"]["TextSize"] = 28;
-G2L["19a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["19a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["19a"]["TextScaled"] = true;
-G2L["19a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["19a"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["19a"]["BackgroundTransparency"] = 1;
-G2L["19a"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0);
-G2L["19a"]["Text"] = [[Delete]];
-G2L["19a"]["Name"] = [[btnText]];
-G2L["19a"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.btnText.UITextSizeConstraint
-G2L["19b"] = Instance.new("UITextSizeConstraint", G2L["19a"]);
-G2L["19b"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Icon
-G2L["19c"] = Instance.new("ImageLabel", G2L["198"]);
-G2L["19c"]["BorderSizePixel"] = 0;
-G2L["19c"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["19c"]["Image"] = [[rbxassetid://73909411554012]];
-G2L["19c"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0);
-G2L["19c"]["BackgroundTransparency"] = 1;
-G2L["19c"]["Name"] = [[Icon]];
-G2L["19c"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.UIGradient
-G2L["19d"] = Instance.new("UIGradient", G2L["198"]);
-G2L["19d"]["Rotation"] = 90;
-G2L["19d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click
-G2L["19e"] = Instance.new("TextButton", G2L["198"]);
-G2L["19e"]["TextWrapped"] = true;
-G2L["19e"]["BorderSizePixel"] = 0;
-G2L["19e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["19e"]["TextSize"] = 14;
-G2L["19e"]["TextScaled"] = true;
-G2L["19e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["19e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["19e"]["ZIndex"] = 4;
-G2L["19e"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["19e"]["BackgroundTransparency"] = 1;
-G2L["19e"]["Name"] = [[Click]];
-G2L["19e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["19e"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click.UICorner
-G2L["19f"] = Instance.new("UICorner", G2L["19e"]);
-G2L["19f"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click.UITextSizeConstraint
-G2L["1a0"] = Instance.new("UITextSizeConstraint", G2L["19e"]);
-G2L["1a0"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.LockBtnBackground
-G2L["1a1"] = Instance.new("TextButton", G2L["185"]);
-G2L["1a1"]["TextWrapped"] = true;
-G2L["1a1"]["BorderSizePixel"] = 0;
-G2L["1a1"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1a1"]["TextSize"] = 14;
-G2L["1a1"]["TextScaled"] = true;
-G2L["1a1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1a1"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1a1"]["ZIndex"] = 0;
-G2L["1a1"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0);
-G2L["1a1"]["BackgroundTransparency"] = 1;
-G2L["1a1"]["Name"] = [[LockBtnBackground]];
-G2L["1a1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1a1"]["Text"] = [[  ]];
-G2L["1a1"]["Position"] = UDim2.new(-0, 0, -0.01234, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Pages.TabWarn.LockBtnBackground.UITextSizeConstraint
-G2L["1a2"] = Instance.new("UITextSizeConstraint", G2L["1a1"]);
-G2L["1a2"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar
-G2L["1a3"] = Instance.new("ImageLabel", G2L["6"]);
-G2L["1a3"]["BorderSizePixel"] = 0;
-G2L["1a3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1a3"]["ImageTransparency"] = 1;
-G2L["1a3"]["ImageColor3"] = Color3.fromRGB(13, 15, 20);
-G2L["1a3"]["Image"] = [[rbxassetid://133862668499122]];
-G2L["1a3"]["Size"] = UDim2.new(0.24986, 0, 1, 0);
-G2L["1a3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1a3"]["BackgroundTransparency"] = 1;
-G2L["1a3"]["Name"] = [[Sidebar]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn
-G2L["1a4"] = Instance.new("Frame", G2L["1a3"]);
-G2L["1a4"]["BorderSizePixel"] = 0;
-G2L["1a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1a4"]["Size"] = UDim2.new(0.61039, 0, 0.08803, 0);
-G2L["1a4"]["Position"] = UDim2.new(0.19229, 0, 0.82613, 0);
-G2L["1a4"]["Name"] = [[UpgradeBtn]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.UICorner
-G2L["1a5"] = Instance.new("UICorner", G2L["1a4"]);
-G2L["1a5"]["CornerRadius"] = UDim.new(0.18, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.Upgrade Plan
-G2L["1a6"] = Instance.new("TextLabel", G2L["1a4"]);
-G2L["1a6"]["TextWrapped"] = true;
-G2L["1a6"]["BorderSizePixel"] = 0;
-G2L["1a6"]["TextSize"] = 28;
-G2L["1a6"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1a6"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["1a6"]["TextScaled"] = true;
-G2L["1a6"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1a6"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["1a6"]["BackgroundTransparency"] = 1;
-G2L["1a6"]["Size"] = UDim2.new(0.58149, 0, 0.35955, 0);
-G2L["1a6"]["Text"] = [[Upgrade Plan]];
-G2L["1a6"]["Name"] = [[Upgrade Plan]];
-G2L["1a6"]["Position"] = UDim2.new(0.31206, 0, 0.32584, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.Upgrade Plan.UITextSizeConstraint
-G2L["1a7"] = Instance.new("UITextSizeConstraint", G2L["1a6"]);
-G2L["1a7"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.icons8-key-100 145
-G2L["1a8"] = Instance.new("ImageLabel", G2L["1a4"]);
-G2L["1a8"]["BorderSizePixel"] = 0;
-G2L["1a8"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1a8"]["Image"] = [[rbxassetid://110667923648139]];
-G2L["1a8"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0);
-G2L["1a8"]["BackgroundTransparency"] = 1;
-G2L["1a8"]["Name"] = [[icons8-key-100 145]];
-G2L["1a8"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.UIGradient
-G2L["1a9"] = Instance.new("UIGradient", G2L["1a4"]);
-G2L["1a9"]["Rotation"] = 90;
-G2L["1a9"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.Click
-G2L["1aa"] = Instance.new("TextButton", G2L["1a4"]);
-G2L["1aa"]["TextWrapped"] = true;
-G2L["1aa"]["BorderSizePixel"] = 0;
-G2L["1aa"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1aa"]["TextSize"] = 14;
-G2L["1aa"]["TextScaled"] = true;
-G2L["1aa"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1aa"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1aa"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["1aa"]["BackgroundTransparency"] = 1;
-G2L["1aa"]["Name"] = [[Click]];
-G2L["1aa"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1aa"]["Text"] = [[]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.Click.UICorner
-G2L["1ab"] = Instance.new("UICorner", G2L["1aa"]);
-G2L["1ab"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.UpgradeBtn.Click.UITextSizeConstraint
-G2L["1ac"] = Instance.new("UITextSizeConstraint", G2L["1aa"]);
-G2L["1ac"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Appleware Premium
-G2L["1ad"] = Instance.new("TextLabel", G2L["1a3"]);
-G2L["1ad"]["TextWrapped"] = true;
-G2L["1ad"]["LineHeight"] = 0;
-G2L["1ad"]["BorderSizePixel"] = 0;
-G2L["1ad"]["TextSize"] = 28;
-G2L["1ad"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1ad"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["1ad"]["TextScaled"] = true;
-G2L["1ad"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1ad"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1ad"]["BackgroundTransparency"] = 1;
-G2L["1ad"]["Size"] = UDim2.new(0.52983, 0, 0.0366, 0);
-G2L["1ad"]["ClipsDescendants"] = true;
-G2L["1ad"]["Text"] = [[Aw Premium]];
-G2L["1ad"]["Name"] = [[Appleware Premium]];
-G2L["1ad"]["Position"] = UDim2.new(0.19048, 0, 0.68942, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Appleware Premium.UITextSizeConstraint
-G2L["1ae"] = Instance.new("UITextSizeConstraint", G2L["1ad"]);
-G2L["1ae"]["MaxTextSize"] = 25;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Offers a smoother Experience and more!
-G2L["1af"] = Instance.new("TextLabel", G2L["1a3"]);
-G2L["1af"]["TextWrapped"] = true;
-G2L["1af"]["BorderSizePixel"] = 0;
-G2L["1af"]["TextSize"] = 27;
-G2L["1af"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1af"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["1af"]["TextScaled"] = true;
-G2L["1af"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["1af"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["1af"]["BackgroundTransparency"] = 1;
-G2L["1af"]["Size"] = UDim2.new(0.51209, 0, 0.05935, 0);
-G2L["1af"]["Text"] = [[Offers a smoother Experience and more!]];
-G2L["1af"]["Name"] = [[Offers a smoother Experience and more!]];
-G2L["1af"]["Position"] = UDim2.new(0.19048, 0, 0.74283, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Offers a smoother Experience and more!.UITextSizeConstraint
-G2L["1b0"] = Instance.new("UITextSizeConstraint", G2L["1af"]);
-G2L["1b0"]["MaxTextSize"] = 27;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor
-G2L["1b1"] = Instance.new("Frame", G2L["1a3"]);
-G2L["1b1"]["BorderSizePixel"] = 0;
-G2L["1b1"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51);
-G2L["1b1"]["Size"] = UDim2.new(0.71429, 0, 0.08803, 0);
-G2L["1b1"]["Position"] = UDim2.new(0.08772, 0, 0.18611, 0);
-G2L["1b1"]["Name"] = [[Editor]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.UICorner
-G2L["1b2"] = Instance.new("UICorner", G2L["1b1"]);
-G2L["1b2"]["CornerRadius"] = UDim.new(0.18, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Box
-G2L["1b3"] = Instance.new("Frame", G2L["1b1"]);
-G2L["1b3"]["ZIndex"] = 2;
-G2L["1b3"]["BorderSizePixel"] = 0;
-G2L["1b3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1b3"]["Size"] = UDim2.new(0.16667, 0, 0.62921, 0);
-G2L["1b3"]["Position"] = UDim2.new(0.0927, 0, 0.2, 0);
-G2L["1b3"]["Name"] = [[Box]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Box.UICorner
-G2L["1b4"] = Instance.new("UICorner", G2L["1b3"]);
-G2L["1b4"]["CornerRadius"] = UDim.new(0.24, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Box.Icon
-G2L["1b5"] = Instance.new("ImageLabel", G2L["1b3"]);
-G2L["1b5"]["ZIndex"] = 2;
-G2L["1b5"]["BorderSizePixel"] = 0;
-G2L["1b5"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1b5"]["Image"] = [[rbxassetid://94595204123047]];
-G2L["1b5"]["Size"] = UDim2.new(0.52727, 0, 0.57143, 0);
-G2L["1b5"]["BackgroundTransparency"] = 1;
-G2L["1b5"]["Name"] = [[Icon]];
-G2L["1b5"]["Position"] = UDim2.new(0.23636, 0, 0.23214, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Box.UIGradient
-G2L["1b6"] = Instance.new("UIGradient", G2L["1b3"]);
-G2L["1b6"]["Rotation"] = 90;
-G2L["1b6"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Box.UIAspectRatioConstraint
-G2L["1b7"] = Instance.new("UIAspectRatioConstraint", G2L["1b3"]);
-G2L["1b7"]["AspectRatio"] = 0.98214;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Editor
-G2L["1b8"] = Instance.new("TextLabel", G2L["1b1"]);
-G2L["1b8"]["TextWrapped"] = true;
-G2L["1b8"]["BorderSizePixel"] = 0;
-G2L["1b8"]["TextSize"] = 32;
-G2L["1b8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1b8"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["1b8"]["TextScaled"] = true;
-G2L["1b8"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1b8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1b8"]["BackgroundTransparency"] = 1;
-G2L["1b8"]["Size"] = UDim2.new(0.2479, 0, 0.35955, 0);
-G2L["1b8"]["Text"] = [[Editor]];
-G2L["1b8"]["Name"] = [[Editor]];
-G2L["1b8"]["Position"] = UDim2.new(0.37879, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Editor.UITextSizeConstraint
-G2L["1b9"] = Instance.new("UITextSizeConstraint", G2L["1b8"]);
-G2L["1b9"]["MaxTextSize"] = 32;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Click
-G2L["1ba"] = Instance.new("TextButton", G2L["1b1"]);
-G2L["1ba"]["TextWrapped"] = true;
-G2L["1ba"]["BorderSizePixel"] = 0;
-G2L["1ba"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1ba"]["TextSize"] = 14;
-G2L["1ba"]["TextScaled"] = true;
-G2L["1ba"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1ba"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1ba"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["1ba"]["BackgroundTransparency"] = 1;
-G2L["1ba"]["Name"] = [[Click]];
-G2L["1ba"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1ba"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Click.UICorner
-G2L["1bb"] = Instance.new("UICorner", G2L["1ba"]);
-G2L["1bb"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Editor.Click.UITextSizeConstraint
-G2L["1bc"] = Instance.new("UITextSizeConstraint", G2L["1ba"]);
-G2L["1bc"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud
-G2L["1bd"] = Instance.new("Frame", G2L["1a3"]);
-G2L["1bd"]["BorderSizePixel"] = 0;
-G2L["1bd"]["BackgroundColor3"] = Color3.fromRGB(31, 34, 50);
-G2L["1bd"]["Size"] = UDim2.new(0.71429, 0, 0.08803, 0);
-G2L["1bd"]["Position"] = UDim2.new(0.08772, 0, 0.28502, 0);
-G2L["1bd"]["Name"] = [[Cloud]];
-G2L["1bd"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.UICorner
-G2L["1be"] = Instance.new("UICorner", G2L["1bd"]);
-G2L["1be"]["CornerRadius"] = UDim.new(0.18, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Box
-G2L["1bf"] = Instance.new("Frame", G2L["1bd"]);
-G2L["1bf"]["BorderSizePixel"] = 0;
-G2L["1bf"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1bf"]["Size"] = UDim2.new(0.16667, 0, 0.62921, 0);
-G2L["1bf"]["Position"] = UDim2.new(0.0927, 0, 0.2, 0);
-G2L["1bf"]["Name"] = [[Box]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Box.UICorner
-G2L["1c0"] = Instance.new("UICorner", G2L["1bf"]);
-G2L["1c0"]["CornerRadius"] = UDim.new(0.24, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Box.Icon
-G2L["1c1"] = Instance.new("ImageLabel", G2L["1bf"]);
-G2L["1c1"]["BorderSizePixel"] = 0;
-G2L["1c1"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1c1"]["Image"] = [[rbxassetid://93729735363108]];
-G2L["1c1"]["Size"] = UDim2.new(0.52727, 0, 0.5, 0);
-G2L["1c1"]["BackgroundTransparency"] = 1;
-G2L["1c1"]["Name"] = [[Icon]];
-G2L["1c1"]["Position"] = UDim2.new(0.23636, 0, 0.25, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Box.UIGradient
-G2L["1c2"] = Instance.new("UIGradient", G2L["1bf"]);
-G2L["1c2"]["Rotation"] = 90;
-G2L["1c2"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(66, 79, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(36, 44, 63))};
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Box.UIAspectRatioConstraint
-G2L["1c3"] = Instance.new("UIAspectRatioConstraint", G2L["1bf"]);
-G2L["1c3"]["AspectRatio"] = 0.98214;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Editor
-G2L["1c4"] = Instance.new("TextLabel", G2L["1bd"]);
-G2L["1c4"]["TextWrapped"] = true;
-G2L["1c4"]["BorderSizePixel"] = 0;
-G2L["1c4"]["TextSize"] = 32;
-G2L["1c4"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1c4"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["1c4"]["TextScaled"] = true;
-G2L["1c4"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1c4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1c4"]["BackgroundTransparency"] = 1;
-G2L["1c4"]["Size"] = UDim2.new(0.2479, 0, 0.35955, 0);
-G2L["1c4"]["Text"] = [[Cloud]];
-G2L["1c4"]["Name"] = [[Editor]];
-G2L["1c4"]["Position"] = UDim2.new(0.37879, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Editor.UITextSizeConstraint
-G2L["1c5"] = Instance.new("UITextSizeConstraint", G2L["1c4"]);
-G2L["1c5"]["MaxTextSize"] = 32;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Click
-G2L["1c6"] = Instance.new("TextButton", G2L["1bd"]);
-G2L["1c6"]["TextWrapped"] = true;
-G2L["1c6"]["BorderSizePixel"] = 0;
-G2L["1c6"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1c6"]["TextSize"] = 14;
-G2L["1c6"]["TextScaled"] = true;
-G2L["1c6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1c6"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1c6"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["1c6"]["BackgroundTransparency"] = 1;
-G2L["1c6"]["Name"] = [[Click]];
-G2L["1c6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1c6"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Click.UICorner
-G2L["1c7"] = Instance.new("UICorner", G2L["1c6"]);
-G2L["1c7"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Cloud.Click.UITextSizeConstraint
-G2L["1c8"] = Instance.new("UITextSizeConstraint", G2L["1c6"]);
-G2L["1c8"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config
-G2L["1c9"] = Instance.new("Frame", G2L["1a3"]);
-G2L["1c9"]["BorderSizePixel"] = 0;
-G2L["1c9"]["BackgroundColor3"] = Color3.fromRGB(31, 34, 50);
-G2L["1c9"]["Size"] = UDim2.new(0.71429, 0, 0.08803, 0);
-G2L["1c9"]["Position"] = UDim2.new(0.08772, 0, 0.4868, 0);
-G2L["1c9"]["Name"] = [[Config]];
-G2L["1c9"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.UICorner
-G2L["1ca"] = Instance.new("UICorner", G2L["1c9"]);
-G2L["1ca"]["CornerRadius"] = UDim.new(0.18, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Box
-G2L["1cb"] = Instance.new("Frame", G2L["1c9"]);
-G2L["1cb"]["BorderSizePixel"] = 0;
-G2L["1cb"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1cb"]["Size"] = UDim2.new(0.16667, 0, 0.62921, 0);
-G2L["1cb"]["Position"] = UDim2.new(0.0927, 0, 0.2, 0);
-G2L["1cb"]["Name"] = [[Box]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Box.UICorner
-G2L["1cc"] = Instance.new("UICorner", G2L["1cb"]);
-G2L["1cc"]["CornerRadius"] = UDim.new(0.24, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Box.UIGradient
-G2L["1cd"] = Instance.new("UIGradient", G2L["1cb"]);
-G2L["1cd"]["Rotation"] = 90;
-G2L["1cd"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(66, 79, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(36, 44, 63))};
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Box.Icon
-G2L["1ce"] = Instance.new("ImageLabel", G2L["1cb"]);
-G2L["1ce"]["BorderSizePixel"] = 0;
-G2L["1ce"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1ce"]["Image"] = [[rbxassetid://107072926547457]];
-G2L["1ce"]["Size"] = UDim2.new(0.52727, 0, 0.5, 0);
-G2L["1ce"]["BackgroundTransparency"] = 1;
-G2L["1ce"]["Name"] = [[Icon]];
-G2L["1ce"]["Position"] = UDim2.new(0.23636, 0, 0.25, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Box.UIAspectRatioConstraint
-G2L["1cf"] = Instance.new("UIAspectRatioConstraint", G2L["1cb"]);
-G2L["1cf"]["AspectRatio"] = 0.98214;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Editor
-G2L["1d0"] = Instance.new("TextLabel", G2L["1c9"]);
-G2L["1d0"]["TextWrapped"] = true;
-G2L["1d0"]["BorderSizePixel"] = 0;
-G2L["1d0"]["TextSize"] = 32;
-G2L["1d0"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1d0"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["1d0"]["TextScaled"] = true;
-G2L["1d0"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1d0"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1d0"]["BackgroundTransparency"] = 1;
-G2L["1d0"]["Size"] = UDim2.new(0.27895, 0, 0.35955, 0);
-G2L["1d0"]["Text"] = [[Config]];
-G2L["1d0"]["Name"] = [[Editor]];
-G2L["1d0"]["Position"] = UDim2.new(0.37879, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Editor.UITextSizeConstraint
-G2L["1d1"] = Instance.new("UITextSizeConstraint", G2L["1d0"]);
-G2L["1d1"]["MaxTextSize"] = 32;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Click
-G2L["1d2"] = Instance.new("TextButton", G2L["1c9"]);
-G2L["1d2"]["TextWrapped"] = true;
-G2L["1d2"]["BorderSizePixel"] = 0;
-G2L["1d2"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1d2"]["TextSize"] = 14;
-G2L["1d2"]["TextScaled"] = true;
-G2L["1d2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1d2"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1d2"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["1d2"]["BackgroundTransparency"] = 1;
-G2L["1d2"]["Name"] = [[Click]];
-G2L["1d2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1d2"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Click.UICorner
-G2L["1d3"] = Instance.new("UICorner", G2L["1d2"]);
-G2L["1d3"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Config.Click.UITextSizeConstraint
-G2L["1d4"] = Instance.new("UITextSizeConstraint", G2L["1d2"]);
-G2L["1d4"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console
-G2L["1d5"] = Instance.new("Frame", G2L["1a3"]);
-G2L["1d5"]["BorderSizePixel"] = 0;
-G2L["1d5"]["BackgroundColor3"] = Color3.fromRGB(31, 34, 50);
-G2L["1d5"]["Size"] = UDim2.new(0.71429, 0, 0.08803, 0);
-G2L["1d5"]["Position"] = UDim2.new(0.08772, 0, 0.38394, 0);
-G2L["1d5"]["Name"] = [[Console]];
-G2L["1d5"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.UICorner
-G2L["1d6"] = Instance.new("UICorner", G2L["1d5"]);
-G2L["1d6"]["CornerRadius"] = UDim.new(0.18, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Box
-G2L["1d7"] = Instance.new("Frame", G2L["1d5"]);
-G2L["1d7"]["BorderSizePixel"] = 0;
-G2L["1d7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1d7"]["Size"] = UDim2.new(0.16667, 0, 0.62921, 0);
-G2L["1d7"]["Position"] = UDim2.new(0.0927, 0, 0.2, 0);
-G2L["1d7"]["Name"] = [[Box]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Box.UICorner
-G2L["1d8"] = Instance.new("UICorner", G2L["1d7"]);
-G2L["1d8"]["CornerRadius"] = UDim.new(0.24, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Box.Icon
-G2L["1d9"] = Instance.new("ImageLabel", G2L["1d7"]);
-G2L["1d9"]["BorderSizePixel"] = 0;
-G2L["1d9"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1d9"]["Image"] = [[rbxassetid://107390243416427]];
-G2L["1d9"]["Size"] = UDim2.new(0.52727, 0, 0.5, 0);
-G2L["1d9"]["BackgroundTransparency"] = 1;
-G2L["1d9"]["Name"] = [[Icon]];
-G2L["1d9"]["Position"] = UDim2.new(0.23636, 0, 0.25, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Box.UIGradient
-G2L["1da"] = Instance.new("UIGradient", G2L["1d7"]);
-G2L["1da"]["Rotation"] = 90;
-G2L["1da"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(66, 79, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(36, 44, 63))};
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Box.UIAspectRatioConstraint
-G2L["1db"] = Instance.new("UIAspectRatioConstraint", G2L["1d7"]);
-G2L["1db"]["AspectRatio"] = 0.98214;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Editor
-G2L["1dc"] = Instance.new("TextLabel", G2L["1d5"]);
-G2L["1dc"]["TextWrapped"] = true;
-G2L["1dc"]["BorderSizePixel"] = 0;
-G2L["1dc"]["TextSize"] = 32;
-G2L["1dc"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1dc"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["1dc"]["TextScaled"] = true;
-G2L["1dc"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1dc"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1dc"]["BackgroundTransparency"] = 1;
-G2L["1dc"]["Size"] = UDim2.new(0.35939, 0, 0.35955, 0);
-G2L["1dc"]["Text"] = [[Console]];
-G2L["1dc"]["Name"] = [[Editor]];
-G2L["1dc"]["Position"] = UDim2.new(0.37879, 0, 0.34831, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Editor.UITextSizeConstraint
-G2L["1dd"] = Instance.new("UITextSizeConstraint", G2L["1dc"]);
-G2L["1dd"]["MaxTextSize"] = 32;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Click
-G2L["1de"] = Instance.new("TextButton", G2L["1d5"]);
-G2L["1de"]["TextWrapped"] = true;
-G2L["1de"]["BorderSizePixel"] = 0;
-G2L["1de"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1de"]["TextSize"] = 14;
-G2L["1de"]["TextScaled"] = true;
-G2L["1de"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1de"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1de"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["1de"]["BackgroundTransparency"] = 1;
-G2L["1de"]["Name"] = [[Click]];
-G2L["1de"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1de"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Click.UICorner
-G2L["1df"] = Instance.new("UICorner", G2L["1de"]);
-G2L["1df"]["CornerRadius"] = UDim.new(0, 18);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Console.Click.UITextSizeConstraint
-G2L["1e0"] = Instance.new("UITextSizeConstraint", G2L["1de"]);
-G2L["1e0"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Logo
-G2L["1e1"] = Instance.new("ImageLabel", G2L["1a3"]);
-G2L["1e1"]["BorderSizePixel"] = 0;
-G2L["1e1"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1e1"]["ImageColor3"] = Color3.fromRGB(143, 163, 221);
-G2L["1e1"]["Image"] = [[rbxassetid://95670506030988]];
-G2L["1e1"]["Size"] = UDim2.new(0.14502, 0, 0.06924, 0);
-G2L["1e1"]["BackgroundTransparency"] = 1;
-G2L["1e1"]["Name"] = [[Logo]];
-G2L["1e1"]["Position"] = UDim2.new(0.14069, 0, 0.06726, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Logo.UICorner
-G2L["1e2"] = Instance.new("UICorner", G2L["1e1"]);
-G2L["1e2"]["CornerRadius"] = UDim.new(0, 900);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Close
-G2L["1e3"] = Instance.new("ImageLabel", G2L["1a3"]);
-G2L["1e3"]["ZIndex"] = 2;
-G2L["1e3"]["BorderSizePixel"] = 0;
-G2L["1e3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1e3"]["ImageColor3"] = Color3.fromRGB(34, 41, 58);
-G2L["1e3"]["Image"] = [[rbxassetid://124705542662472]];
-G2L["1e3"]["Size"] = UDim2.new(0.12987, 0, 1, 0);
-G2L["1e3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1e3"]["BackgroundTransparency"] = 1;
-G2L["1e3"]["Name"] = [[Close]];
-G2L["1e3"]["Position"] = UDim2.new(0.891, 0, 0, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Close.ImageLabel
-G2L["1e4"] = Instance.new("ImageLabel", G2L["1e3"]);
-G2L["1e4"]["BorderSizePixel"] = 0;
-G2L["1e4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1e4"]["Image"] = [[rbxassetid://107516337694688]];
-G2L["1e4"]["Size"] = UDim2.new(0.16667, 0, 0.05539, 0);
-G2L["1e4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1e4"]["BackgroundTransparency"] = 1;
-G2L["1e4"]["Position"] = UDim2.new(0.517, 0, 0.488, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Close.Slide
-G2L["1e5"] = Instance.new("TextButton", G2L["1e3"]);
-G2L["1e5"]["TextWrapped"] = true;
-G2L["1e5"]["BorderSizePixel"] = 0;
-G2L["1e5"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1e5"]["TextSize"] = 14;
-G2L["1e5"]["TextScaled"] = true;
-G2L["1e5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1e5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["1e5"]["Size"] = UDim2.new(1, 0, 0.18856, 0);
-G2L["1e5"]["BackgroundTransparency"] = 1;
-G2L["1e5"]["Name"] = [[Slide]];
-G2L["1e5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1e5"]["Text"] = [[  ]];
-G2L["1e5"]["Position"] = UDim2.new(0, 0, 0.43042, 0);
-
-
--- StarterGui.NewAW.UI.MainGui.Sidebar.Close.Slide.UITextSizeConstraint
-G2L["1e6"] = Instance.new("UITextSizeConstraint", G2L["1e5"]);
-G2L["1e6"]["MaxTextSize"] = 14;
-
-
--- StarterGui.NewAW.UI.MainGui.Alerts
-G2L["1e7"] = Instance.new("Folder", G2L["6"]);
-G2L["1e7"]["Name"] = [[Alerts]];
-
-
--- StarterGui.NewAW.Handler
-G2L["1e8"] = Instance.new("LocalScript", G2L["1"]);
-G2L["1e8"]["Name"] = [[Handler]];
-
-
--- StarterGui.NewAW.Handler.Func
-G2L["1e9"] = Instance.new("ModuleScript", G2L["1e8"]);
-G2L["1e9"]["Name"] = [[Func]];
-
-
--- StarterGui.NewAW.Handler.Func.Highlighter
-G2L["1ea"] = Instance.new("ModuleScript", G2L["1e9"]);
-G2L["1ea"]["Name"] = [[Highlighter]];
-
-
--- StarterGui.NewAW.Handler.Func.Highlighter.utility
-G2L["1eb"] = Instance.new("ModuleScript", G2L["1ea"]);
-G2L["1eb"]["Name"] = [[utility]];
-
-
--- StarterGui.NewAW.Handler.Func.Highlighter.types
-G2L["1ec"] = Instance.new("ModuleScript", G2L["1ea"]);
-G2L["1ec"]["Name"] = [[types]];
-
-
--- StarterGui.NewAW.Handler.Func.Highlighter.theme
-G2L["1ed"] = Instance.new("ModuleScript", G2L["1ea"]);
-G2L["1ed"]["Name"] = [[theme]];
-
-
--- StarterGui.NewAW.Handler.Func.Highlighter.lexer
-G2L["1ee"] = Instance.new("ModuleScript", G2L["1ea"]);
-G2L["1ee"]["Name"] = [[lexer]];
-
-
--- StarterGui.NewAW.Handler.Func.Highlighter.lexer.language
-G2L["1ef"] = Instance.new("ModuleScript", G2L["1ee"]);
-G2L["1ef"]["Name"] = [[language]];
-
-
--- StarterGui.NewAW.Background
-G2L["1f0"] = Instance.new("Frame", G2L["1"]);
-G2L["1f0"]["ZIndex"] = 0;
-G2L["1f0"]["BorderSizePixel"] = 0;
-G2L["1f0"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f0"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["1f0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f0"]["Name"] = [[Background]];
-G2L["1f0"]["BackgroundTransparency"] = 1;
-
-
--- StarterGui.NewAW.OpenBtn
-G2L["1f1"] = Instance.new("ImageLabel", G2L["1"]);
-G2L["1f1"]["BorderSizePixel"] = 0;
-G2L["1f1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1f1"]["Image"] = [[rbxassetid://132133828845126]];
-G2L["1f1"]["Size"] = UDim2.new(0.11575, 0, 0.20833, 0);
-G2L["1f1"]["Visible"] = false;
-G2L["1f1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f1"]["BackgroundTransparency"] = 1;
-G2L["1f1"]["Name"] = [[OpenBtn]];
-G2L["1f1"]["Position"] = UDim2.new(0.44168, 0, 0.04537, 0);
-
-
--- StarterGui.NewAW.OpenBtn.ImageLabel
-G2L["1f2"] = Instance.new("ImageLabel", G2L["1f1"]);
-G2L["1f2"]["BorderSizePixel"] = 0;
-G2L["1f2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1f2"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1f2"]["ImageColor3"] = Color3.fromRGB(143, 163, 221);
-G2L["1f2"]["Image"] = [[rbxassetid://95670506030988]];
-G2L["1f2"]["Size"] = UDim2.new(0.22072, 0, 0.24444, 0);
-G2L["1f2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f2"]["BackgroundTransparency"] = 1;
-G2L["1f2"]["Position"] = UDim2.new(0.38762, 0, 0.36733, 0);
-
-
--- StarterGui.NewAW.OpenBtn.OpenClick
-G2L["1f3"] = Instance.new("TextButton", G2L["1f1"]);
-G2L["1f3"]["BorderSizePixel"] = 0;
-G2L["1f3"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f3"]["TextSize"] = 14;
-G2L["1f3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1f3"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["1f3"]["ZIndex"] = 6;
-G2L["1f3"]["Size"] = UDim2.new(0.44144, 0, 0.42667, 0);
-G2L["1f3"]["BackgroundTransparency"] = 1;
-G2L["1f3"]["Name"] = [[OpenClick]];
-G2L["1f3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f3"]["Text"] = [[  ]];
-G2L["1f3"]["Position"] = UDim2.new(0.27903, 0, 0.28444, 0);
-
-
--- StarterGui.NewAW.OpenBtn.OpenClick.UICorner
-G2L["1f4"] = Instance.new("UICorner", G2L["1f3"]);
-G2L["1f4"]["CornerRadius"] = UDim.new(0, 220);
-
-
--- StarterGui.NewAW.OpenBtn.UICorner
-G2L["1f5"] = Instance.new("UICorner", G2L["1f1"]);
-G2L["1f5"]["CornerRadius"] = UDim.new(0, 220);
-
-
--- StarterGui.NewAW.KeySystem
-G2L["1f6"] = Instance.new("Frame", G2L["1"]);
-G2L["1f6"]["BorderSizePixel"] = 0;
-G2L["1f6"]["BackgroundColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["1f6"]["Size"] = UDim2.new(1.00104, 0, 1, 0);
-G2L["1f6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f6"]["Name"] = [[KeySystem]];
+Button = Instance.new("Frame")]]
+UI["16"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2 \\ --
+UI["17"] = Instance.new("TextLabel", UI["16"])
+UI["17"]["TextWrapped"] = true
+UI["17"]["BorderSizePixel"] = 0
+UI["17"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["17"]["TextTransparency"] = 1
+UI["17"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["17"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["17"]["TextSize"] = 23
+UI["17"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+UI["17"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["17"]["BackgroundTransparency"] = 1
+UI["17"]["RichText"] = true
+UI["17"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["17"]["Text"] = [[]]
+UI["17"]["Name"] = [[Source2]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.UICorner \\ --
+UI["18"] = Instance.new("UICorner", UI["15"])
+
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Frame \\ --
+UI["19"] = Instance.new("Frame", UI["15"])
+UI["19"]["BorderSizePixel"] = 0
+UI["19"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32)
+UI["19"]["Size"] = UDim2.new(0.97598, 0, 4.01553, 0)
+UI["19"]["Position"] = UDim2.new(0.01406, 0, -0.02353, 0)
+UI["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.TextLabel \\ --
+UI["1a"] = Instance.new("TextLabel", UI["15"])
+UI["1a"]["TextWrapped"] = true
+UI["1a"]["BorderSizePixel"] = 0
+UI["1a"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["1a"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32)
+UI["1a"]["TextSize"] = 23
+UI["1a"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+UI["1a"]["TextColor3"] = Color3.fromRGB(193, 191, 235)
+UI["1a"]["BackgroundTransparency"] = 1
+UI["1a"]["Size"] = UDim2.new(0.05, 0, 2, 0)
+UI["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a"]["Text"] = [[1]]
+UI["1a"]["Position"] = UDim2.new(0.021, 0, 0, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.TextLabel.UITextSizeConstraint \\ --
+UI["1b"] = Instance.new("UITextSizeConstraint", UI["1a"])
+UI["1b"]["MaxTextSize"] = 25
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn \\ --
+UI["1c"] = Instance.new("Frame", UI["13"])
+UI["1c"]["ZIndex"] = 2
+UI["1c"]["BorderSizePixel"] = 0
+UI["1c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1c"]["Size"] = UDim2.new(0.05729, 0, 0.09349, 0)
+UI["1c"]["Position"] = UDim2.new(0.9131, 0, 0.54643, 0)
+UI["1c"]["Name"] = [[HideBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.UICorner \\ --
+UI["1d"] = Instance.new("UICorner", UI["1c"])
+UI["1d"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Icon \\ --
+UI["1e"] = Instance.new("ImageLabel", UI["1c"])
+UI["1e"]["ZIndex"] = 2
+UI["1e"]["BorderSizePixel"] = 0
+UI["1e"]["ScaleType"] = Enum.ScaleType.Fit
+UI["1e"]["Image"] = [[rbxassetid://116112362871715]]
+UI["1e"]["Size"] = UDim2.new(0.48101, 0, 0.49367, 0)
+UI["1e"]["BackgroundTransparency"] = 1
+UI["1e"]["Name"] = [[Icon]]
+UI["1e"]["Position"] = UDim2.new(0.26582, 0, 0.25316, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.UIGradient \\ --
+UI["1f"] = Instance.new("UIGradient", UI["1c"])
+UI["1f"]["Rotation"] = 90
+UI["1f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click \\ --
+UI["20"] = Instance.new("TextButton", UI["1c"])
+UI["20"]["TextWrapped"] = true
+UI["20"]["BorderSizePixel"] = 0
+UI["20"]["TextSize"] = 14
+UI["20"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["20"]["TextScaled"] = true
+UI["20"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["20"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["20"]["ZIndex"] = 3
+UI["20"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["20"]["BackgroundTransparency"] = 1
+UI["20"]["Name"] = [[Click]]
+UI["20"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["20"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click.UICorner \\ --
+UI["21"] = Instance.new("UICorner", UI["20"])
+UI["21"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.Click.UITextSizeConstraint \\ --
+UI["22"] = Instance.new("UITextSizeConstraint", UI["20"])
+UI["22"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.HideBtn.UIAspectRatioConstraint \\ --
+UI["23"] = Instance.new("UIAspectRatioConstraint", UI["1c"])
+
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Minimap \\ --
+UI["24"] = Instance.new("ImageLabel", UI["13"])
+UI["24"]["BorderSizePixel"] = 0
+UI["24"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["24"]["ImageColor3"] = Color3.fromRGB(36, 42, 60)
+UI["24"]["Image"] = [[rbxassetid://113289091580128]]
+UI["24"]["Size"] = UDim2.new(0.13996, 0, 0.22959, 0)
+UI["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["24"]["BackgroundTransparency"] = 1
+UI["24"]["Name"] = [[Minimap]]
+UI["24"]["Position"] = UDim2.new(0.82379, 0, 0.07219, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Frame \\ --
+UI["25"] = Instance.new("Frame", UI["24"])
+UI["25"]["BorderSizePixel"] = 0
+UI["25"]["BackgroundColor3"] = Color3.fromRGB(32, 31, 32)
+UI["25"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["25"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["25"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source \\ --
+UI["26"] = Instance.new("TextBox", UI["24"])
+UI["26"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["26"]["PlaceholderColor3"] = Color3.fromRGB(205, 205, 205)
+UI["26"]["ZIndex"] = 2
+UI["26"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["26"]["TextWrapped"] = true
+UI["26"]["TextSize"] = 5
+UI["26"]["Name"] = [[Source]]
+UI["26"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["26"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["26"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.ExtraLight, Enum.FontStyle.Normal)
+UI["26"]["RichText"] = true
+UI["26"]["MultiLine"] = true
+UI["26"]["ClearTextOnFocus"] = false
+UI["26"]["ClipsDescendants"] = true
+UI["26"]["Size"] = UDim2.new(0.867, 0, 0.82143, 0)
+UI["26"]["Position"] = UDim2.new(0.084, 0, 0.095, 0)
+UI["26"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["26"]["Text"] = [[local player = game.Players.LocalPlayer.PlayerGui]]
+UI["26"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source.Source2 \\ --
+UI["27"] = Instance.new("TextLabel", UI["26"])
+UI["27"]["TextWrapped"] = true
+UI["27"]["BorderSizePixel"] = 0
+UI["27"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["27"]["TextTransparency"] = 1
+UI["27"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["27"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["27"]["TextSize"] = 5
+UI["27"]["FontFace"] = Font.new([[rbxassetid://11702779409]], Enum.FontWeight.ExtraLight, Enum.FontStyle.Normal)
+UI["27"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["27"]["BackgroundTransparency"] = 1
+UI["27"]["RichText"] = true
+UI["27"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["27"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["27"]["Text"] = [[]]
+UI["27"]["Name"] = [[Source2]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug \\ --
+UI["28"] = Instance.new("Frame", UI["13"])
+UI["28"]["Visible"] = false
+UI["28"]["ZIndex"] = 2
+UI["28"]["BorderSizePixel"] = 0
+UI["28"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["28"]["Size"] = UDim2.new(0.05729, 0, 0.09349, 0)
+UI["28"]["Position"] = UDim2.new(0.83986, 0, 0.54643, 0)
+UI["28"]["Name"] = [[Debug]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug.UICorner \\ --
+UI["29"] = Instance.new("UICorner", UI["28"])
+UI["29"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Icon \\ --
+UI["2a"] = Instance.new("ImageLabel", UI["28"])
+UI["2a"]["ZIndex"] = 2
+UI["2a"]["BorderSizePixel"] = 0
+UI["2a"]["ScaleType"] = Enum.ScaleType.Fit
+UI["2a"]["Image"] = [[rbxassetid://119860431224150]]
+UI["2a"]["Size"] = UDim2.new(0.40506, 0, 0.49367, 0)
+UI["2a"]["BackgroundTransparency"] = 1
+UI["2a"]["Name"] = [[Icon]]
+UI["2a"]["Position"] = UDim2.new(0.29114, 0, 0.25316, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug.UIGradient \\ --
+UI["2b"] = Instance.new("UIGradient", UI["28"])
+UI["2b"]["Rotation"] = 90
+UI["2b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Click \\ --
+UI["2c"] = Instance.new("TextButton", UI["28"])
+UI["2c"]["TextWrapped"] = true
+UI["2c"]["BorderSizePixel"] = 0
+UI["2c"]["TextSize"] = 14
+UI["2c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2c"]["TextScaled"] = true
+UI["2c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["2c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["2c"]["ZIndex"] = 3
+UI["2c"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["2c"]["BackgroundTransparency"] = 1
+UI["2c"]["Name"] = [[Click]]
+UI["2c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2c"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Click.UICorner \\ --
+UI["2d"] = Instance.new("UICorner", UI["2c"])
+UI["2d"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug.Click.UITextSizeConstraint \\ --
+UI["2e"] = Instance.new("UITextSizeConstraint", UI["2c"])
+UI["2e"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Debug.UIAspectRatioConstraint \\ --
+UI["2f"] = Instance.new("UIAspectRatioConstraint", UI["28"])
+
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Shadow1 \\ --
+UI["30"] = Instance.new("ImageLabel", UI["13"])
+UI["30"]["BorderSizePixel"] = 0
+UI["30"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["30"]["Image"] = [[rbxassetid://82022759470861]]
+UI["30"]["Size"] = UDim2.new(0.11313, 0, 0.24852, 0)
+UI["30"]["Visible"] = false
+UI["30"]["BackgroundTransparency"] = 1
+UI["30"]["Name"] = [[Shadow1]]
+UI["30"]["Position"] = UDim2.new(0.81146, 0, 0.46864, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.EditorPage.Shadow2 \\ --
+UI["31"] = Instance.new("ImageLabel", UI["13"])
+UI["31"]["BorderSizePixel"] = 0
+UI["31"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["31"]["Image"] = [[rbxassetid://82022759470861]]
+UI["31"]["Size"] = UDim2.new(0.11313, 0, 0.24852, 0)
+UI["31"]["BackgroundTransparency"] = 1
+UI["31"]["Name"] = [[Shadow2]]
+UI["31"]["Position"] = UDim2.new(0.8847, 0, 0.46864, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.BorderLine \\ --
+UI["32"] = Instance.new("ImageLabel", UI["12"])
+UI["32"]["ZIndex"] = 2
+UI["32"]["BorderSizePixel"] = 0
+UI["32"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["32"]["ImageColor3"] = Color3.fromRGB(34, 41, 58)
+UI["32"]["Image"] = [[rbxassetid://107651131030598]]
+UI["32"]["Size"] = UDim2.new(1.00632, 0, 0.015, 0)
+UI["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["32"]["BackgroundTransparency"] = 1
+UI["32"]["Name"] = [[BorderLine]]
+UI["32"]["Position"] = UDim2.new(-0.00632, 0, 0.15409, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons \\ --
+UI["33"] = Instance.new("ImageLabel", UI["12"])
+UI["33"]["ZIndex"] = 2
+UI["33"]["BorderSizePixel"] = 0
+UI["33"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["33"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["33"]["Image"] = [[rbxassetid://123590482033481]]
+UI["33"]["Size"] = UDim2.new(1.00073, 0, 0.27102, 0)
+UI["33"]["ClipsDescendants"] = true
+UI["33"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["33"]["BackgroundTransparency"] = 1
+UI["33"]["Name"] = [[Buttons]]
+UI["33"]["Position"] = UDim2.new(-0.00064, 0, 0.72623, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute \\ --
+UI["34"] = Instance.new("Frame", UI["33"])
+UI["34"]["BorderSizePixel"] = 0
+UI["34"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["34"]["Size"] = UDim2.new(0.2074, 0, 0.32482, 0)
+UI["34"]["Position"] = UDim2.new(0.0429, 0, 0.36993, 0)
+UI["34"]["Name"] = [[Execute]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.UICorner \\ --
+UI["35"] = Instance.new("UICorner", UI["34"])
+UI["35"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.UIGradient \\ --
+UI["36"] = Instance.new("UIGradient", UI["34"])
+UI["36"]["Rotation"] = 90
+UI["36"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.Upgrade Plan \\ --
+UI["37"] = Instance.new("TextLabel", UI["34"])
+UI["37"]["TextWrapped"] = true
+UI["37"]["BorderSizePixel"] = 0
+UI["37"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["37"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["37"]["TextScaled"] = true
+UI["37"]["TextSize"] = 28
+UI["37"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["37"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["37"]["BackgroundTransparency"] = 1
+UI["37"]["Size"] = UDim2.new(0.617, 0, 0.337, 0)
+UI["37"]["Text"] = [[Execute Script]]
+UI["37"]["Name"] = [[Upgrade Plan]]
+UI["37"]["Position"] = UDim2.new(0.27622, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.Upgrade Plan.UITextSizeConstraint \\ --
+UI["38"] = Instance.new("UITextSizeConstraint", UI["37"])
+UI["38"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.icons8-key-100 145 \\ --
+UI["39"] = Instance.new("ImageLabel", UI["34"])
+UI["39"]["BorderSizePixel"] = 0
+UI["39"]["ScaleType"] = Enum.ScaleType.Fit
+UI["39"]["Image"] = [[rbxassetid://89434276213036]]
+UI["39"]["Size"] = UDim2.new(0.0979, 0, 0.35955, 0)
+UI["39"]["BackgroundTransparency"] = 1
+UI["39"]["Name"] = [[icons8-key-100 145]]
+UI["39"]["Position"] = UDim2.new(0.1014, 0, 0.32584, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.Click \\ --
+UI["3a"] = Instance.new("TextButton", UI["34"])
+UI["3a"]["TextWrapped"] = true
+UI["3a"]["BorderSizePixel"] = 0
+UI["3a"]["TextSize"] = 14
+UI["3a"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3a"]["TextScaled"] = true
+UI["3a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["3a"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["3a"]["BackgroundTransparency"] = 1
+UI["3a"]["Name"] = [[Click]]
+UI["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3a"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.Click.UICorner \\ --
+UI["3b"] = Instance.new("UICorner", UI["3a"])
+UI["3b"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Execute.Click.UITextSizeConstraint \\ --
+UI["3c"] = Instance.new("UITextSizeConstraint", UI["3a"])
+UI["3c"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear \\ --
+UI["3d"] = Instance.new("Frame", UI["33"])
+UI["3d"]["BorderSizePixel"] = 0
+UI["3d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3d"]["Size"] = UDim2.new(0.2074, 0, 0.32482, 0)
+UI["3d"]["Position"] = UDim2.new(0.26915, 0, 0.36993, 0)
+UI["3d"]["Name"] = [[Clear]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.UICorner \\ --
+UI["3e"] = Instance.new("UICorner", UI["3d"])
+UI["3e"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.Upgrade Plan \\ --
+UI["3f"] = Instance.new("TextLabel", UI["3d"])
+UI["3f"]["TextWrapped"] = true
+UI["3f"]["BorderSizePixel"] = 0
+UI["3f"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["3f"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["3f"]["TextScaled"] = true
+UI["3f"]["TextSize"] = 28
+UI["3f"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["3f"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["3f"]["BackgroundTransparency"] = 1
+UI["3f"]["Size"] = UDim2.new(0.617, 0, 0.337, 0)
+UI["3f"]["Text"] = [[Clear Editor]]
+UI["3f"]["Name"] = [[Upgrade Plan]]
+UI["3f"]["Position"] = UDim2.new(0.3042, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.Upgrade Plan.UITextSizeConstraint \\ --
+UI["40"] = Instance.new("UITextSizeConstraint", UI["3f"])
+UI["40"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.icons8-key-100 145 \\ --
+UI["41"] = Instance.new("ImageLabel", UI["3d"])
+UI["41"]["BorderSizePixel"] = 0
+UI["41"]["ScaleType"] = Enum.ScaleType.Fit
+UI["41"]["Image"] = [[rbxassetid://73909411554012]]
+UI["41"]["Size"] = UDim2.new(0.13986, 0, 0.35955, 0)
+UI["41"]["BackgroundTransparency"] = 1
+UI["41"]["Name"] = [[icons8-key-100 145]]
+UI["41"]["Position"] = UDim2.new(0.1014, 0, 0.32584, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.UIGradient \\ --
+UI["42"] = Instance.new("UIGradient", UI["3d"])
+UI["42"]["Rotation"] = 90
+UI["42"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.Click \\ --
+UI["43"] = Instance.new("TextButton", UI["3d"])
+UI["43"]["TextWrapped"] = true
+UI["43"]["BorderSizePixel"] = 0
+UI["43"]["TextSize"] = 14
+UI["43"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["43"]["TextScaled"] = true
+UI["43"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["43"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["43"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["43"]["BackgroundTransparency"] = 1
+UI["43"]["Name"] = [[Click]]
+UI["43"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["43"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.Click.UICorner \\ --
+UI["44"] = Instance.new("UICorner", UI["43"])
+UI["44"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Clear.Click.UITextSizeConstraint \\ --
+UI["45"] = Instance.new("UITextSizeConstraint", UI["43"])
+UI["45"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste \\ --
+UI["46"] = Instance.new("Frame", UI["33"])
+UI["46"]["BorderSizePixel"] = 0
+UI["46"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["46"]["Size"] = UDim2.new(0.21175, 0, 0.32482, 0)
+UI["46"]["Position"] = UDim2.new(0.49613, 0, 0.36993, 0)
+UI["46"]["Name"] = [[Paste]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.UICorner \\ --
+UI["47"] = Instance.new("UICorner", UI["46"])
+UI["47"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.Upgrade Plan \\ --
+UI["48"] = Instance.new("TextLabel", UI["46"])
+UI["48"]["TextWrapped"] = true
+UI["48"]["BorderSizePixel"] = 0
+UI["48"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["48"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["48"]["TextScaled"] = true
+UI["48"]["TextSize"] = 28
+UI["48"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["48"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["48"]["BackgroundTransparency"] = 1
+UI["48"]["Size"] = UDim2.new(0.61654, 0, 0.33708, 0)
+UI["48"]["Text"] = [[Paste Clipboard]]
+UI["48"]["Name"] = [[Upgrade Plan]]
+UI["48"]["Position"] = UDim2.new(0.29795, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.Upgrade Plan.UITextSizeConstraint \\ --
+UI["49"] = Instance.new("UITextSizeConstraint", UI["48"])
+UI["49"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.icons8-key-100 145 \\ --
+UI["4a"] = Instance.new("ImageLabel", UI["46"])
+UI["4a"]["BorderSizePixel"] = 0
+UI["4a"]["ScaleType"] = Enum.ScaleType.Fit
+UI["4a"]["Image"] = [[rbxassetid://133018045821797]]
+UI["4a"]["Size"] = UDim2.new(0.13699, 0, 0.35955, 0)
+UI["4a"]["BackgroundTransparency"] = 1
+UI["4a"]["Name"] = [[icons8-key-100 145]]
+UI["4a"]["Position"] = UDim2.new(0.09932, 0, 0.32584, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.UIGradient \\ --
+UI["4b"] = Instance.new("UIGradient", UI["46"])
+UI["4b"]["Rotation"] = 90
+UI["4b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.Click \\ --
+UI["4c"] = Instance.new("TextButton", UI["46"])
+UI["4c"]["TextWrapped"] = true
+UI["4c"]["BorderSizePixel"] = 0
+UI["4c"]["TextSize"] = 14
+UI["4c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4c"]["TextScaled"] = true
+UI["4c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["4c"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["4c"]["BackgroundTransparency"] = 1
+UI["4c"]["Name"] = [[Click]]
+UI["4c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4c"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.Click.UICorner \\ --
+UI["4d"] = Instance.new("UICorner", UI["4c"])
+UI["4d"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Buttons.Paste.Click.UITextSizeConstraint \\ --
+UI["4e"] = Instance.new("UITextSizeConstraint", UI["4c"])
+UI["4e"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs \\ --
+UI["4f"] = Instance.new("ImageLabel", UI["12"])
+UI["4f"]["ZIndex"] = 2
+UI["4f"]["BorderSizePixel"] = 0
+UI["4f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4f"]["ImageTransparency"] = 1
+UI["4f"]["ImageColor3"] = Color3.fromRGB(27, 33, 51)
+UI["4f"]["Size"] = UDim2.new(0.82949, 0, 0.0633, 0)
+UI["4f"]["Visible"] = false
+UI["4f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4f"]["BackgroundTransparency"] = 1
+UI["4f"]["Name"] = [[Tabs]]
+UI["4f"]["Position"] = UDim2.new(-0.006, 0, 0.095, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.UIPadding \\ --
+UI["50"] = Instance.new("UIPadding", UI["4f"])
+
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.UIListLayout \\ --
+UI["51"] = Instance.new("UIListLayout", UI["4f"])
+UI["51"]["Padding"] = UDim.new(-0.03, 0)
+UI["51"]["FillDirection"] = Enum.FillDirection.Horizontal
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1 \\ --
+UI["52"] = Instance.new("ImageLabel", UI["4f"])
+UI["52"]["ZIndex"] = 2
+UI["52"]["BorderSizePixel"] = 0
+UI["52"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["52"]["ImageColor3"] = Color3.fromRGB(27, 33, 51)
+UI["52"]["Image"] = [[rbxassetid://114720967242252]]
+UI["52"]["Size"] = UDim2.new(0.214, 0, 1, 0)
+UI["52"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["52"]["BackgroundTransparency"] = 1
+UI["52"]["Name"] = [[Tab1]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Click \\ --
+UI["53"] = Instance.new("TextButton", UI["52"])
+UI["53"]["TextWrapped"] = true
+UI["53"]["BorderSizePixel"] = 0
+UI["53"]["TextSize"] = 14
+UI["53"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["53"]["TextScaled"] = true
+UI["53"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["53"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["53"]["ZIndex"] = 3
+UI["53"]["Size"] = UDim2.new(0.72014, 0, 1, 0)
+UI["53"]["BackgroundTransparency"] = 1
+UI["53"]["Name"] = [[Click]]
+UI["53"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["53"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Click.UICorner \\ --
+UI["54"] = Instance.new("UICorner", UI["53"])
+UI["54"]["CornerRadius"] = UDim.new(0, 14)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Click.UITextSizeConstraint \\ --
+UI["55"] = Instance.new("UITextSizeConstraint", UI["53"])
+UI["55"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main \\ --
+UI["56"] = Instance.new("ImageLabel", UI["52"])
+UI["56"]["ZIndex"] = 2
+UI["56"]["BorderSizePixel"] = 0
+UI["56"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["56"]["Image"] = [[rbxassetid://101101408411462]]
+UI["56"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["56"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["56"]["BackgroundTransparency"] = 1
+UI["56"]["Name"] = [[Main]]
+UI["56"]["Position"] = UDim2.new(-0.0032, 0, -0.003, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main.TabName \\ --
+UI["57"] = Instance.new("TextLabel", UI["56"])
+UI["57"]["TextWrapped"] = true
+UI["57"]["BorderSizePixel"] = 0
+UI["57"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["57"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["57"]["TextScaled"] = true
+UI["57"]["TextSize"] = 24
+UI["57"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["57"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["57"]["BackgroundTransparency"] = 1
+UI["57"]["Size"] = UDim2.new(0.44898, 0, 0.42188, 0)
+UI["57"]["Text"] = [[tab1]]
+UI["57"]["Name"] = [[TabName]]
+UI["57"]["Position"] = UDim2.new(0.14694, 0, 0.5, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main.TabName.UITextSizeConstraint \\ --
+UI["58"] = Instance.new("UITextSizeConstraint", UI["57"])
+UI["58"]["MaxTextSize"] = 24
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Main.AddTab \\ --
+UI["59"] = Instance.new("ImageLabel", UI["56"])
+UI["59"]["BorderSizePixel"] = 0
+UI["59"]["ScaleType"] = Enum.ScaleType.Fit
+UI["59"]["Image"] = [[rbxassetid://88951128464748]]
+UI["59"]["Size"] = UDim2.new(0.0927, 0, 0.43731, 0)
+UI["59"]["BackgroundTransparency"] = 1
+UI["59"]["Name"] = [[AddTab]]
+UI["59"]["Position"] = UDim2.new(0.8, 0, 0.45, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Frame \\ --
+UI["5a"] = Instance.new("Frame", UI["52"])
+UI["5a"]["BorderSizePixel"] = 0
+UI["5a"]["BackgroundColor3"] = Color3.fromRGB(27, 33, 51)
+UI["5a"]["Size"] = UDim2.new(0.85865, 0, 0.87734, 0)
+UI["5a"]["Position"] = UDim2.new(0.084, 0, 0.293, 0)
+UI["5a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab \\ --
+UI["5b"] = Instance.new("ImageLabel", UI["52"])
+UI["5b"]["BorderSizePixel"] = 0
+UI["5b"]["ScaleType"] = Enum.ScaleType.Fit
+UI["5b"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
+UI["5b"]["Image"] = [[http://www.roblox.com/asset/?id=6035047377]]
+UI["5b"]["Size"] = UDim2.new(0.11814, 0, 0.581, 0)
+UI["5b"]["BackgroundTransparency"] = 1
+UI["5b"]["Name"] = [[AddTab]]
+UI["5b"]["Position"] = UDim2.new(1.05, 0, 0.25, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab.AddBtn \\ --
+UI["5c"] = Instance.new("TextButton", UI["5b"])
+UI["5c"]["TextWrapped"] = true
+UI["5c"]["BorderSizePixel"] = 0
+UI["5c"]["TextSize"] = 14
+UI["5c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5c"]["TextScaled"] = true
+UI["5c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["5c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["5c"]["ZIndex"] = 4
+UI["5c"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["5c"]["BackgroundTransparency"] = 1
+UI["5c"]["Name"] = [[AddBtn]]
+UI["5c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5c"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab.AddBtn.UICorner \\ --
+UI["5d"] = Instance.new("UICorner", UI["5c"])
+UI["5d"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.AddTab.AddBtn.UITextSizeConstraint \\ --
+UI["5e"] = Instance.new("UITextSizeConstraint", UI["5c"])
+UI["5e"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Del \\ --
+UI["5f"] = Instance.new("TextButton", UI["52"])
+UI["5f"]["TextWrapped"] = true
+UI["5f"]["BorderSizePixel"] = 0
+UI["5f"]["TextSize"] = 14
+UI["5f"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5f"]["TextScaled"] = true
+UI["5f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["5f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["5f"]["ZIndex"] = 3
+UI["5f"]["Size"] = UDim2.new(0.22251, 0, 0.75, 0)
+UI["5f"]["BackgroundTransparency"] = 1
+UI["5f"]["Name"] = [[Del]]
+UI["5f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5f"]["Text"] = [[  ]]
+UI["5f"]["Position"] = UDim2.new(0.72014, 0, 0.25, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Del.UICorner \\ --
+UI["60"] = Instance.new("UICorner", UI["5f"])
+UI["60"]["CornerRadius"] = UDim.new(0, 14)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.EditorPage.Tabs.Tab1.Del.UITextSizeConstraint \\ --
+UI["61"] = Instance.new("UITextSizeConstraint", UI["5f"])
+UI["61"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage \\ --
+UI["62"] = Instance.new("ImageLabel", UI["11"])
+UI["62"]["BorderSizePixel"] = 0
+UI["62"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["62"]["ImageTransparency"] = 1
+UI["62"]["ImageColor3"] = Color3.fromRGB(13, 15, 20)
+UI["62"]["Image"] = [[rbxassetid://76734110237026]]
+UI["62"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
+UI["62"]["Visible"] = false
+UI["62"]["ClipsDescendants"] = true
+UI["62"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["62"]["BackgroundTransparency"] = 1
+UI["62"]["Name"] = [[CloudPage]]
+UI["62"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons \\ --
+UI["63"] = Instance.new("ImageLabel", UI["62"])
+UI["63"]["ZIndex"] = 2
+UI["63"]["BorderSizePixel"] = 0
+UI["63"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["63"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["63"]["Image"] = [[rbxassetid://123590482033481]]
+UI["63"]["Size"] = UDim2.new(1.00073, 0, 0.27102, 0)
+UI["63"]["ClipsDescendants"] = true
+UI["63"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["63"]["BackgroundTransparency"] = 1
+UI["63"]["Name"] = [[Buttons]]
+UI["63"]["Position"] = UDim2.new(-0.00064, 0, 0.72623, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage \\ --
+UI["64"] = Instance.new("Frame", UI["63"])
+UI["64"]["ZIndex"] = 2
+UI["64"]["BorderSizePixel"] = 0
+UI["64"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["64"]["Size"] = UDim2.new(0.07832, 0, 0.39416, 0)
+UI["64"]["Position"] = UDim2.new(0.77803, 0, 0.36835, 0)
+UI["64"]["Name"] = [[CloudPage]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.UICorner \\ --
+UI["65"] = Instance.new("UICorner", UI["64"])
+UI["65"]["CornerRadius"] = UDim.new(1, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Icon \\ --
+UI["66"] = Instance.new("ImageLabel", UI["64"])
+UI["66"]["ZIndex"] = 2
+UI["66"]["BorderSizePixel"] = 0
+UI["66"]["ScaleType"] = Enum.ScaleType.Fit
+UI["66"]["Image"] = [[rbxassetid://118013866377216]]
+UI["66"]["Size"] = UDim2.new(0.2963, 0, 0.36111, 0)
+UI["66"]["BackgroundTransparency"] = 1
+UI["66"]["Name"] = [[Icon]]
+UI["66"]["Position"] = UDim2.new(0.35185, 0, 0.31481, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.UIGradient \\ --
+UI["67"] = Instance.new("UIGradient", UI["64"])
+UI["67"]["Rotation"] = 90
+UI["67"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Click \\ --
+UI["68"] = Instance.new("TextButton", UI["64"])
+UI["68"]["TextWrapped"] = true
+UI["68"]["BorderSizePixel"] = 0
+UI["68"]["TextSize"] = 14
+UI["68"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["68"]["TextScaled"] = true
+UI["68"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["68"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["68"]["ZIndex"] = 3
+UI["68"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["68"]["BackgroundTransparency"] = 1
+UI["68"]["Name"] = [[Click]]
+UI["68"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["68"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Click.UICorner \\ --
+UI["69"] = Instance.new("UICorner", UI["68"])
+UI["69"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.Click.UITextSizeConstraint \\ --
+UI["6a"] = Instance.new("UITextSizeConstraint", UI["68"])
+UI["6a"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CloudPage.UIAspectRatioConstraint \\ --
+UI["6b"] = Instance.new("UIAspectRatioConstraint", UI["64"])
+UI["6b"]["AspectRatio"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage \\ --
+UI["6c"] = Instance.new("Frame", UI["63"])
+UI["6c"]["ZIndex"] = 2
+UI["6c"]["BorderSizePixel"] = 0
+UI["6c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["6c"]["Size"] = UDim2.new(0.07832, 0, 0.39416, 0)
+UI["6c"]["Position"] = UDim2.new(0.87905, 0, 0.36835, 0)
+UI["6c"]["Name"] = [[CreatePage]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.UICorner \\ --
+UI["6d"] = Instance.new("UICorner", UI["6c"])
+UI["6d"]["CornerRadius"] = UDim.new(1, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Icon \\ --
+UI["6e"] = Instance.new("ImageLabel", UI["6c"])
+UI["6e"]["ZIndex"] = 2
+UI["6e"]["BorderSizePixel"] = 0
+UI["6e"]["ScaleType"] = Enum.ScaleType.Fit
+UI["6e"]["Image"] = [[rbxassetid://128679881757557]]
+UI["6e"]["Size"] = UDim2.new(0.35185, 0, 0.36111, 0)
+UI["6e"]["BackgroundTransparency"] = 1
+UI["6e"]["Name"] = [[Icon]]
+UI["6e"]["Position"] = UDim2.new(0.32407, 0, 0.31481, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.UIGradient \\ --
+UI["6f"] = Instance.new("UIGradient", UI["6c"])
+UI["6f"]["Rotation"] = 90
+UI["6f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Click \\ --
+UI["70"] = Instance.new("TextButton", UI["6c"])
+UI["70"]["TextWrapped"] = true
+UI["70"]["BorderSizePixel"] = 0
+UI["70"]["TextSize"] = 14
+UI["70"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["70"]["TextScaled"] = true
+UI["70"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["70"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["70"]["ZIndex"] = 3
+UI["70"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["70"]["BackgroundTransparency"] = 1
+UI["70"]["Name"] = [[Click]]
+UI["70"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["70"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Click.UICorner \\ --
+UI["71"] = Instance.new("UICorner", UI["70"])
+UI["71"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.Click.UITextSizeConstraint \\ --
+UI["72"] = Instance.new("UITextSizeConstraint", UI["70"])
+UI["72"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.Buttons.CreatePage.UIAspectRatioConstraint \\ --
+UI["73"] = Instance.new("UIAspectRatioConstraint", UI["6c"])
+UI["73"]["AspectRatio"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts \\ --
+UI["74"] = Instance.new("Frame", UI["62"])
+UI["74"]["BorderSizePixel"] = 0
+UI["74"]["BackgroundColor3"] = Color3.fromRGB(40, 43, 63)
+UI["74"]["ClipsDescendants"] = true
+UI["74"]["Size"] = UDim2.new(0.94557, 0, 0.72601, 0)
+UI["74"]["Position"] = UDim2.new(0.03609, 0, 0.20582, 0)
+UI["74"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["74"]["Name"] = [[CreatePageScripts]]
+UI["74"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.UICorner \\ --
+UI["75"] = Instance.new("UICorner", UI["74"])
+UI["75"]["CornerRadius"] = UDim.new(0, 32)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling \\ --
+UI["76"] = Instance.new("ScrollingFrame", UI["74"])
+UI["76"]["Active"] = true
+UI["76"]["BorderSizePixel"] = 0
+UI["76"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["76"]["Name"] = [[Scrolling]]
+UI["76"]["ScrollBarImageTransparency"] = 1
+UI["76"]["Size"] = UDim2.new(0.99616, 0, 1, 0)
+UI["76"]["ScrollBarImageColor3"] = Color3.fromRGB(143, 163, 221)
+UI["76"]["Position"] = UDim2.new(0.00316, 0, 0, 0)
+UI["76"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["76"]["ScrollBarThickness"] = 8
+UI["76"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.UIListLayout \\ --
+UI["77"] = Instance.new("UIListLayout", UI["76"])
+UI["77"]["Wraps"] = true
+UI["77"]["Padding"] = UDim.new(0, 142)
+UI["77"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+UI["77"]["FillDirection"] = Enum.FillDirection.Horizontal
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.UIPadding \\ --
+UI["78"] = Instance.new("UIPadding", UI["76"])
+UI["78"]["PaddingTop"] = UDim.new(0, 16)
+UI["78"]["PaddingLeft"] = UDim.new(0, 36)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C \\ --
+UI["79"] = Instance.new("Folder", UI["76"])
+UI["79"]["Name"] = [[C]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame \\ --
+UI["7a"] = Instance.new("Frame", UI["79"])
+UI["7a"]["Visible"] = false
+UI["7a"]["BorderSizePixel"] = 0
+UI["7a"]["BackgroundColor3"] = Color3.fromRGB(26, 31, 43)
+UI["7a"]["ClipsDescendants"] = true
+UI["7a"]["Size"] = UDim2.new(0.225, 0, 0.184, 0)
+UI["7a"]["Position"] = UDim2.new(-0.00002, 0, 0, 0)
+UI["7a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7a"]["Name"] = [[ScriptFrame]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.UIStroke \\ --
+UI["7b"] = Instance.new("UIStroke", UI["7a"])
+UI["7b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+UI["7b"]["Thickness"] = 7
+UI["7b"]["Color"] = Color3.fromRGB(30, 36, 51)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptDescription \\ --
+UI["7c"] = Instance.new("TextLabel", UI["7a"])
+UI["7c"]["TextWrapped"] = true
+UI["7c"]["BorderSizePixel"] = 0
+UI["7c"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["7c"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["7c"]["TextScaled"] = true
+UI["7c"]["TextSize"] = 28
+UI["7c"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+UI["7c"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["7c"]["BackgroundTransparency"] = 1
+UI["7c"]["Size"] = UDim2.new(0.88732, 0, 0.1875, 0)
+UI["7c"]["Text"] = [[My first ever created Script.]]
+UI["7c"]["Name"] = [[ScriptDescription]]
+UI["7c"]["Position"] = UDim2.new(0.08099, 0, 0.54647, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptDescription.UITextSizeConstraint \\ --
+UI["7d"] = Instance.new("UITextSizeConstraint", UI["7c"])
+UI["7d"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.EditIcon \\ --
+UI["7e"] = Instance.new("ImageLabel", UI["7a"])
+UI["7e"]["BorderSizePixel"] = 0
+UI["7e"]["ScaleType"] = Enum.ScaleType.Fit
+UI["7e"]["Image"] = [[rbxassetid://132459372294887]]
+UI["7e"]["Size"] = UDim2.new(0.11268, 0, 0.13011, 0)
+UI["7e"]["BackgroundTransparency"] = 1
+UI["7e"]["Name"] = [[EditIcon]]
+UI["7e"]["Position"] = UDim2.new(0.76408, 0, 0.75465, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.GradientDown \\ --
+UI["7f"] = Instance.new("Frame", UI["7a"])
+UI["7f"]["BorderSizePixel"] = 0
+UI["7f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["7f"]["ClipsDescendants"] = true
+UI["7f"]["Size"] = UDim2.new(1, 0, 0.32342, 0)
+UI["7f"]["Position"] = UDim2.new(-0.00111, 0, 0.12927, 0)
+UI["7f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7f"]["Name"] = [[GradientDown]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.GradientDown.UIGradient \\ --
+UI["80"] = Instance.new("UIGradient", UI["7f"])
+UI["80"]["Rotation"] = 90
+UI["80"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName \\ --
+UI["81"] = Instance.new("Frame", UI["7a"])
+UI["81"]["BorderSizePixel"] = 0
+UI["81"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["81"]["ClipsDescendants"] = true
+UI["81"]["Size"] = UDim2.new(1, 0, 0.45353, 0)
+UI["81"]["Position"] = UDim2.new(-0.00111, 0, 0, 0)
+UI["81"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["81"]["Name"] = [[ScriptName]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.ScriptName \\ --
+UI["82"] = Instance.new("TextLabel", UI["81"])
+UI["82"]["TextWrapped"] = true
+UI["82"]["BorderSizePixel"] = 0
+UI["82"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["82"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["82"]["TextScaled"] = true
+UI["82"]["TextSize"] = 34
+UI["82"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Heavy, Enum.FontStyle.Normal)
+UI["82"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["82"]["BackgroundTransparency"] = 1
+UI["82"]["Size"] = UDim2.new(0.65493, 0, 0.28689, 0)
+UI["82"]["ClipsDescendants"] = true
+UI["82"]["Text"] = [[First Script]]
+UI["82"]["Name"] = [[ScriptName]]
+UI["82"]["Position"] = UDim2.new(0.19718, 0, 0.43443, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.ScriptName.UITextSizeConstraint \\ --
+UI["83"] = Instance.new("UITextSizeConstraint", UI["82"])
+UI["83"]["MaxTextSize"] = 34
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.UIGradient \\ --
+UI["84"] = Instance.new("UIGradient", UI["81"])
+UI["84"]["Rotation"] = 90
+UI["84"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.ScriptName.UICorner \\ --
+UI["85"] = Instance.new("UICorner", UI["81"])
+UI["85"]["CornerRadius"] = UDim.new(0.4, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.Click \\ --
+UI["86"] = Instance.new("TextButton", UI["7a"])
+UI["86"]["TextWrapped"] = true
+UI["86"]["BorderSizePixel"] = 0
+UI["86"]["TextSize"] = 14
+UI["86"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["86"]["TextScaled"] = true
+UI["86"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["86"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["86"]["ZIndex"] = 3
+UI["86"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["86"]["BackgroundTransparency"] = 1
+UI["86"]["Name"] = [[Click]]
+UI["86"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["86"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.Click.UICorner \\ --
+UI["87"] = Instance.new("UICorner", UI["86"])
+UI["87"]["CornerRadius"] = UDim.new(0, 44)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.Click.UITextSizeConstraint \\ --
+UI["88"] = Instance.new("UITextSizeConstraint", UI["86"])
+UI["88"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.UICorner \\ --
+UI["89"] = Instance.new("UICorner", UI["7a"])
+UI["89"]["CornerRadius"] = UDim.new(0.15, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame.UIAspectRatioConstraint \\ --
+UI["8a"] = Instance.new("UIAspectRatioConstraint", UI["7a"])
+UI["8a"]["AspectRatio"] = 1.06281
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts \\ --
+UI["8b"] = Instance.new("Frame", UI["62"])
+UI["8b"]["Visible"] = false
+UI["8b"]["BorderSizePixel"] = 0
+UI["8b"]["BackgroundColor3"] = Color3.fromRGB(40, 43, 63)
+UI["8b"]["ClipsDescendants"] = true
+UI["8b"]["Size"] = UDim2.new(0.94557, 0, 0.72601, 0)
+UI["8b"]["Position"] = UDim2.new(0.03609, 0, 0.20582, 0)
+UI["8b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["8b"]["Name"] = [[CloudPageScripts]]
+UI["8b"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.UICorner \\ --
+UI["8c"] = Instance.new("UICorner", UI["8b"])
+UI["8c"]["CornerRadius"] = UDim.new(0, 32)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling \\ --
+UI["8d"] = Instance.new("ScrollingFrame", UI["8b"])
+UI["8d"]["Active"] = true
+UI["8d"]["BorderSizePixel"] = 0
+UI["8d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8d"]["Name"] = [[Scrolling]]
+UI["8d"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["8d"]["ScrollBarImageColor3"] = Color3.fromRGB(143, 163, 221)
+UI["8d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["8d"]["ScrollBarThickness"] = 8
+UI["8d"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.UIListLayout \\ --
+UI["8e"] = Instance.new("UIListLayout", UI["8d"])
+UI["8e"]["Wraps"] = true
+UI["8e"]["Padding"] = UDim.new(0, 20)
+UI["8e"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+UI["8e"]["FillDirection"] = Enum.FillDirection.Horizontal
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.UIPadding \\ --
+UI["8f"] = Instance.new("UIPadding", UI["8d"])
+UI["8f"]["PaddingTop"] = UDim.new(0, 16)
+UI["8f"]["PaddingLeft"] = UDim.new(0, 35)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C \\ --
+UI["90"] = Instance.new("Folder", UI["8b"])
+UI["90"]["Name"] = [[C]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame \\ --
+UI["91"] = Instance.new("Frame", UI["90"])
+UI["91"]["Visible"] = false
+UI["91"]["BorderSizePixel"] = 0
+UI["91"]["BackgroundColor3"] = Color3.fromRGB(26, 31, 43)
+UI["91"]["ClipsDescendants"] = true
+UI["91"]["Size"] = UDim2.new(0.16786, 0, 0.37028, 0)
+UI["91"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["91"]["Name"] = [[ScriptFrame]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.UIStroke \\ --
+UI["92"] = Instance.new("UIStroke", UI["91"])
+UI["92"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+UI["92"]["Thickness"] = 3
+UI["92"]["Color"] = Color3.fromRGB(30, 36, 51)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptDescription \\ --
+UI["93"] = Instance.new("TextLabel", UI["91"])
+UI["93"]["TextWrapped"] = true
+UI["93"]["BorderSizePixel"] = 0
+UI["93"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["93"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["93"]["TextScaled"] = true
+UI["93"]["TextSize"] = 28
+UI["93"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+UI["93"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["93"]["BackgroundTransparency"] = 1
+UI["93"]["Size"] = UDim2.new(0.88732, 0, 0.25952, 0)
+UI["93"]["Text"] = [[Frontlines Aimbot.
+   FPS-Shooter.]]
+UI["93"]["Name"] = [[ScriptDescription]]
+UI["93"]["Position"] = UDim2.new(0.08099, 0, 0.54647, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptDescription.UITextSizeConstraint \\ --
+UI["94"] = Instance.new("UITextSizeConstraint", UI["93"])
+UI["94"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.GradientDown \\ --
+UI["95"] = Instance.new("Frame", UI["91"])
+UI["95"]["BorderSizePixel"] = 0
+UI["95"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["95"]["ClipsDescendants"] = true
+UI["95"]["Size"] = UDim2.new(1, 0, 0.32342, 0)
+UI["95"]["Position"] = UDim2.new(-0.00111, 0, 0.12927, 0)
+UI["95"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["95"]["Name"] = [[GradientDown]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.GradientDown.UIGradient \\ --
+UI["96"] = Instance.new("UIGradient", UI["95"])
+UI["96"]["Rotation"] = 90
+UI["96"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName \\ --
+UI["97"] = Instance.new("Frame", UI["91"])
+UI["97"]["BorderSizePixel"] = 0
+UI["97"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["97"]["ClipsDescendants"] = true
+UI["97"]["Size"] = UDim2.new(1, 0, 0.45353, 0)
+UI["97"]["Position"] = UDim2.new(-0.00111, 0, 0, 0)
+UI["97"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["97"]["Name"] = [[ScriptName]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.ScriptName \\ --
+UI["98"] = Instance.new("TextLabel", UI["97"])
+UI["98"]["TextWrapped"] = true
+UI["98"]["BorderSizePixel"] = 0
+UI["98"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["98"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["98"]["TextScaled"] = true
+UI["98"]["TextSize"] = 34
+UI["98"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Heavy, Enum.FontStyle.Normal)
+UI["98"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["98"]["BackgroundTransparency"] = 1
+UI["98"]["Size"] = UDim2.new(0.65493, 0, 0.28689, 0)
+UI["98"]["ClipsDescendants"] = true
+UI["98"]["Text"] = [[FRONTLINES]]
+UI["98"]["Name"] = [[ScriptName]]
+UI["98"]["Position"] = UDim2.new(0.19718, 0, 0.43443, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.ScriptName.UITextSizeConstraint \\ --
+UI["99"] = Instance.new("UITextSizeConstraint", UI["98"])
+UI["99"]["MaxTextSize"] = 34
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.UIGradient \\ --
+UI["9a"] = Instance.new("UIGradient", UI["97"])
+UI["9a"]["Rotation"] = 90
+UI["9a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(143, 163, 221)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(104, 118, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.ScriptName.UICorner \\ --
+UI["9b"] = Instance.new("UICorner", UI["97"])
+UI["9b"]["CornerRadius"] = UDim.new(0.4, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.Click \\ --
+UI["9c"] = Instance.new("TextButton", UI["91"])
+UI["9c"]["TextWrapped"] = true
+UI["9c"]["BorderSizePixel"] = 0
+UI["9c"]["TextSize"] = 14
+UI["9c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["9c"]["TextScaled"] = true
+UI["9c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["9c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["9c"]["ZIndex"] = 3
+UI["9c"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["9c"]["BackgroundTransparency"] = 1
+UI["9c"]["Name"] = [[Click]]
+UI["9c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["9c"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.Click.UICorner \\ --
+UI["9d"] = Instance.new("UICorner", UI["9c"])
+UI["9d"]["CornerRadius"] = UDim.new(0, 44)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.Click.UITextSizeConstraint \\ --
+UI["9e"] = Instance.new("UITextSizeConstraint", UI["9c"])
+UI["9e"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.UICorner \\ --
+UI["9f"] = Instance.new("UICorner", UI["91"])
+UI["9f"]["CornerRadius"] = UDim.new(0.15, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CloudPageScripts.C.ScriptFrame.UIAspectRatioConstraint \\ --
+UI["a0"] = Instance.new("UIAspectRatioConstraint", UI["91"])
+UI["a0"]["AspectRatio"] = 1.06281
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame \\ --
+UI["a1"] = Instance.new("Frame", UI["62"])
+UI["a1"]["BorderSizePixel"] = 0
+UI["a1"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51)
+UI["a1"]["ClipsDescendants"] = true
+UI["a1"]["Size"] = UDim2.new(0.88244, 0, 0.08902, 0)
+UI["a1"]["Position"] = UDim2.new(0.05818, 0, 0.0665, 0)
+UI["a1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["a1"]["Name"] = [[SearchFrame]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.UICorner \\ --
+UI["a2"] = Instance.new("UICorner", UI["a1"])
+UI["a2"]["CornerRadius"] = UDim.new(0.28, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.Icon \\ --
+UI["a3"] = Instance.new("ImageLabel", UI["a1"])
+UI["a3"]["BorderSizePixel"] = 0
+UI["a3"]["ScaleType"] = Enum.ScaleType.Fit
+UI["a3"]["Image"] = [[rbxassetid://126215064299468]]
+UI["a3"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0)
+UI["a3"]["BackgroundTransparency"] = 1
+UI["a3"]["Name"] = [[Icon]]
+UI["a3"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox \\ --
+UI["a4"] = Instance.new("TextBox", UI["a1"])
+UI["a4"]["Visible"] = false
+UI["a4"]["CursorPosition"] = -1
+UI["a4"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["a4"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
+UI["a4"]["BorderSizePixel"] = 0
+UI["a4"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["a4"]["TextWrapped"] = true
+UI["a4"]["TextSize"] = 32
+UI["a4"]["Name"] = [[SearchBox]]
+UI["a4"]["TextScaled"] = true
+UI["a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["a4"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["a4"]["PlaceholderText"] = [[Search for Scripts here..]]
+UI["a4"]["Size"] = UDim2.new(0.2574, 0, 0.27778, 0)
+UI["a4"]["Position"] = UDim2.new(0.37089, 0, 0.35556, 0)
+UI["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["a4"]["Text"] = [[]]
+UI["a4"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.UITextSizeConstraint \\ --
+UI["a5"] = Instance.new("UITextSizeConstraint", UI["a4"])
+UI["a5"]["MaxTextSize"] = 32
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.Icon \\ --
+UI["a6"] = Instance.new("ImageLabel", UI["a1"])
+UI["a6"]["BorderSizePixel"] = 0
+UI["a6"]["ScaleType"] = Enum.ScaleType.Fit
+UI["a6"]["Image"] = [[rbxassetid://126215064299468]]
+UI["a6"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0)
+UI["a6"]["BackgroundTransparency"] = 1
+UI["a6"]["Name"] = [[Icon]]
+UI["a6"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.Add \\ --
+UI["a7"] = Instance.new("ImageLabel", UI["a1"])
+UI["a7"]["BorderSizePixel"] = 0
+UI["a7"]["ScaleType"] = Enum.ScaleType.Fit
+UI["a7"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
+UI["a7"]["Image"] = [[http://www.roblox.com/asset/?id=6035047377]]
+UI["a7"]["Size"] = UDim2.new(0.05921, 0, 0.581, 0)
+UI["a7"]["Visible"] = false
+UI["a7"]["BackgroundTransparency"] = 1
+UI["a7"]["Name"] = [[Add]]
+UI["a7"]["Position"] = UDim2.new(0.935, 0, 0.192, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.Add.AddBtn \\ --
+UI["a8"] = Instance.new("TextButton", UI["a7"])
+UI["a8"]["TextWrapped"] = true
+UI["a8"]["BorderSizePixel"] = 0
+UI["a8"]["TextSize"] = 14
+UI["a8"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["a8"]["TextScaled"] = true
+UI["a8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["a8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["a8"]["ZIndex"] = 4
+UI["a8"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["a8"]["BackgroundTransparency"] = 1
+UI["a8"]["Name"] = [[AddBtn]]
+UI["a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["a8"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.Add.AddBtn.UICorner \\ --
+UI["a9"] = Instance.new("UICorner", UI["a8"])
+UI["a9"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.SearchFrame.Add.AddBtn.UITextSizeConstraint \\ --
+UI["aa"] = Instance.new("UITextSizeConstraint", UI["a8"])
+UI["aa"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage \\ --
+UI["ab"] = Instance.new("ImageLabel", UI["11"])
+UI["ab"]["BorderSizePixel"] = 0
+UI["ab"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["ab"]["ImageTransparency"] = 1
+UI["ab"]["ImageColor3"] = Color3.fromRGB(13, 15, 20)
+UI["ab"]["Image"] = [[rbxassetid://76734110237026]]
+UI["ab"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
+UI["ab"]["Visible"] = false
+UI["ab"]["ClipsDescendants"] = true
+UI["ab"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["ab"]["BackgroundTransparency"] = 1
+UI["ab"]["Name"] = [[ConfigPage]]
+UI["ab"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.SearchFrame \\ --
+UI["ac"] = Instance.new("Frame", UI["ab"])
+UI["ac"]["BorderSizePixel"] = 0
+UI["ac"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51)
+UI["ac"]["ClipsDescendants"] = true
+UI["ac"]["Size"] = UDim2.new(0.88244, 0, 0.08902, 0)
+UI["ac"]["Position"] = UDim2.new(0.05818, 0, 0.0665, 0)
+UI["ac"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["ac"]["Name"] = [[SearchFrame]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.SearchFrame.UICorner \\ --
+UI["ad"] = Instance.new("UICorner", UI["ac"])
+UI["ad"]["CornerRadius"] = UDim.new(0.28, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.SearchFrame.Icon \\ --
+UI["ae"] = Instance.new("ImageLabel", UI["ac"])
+UI["ae"]["BorderSizePixel"] = 0
+UI["ae"]["ScaleType"] = Enum.ScaleType.Fit
+UI["ae"]["Image"] = [[rbxassetid://126215064299468]]
+UI["ae"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0)
+UI["ae"]["BackgroundTransparency"] = 1
+UI["ae"]["Name"] = [[Icon]]
+UI["ae"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.SearchFrame.SearchBox \\ --
+UI["af"] = Instance.new("TextBox", UI["ac"])
+UI["af"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["af"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
+UI["af"]["BorderSizePixel"] = 0
+UI["af"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["af"]["TextWrapped"] = true
+UI["af"]["TextSize"] = 32
+UI["af"]["Name"] = [[SearchBox]]
+UI["af"]["TextScaled"] = true
+UI["af"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["af"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["af"]["PlaceholderText"] = [[Search for Settings here..]]
+UI["af"]["Size"] = UDim2.new(0.2574, 0, 0.27778, 0)
+UI["af"]["Position"] = UDim2.new(0.37089, 0, 0.35556, 0)
+UI["af"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["af"]["Text"] = [[]]
+UI["af"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.SearchFrame.SearchBox.UITextSizeConstraint \\ --
+UI["b0"] = Instance.new("UITextSizeConstraint", UI["af"])
+UI["b0"]["MaxTextSize"] = 32
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.SearchFrame.Icon \\ --
+UI["b1"] = Instance.new("ImageLabel", UI["ac"])
+UI["b1"]["BorderSizePixel"] = 0
+UI["b1"]["ScaleType"] = Enum.ScaleType.Fit
+UI["b1"]["Image"] = [[rbxassetid://126215064299468]]
+UI["b1"]["Size"] = UDim2.new(0.03125, 0, 0.34444, 0)
+UI["b1"]["BackgroundTransparency"] = 1
+UI["b1"]["Name"] = [[Icon]]
+UI["b1"]["Position"] = UDim2.new(0.02796, 0, 0.32222, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons \\ --
+UI["b2"] = Instance.new("ImageLabel", UI["ab"])
+UI["b2"]["ZIndex"] = 2
+UI["b2"]["BorderSizePixel"] = 0
+UI["b2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["b2"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["b2"]["Image"] = [[rbxassetid://123590482033481]]
+UI["b2"]["Size"] = UDim2.new(1.00073, 0, 0.27102, 0)
+UI["b2"]["ClipsDescendants"] = true
+UI["b2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["b2"]["BackgroundTransparency"] = 1
+UI["b2"]["Name"] = [[Buttons]]
+UI["b2"]["Position"] = UDim2.new(-0.00064, 0, 0.72623, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn \\ --
+UI["b3"] = Instance.new("Frame", UI["b2"])
+UI["b3"]["ZIndex"] = 2
+UI["b3"]["BorderSizePixel"] = 0
+UI["b3"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51)
+UI["b3"]["Size"] = UDim2.new(0.24438, 0, 0.51825, 0)
+UI["b3"]["Position"] = UDim2.new(0.71865, 0, 0.26472, 0)
+UI["b3"]["Name"] = [[ResetBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.UICorner \\ --
+UI["b4"] = Instance.new("UICorner", UI["b3"])
+UI["b4"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame \\ --
+UI["b5"] = Instance.new("Frame", UI["b3"])
+UI["b5"]["ZIndex"] = 2
+UI["b5"]["BorderSizePixel"] = 0
+UI["b5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["b5"]["Size"] = UDim2.new(0.32047, 0, 0.76056, 0)
+UI["b5"]["Position"] = UDim2.new(0.05618, 0, 0.13364, 0)
+UI["b5"]["Name"] = [[IconFrame]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame.UICorner \\ --
+UI["b6"] = Instance.new("UICorner", UI["b5"])
+UI["b6"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame.Icon \\ --
+UI["b7"] = Instance.new("ImageLabel", UI["b5"])
+UI["b7"]["ZIndex"] = 2
+UI["b7"]["BorderSizePixel"] = 0
+UI["b7"]["ScaleType"] = Enum.ScaleType.Fit
+UI["b7"]["Image"] = [[rbxassetid://128679881757557]]
+UI["b7"]["Size"] = UDim2.new(0.35185, 0, 0.36111, 0)
+UI["b7"]["BackgroundTransparency"] = 1
+UI["b7"]["Name"] = [[Icon]]
+UI["b7"]["Position"] = UDim2.new(0.32407, 0, 0.31481, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.IconFrame.UIGradient \\ --
+UI["b8"] = Instance.new("UIGradient", UI["b5"])
+UI["b8"]["Rotation"] = 90
+UI["b8"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Editor \\ --
+UI["b9"] = Instance.new("TextLabel", UI["b3"])
+UI["b9"]["TextWrapped"] = true
+UI["b9"]["BorderSizePixel"] = 0
+UI["b9"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["b9"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["b9"]["TextScaled"] = true
+UI["b9"]["TextSize"] = 40
+UI["b9"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["b9"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["b9"]["BackgroundTransparency"] = 1
+UI["b9"]["Size"] = UDim2.new(0.32803, 0, 0.28153, 0)
+UI["b9"]["Text"] = [[Reset]]
+UI["b9"]["Name"] = [[Editor]]
+UI["b9"]["Position"] = UDim2.new(0.51335, 0, 0.3662, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Editor.UITextSizeConstraint \\ --
+UI["ba"] = Instance.new("UITextSizeConstraint", UI["b9"])
+UI["ba"]["MaxTextSize"] = 40
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Click \\ --
+UI["bb"] = Instance.new("TextButton", UI["b3"])
+UI["bb"]["TextWrapped"] = true
+UI["bb"]["BorderSizePixel"] = 0
+UI["bb"]["TextSize"] = 14
+UI["bb"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["bb"]["TextScaled"] = true
+UI["bb"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["bb"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["bb"]["ZIndex"] = 3
+UI["bb"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["bb"]["BackgroundTransparency"] = 1
+UI["bb"]["Name"] = [[Click]]
+UI["bb"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["bb"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Click.UICorner \\ --
+UI["bc"] = Instance.new("UICorner", UI["bb"])
+UI["bc"]["CornerRadius"] = UDim.new(0, 245)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.Buttons.ResetBtn.Click.UITextSizeConstraint \\ --
+UI["bd"] = Instance.new("UITextSizeConstraint", UI["bb"])
+UI["bd"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame \\ --
+UI["be"] = Instance.new("ScrollingFrame", UI["ab"])
+UI["be"]["Active"] = true
+UI["be"]["BorderSizePixel"] = 0
+UI["be"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51)
+UI["be"]["ScrollBarImageTransparency"] = 1
+UI["be"]["Size"] = UDim2.new(0.92961, 0, 0.60633, 0)
+UI["be"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0)
+UI["be"]["Position"] = UDim2.new(0.06, 0, 0.183, 0)
+UI["be"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["be"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.UICorner \\ --
+UI["bf"] = Instance.new("UICorner", UI["be"])
+UI["bf"]["CornerRadius"] = UDim.new(0.1575, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.UIListLayout \\ --
+UI["c0"] = Instance.new("UIListLayout", UI["be"])
+UI["c0"]["Padding"] = UDim.new(0, 18)
+UI["c0"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS \\ --
+UI["c1"] = Instance.new("Frame", UI["be"])
+UI["c1"]["BorderSizePixel"] = 0
+UI["c1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["c1"]["ClipsDescendants"] = true
+UI["c1"]["Size"] = UDim2.new(0.948, 0, 0, 166)
+UI["c1"]["Position"] = UDim2.new(0, 0, -0, 0)
+UI["c1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c1"]["Name"] = [[FPS]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.UICorner \\ --
+UI["c2"] = Instance.new("UICorner", UI["c1"])
+UI["c2"]["CornerRadius"] = UDim.new(0.21, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.LoadAnimLabel \\ --
+UI["c3"] = Instance.new("TextLabel", UI["c1"])
+UI["c3"]["TextWrapped"] = true
+UI["c3"]["BorderSizePixel"] = 0
+UI["c3"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["c3"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["c3"]["TextScaled"] = true
+UI["c3"]["TextSize"] = 31
+UI["c3"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["c3"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["c3"]["BackgroundTransparency"] = 1
+UI["c3"]["Size"] = UDim2.new(0.66145, 0, 0.18675, 0)
+UI["c3"]["Text"] = [[Unlock FPS]]
+UI["c3"]["Name"] = [[LoadAnimLabel]]
+UI["c3"]["Position"] = UDim2.new(0.16145, 0, 0.30723, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.LoadAnimLabel.UITextSizeConstraint \\ --
+UI["c4"] = Instance.new("UITextSizeConstraint", UI["c3"])
+UI["c4"]["MaxTextSize"] = 31
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.ToggleOn \\ --
+UI["c5"] = Instance.new("ImageLabel", UI["c1"])
+UI["c5"]["BorderSizePixel"] = 0
+UI["c5"]["ScaleType"] = Enum.ScaleType.Fit
+UI["c5"]["Image"] = [[rbxassetid://129392106542933]]
+UI["c5"]["Size"] = UDim2.new(0.12932, 0, 0.43976, 0)
+UI["c5"]["Visible"] = false
+UI["c5"]["BackgroundTransparency"] = 1
+UI["c5"]["Name"] = [[ToggleOn]]
+UI["c5"]["Position"] = UDim2.new(0.85173, 0, 0.28916, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.ToggleOn.UIGradient \\ --
+UI["c6"] = Instance.new("UIGradient", UI["c5"])
+UI["c6"]["Rotation"] = 90
+UI["c6"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.Click \\ --
+UI["c7"] = Instance.new("TextButton", UI["c1"])
+UI["c7"]["TextWrapped"] = true
+UI["c7"]["BorderSizePixel"] = 0
+UI["c7"]["TextSize"] = 14
+UI["c7"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c7"]["TextScaled"] = true
+UI["c7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["c7"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["c7"]["ZIndex"] = 3
+UI["c7"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["c7"]["BackgroundTransparency"] = 1
+UI["c7"]["Name"] = [[Click]]
+UI["c7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c7"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.Click.UICorner \\ --
+UI["c8"] = Instance.new("UICorner", UI["c7"])
+UI["c8"]["CornerRadius"] = UDim.new(0, 32)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.Click.UITextSizeConstraint \\ --
+UI["c9"] = Instance.new("UITextSizeConstraint", UI["c7"])
+UI["c9"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.descriptionLabel \\ --
+UI["ca"] = Instance.new("TextLabel", UI["c1"])
+UI["ca"]["TextWrapped"] = true
+UI["ca"]["BorderSizePixel"] = 0
+UI["ca"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["ca"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["ca"]["TextScaled"] = true
+UI["ca"]["TextSize"] = 26
+UI["ca"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["ca"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["ca"]["BackgroundTransparency"] = 1
+UI["ca"]["Size"] = UDim2.new(0.67346, 0, 0.15879, 0)
+UI["ca"]["Text"] = [[Gets rid of Roblox's 60FPS Limmit.]]
+UI["ca"]["Name"] = [[descriptionLabel]]
+UI["ca"]["Position"] = UDim2.new(0.16145, 0, 0.49398, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.descriptionLabel.UITextSizeConstraint \\ --
+UI["cb"] = Instance.new("UITextSizeConstraint", UI["ca"])
+UI["cb"]["MaxTextSize"] = 26
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.Box \\ --
+UI["cc"] = Instance.new("Frame", UI["c1"])
+UI["cc"]["BorderSizePixel"] = 0
+UI["cc"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["cc"]["Size"] = UDim2.new(0.04695, 0, 0.33735, 0)
+UI["cc"]["Position"] = UDim2.new(0.04327, 0, 0.32651, 0)
+UI["cc"]["Name"] = [[Box]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.Box.UICorner \\ --
+UI["cd"] = Instance.new("UICorner", UI["cc"])
+UI["cd"]["CornerRadius"] = UDim.new(0, 14)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.Box.Icon \\ --
+UI["ce"] = Instance.new("ImageLabel", UI["cc"])
+UI["ce"]["BorderSizePixel"] = 0
+UI["ce"]["ScaleType"] = Enum.ScaleType.Fit
+UI["ce"]["Image"] = [[rbxassetid://129853704073107]]
+UI["ce"]["Size"] = UDim2.new(0.50877, 0, 0.5, 0)
+UI["ce"]["BackgroundTransparency"] = 1
+UI["ce"]["Name"] = [[Icon]]
+UI["ce"]["Position"] = UDim2.new(0.24561, 0, 0.25, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.Box.UIGradient \\ --
+UI["cf"] = Instance.new("UIGradient", UI["cc"])
+UI["cf"]["Rotation"] = 90
+UI["cf"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(66, 79, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(36, 44, 63))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.UIGradient \\ --
+UI["d0"] = Instance.new("UIGradient", UI["c1"])
+UI["d0"]["Rotation"] = 90.65106
+UI["d0"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(30, 36, 51)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(21, 26, 36))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.UIAspectRatioConstraint \\ --
+UI["d1"] = Instance.new("UIAspectRatioConstraint", UI["c1"])
+UI["d1"]["AspectRatio"] = 7.31559
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ConfigPage.ScrollingFrame.FPS.ToggleOff \\ --
+UI["d2"] = Instance.new("ImageLabel", UI["c1"])
+UI["d2"]["BorderSizePixel"] = 0
+UI["d2"]["ScaleType"] = Enum.ScaleType.Fit
+UI["d2"]["ImageColor3"] = Color3.fromRGB(64, 80, 109)
+UI["d2"]["Image"] = [[rbxassetid://123778903107043]]
+UI["d2"]["Size"] = UDim2.new(0.12932, 0, 0.43976, 0)
+UI["d2"]["BackgroundTransparency"] = 1
+UI["d2"]["Name"] = [[ToggleOff]]
+UI["d2"]["Position"] = UDim2.new(0.85173, 0, 0.28916, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave \\ --
+UI["d3"] = Instance.new("ImageLabel", UI["11"])
+UI["d3"]["ZIndex"] = 50
+UI["d3"]["BorderSizePixel"] = 0
+UI["d3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["d3"]["ImageTransparency"] = 0.2
+UI["d3"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["d3"]["Image"] = [[rbxassetid://76734110237026]]
+UI["d3"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
+UI["d3"]["Visible"] = false
+UI["d3"]["ClipsDescendants"] = true
+UI["d3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["d3"]["BackgroundTransparency"] = 1
+UI["d3"]["Name"] = [[ScriptSave]]
+UI["d3"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1 \\ --
+UI["d4"] = Instance.new("ImageLabel", UI["d3"])
+UI["d4"]["BorderSizePixel"] = 0
+UI["d4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["d4"]["ImageColor3"] = Color3.fromRGB(27, 32, 45)
+UI["d4"]["Image"] = [[rbxassetid://105963070530458]]
+UI["d4"]["Size"] = UDim2.new(0.67997, 0, 0.55984, 0)
+UI["d4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["d4"]["BackgroundTransparency"] = 1
+UI["d4"]["Name"] = [[ScriptPage1]]
+UI["d4"]["Position"] = UDim2.new(0.15904, 0, 0.21365, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.title \\ --
+UI["d5"] = Instance.new("TextLabel", UI["d4"])
+UI["d5"]["TextWrapped"] = true
+UI["d5"]["LineHeight"] = 0
+UI["d5"]["BorderSizePixel"] = 0
+UI["d5"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["d5"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["d5"]["TextScaled"] = true
+UI["d5"]["TextSize"] = 31
+UI["d5"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["d5"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["d5"]["BackgroundTransparency"] = 1
+UI["d5"]["Size"] = UDim2.new(0.3127, 0, 0.05447, 0)
+UI["d5"]["Text"] = [[Save your script]]
+UI["d5"]["Name"] = [[title]]
+UI["d5"]["Position"] = UDim2.new(0.14408, 0, 0.15932, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.title.UITextSizeConstraint \\ --
+UI["d6"] = Instance.new("UITextSizeConstraint", UI["d5"])
+UI["d6"]["MaxTextSize"] = 31
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.description \\ --
+UI["d7"] = Instance.new("TextLabel", UI["d4"])
+UI["d7"]["TextWrapped"] = true
+UI["d7"]["BorderSizePixel"] = 0
+UI["d7"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["d7"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["d7"]["TextScaled"] = true
+UI["d7"]["TextSize"] = 23
+UI["d7"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["d7"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["d7"]["BackgroundTransparency"] = 1
+UI["d7"]["Size"] = UDim2.new(0.31163, 0, 0.06956, 0)
+UI["d7"]["Text"] = [[What will you create today?]]
+UI["d7"]["Name"] = [[description]]
+UI["d7"]["Position"] = UDim2.new(0.14514, 0, 0.23498, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.description.UITextSizeConstraint \\ --
+UI["d8"] = Instance.new("UITextSizeConstraint", UI["d7"])
+UI["d8"]["MaxTextSize"] = 23
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input \\ --
+UI["d9"] = Instance.new("Frame", UI["d4"])
+UI["d9"]["BorderSizePixel"] = 0
+UI["d9"]["BackgroundColor3"] = Color3.fromRGB(35, 43, 60)
+UI["d9"]["Size"] = UDim2.new(0.72785, 0, 0.15724, 0)
+UI["d9"]["Position"] = UDim2.new(0.14472, 0, 0.35798, 0)
+UI["d9"]["Name"] = [[input]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.UICorner \\ --
+UI["da"] = Instance.new("UICorner", UI["d9"])
+UI["da"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.Icon \\ --
+UI["db"] = Instance.new("ImageLabel", UI["d9"])
+UI["db"]["BorderSizePixel"] = 0
+UI["db"]["ScaleType"] = Enum.ScaleType.Fit
+UI["db"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
+UI["db"]["Image"] = [[rbxassetid://125200284008170]]
+UI["db"]["Size"] = UDim2.new(0.05865, 0, 0.35955, 0)
+UI["db"]["BackgroundTransparency"] = 1
+UI["db"]["Name"] = [[Icon]]
+UI["db"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.barIdk \\ --
+UI["dc"] = Instance.new("ImageLabel", UI["d9"])
+UI["dc"]["ZIndex"] = 2
+UI["dc"]["BorderSizePixel"] = 0
+UI["dc"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["dc"]["Image"] = [[rbxassetid://107516337694688]]
+UI["dc"]["Size"] = UDim2.new(0.01906, 0, 0.62921, 0)
+UI["dc"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["dc"]["BackgroundTransparency"] = 1
+UI["dc"]["Name"] = [[barIdk]]
+UI["dc"]["Position"] = UDim2.new(0.02181, 0, 0.18816, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.barIdk.UIGradient \\ --
+UI["dd"] = Instance.new("UIGradient", UI["dc"])
+UI["dd"]["Rotation"] = 91.10171
+UI["dd"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.ShadowBackk \\ --
+UI["de"] = Instance.new("ImageLabel", UI["d9"])
+UI["de"]["BorderSizePixel"] = 0
+UI["de"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["de"]["Image"] = [[rbxassetid://82022759470861]]
+UI["de"]["Size"] = UDim2.new(0.05718, 0, 1.02247, 0)
+UI["de"]["BackgroundTransparency"] = 1
+UI["de"]["Name"] = [[ShadowBackk]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.InputText \\ --
+UI["df"] = Instance.new("TextBox", UI["d9"])
+UI["df"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["df"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
+UI["df"]["BorderSizePixel"] = 0
+UI["df"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["df"]["TextWrapped"] = true
+UI["df"]["TextSize"] = 28
+UI["df"]["Name"] = [[InputText]]
+UI["df"]["TextScaled"] = true
+UI["df"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["df"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["df"]["PlaceholderText"] = [[Script Name..]]
+UI["df"]["Size"] = UDim2.new(0.81525, 0, 0.35955, 0)
+UI["df"]["Position"] = UDim2.new(0.14956, 0, 0.29213, 0)
+UI["df"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["df"]["Text"] = [[]]
+UI["df"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.InputText.UITextSizeConstraint \\ --
+UI["e0"] = Instance.new("UITextSizeConstraint", UI["df"])
+UI["e0"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.input.UIStroke \\ --
+UI["e1"] = Instance.new("UIStroke", UI["d9"])
+UI["e1"]["Thickness"] = 2
+UI["e1"]["Color"] = Color3.fromRGB(24, 29, 40)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn \\ --
+UI["e2"] = Instance.new("ImageLabel", UI["d4"])
+UI["e2"]["BorderSizePixel"] = 0
+UI["e2"]["ScaleType"] = Enum.ScaleType.Fit
+UI["e2"]["Image"] = [[rbxassetid://88951128464748]]
+UI["e2"]["Size"] = UDim2.new(0.03095, 0, 0.053, 0)
+UI["e2"]["BackgroundTransparency"] = 1
+UI["e2"]["Name"] = [[CloseBtn]]
+UI["e2"]["Position"] = UDim2.new(0.84205, 0, 0.15901, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn.Click \\ --
+UI["e3"] = Instance.new("TextButton", UI["e2"])
+UI["e3"]["TextWrapped"] = true
+UI["e3"]["BorderSizePixel"] = 0
+UI["e3"]["TextSize"] = 14
+UI["e3"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e3"]["TextScaled"] = true
+UI["e3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["e3"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["e3"]["ZIndex"] = 4
+UI["e3"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["e3"]["BackgroundTransparency"] = 1
+UI["e3"]["Name"] = [[Click]]
+UI["e3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e3"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn.Click.UICorner \\ --
+UI["e4"] = Instance.new("UICorner", UI["e3"])
+UI["e4"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.CloseBtn.Click.UITextSizeConstraint \\ --
+UI["e5"] = Instance.new("UITextSizeConstraint", UI["e3"])
+UI["e5"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn \\ --
+UI["e6"] = Instance.new("Frame", UI["d4"])
+UI["e6"]["BorderSizePixel"] = 0
+UI["e6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["e6"]["Size"] = UDim2.new(0.21558, 0, 0.15724, 0)
+UI["e6"]["Position"] = UDim2.new(0.65738, 0, 0.57525, 0)
+UI["e6"]["Name"] = [[NextBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.UICorner \\ --
+UI["e7"] = Instance.new("UICorner", UI["e6"])
+UI["e7"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.btnText \\ --
+UI["e8"] = Instance.new("TextLabel", UI["e6"])
+UI["e8"]["TextWrapped"] = true
+UI["e8"]["BorderSizePixel"] = 0
+UI["e8"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["e8"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["e8"]["TextScaled"] = true
+UI["e8"]["TextSize"] = 28
+UI["e8"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["e8"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["e8"]["BackgroundTransparency"] = 1
+UI["e8"]["Size"] = UDim2.new(0.39109, 0, 0.30337, 0)
+UI["e8"]["Text"] = [[Next]]
+UI["e8"]["Name"] = [[btnText]]
+UI["e8"]["Position"] = UDim2.new(0.49505, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.btnText.UITextSizeConstraint \\ --
+UI["e9"] = Instance.new("UITextSizeConstraint", UI["e8"])
+UI["e9"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Icon \\ --
+UI["ea"] = Instance.new("ImageLabel", UI["e6"])
+UI["ea"]["BorderSizePixel"] = 0
+UI["ea"]["ScaleType"] = Enum.ScaleType.Fit
+UI["ea"]["Image"] = [[rbxassetid://84835028822243]]
+UI["ea"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0)
+UI["ea"]["BackgroundTransparency"] = 1
+UI["ea"]["Name"] = [[Icon]]
+UI["ea"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.UIGradient \\ --
+UI["eb"] = Instance.new("UIGradient", UI["e6"])
+UI["eb"]["Rotation"] = 90
+UI["eb"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Click \\ --
+UI["ec"] = Instance.new("TextButton", UI["e6"])
+UI["ec"]["TextWrapped"] = true
+UI["ec"]["BorderSizePixel"] = 0
+UI["ec"]["TextSize"] = 14
+UI["ec"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["ec"]["TextScaled"] = true
+UI["ec"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["ec"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["ec"]["ZIndex"] = 4
+UI["ec"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["ec"]["BackgroundTransparency"] = 1
+UI["ec"]["Name"] = [[Click]]
+UI["ec"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["ec"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Click.UICorner \\ --
+UI["ed"] = Instance.new("UICorner", UI["ec"])
+UI["ed"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage1.NextBtn.Click.UITextSizeConstraint \\ --
+UI["ee"] = Instance.new("UITextSizeConstraint", UI["ec"])
+UI["ee"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2 \\ --
+UI["ef"] = Instance.new("ImageLabel", UI["d3"])
+UI["ef"]["BorderSizePixel"] = 0
+UI["ef"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["ef"]["ImageColor3"] = Color3.fromRGB(27, 32, 45)
+UI["ef"]["Image"] = [[rbxassetid://105963070530458]]
+UI["ef"]["Size"] = UDim2.new(0.67997, 0, 0.55984, 0)
+UI["ef"]["Visible"] = false
+UI["ef"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["ef"]["BackgroundTransparency"] = 1
+UI["ef"]["Name"] = [[ScriptPage2]]
+UI["ef"]["Position"] = UDim2.new(0.15904, 0, 0.21365, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.title1 \\ --
+UI["f0"] = Instance.new("TextLabel", UI["ef"])
+UI["f0"]["TextWrapped"] = true
+UI["f0"]["LineHeight"] = 0
+UI["f0"]["BorderSizePixel"] = 0
+UI["f0"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["f0"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["f0"]["TextScaled"] = true
+UI["f0"]["TextSize"] = 31
+UI["f0"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["f0"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["f0"]["BackgroundTransparency"] = 1
+UI["f0"]["Size"] = UDim2.new(0.3127, 0, 0.04064, 0)
+UI["f0"]["Text"] = [[Save your script]]
+UI["f0"]["Name"] = [[title1]]
+UI["f0"]["Position"] = UDim2.new(0.14408, 0, 0.17314, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.title1.UITextSizeConstraint \\ --
+UI["f1"] = Instance.new("UITextSizeConstraint", UI["f0"])
+UI["f1"]["MaxTextSize"] = 31
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.description1 \\ --
+UI["f2"] = Instance.new("TextLabel", UI["ef"])
+UI["f2"]["TextWrapped"] = true
+UI["f2"]["BorderSizePixel"] = 0
+UI["f2"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["f2"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["f2"]["TextScaled"] = true
+UI["f2"]["TextSize"] = 23
+UI["f2"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["f2"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["f2"]["BackgroundTransparency"] = 1
+UI["f2"]["Size"] = UDim2.new(0.27855, 0, 0.10601, 0)
+UI["f2"]["Text"] = [[What will you create today?]]
+UI["f2"]["Name"] = [[description1]]
+UI["f2"]["Position"] = UDim2.new(0.14514, 0, 0.23498, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.description1.UITextSizeConstraint \\ --
+UI["f3"] = Instance.new("UITextSizeConstraint", UI["f2"])
+UI["f3"]["MaxTextSize"] = 23
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1 \\ --
+UI["f4"] = Instance.new("Frame", UI["ef"])
+UI["f4"]["BorderSizePixel"] = 0
+UI["f4"]["BackgroundColor3"] = Color3.fromRGB(35, 43, 60)
+UI["f4"]["Size"] = UDim2.new(0.72785, 0, 0.15724, 0)
+UI["f4"]["Position"] = UDim2.new(0.14472, 0, 0.35798, 0)
+UI["f4"]["Name"] = [[Input1]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.UICorner \\ --
+UI["f5"] = Instance.new("UICorner", UI["f4"])
+UI["f5"]["CornerRadius"] = UDim.new(0.22, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.Icon1 \\ --
+UI["f6"] = Instance.new("ImageLabel", UI["f4"])
+UI["f6"]["BorderSizePixel"] = 0
+UI["f6"]["ScaleType"] = Enum.ScaleType.Fit
+UI["f6"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
+UI["f6"]["Image"] = [[rbxassetid://85225882076323]]
+UI["f6"]["Size"] = UDim2.new(0.05865, 0, 0.35955, 0)
+UI["f6"]["BackgroundTransparency"] = 1
+UI["f6"]["Name"] = [[Icon1]]
+UI["f6"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.barIdk1 \\ --
+UI["f7"] = Insta = 2
+UI["f7"]["BorderSizePixel"] = 0
+UI["f7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["f7"]["Image"] = [[rbxassetid://107516337694688]]
+UI["f7"]["Size"] = UDim2.new(0.01906, 0, 0.62921, 0)
+UI["f7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["f7"]["BackgroundTransparency"] = 1
+UI["f7"]["Name"] = [[barIdk1]]
+UI["f7"]["Position"] = UDim2.new(0.02181, 0, 0.18816, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.barIdk1.UIGradient \\ --
+UI["f8"] = Instance.new("UIGradient", UI["f7"])
+UI["f8"]["Rotation"] = 91.10171
+UI["f8"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.ShadowBackk \\ --
+UI["f9"] = Instance.new("ImageLabel", UI["f4"])
+UI["f9"]["BorderSizePixel"] = 0
+UI["f9"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["f9"]["Image"] = [[rbxassetid://82022759470861]]
+UI["f9"]["Size"] = UDim2.new(0.05718, 0, 1.02247, 0)
+UI["f9"]["BackgroundTransparency"] = 1
+UI["f9"]["Name"] = [[ShadowBackk]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.InputText1 \\ --
+UI["fa"] = Instance.new("TextBox", UI["f4"])
+UI["fa"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["fa"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
+UI["fa"]["BorderSizePixel"] = 0
+UI["fa"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["fa"]["TextWrapped"] = true
+UI["fa"]["TextSize"] = 28
+UI["fa"]["Name"] = [[InputText1]]
+UI["fa"]["TextScaled"] = true
+UI["fa"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["fa"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["fa"]["PlaceholderText"] = [[Script code..]]
+UI["fa"]["Size"] = UDim2.new(0.81525, 0, 0.35955, 0)
+UI["fa"]["Position"] = UDim2.new(0.14956, 0, 0.29213, 0)
+UI["fa"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["fa"]["Text"] = [[]]
+UI["fa"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.InputText1.UITextSizeConstraint \\ --
+UI["fb"] = Instance.new("UITextSizeConstraint", UI["fa"])
+UI["fb"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.Input1.UIStroke \\ --
+UI["fc"] = Instance.new("UIStroke", UI["f4"])
+UI["fc"]["Thickness"] = 2
+UI["fc"]["Color"] = Color3.fromRGB(24, 29, 40)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1 \\ --
+UI["fd"] = Instance.new("ImageLabel", UI["ef"])
+UI["fd"]["BorderSizePixel"] = 0
+UI["fd"]["ScaleType"] = Enum.ScaleType.Fit
+UI["fd"]["Image"] = [[rbxassetid://88951128464748]]
+UI["fd"]["Size"] = UDim2.new(0.03095, 0, 0.053, 0)
+UI["fd"]["BackgroundTransparency"] = 1
+UI["fd"]["Name"] = [[CloseBtn1]]
+UI["fd"]["Position"] = UDim2.new(0.84205, 0, 0.15901, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1.Click \\ --
+UI["fe"] = Instance.new("TextButton", UI["fd"])
+UI["fe"]["TextWrapped"] = true
+UI["fe"]["BorderSizePixel"] = 0
+UI["fe"]["TextSize"] = 14
+UI["fe"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["fe"]["TextScaled"] = true
+UI["fe"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["fe"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["fe"]["ZIndex"] = 4
+UI["fe"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["fe"]["BackgroundTransparency"] = 1
+UI["fe"]["Name"] = [[Click]]
+UI["fe"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["fe"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1.Click.UICorner \\ --
+UI["ff"] = Instance.new("UICorner", UI["fe"])
+UI["ff"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.CloseBtn1.Click.UITextSizeConstraint \\ --
+UI["100"] = Instance.new("UITextSizeConstraint", UI["fe"])
+UI["100"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn \\ --
+UI["101"] = Instance.new("Frame", UI["ef"])
+UI["101"]["BorderSizePixel"] = 0
+UI["101"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["101"]["Size"] = UDim2.new(0.21558, 0, 0.15724, 0)
+UI["101"]["Position"] = UDim2.new(0.65738, 0, 0.57525, 0)
+UI["101"]["Name"] = [[saveBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.UICorner \\ --
+UI["102"] = Instance.new("UICorner", UI["101"])
+UI["102"]["CornerRadius"] = UDim.new(0.22, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.btnText1 \\ --
+UI["103"] = Instance.new("TextLabel", UI["101"])
+UI["103"]["TextWrapped"] = true
+UI["103"]["BorderSizePixel"] = 0
+UI["103"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["103"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["103"]["TextScaled"] = true
+UI["103"]["TextSize"] = 28
+UI["103"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["103"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["103"]["BackgroundTransparency"] = 1
+UI["103"]["Size"] = UDim2.new(0.39109, 0, 0.30337, 0)
+UI["103"]["Text"] = [[Save]]
+UI["103"]["Name"] = [[btnText1]]
+UI["103"]["Position"] = UDim2.new(0.49505, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.btnText1.UITextSizeConstraint \\ --
+UI["104"] = Instance.new("UITextSizeConstraint", UI["103"])
+UI["104"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Icon \\ --
+UI["105"] = Instance.new("ImageLabel", UI["101"])
+UI["105"]["BorderSizePixel"] = 0
+UI["105"]["ScaleType"] = Enum.ScaleType.Fit
+UI["105"]["Image"] = [[rbxassetid://128679881757557]]
+UI["105"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0)
+UI["105"]["BackgroundTransparency"] = 1
+UI["105"]["Name"] = [[Icon]]
+UI["105"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.UIGradient \\ --
+UI["106"] = Instance.new("UIGradient", UI["101"])
+UI["106"]["Rotation"] = 90
+UI["106"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Click \\ --
+UI["107"] = Instance.new("TextButton", UI["101"])
+UI["107"]["TextWrapped"] = true
+UI["107"]["BorderSizePixel"] = 0
+UI["107"]["TextSize"] = 14
+UI["107"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["107"]["TextScaled"] = true
+UI["107"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["107"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["107"]["ZIndex"] = 4
+UI["107"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["107"]["BackgroundTransparency"] = 1
+UI["107"]["Name"] = [[Click]]
+UI["107"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["107"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Click.UICorner \\ --
+UI["108"] = Instance.new("UICorner", UI["107"])
+UI["108"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.ScriptPage2.saveBtn.Click.UITextSizeConstraint \\ --
+UI["109"] = Instance.new("UITextSizeConstraint", UI["107"])
+UI["109"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.LockBtnBackground \\ --
+UI["10a"] = Instance.new("TextButton", UI["d3"])
+UI["10a"]["TextWrapped"] = true
+UI["10a"]["BorderSizePixel"] = 0
+UI["10a"]["TextSize"] = 14
+UI["10a"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["10a"]["TextScaled"] = true
+UI["10a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["10a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["10a"]["ZIndex"] = 0
+UI["10a"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0)
+UI["10a"]["BackgroundTransparency"] = 1
+UI["10a"]["Name"] = [[LockBtnBackground]]
+UI["10a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["10a"]["Text"] = [[  ]]
+UI["10a"]["Position"] = UDim2.new(-0, 0, -0.01234, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.ScriptSave.LockBtnBackground.UITextSizeConstraint \\ --
+UI["10b"] = Instance.new("UITextSizeConstraint", UI["10a"])
+UI["10b"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn \\ --
+UI["10c"] = Instance.new("ImageLabel", UI["11"])
+UI["10c"]["ZIndex"] = 50
+UI["10c"]["BorderSizePixel"] = 0
+UI["10c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["10c"]["ImageTransparency"] = 0.2
+UI["10c"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["10c"]["Image"] = [[rbxassetid://76734110237026]]
+UI["10c"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
+UI["10c"]["Visible"] = false
+UI["10c"]["ClipsDescendants"] = true
+UI["10c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["10c"]["BackgroundTransparency"] = 1
+UI["10c"]["Name"] = [[TabWarn]]
+UI["10c"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage \\ --
+UI["10d"] = Instance.new("ImageLabel", UI["10c"])
+UI["10d"]["BorderSizePixel"] = 0
+UI["10d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["10d"]["ImageColor3"] = Color3.fromRGB(27, 32, 45)
+UI["10d"]["Image"] = [[rbxassetid://105963070530458]]
+UI["10d"]["Size"] = UDim2.new(0.46946, 0, 0.39685, 0)
+UI["10d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["10d"]["BackgroundTransparency"] = 1
+UI["10d"]["Name"] = [[ClearPage]]
+UI["10d"]["Position"] = UDim2.new(0.26484, 0, 0.29575, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.title \\ --
+UI["10e"] = Instance.new("TextLabel", UI["10d"])
+UI["10e"]["TextWrapped"] = true
+UI["10e"]["LineHeight"] = 0
+UI["10e"]["BorderSizePixel"] = 0
+UI["10e"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["10e"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["10e"]["TextScaled"] = true
+UI["10e"]["TextSize"] = 31
+UI["10e"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["10e"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["10e"]["BackgroundTransparency"] = 1
+UI["10e"]["Size"] = UDim2.new(0.633, 0, 0.078, 0)
+UI["10e"]["Text"] = [[Delete Tab:  <Tab Name>]]
+UI["10e"]["Name"] = [[title]]
+UI["10e"]["Position"] = UDim2.new(0.15117, 0, 0.17314, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.title.UITextSizeConstraint \\ --
+UI["10f"] = Instance.new("UITextSizeConstraint", UI["10e"])
+UI["10f"]["MaxTextSize"] = 31
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.description \\ --
+UI["110"] = Instance.new("TextLabel", UI["10d"])
+UI["110"]["TextWrapped"] = true
+UI["110"]["BorderSizePixel"] = 0
+UI["110"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["110"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["110"]["TextScaled"] = true
+UI["110"]["TextSize"] = 23
+UI["110"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["110"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["110"]["BackgroundTransparency"] = 1
+UI["110"]["Size"] = UDim2.new(0.63279, 0, 0.13245, 0)
+UI["110"]["Text"] = [[Are you sure you want to delete this Tab? This action can't be undone.]]
+UI["110"]["Name"] = [[description]]
+UI["110"]["Position"] = UDim2.new(0.15117, 0, 0.27425, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.description.UITextSizeConstraint \\ --
+UI["111"] = Instance.new("UITextSizeConstraint", UI["110"])
+UI["111"]["MaxTextSize"] = 23
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn \\ --
+UI["112"] = Instance.new("ImageLabel", UI["10d"])
+UI["112"]["BorderSizePixel"] = 0
+UI["112"]["ScaleType"] = Enum.ScaleType.Fit
+UI["112"]["Image"] = [[rbxassetid://88951128464748]]
+UI["112"]["Size"] = UDim2.new(0.05225, 0, 0.07122, 0)
+UI["112"]["BackgroundTransparency"] = 1
+UI["112"]["Name"] = [[CloseBtn]]
+UI["112"]["Position"] = UDim2.new(0.82074, 0, 0.15652, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click \\ --
+UI["113"] = Instance.new("TextButton", UI["112"])
+UI["113"]["TextWrapped"] = true
+UI["113"]["BorderSizePixel"] = 0
+UI["113"]["TextSize"] = 14
+UI["113"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["113"]["TextScaled"] = true
+UI["113"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["113"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["113"]["ZIndex"] = 4
+UI["113"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["113"]["BackgroundTransparency"] = 1
+UI["113"]["Name"] = [[Click]]
+UI["113"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["113"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click.UICorner \\ --
+UI["114"] = Instance.new("UICorner", UI["113"])
+UI["114"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click.UITextSizeConstraint \\ --
+UI["115"] = Instance.new("UITextSizeConstraint", UI["113"])
+UI["115"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn \\ --
+UI["116"] = Instance.new("Frame", UI["10d"])
+UI["116"]["BorderSizePixel"] = 0
+UI["116"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["116"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0)
+UI["116"]["Position"] = UDim2.new(0.14792, 0, 0.47645, 0)
+UI["116"]["Name"] = [[CancelBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.UICorner \\ --
+UI["117"] = Instance.new("UICorner", UI["116"])
+UI["117"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.btnText \\ --
+UI["118"] = Instance.new("TextLabel", UI["116"])
+UI["118"]["TextWrapped"] = true
+UI["118"]["BorderSizePixel"] = 0
+UI["118"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["118"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["118"]["TextScaled"] = true
+UI["118"]["TextSize"] = 28
+UI["118"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["118"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["118"]["BackgroundTransparency"] = 1
+UI["118"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0)
+UI["118"]["Text"] = [[Cancel]]
+UI["118"]["Name"] = [[btnText]]
+UI["118"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.btnText.UITextSizeConstraint \\ --
+UI["119"] = Instance.new("UITextSizeConstraint", UI["118"])
+UI["119"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Icon \\ --
+UI["11a"] = Instance.new("ImageLabel", UI["116"])
+UI["11a"]["BorderSizePixel"] = 0
+UI["11a"]["ScaleType"] = Enum.ScaleType.Fit
+UI["11a"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
+UI["11a"]["Image"] = [[rbxassetid://108986189876354]]
+UI["11a"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0)
+UI["11a"]["BackgroundTransparency"] = 1
+UI["11a"]["Name"] = [[Icon]]
+UI["11a"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click \\ --
+UI["11b"] = Instance.new("TextButton", UI["116"])
+UI["11b"]["TextWrapped"] = true
+UI["11b"]["BorderSizePixel"] = 0
+UI["11b"]["TextSize"] = 14
+UI["11b"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["11b"]["TextScaled"] = true
+UI["11b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["11b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["11b"]["ZIndex"] = 4
+UI["11b"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["11b"]["BackgroundTransparency"] = 1
+UI["11b"]["Name"] = [[Click]]
+UI["11b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["11b"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click.UICorner \\ --
+UI["11c"] = Instance.new("UICorner", UI["11b"])
+UI["11c"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click.UITextSizeConstraint \\ --
+UI["11d"] = Instance.new("UITextSizeConstraint", UI["11b"])
+UI["11d"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.UIGradient \\ --
+UI["11e"] = Instance.new("UIGradient", UI["116"])
+UI["11e"]["Rotation"] = 91.27303
+UI["11e"]["Offset"] = Vector2.new(-0.00346, 0.02966)
+UI["11e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(48, 58, 81)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(37, 45, 62))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn \\ --
+UI["11f"] = Instance.new("Frame", UI["10d"])
+UI["11f"]["BorderSizePixel"] = 0
+UI["11f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["11f"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0)
+UI["11f"]["Position"] = UDim2.new(0.51737, 0, 0.47645, 0)
+UI["11f"]["Name"] = [[DeleteBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.UICorner \\ --
+UI["120"] = Instance.new("UICorner", UI["11f"])
+UI["120"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.btnText \\ --
+UI["121"] = Instance.new("TextLabel", UI["11f"])
+UI["121"]["TextWrapped"] = true
+UI["121"]["BorderSizePixel"] = 0
+UI["121"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["121"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["121"]["TextScaled"] = true
+UI["121"]["TextSize"] = 28
+UI["121"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["121"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["121"]["BackgroundTransparency"] = 1
+UI["121"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0)
+UI["121"]["Text"] = [[Delete]]
+UI["121"]["Name"] = [[btnText]]
+UI["121"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.btnText.UITextSizeConstraint \\ --
+UI["122"] = Instance.new("UITextSizeConstraint", UI["121"])
+UI["122"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Icon \\ --
+UI["123"] = Instance.new("ImageLabel", UI["11f"])
+UI["123"]["BorderSizePixel"] = 0
+UI["123"]["ScaleType"] = Enum.ScaleType.Fit
+UI["123"]["Image"] = [[rbxassetid://73909411554012]]
+UI["123"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0)
+UI["123"]["BackgroundTransparency"] = 1
+UI["123"]["Name"] = [[Icon]]
+UI["123"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.UIGradient \\ --
+UI["124"] = Instance.new("UIGradient", UI["11f"])
+UI["124"]["Rotation"] = 90
+UI["124"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click \\ --
+UI["125"] = Instance.new("TextButton", UI["11f"])
+UI["125"]["TextWrapped"] = true
+UI["125"]["BorderSizePixel"] = 0
+UI["125"]["TextSize"] = 14
+UI["125"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["125"]["TextScaled"] = true
+UI["125"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["125"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["125"]["ZIndex"] = 4
+UI["125"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["125"]["BackgroundTransparency"] = 1
+UI["125"]["Name"] = [[Click]]
+UI["125"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["125"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click.UICorner \\ --
+UI["126"] = Instance.new("UICorner", UI["125"])
+UI["126"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click.UITextSizeConstraint \\ --
+UI["127"] = Instance.new("UITextSizeConstraint", UI["125"])
+UI["127"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.LockBtnBackground \\ --
+UI["128"] = Instance.new("TextButton", UI["10c"])
+UI["128"]["TextWrapped"] = true
+UI["128"]["BorderSizePixel"] = 0
+UI["128"]["TextSize"] = 14
+UI["128"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["128"]["TextScaled"] = true
+UI["128"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["128"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["128"]["ZIndex"] = 0
+UI["128"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0)
+UI["128"]["BackgroundTransparency"] = 1
+UI["128"]["Name"] = [[LockBtnBackground]]
+UI["128"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["128"]["Text"] = [[  ]]
+UI["128"]["Position"] = UDim2.new(-0, 0, -0.01234, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.LockBtnBackground.UITextSizeConstraint \\ --
+UI["129"] = Instance.new("UITextSizeConstraint", UI["128"])
+UI["129"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate \\ --
+UI["12a"] = Instance.new("ImageLabel", UI["11"])
+UI["12a"]["ZIndex"] = 50
+UI["12a"]["BorderSizePixel"] = 0
+UI["12a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["12a"]["ImageTransparency"] = 0.2
+UI["12a"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["12a"]["Image"] = [[rbxassetid://76734110237026]]
+UI["12a"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
+UI["12a"]["Visible"] = false
+UI["12a"]["ClipsDescendants"] = true
+UI["12a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["12a"]["BackgroundTransparency"] = 1
+UI["12a"]["Name"] = [[TabCreate]]
+UI["12a"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1 \\ --
+UI["12b"] = Instance.new("ImageLabel", UI["12a"])
+UI["12b"]["BorderSizePixel"] = 0
+UI["12b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["12b"]["ImageColor3"] = Color3.fromRGB(27, 32, 45)
+UI["12b"]["Image"] = [[rbxassetid://105963070530458]]
+UI["12b"]["Size"] = UDim2.new(0.67997, 0, 0.55984, 0)
+UI["12b"]["Visible"] = false
+UI["12b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["12b"]["BackgroundTransparency"] = 1
+UI["12b"]["Name"] = [[ScriptPage1]]
+UI["12b"]["Position"] = UDim2.new(0.15904, 0, 0.21365, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.title \\ --
+UI["12c"] = Instance.new("TextLabel", UI["12b"])
+UI["12c"]["TextWrapped"] = true
+UI["12c"]["LineHeight"] = 0
+UI["12c"]["BorderSizePixel"] = 0
+UI["12c"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["12c"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["12c"]["TextScaled"] = true
+UI["12c"]["TextSize"] = 31
+UI["12c"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["12c"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["12c"]["BackgroundTransparency"] = 1
+UI["12c"]["Size"] = UDim2.new(0.3127, 0, 0.05477, 0)
+UI["12c"]["Text"] = [[Create New Tab]]
+UI["12c"]["Name"] = [[title]]
+UI["12c"]["Position"] = UDim2.new(0.14408, 0, 0.15901, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.title.UITextSizeConstraint \\ --
+UI["12d"] = Instance.new("UITextSizeConstraint", UI["12c"])
+UI["12d"]["MaxTextSize"] = 31
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.description \\ --
+UI["12e"] = Instance.new("TextLabel", UI["12b"])
+UI["12e"]["TextWrapped"] = true
+UI["12e"]["BorderSizePixel"] = 0
+UI["12e"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["12e"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["12e"]["TextScaled"] = true
+UI["12e"]["TextSize"] = 23
+UI["12e"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["12e"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["12e"]["BackgroundTransparency"] = 1
+UI["12e"]["Size"] = UDim2.new(0.31163, 0, 0.10601, 0)
+UI["12e"]["Text"] = [[What will you create today?]]
+UI["12e"]["Name"] = [[description]]
+UI["12e"]["Position"] = UDim2.new(0.14514, 0, 0.23498, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.description.UITextSizeConstraint \\ --
+UI["12f"] = Instance.new("UITextSizeConstraint", UI["12e"])
+UI["12f"]["MaxTextSize"] = 23
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input \\ --
+UI["130"] = Instance.new("Frame", UI["12b"])
+UI["130"]["BorderSizePixel"] = 0
+UI["130"]["BackgroundColor3"] = Color3.fromRGB(35, 43, 60)
+UI["130"]["Size"] = UDim2.new(0.72785, 0, 0.15724, 0)
+UI["130"]["Position"] = UDim2.new(0.14472, 0, 0.35798, 0)
+UI["130"]["Name"] = [[input]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.UICorner \\ --
+UI["131"] = Instance.new("UICorner", UI["130"])
+UI["131"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.Icon \\ --
+UI["132"] = Instance.new("ImageLabel", UI["130"])
+UI["132"]["BorderSizePixel"] = 0
+UI["132"]["ScaleType"] = Enum.ScaleType.Fit
+UI["132"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
+UI["132"]["Image"] = [[rbxassetid://125200284008170]]
+UI["132"]["Size"] = UDim2.new(0.05865, 0, 0.35955, 0)
+UI["132"]["BackgroundTransparency"] = 1
+UI["132"]["Name"] = [[Icon]]
+UI["132"]["Position"] = UDim2.new(0.06452, 0, 0.32584, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.barIdk \\ --
+UI["133"] = Instance.new("ImageLabel", UI["130"])
+UI["133"]["ZIndex"] = 2
+UI["133"]["BorderSizePixel"] = 0
+UI["133"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["133"]["Image"] = [[rbxassetid://107516337694688]]
+UI["133"]["Size"] = UDim2.new(0.01906, 0, 0.62921, 0)
+UI["133"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["133"]["BackgroundTransparency"] = 1
+UI["133"]["Name"] = [[barIdk]]
+UI["133"]["Position"] = UDim2.new(0.02181, 0, 0.18816, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.barIdk.UIGradient \\ --
+UI["134"] = Instance.new("UIGradient", UI["133"])
+UI["134"]["Rotation"] = 91.10171
+UI["134"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.ShadowBackk \\ --
+UI["135"] = Instance.new("ImageLabel", UI["130"])
+UI["135"]["BorderSizePixel"] = 0
+UI["135"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["135"]["Image"] = [[rbxassetid://82022759470861]]
+UI["135"]["Size"] = UDim2.new(0.05718, 0, 1.02247, 0)
+UI["135"]["BackgroundTransparency"] = 1
+UI["135"]["Name"] = [[ShadowBackk]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.InputText \\ --
+UI["136"] = Instance.new("TextBox", UI["130"])
+UI["136"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["136"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
+UI["136"]["BorderSizePixel"] = 0
+UI["136"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["136"]["TextWrapped"] = true
+UI["136"]["TextSize"] = 28
+UI["136"]["Name"] = [[InputText]]
+UI["136"]["TextScaled"] = true
+UI["136"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["136"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["136"]["PlaceholderText"] = [[Tab Name]]
+UI["136"]["Size"] = UDim2.new(0.81525, 0, 0.35955, 0)
+UI["136"]["Position"] = UDim2.new(0.14956, 0, 0.29213, 0)
+UI["136"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["136"]["Text"] = [[]]
+UI["136"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.InputText.UITextSizeConstraint \\ --
+UI["137"] = Instance.new("UITextSizeConstraint", UI["136"])
+UI["137"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.input.UIStroke \\ --
+UI["138"] = Instance.new("UIStroke", UI["130"])
+UI["138"]["Thickness"] = 2
+UI["138"]["Color"] = Color3.fromRGB(24, 29, 40)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn \\ --
+UI["139"] = Instance.new("ImageLabel", UI["12b"])
+UI["139"]["BorderSizePixel"] = 0
+UI["139"]["ScaleType"] = Enum.ScaleType.Fit
+UI["139"]["Image"] = [[rbxassetid://88951128464748]]
+UI["139"]["Size"] = UDim2.new(0.03095, 0, 0.053, 0)
+UI["139"]["BackgroundTransparency"] = 1
+UI["139"]["Name"] = [[CloseBtn]]
+UI["139"]["Position"] = UDim2.new(0.84205, 0, 0.15901, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn.Click \\ --
+UI["13a"] = Instance.new("TextButton", UI["139"])
+UI["13a"]["TextWrapped"] = true
+UI["13a"]["BorderSizePixel"] = 0
+UI["13a"]["TextSize"] = 14
+UI["13a"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["13a"]["TextScaled"] = true
+UI["13a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["13a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["13a"]["ZIndex"] = 4
+UI["13a"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["13a"]["BackgroundTransparency"] = 1
+UI["13a"]["Name"] = [[Click]]
+UI["13a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["13a"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn.Click.UICorner \\ --
+UI["13b"] = Instance.new("UICorner", UI["13a"])
+UI["13b"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.CloseBtn.Click.UITextSizeConstraint \\ --
+UI["13c"] = Instance.new("UITextSizeConstraint", UI["13a"])
+UI["13c"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn \\ --
+UI["13d"] = Instance.new("Frame", UI["12b"])
+UI["13d"]["BorderSizePixel"] = 0
+UI["13d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["13d"]["Size"] = UDim2.new(0.21558, 0, 0.15724, 0)
+UI["13d"]["Position"] = UDim2.new(0.65738, 0, 0.57525, 0)
+UI["13d"]["Name"] = [[NextBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.UICorner \\ --
+UI["13e"] = Instance.new("UICorner", UI["13d"])
+UI["13e"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.btnText \\ --
+UI["13f"] = Instance.new("TextLabel", UI["13d"])
+UI["13f"]["TextWrapped"] = true
+UI["13f"]["BorderSizePixel"] = 0
+UI["13f"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["13f"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["13f"]["TextScaled"] = true
+UI["13f"]["TextSize"] = 28
+UI["13f"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["13f"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["13f"]["BackgroundTransparency"] = 1
+UI["13f"]["Size"] = UDim2.new(0.39109, 0, 0.30337, 0)
+UI["13f"]["Text"] = [[Create]]
+UI["13f"]["Name"] = [[btnText]]
+UI["13f"]["Position"] = UDim2.new(0.45, 0, 0.348, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.btnText.UITextSizeConstraint \\ --
+UI["140"] = Instance.new("UITextSizeConstraint", UI["13f"])
+UI["140"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Icon \\ --
+UI["141"] = Instance.new("ImageLabel", UI["13d"])
+UI["141"]["BorderSizePixel"] = 0
+UI["141"]["ScaleType"] = Enum.ScaleType.Fit
+UI["141"]["Image"] = [[rbxassetid://84835028822243]]
+UI["141"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0)
+UI["141"]["BackgroundTransparency"] = 1
+UI["141"]["Name"] = [[Icon]]
+UI["141"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.UIGradient \\ --
+UI["142"] = Instance.new("UIGradient", UI["13d"])
+UI["142"]["Rotation"] = 90
+UI["142"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Click \\ --
+UI["143"] = Instance.new("TextButton", UI["13d"])
+UI["143"]["TextWrapped"] = true
+UI["143"]["BorderSizePixel"] = 0
+UI["143"]["TextSize"] = 14
+UI["143"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["143"]["TextScaled"] = true
+UI["143"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["143"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["143"]["ZIndex"] = 4
+UI["143"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["143"]["BackgroundTransparency"] = 1
+UI["143"]["Name"] = [[Click]]
+UI["143"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["143"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Click.UICorner \\ --
+UI["144"] = Instance.new("UICorner", UI["143"])
+UI["144"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.ScriptPage1.NextBtn.Click.UITextSizeConstraint \\ --
+UI["145"] = Instance.new("UITextSizeConstraint", UI["143"])
+UI["145"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.LockBtnBackground \\ --
+UI["146"] = Instance.new("TextButton", UI["12a"])
+UI["146"]["TextWrapped"] = true
+UI["146"]["BorderSizePixel"] = 0
+UI["146"]["TextSize"] = 14
+UI["146"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["146"]["TextScaled"] = true
+UI["146"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["146"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["146"]["ZIndex"] = 0
+UI["146"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0)
+UI["146"]["BackgroundTransparency"] = 1
+UI["146"]["Name"] = [[LockBtnBackground]]
+UI["146"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["146"]["Text"] = [[  ]]
+UI["146"]["Position"] = UDim2.new(-0, 0, -0.01234, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabCreate.LockBtnBackground.UITextSizeConstraint \\ --
+UI["147"] = Instance.new("UITextSizeConstraint", UI["146"])
+UI["147"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn \\ --
+UI["148"] = Instance.new("ImageLabel", UI["11"])
+UI["148"]["ZIndex"] = 50
+UI["148"]["BorderSizePixel"] = 0
+UI["148"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["148"]["ImageTransparency"] = 0.2
+UI["148"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["148"]["Image"] = [[rbxassetid://76734110237026]]
+UI["148"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
+UI["148"]["Visible"] = false
+UI["148"]["ClipsDescendants"] = true
+UI["148"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["148"]["BackgroundTransparency"] = 1
+UI["148"]["Name"] = [[TabWarn]]
+UI["148"]["Position"] = UDim2.new(-0.00064, 0, -0.00021, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage \\ --
+UI["149"] = Instance.new("ImageLabel", UI["148"])
+UI["149"]["BorderSizePixel"] = 0
+UI["149"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["149"]["ImageColor3"] = Color3.fromRGB(27, 32, 45)
+UI["149"]["Image"] = [[rbxassetid://105963070530458]]
+UI["149"]["Size"] = UDim2.new(0.46946, 0, 0.39685, 0)
+UI["149"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["149"]["BackgroundTransparency"] = 1
+UI["149"]["Name"] = [[ClearPage]]
+UI["149"]["Position"] = UDim2.new(0.26484, 0, 0.29575, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.title \\ --
+UI["14a"] = Instance.new("TextLabel", UI["149"])
+UI["14a"]["TextWrapped"] = true
+UI["14a"]["LineHeight"] = 0
+UI["14a"]["BorderSizePixel"] = 0
+UI["14a"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["14a"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["14a"]["TextScaled"] = true
+UI["14a"]["TextSize"] = 31
+UI["14a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["14a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["14a"]["BackgroundTransparency"] = 1
+UI["14a"]["Size"] = UDim2.new(0.633, 0, 0.078, 0)
+UI["14a"]["Text"] = [[Delete Tab:  <Tab Name>]]
+UI["14a"]["Name"] = [[title]]
+UI["14a"]["Position"] = UDim2.new(0.15117, 0, 0.17314, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.title.UITextSizeConstraint \\ --
+UI["14b"] = Instance.new("UITextSizeConstraint", UI["14a"])
+UI["14b"]["MaxTextSize"] = 31
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.description \\ --
+UI["14c"] = Instance.new("TextLabel", UI["149"])
+UI["14c"]["TextWrapped"] = true
+UI["14c"]["BorderSizePixel"] = 0
+UI["14c"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["14c"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["14c"]["TextScaled"] = true
+UI["14c"]["TextSize"] = 23
+UI["14c"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["14c"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["14c"]["BackgroundTransparency"] = 1
+UI["14c"]["Size"] = UDim2.new(0.63279, 0, 0.13245, 0)
+UI["14c"]["Text"] = [[Are you sure you want to delete this Tab? This action can't be undone.]]
+UI["14c"]["Name"] = [[description]]
+UI["14c"]["Position"] = UDim2.new(0.15117, 0, 0.27425, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.description.UITextSizeConstraint \\ --
+UI["14d"] = Instance.new("UITextSizeConstraint", UI["14c"])
+UI["14d"]["MaxTextSize"] = 23
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn \\ --
+UI["14e"] = Instance.new("ImageLabel", UI["149"])
+UI["14e"]["BorderSizePixel"] = 0
+UI["14e"]["ScaleType"] = Enum.ScaleType.Fit
+UI["14e"]["Image"] = [[rbxassetid://88951128464748]]
+UI["14e"]["Size"] = UDim2.new(0.05225, 0, 0.07122, 0)
+UI["14e"]["BackgroundTransparency"] = 1
+UI["14e"]["Name"] = [[CloseBtn]]
+UI["14e"]["Position"] = UDim2.new(0.82074, 0, 0.15652, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click \\ --
+UI["14f"] = Instance.new("TextButton", UI["14e"])
+UI["14f"]["TextWrapped"] = true
+UI["14f"]["BorderSizePixel"] = 0
+UI["14f"]["TextSize"] = 14
+UI["14f"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["14f"]["TextScaled"] = true
+UI["14f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["14f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["14f"]["ZIndex"] = 4
+UI["14f"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["14f"]["BackgroundTransparency"] = 1
+UI["14f"]["Name"] = [[Click]]
+UI["14f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["14f"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click.UICorner \\ --
+UI["150"] = Instance.new("UICorner", UI["14f"])
+UI["150"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CloseBtn.Click.UITextSizeConstraint \\ --
+UI["151"] = Instance.new("UITextSizeConstraint", UI["14f"])
+UI["151"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn \\ --
+UI["152"] = Instance.new("Frame", UI["149"])
+UI["152"]["BorderSizePixel"] = 0
+UI["152"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["152"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0)
+UI["152"]["Position"] = UDim2.new(0.14792, 0, 0.47645, 0)
+UI["152"]["Name"] = [[CancelBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.UICorner \\ --
+UI["153"] = Instance.new("UICorner", UI["152"])
+UI["153"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.btnText \\ --
+UI["154"] = Instance.new("TextLabel", UI["152"])
+UI["154"]["TextWrapped"] = true
+UI["154"]["BorderSizePixel"] = 0
+UI["154"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["154"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["154"]["TextScaled"] = true
+UI["154"]["TextSize"] = 28
+UI["154"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["154"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["154"]["BackgroundTransparency"] = 1
+UI["154"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0)
+UI["154"]["Text"] = [[Cancel]]
+UI["154"]["Name"] = [[btnText]]
+UI["154"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.btnText.UITextSizeConstraint \\ --
+UI["155"] = Instance.new("UITextSizeConstraint", UI["154"])
+UI["155"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Icon \\ --
+UI["156"] = Instance.new("ImageLabel", UI["152"])
+UI["156"]["BorderSizePixel"] = 0
+UI["156"]["ScaleType"] = Enum.ScaleType.Fit
+UI["156"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
+UI["156"]["Image"] = [[rbxassetid://108986189876354]]
+UI["156"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0)
+UI["156"]["BackgroundTransparency"] = 1
+UI["156"]["Name"] = [[Icon]]
+UI["156"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click \\ --
+UI["157"] = Instance.new("TextButton", UI["152"])
+UI["157"]["TextWrapped"] = true
+UI["157"]["BorderSizePixel"] = 0
+UI["157"]["TextSize"] = 14
+UI["157"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["157"]["TextScaled"] = true
+UI["157"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["157"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["157"]["ZIndex"] = 4
+UI["157"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["157"]["BackgroundTransparency"] = 1
+UI["157"]["Name"] = [[Click]]
+UI["157"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["157"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click.UICorner \\ --
+UI["158"] = Instance.new("UICorner", UI["157"])
+UI["158"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.Click.UITextSizeConstraint \\ --
+UI["159"] = Instance.new("UITextSizeConstraint", UI["157"])
+UI["159"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.CancelBtn.UIGradient \\ --
+UI["15a"] = Instance.new("UIGradient", UI["152"])
+UI["15a"]["Rotation"] = 91.27303
+UI["15a"]["Offset"] = Vector2.new(-0.00346, 0.02966)
+UI["15a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(48, 58, 81)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(37, 45, 62))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn \\ --
+UI["15b"] = Instance.new("Frame", UI["149"])
+UI["15b"]["BorderSizePixel"] = 0
+UI["15b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["15b"]["Size"] = UDim2.new(0.34236, 0, 0.21256, 0)
+UI["15b"]["Position"] = UDim2.new(0.51737, 0, 0.47645, 0)
+UI["15b"]["Name"] = [[DeleteBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.UICorner \\ --
+UI["15c"] = Instance.new("UICorner", UI["15b"])
+UI["15c"]["CornerRadius"] = UDim.new(0.2, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.btnText \\ --
+UI["15d"] = Instance.new("TextLabel", UI["15b"])
+UI["15d"]["TextWrapped"] = true
+UI["15d"]["BorderSizePixel"] = 0
+UI["15d"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["15d"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["15d"]["TextScaled"] = true
+UI["15d"]["TextSize"] = 28
+UI["15d"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["15d"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["15d"]["BackgroundTransparency"] = 1
+UI["15d"]["Size"] = UDim2.new(0.43585, 0, 0.30337, 0)
+UI["15d"]["Text"] = [[Delete]]
+UI["15d"]["Name"] = [[btnText]]
+UI["15d"]["Position"] = UDim2.new(0.45029, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.btnText.UITextSizeConstraint \\ --
+UI["15e"] = Instance.new("UITextSizeConstraint", UI["15d"])
+UI["15e"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Icon \\ --
+UI["15f"] = Instance.new("ImageLabel", UI["15b"])
+UI["15f"]["BorderSizePixel"] = 0
+UI["15f"]["ScaleType"] = Enum.ScaleType.Fit
+UI["15f"]["Image"] = [[rbxassetid://73909411554012]]
+UI["15f"]["Size"] = UDim2.new(0.19802, 0, 0.35955, 0)
+UI["15f"]["BackgroundTransparency"] = 1
+UI["15f"]["Name"] = [[Icon]]
+UI["15f"]["Position"] = UDim2.new(0.14851, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.UIGradient \\ --
+UI["160"] = Instance.new("UIGradient", UI["15b"])
+UI["160"]["Rotation"] = 90
+UI["160"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click \\ --
+UI["161"] = Instance.new("TextButton", UI["15b"])
+UI["161"]["TextWrapped"] = true
+UI["161"]["BorderSizePixel"] = 0
+UI["161"]["TextSize"] = 14
+UI["161"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["161"]["TextScaled"] = true
+UI["161"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["161"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["161"]["ZIndex"] = 4
+UI["161"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["161"]["BackgroundTransparency"] = 1
+UI["161"]["Name"] = [[Click]]
+UI["161"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["161"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click.UICorner \\ --
+UI["162"] = Instance.new("UICorner", UI["161"])
+UI["162"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.ClearPage.DeleteBtn.Click.UITextSizeConstraint \\ --
+UI["163"] = Instance.new("UITextSizeConstraint", UI["161"])
+UI["163"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.LockBtnBackground \\ --
+UI["164"] = Instance.new("TextButton", UI["148"])
+UI["164"]["TextWrapped"] = true
+UI["164"]["BorderSizePixel"] = 0
+UI["164"]["TextSize"] = 14
+UI["164"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["164"]["TextScaled"] = true
+UI["164"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["164"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["164"]["ZIndex"] = 0
+UI["164"]["Size"] = UDim2.new(1.01234, 0, 1.01088, 0)
+UI["164"]["BackgroundTransparency"] = 1
+UI["164"]["Name"] = [[LockBtnBackground]]
+UI["164"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["164"]["Text"] = [[  ]]
+UI["164"]["Position"] = UDim2.new(-0, 0, -0.01234, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Pages.TabWarn.LockBtnBackground.UITextSizeConstraint \\ --
+UI["165"] = Instance.new("UITextSizeConstraint", UI["164"])
+UI["165"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar \\ --
+UI["166"] = Instance.new("ImageLabel", UI["6"])
+UI["166"]["BorderSizePixel"] = 0
+UI["166"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["166"]["ImageTransparency"] = 1
+UI["166"]["ImageColor3"] = Color3.fromRGB(13, 15, 20)
+UI["166"]["Image"] = [[rbxassetid://133862668499122]]
+UI["166"]["Size"] = UDim2.new(0.24986, 0, 1, 0)
+UI["166"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["166"]["BackgroundTransparency"] = 1
+UI["166"]["Name"] = [[Sidebar]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn \\ --
+UI["167"] = Instance.new("Frame", UI["166"])
+UI["167"]["BorderSizePixel"] = 0
+UI["167"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["167"]["Size"] = UDim2.new(0.61039, 0, 0.08803, 0)
+UI["167"]["Position"] = UDim2.new(0.19229, 0, 0.82613, 0)
+UI["167"]["Name"] = [[UpgradeBtn]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.UICorner \\ --
+UI["168"] = Instance.new("UICorner", UI["167"])
+UI["168"]["CornerRadius"] = UDim.new(0.18, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.Upgrade Plan \\ --
+UI["169"] = Instance.new("TextLabel", UI["167"])
+UI["169"]["TextWrapped"] = true
+UI["169"]["BorderSizePixel"] = 0
+UI["169"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["169"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["169"]["TextScaled"] = true
+UI["169"]["TextSize"] = 28
+UI["169"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["169"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["169"]["BackgroundTransparency"] = 1
+UI["169"]["Size"] = UDim2.new(0.58149, 0, 0.35955, 0)
+UI["169"]["Text"] = [[Upgrade Plan]]
+UI["169"]["Name"] = [[Upgrade Plan]]
+UI["169"]["Position"] = UDim2.new(0.31206, 0, 0.32584, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.Upgrade Plan.UITextSizeConstraint \\ --
+UI["16a"] = Instance.new("UITextSizeConstraint", UI["169"])
+UI["16a"]["MaxTextSize"] = 28
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.icons8-key-100 145 \\ --
+UI["16b"] = Instance.new("ImageLabel", UI["167"])
+UI["16b"]["BorderSizePixel"] = 0
+UI["16b"]["ScaleType"] = Enum.ScaleType.Fit
+UI["16b"]["Image"] = [[rbxassetid://110667923648139]]
+UI["16b"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0)
+UI["16b"]["BackgroundTransparency"] = 1
+UI["16b"]["Name"] = [[icons8-key-100 145]]
+UI["16b"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.UIGradient \\ --
+UI["16c"] = Instance.new("UIGradient", UI["167"])
+UI["16c"]["Rotation"] = 90
+UI["16c"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.Click \\ --
+UI["16d"] = Instance.new("TextButton", UI["167"])
+UI["16d"]["TextWrapped"] = true
+UI["16d"]["BorderSizePixel"] = 0
+UI["16d"]["TextSize"] = 14
+UI["16d"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["16d"]["TextScaled"] = true
+UI["16d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["16d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["16d"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["16d"]["BackgroundTransparency"] = 1
+UI["16d"]["Name"] = [[Click]]
+UI["16d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["16d"]["Text"] = [[]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.Click.UICorner \\ --
+UI["16e"] = Instance.new("UICorner", UI["16d"])
+UI["16e"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.UpgradeBtn.Click.UITextSizeConstraint \\ --
+UI["16f"] = Instance.new("UITextSizeConstraint", UI["16d"])
+UI["16f"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Appleware Premium \\ --
+UI["170"] = Instance.new("TextLabel", UI["166"])
+UI["170"]["TextWrapped"] = true
+UI["170"]["LineHeight"] = 0
+UI["170"]["BorderSizePixel"] = 0
+UI["170"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["170"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["170"]["TextScaled"] = true
+UI["170"]["TextSize"] = 28
+UI["170"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["170"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["170"]["BackgroundTransparency"] = 1
+UI["170"]["Size"] = UDim2.new(0.52983, 0, 0.0366, 0)
+UI["170"]["ClipsDescendants"] = true
+UI["170"]["Text"] = [[Aw Premium]]
+UI["170"]["Name"] = [[Appleware Premium]]
+UI["170"]["Position"] = UDim2.new(0.19048, 0, 0.68942, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Appleware Premium.UITextSizeConstraint \\ --
+UI["171"] = Instance.new("UITextSizeConstraint", UI["170"])
+UI["171"]["MaxTextSize"] = 25
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Offers a smoother Experience and more! \\ --
+UI["172"] = Instance.new("TextLabel", UI["166"])
+UI["172"]["TextWrapped"] = true
+UI["172"]["BorderSizePixel"] = 0
+UI["172"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["172"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["172"]["TextScaled"] = true
+UI["172"]["TextSize"] = 27
+UI["172"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["172"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["172"]["BackgroundTransparency"] = 1
+UI["172"]["Size"] = UDim2.new(0.51209, 0, 0.05935, 0)
+UI["172"]["Text"] = [[Offers a smoother Experience and more!]]
+UI["172"]["Name"] = [[Offers a smoother Experience and more!]]
+UI["172"]["Position"] = UDim2.new(0.19048, 0, 0.74283, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Offers a smoother Experience and more!.UITextSizeConstraint \\ --
+UI["173"] = Instance.new("UITextSizeConstraint", UI["172"])
+UI["173"]["MaxTextSize"] = 27
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor \\ --
+UI["174"] = Instance.new("Frame", UI["166"])
+UI["174"]["BorderSizePixel"] = 0
+UI["174"]["BackgroundColor3"] = Color3.fromRGB(30, 36, 51)
+UI["174"]["Size"] = UDim2.new(0.71429, 0, 0.08803, 0)
+UI["174"]["Position"] = UDim2.new(0.08772, 0, 0.18611, 0)
+UI["174"]["Name"] = [[Editor]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.UICorner \\ --
+UI["175"] = Instance.new("UICorner", UI["174"])
+UI["175"]["CornerRadius"] = UDim.new(0.18, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Box \\ --
+UI["176"] = Instance.new("Frame", UI["174"])
+UI["176"]["ZIndex"] = 2
+UI["176"]["BorderSizePixel"] = 0
+UI["176"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["176"]["Size"] = UDim2.new(0.16667, 0, 0.62921, 0)
+UI["176"]["Position"] = UDim2.new(0.0927, 0, 0.2, 0)
+UI["176"]["Name"] = [[Box]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Box.UICorner \\ --
+UI["177"] = Instance.new("UICorner", UI["176"])
+UI["177"]["CornerRadius"] = UDim.new(0.24, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Box.Icon \\ --
+UI["178"] = Instance.new("ImageLabel", UI["176"])
+UI["178"]["ZIndex"] = 2
+UI["178"]["BorderSizePixel"] = 0
+UI["178"]["ScaleType"] = Enum.ScaleType.Fit
+UI["178"]["Image"] = [[rbxassetid://94595204123047]]
+UI["178"]["Size"] = UDim2.new(0.52727, 0, 0.57143, 0)
+UI["178"]["BackgroundTransparency"] = 1
+UI["178"]["Name"] = [[Icon]]
+UI["178"]["Position"] = UDim2.new(0.23636, 0, 0.23214, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Box.UIGradient \\ --
+UI["179"] = Instance.new("UIGradient", UI["176"])
+UI["179"]["Rotation"] = 90
+UI["179"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Box.UIAspectRatioConstraint \\ --
+UI["17a"] = Instance.new("UIAspectRatioConstraint", UI["176"])
+UI["17a"]["AspectRatio"] = 0.98214
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Editor \\ --
+UI["17b"] = Instance.new("TextLabel", UI["174"])
+UI["17b"]["TextWrapped"] = true
+UI["17b"]["BorderSizePixel"] = 0
+UI["17b"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["17b"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["17b"]["TextScaled"] = true
+UI["17b"]["TextSize"] = 32
+UI["17b"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["17b"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["17b"]["BackgroundTransparency"] = 1
+UI["17b"]["Size"] = UDim2.new(0.2479, 0, 0.35955, 0)
+UI["17b"]["Text"] = [[Editor]]
+UI["17b"]["Name"] = [[Editor]]
+UI["17b"]["Position"] = UDim2.new(0.37879, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Editor.UITextSizeConstraint \\ --
+UI["17c"] = Instance.new("UITextSizeConstraint", UI["17b"])
+UI["17c"]["MaxTextSize"] = 32
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Click \\ --
+UI["17d"] = Instance.new("TextButton", UI["174"])
+UI["17d"]["TextWrapped"] = true
+UI["17d"]["BorderSizePixel"] = 0
+UI["17d"]["TextSize"] = 14
+UI["17d"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["17d"]["TextScaled"] = true
+UI["17d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["17d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["17d"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["17d"]["BackgroundTransparency"] = 1
+UI["17d"]["Name"] = [[Click]]
+UI["17d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["17d"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Click.UICorner \\ --
+UI["17e"] = Instance.new("UICorner", UI["17d"])
+UI["17e"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Editor.Click.UITextSizeConstraint \\ --
+UI["17f"] = Instance.new("UITextSizeConstraint", UI["17d"])
+UI["17f"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud \\ --
+UI["180"] = Instance.new("Frame", UI["166"])
+UI["180"]["BorderSizePixel"] = 0
+UI["180"]["BackgroundColor3"] = Color3.fromRGB(31, 34, 50)
+UI["180"]["Size"] = UDim2.new(0.71429, 0, 0.08803, 0)
+UI["180"]["Position"] = UDim2.new(0.08772, 0, 0.28502, 0)
+UI["180"]["Name"] = [[Cloud]]
+UI["180"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.UICorner \\ --
+UI["181"] = Instance.new("UICorner", UI["180"])
+UI["181"]["CornerRadius"] = UDim.new(0.18, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Box \\ --
+UI["182"] = Instance.new("Frame", UI["180"])
+UI["182"]["BorderSizePixel"] = 0
+UI["182"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["182"]["Size"] = UDim2.new(0.16667, 0, 0.62921, 0)
+UI["182"]["Position"] = UDim2.new(0.0927, 0, 0.2, 0)
+UI["182"]["Name"] = [[Box]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Box.UICorner \\ --
+UI["183"] = Instance.new("UICorner", UI["182"])
+UI["183"]["CornerRadius"] = UDim.new(0.24, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Box.Icon \\ --
+UI["184"] = Instance.new("ImageLabel", UI["182"])
+UI["184"]["BorderSizePixel"] = 0
+UI["184"]["ScaleType"] = Enum.ScaleType.Fit
+UI["184"]["Image"] = [[rbxassetid://93729735363108]]
+UI["184"]["Size"] = UDim2.new(0.52727, 0, 0.5, 0)
+UI["184"]["BackgroundTransparency"] = 1
+UI["184"]["Name"] = [[Icon]]
+UI["184"]["Position"] = UDim2.new(0.23636, 0, 0.25, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Box.UIGradient \\ --
+UI["185"] = Instance.new("UIGradient", UI["182"])
+UI["185"]["Rotation"] = 90
+UI["185"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(66, 79, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(36, 44, 63))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Box.UIAspectRatioConstraint \\ --
+UI["186"] = Instance.new("UIAspectRatioConstraint", UI["182"])
+UI["186"]["AspectRatio"] = 0.98214
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Editor \\ --
+UI["187"] = Instance.new("TextLabel", UI["180"])
+UI["187"]["TextWrapped"] = true
+UI["187"]["BorderSizePixel"] = 0
+UI["187"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["187"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["187"]["TextScaled"] = true
+UI["187"]["TextSize"] = 32
+UI["187"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["187"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["187"]["BackgroundTransparency"] = 1
+UI["187"]["Size"] = UDim2.new(0.2479, 0, 0.35955, 0)
+UI["187"]["Text"] = [[Cloud]]
+UI["187"]["Name"] = [[Editor]]
+UI["187"]["Position"] = UDim2.new(0.37879, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Editor.UITextSizeConstraint \\ --
+UI["188"] = Instance.new("UITextSizeConstraint", UI["187"])
+UI["188"]["MaxTextSize"] = 32
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Click \\ --
+UI["189"] = Instance.new("TextButton", UI["180"])
+UI["189"]["TextWrapped"] = true
+UI["189"]["BorderSizePixel"] = 0
+UI["189"]["TextSize"] = 14
+UI["189"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["189"]["TextScaled"] = true
+UI["189"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["189"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["189"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["189"]["BackgroundTransparency"] = 1
+UI["189"]["Name"] = [[Click]]
+UI["189"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["189"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Click.UICorner \\ --
+UI["18a"] = Instance.new("UICorner", UI["189"])
+UI["18a"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Cloud.Click.UITextSizeConstraint \\ --
+UI["18b"] = Instance.new("UITextSizeConstraint", UI["189"])
+UI["18b"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config \\ --
+UI["18c"] = Instance.new("Frame", UI["166"])
+UI["18c"]["BorderSizePixel"] = 0
+UI["18c"]["BackgroundColor3"] = Color3.fromRGB(31, 34, 50)
+UI["18c"]["Size"] = UDim2.new(0.71429, 0, 0.08803, 0)
+UI["18c"]["Position"] = UDim2.new(0.08772, 0, 0.38591, 0)
+UI["18c"]["Name"] = [[Config]]
+UI["18c"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.UICorner \\ --
+UI["18d"] = Instance.new("UICorner", UI["18c"])
+UI["18d"]["CornerRadius"] = UDim.new(0.18, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Box \\ --
+UI["18e"] = Instance.new("Frame", UI["18c"])
+UI["18e"]["BorderSizePixel"] = 0
+UI["18e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["18e"]["Size"] = UDim2.new(0.16667, 0, 0.62921, 0)
+UI["18e"]["Position"] = UDim2.new(0.0927, 0, 0.2, 0)
+UI["18e"]["Name"] = [[Box]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Box.UICorner \\ --
+UI["18f"] = Instance.new("UICorner", UI["18e"])
+UI["18f"]["CornerRadius"] = UDim.new(0.24, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Box.UIGradient \\ --
+UI["190"] = Instance.new("UIGradient", UI["18e"])
+UI["190"]["Rotation"] = 90
+UI["190"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(66, 79, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(36, 44, 63))}
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Box.Icon \\ --
+UI["191"] = Instance.new("ImageLabel", UI["18e"])
+UI["191"]["BorderSizePixel"] = 0
+UI["191"]["ScaleType"] = Enum.ScaleType.Fit
+UI["191"]["Image"] = [[rbxassetid://107072926547457]]
+UI["191"]["Size"] = UDim2.new(0.52727, 0, 0.5, 0)
+UI["191"]["BackgroundTransparency"] = 1
+UI["191"]["Name"] = [[Icon]]
+UI["191"]["Position"] = UDim2.new(0.23636, 0, 0.25, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Box.UIAspectRatioConstraint \\ --
+UI["192"] = Instance.new("UIAspectRatioConstraint", UI["18e"])
+UI["192"]["AspectRatio"] = 0.98214
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Editor \\ --
+UI["193"] = Instance.new("TextLabel", UI["18c"])
+UI["193"]["TextWrapped"] = true
+UI["193"]["BorderSizePixel"] = 0
+UI["193"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["193"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["193"]["TextScaled"] = true
+UI["193"]["TextSize"] = 32
+UI["193"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["193"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["193"]["BackgroundTransparency"] = 1
+UI["193"]["Size"] = UDim2.new(0.27895, 0, 0.35955, 0)
+UI["193"]["Text"] = [[Config]]
+UI["193"]["Name"] = [[Editor]]
+UI["193"]["Position"] = UDim2.new(0.37879, 0, 0.34831, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Editor.UITextSizeConstraint \\ --
+UI["194"] = Instance.new("UITextSizeConstraint", UI["193"])
+UI["194"]["MaxTextSize"] = 32
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Click \\ --
+UI["195"] = Instance.new("TextButton", UI["18c"])
+UI["195"]["TextWrapped"] = true
+UI["195"]["BorderSizePixel"] = 0
+UI["195"]["TextSize"] = 14
+UI["195"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["195"]["TextScaled"] = true
+UI["195"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["195"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["195"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["195"]["BackgroundTransparency"] = 1
+UI["195"]["Name"] = [[Click]]
+UI["195"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["195"]["Text"] = [[  ]]
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Click.UICorner \\ --
+UI["196"] = Instance.new("UICorner", UI["195"])
+UI["196"]["CornerRadius"] = UDim.new(0, 18)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Config.Click.UITextSizeConstraint \\ --
+UI["197"] = Instance.new("UITextSizeConstraint", UI["195"])
+UI["197"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Logo \\ --
+UI["198"] = Instance.new("ImageLabel", UI["166"])
+UI["198"]["BorderSizePixel"] = 0
+UI["198"]["ScaleType"] = Enum.ScaleType.Fit
+UI["198"]["ImageColor3"] = Color3.fromRGB(143, 163, 221)
+UI["198"]["Image"] = [[rbxassetid://95670506030988]]
+UI["198"]["Size"] = UDim2.new(0.14502, 0, 0.06924, 0)
+UI["198"]["BackgroundTransparency"] = 1
+UI["198"]["Name"] = [[Logo]]
+UI["198"]["Position"] = UDim2.new(0.14069, 0, 0.06726, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Logo.UICorner \\ --
+UI["199"] = Instance.new("UICorner", UI["198"])
+UI["199"]["CornerRadius"] = UDim.new(0, 900)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Close \\ --
+UI["19a"] = Instance.new("ImageLabel", UI["166"])
+UI["19a"]["ZIndex"] = 2
+UI["19a"]["BorderSizePixel"] = 0
+UI["19a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["19a"]["ImageColor3"] = Color3.fromRGB(34, 41, 58)
+UI["19a"]["Image"] = [[rbxassetid://124705542662472]]
+UI["19a"]["Size"] = UDim2.new(0.12987, 0, 1, 0)
+UI["19a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19a"]["BackgroundTransparency"] = 1
+UI["19a"]["Name"] = [[Close]]
+UI["19a"]["Position"] = UDim2.new(0.891, 0, 0, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Close.ImageLabel \\ --
+UI["19b"] = Instance.new("ImageLabel", UI["19a"])
+UI["19b"]["BorderSizePixel"] = 0
+UI["19b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["19b"]["Image"] = [[rbxassetid://107516337694688]]
+UI["19b"]["Size"] = UDim2.new(0.16667, 0, 0.05539, 0)
+UI["19b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19b"]["BackgroundTransparency"] = 1
+UI["19b"]["Position"] = UDim2.new(0.517, 0, 0.488, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Close.Slide \\ --
+UI["19c"] = Instance.new("TextButton", UI["19a"])
+UI["19c"]["TextWrapped"] = true
+UI["19c"]["BorderSizePixel"] = 0
+UI["19c"]["TextSize"] = 14
+UI["19c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19c"]["TextScaled"] = true
+UI["19c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["19c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["19c"]["Size"] = UDim2.new(1, 0, 0.18856, 0)
+UI["19c"]["BackgroundTransparency"] = 1
+UI["19c"]["Name"] = [[Slide]]
+UI["19c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19c"]["Text"] = [[  ]]
+UI["19c"]["Position"] = UDim2.new(0, 0, 0.43042, 0)
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Sidebar.Close.Slide.UITextSizeConstraint \\ --
+UI["19d"] = Instance.new("UITextSizeConstraint", UI["19c"])
+UI["19d"]["MaxTextSize"] = 14
+
+-- // StarterGui.ApplewareNew.UI.MainGui.Alerts \\ --
+UI["19e"] = Instance.new("Folder", UI["6"])
+UI["19e"]["Name"] = [[Alerts]]
+
+-- // StarterGui.ApplewareNew.Background \\ --
+UI["19f"] = Instance.new("Frame", UI["1"])
+UI["19f"]["ZIndex"] = 0
+UI["19f"]["BorderSizePixel"] = 0
+UI["19f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19f"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["19f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19f"]["Name"] = [[Background]]
+UI["19f"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.ApplewareNew.OpenBtn \\ --
+UI["1a0"] = Instance.new("ImageLabel", UI["1"])
+UI["1a0"]["BorderSizePixel"] = 0
+UI["1a0"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1a0"]["Image"] = [[rbxassetid://132133828845126]]
+UI["1a0"]["Size"] = UDim2.new(0.11575, 0, 0.20833, 0)
+UI["1a0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a0"]["BackgroundTransparency"] = 1
+UI["1a0"]["Name"] = [[OpenBtn]]
+UI["1a0"]["Position"] = UDim2.new(0.44168, 0, 0.04537, 0)
+
+-- // StarterGui.ApplewareNew.OpenBtn.ImageLabel \\ --
+UI["1a1"] = Instance.new("ImageLabel", UI["1a0"])
+UI["1a1"]["BorderSizePixel"] = 0
+UI["1a1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1a1"]["ScaleType"] = Enum.ScaleType.Fit
+UI["1a1"]["ImageColor3"] = Color3.fromRGB(143, 163, 221)
+UI["1a1"]["Image"] = [[rbxassetid://95670506030988]]
+UI["1a1"]["Size"] = UDim2.new(0.22072, 0, 0.24444, 0)
+UI["1a1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a1"]["BackgroundTransparency"] = 1
+UI["1a1"]["Position"] = UDim2.new(0.38762, 0, 0.36733, 0)
+
+-- // StarterGui.ApplewareNew.OpenBtn.OpenClick \\ --
+UI["1a2"] = Instance.new("TextButton", UI["1a0"])
+UI["1a2"]["BorderSizePixel"] = 0
+UI["1a2"]["TextSize"] = 14
+UI["1a2"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1a2"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1a2"]["ZIndex"] = 6
+UI["1a2"]["Size"] = UDim2.new(0.32932, 0, 0.32733, 0)
+UI["1a2"]["BackgroundTransparency"] = 1
+UI["1a2"]["Name"] = [[OpenClick]]
+UI["1a2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a2"]["Text"] = [[  ]]
+UI["1a2"]["Position"] = UDim2.new(0.33268, 0, 0.33451, 0)
+
+-- // StarterGui.ApplewareNew.OpenBtn.OpenClick.UICorner \\ --
+UI["1a3"] = Instance.new("UICorner", UI["1a2"])
+UI["1a3"]["CornerRadius"] = UDim.new(0, 220)
+
+-- // StarterGui.ApplewareNew.OpenBtn.UICorner \\ --
+UI["1a4"] = Instance.new("UICorner", UI["1a0"])
+UI["1a4"]["CornerRadius"] = UDim.new(0, 220)
+
+-- // StarterGui.ApplewareNew.KeySystem \\ --
+UI["1a5"] = Instance.new("Frame", UI["1"])
+UI["1a5"]["Visible"] = false
+UI["1a5"]["BorderSizePixel"] = 0
+UI["1a5"]["BackgroundColor3"] = Color3.fromRGB(16, 19, 27)
+UI["1a5"]["Size"] = UDim2.new(1.00104, 0, 1, 0)
+UI["1a5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a5"]["Name"] = [[KeySystem]]
 -- Attributes
-G2L["1f6"]:SetAttribute([[MainGui]], [[AppleWare]]);
+UI["1a5"]:SetAttribute([[MainGui]], [[AppleWare]])
 
-
--- StarterGui.NewAW.KeySystem.Logo
-G2L["1f7"] = Instance.new("ImageLabel", G2L["1f6"]);
-G2L["1f7"]["BorderSizePixel"] = 0;
-G2L["1f7"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1f7"]["ImageColor3"] = Color3.fromRGB(21, 25, 36);
-G2L["1f7"]["Image"] = [[rbxassetid://105963070530458]];
-G2L["1f7"]["Size"] = UDim2.new(0.68986, 0, 0.71097, 0);
-G2L["1f7"]["BackgroundTransparency"] = 1;
-G2L["1f7"]["Name"] = [[Logo]];
-G2L["1f7"]["Position"] = UDim2.new(0.21761, 0, 0.14224, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo \\ --
+UI["1a6"] = Instance.new("ImageLabel", UI["1a5"])
+UI["1a6"]["BorderSizePixel"] = 0
+UI["1a6"]["ScaleType"] = Enum.ScaleType.Fit
+UI["1a6"]["ImageColor3"] = Color3.fromRGB(21, 25, 36)
+UI["1a6"]["Image"] = [[rbxassetid://105963070530458]]
+UI["1a6"]["Size"] = UDim2.new(0.68986, 0, 0.71097, 0)
+UI["1a6"]["BackgroundTransparency"] = 1
+UI["1a6"]["Name"] = [[Logo]]
+UI["1a6"]["Position"] = UDim2.new(0.21761, 0, 0.14224, 0)
 -- Attributes
-G2L["1f7"]:SetAttribute([[Logo]], [[MainGui]]);
+UI["1a6"]:SetAttribute([[Logo]], [[MainGui]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.DiscordInvite
-G2L["1f8"] = Instance.new("TextLabel", G2L["1f7"]);
-G2L["1f8"]["TextWrapped"] = true;
-G2L["1f8"]["BorderSizePixel"] = 0;
-G2L["1f8"]["TextSize"] = 30;
-G2L["1f8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1f8"]["TextScaled"] = true;
-G2L["1f8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1f8"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["1f8"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["1f8"]["BackgroundTransparency"] = 1;
-G2L["1f8"]["RichText"] = true;
-G2L["1f8"]["Size"] = UDim2.new(0.54885, 0, 0.09247, 0);
-G2L["1f8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f8"]["Text"] = [[Need help? Join <b>discord.gg/appleware</b>]];
-G2L["1f8"]["Name"] = [[DiscordInvite]];
-G2L["1f8"]["Position"] = UDim2.new(0.24974, 0, 1.02695, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.DiscordInvite \\ --
+UI["1a7"] = Instance.new("TextLabel", UI["1a6"])
+UI["1a7"]["TextWrapped"] = true
+UI["1a7"]["BorderSizePixel"] = 0
+UI["1a7"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["1a7"]["TextScaled"] = true
+UI["1a7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1a7"]["TextSize"] = 30
+UI["1a7"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1a7"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["1a7"]["BackgroundTransparency"] = 1
+UI["1a7"]["RichText"] = true
+UI["1a7"]["Size"] = UDim2.new(0.54885, 0, 0.09247, 0)
+UI["1a7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a7"]["Text"] = [[Need help? Join <b>discord.gg/appleware</b>]]
+UI["1a7"]["Name"] = [[DiscordInvite]]
+UI["1a7"]["Position"] = UDim2.new(0.24974, 0, 1.02695, 0)
 -- Attributes
-G2L["1f8"]:SetAttribute([[DiscordInvite]], [[Logo]]);
-G2L["1f8"]:SetAttribute([[helpLabel]], [[TextLabel]]);
+UI["1a7"]:SetAttribute([[DiscordInvite]], [[Logo]])
+UI["1a7"]:SetAttribute([[helpLabel]], [[TextLabel]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.DiscordInvite.Click
-G2L["1f9"] = Instance.new("TextButton", G2L["1f8"]);
-G2L["1f9"]["BorderSizePixel"] = 0;
-G2L["1f9"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f9"]["TextSize"] = 14;
-G2L["1f9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1f9"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["1f9"]["ZIndex"] = 6;
-G2L["1f9"]["Size"] = UDim2.new(0.58902, 0, 1, 0);
-G2L["1f9"]["BackgroundTransparency"] = 1;
-G2L["1f9"]["Name"] = [[Click]];
-G2L["1f9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1f9"]["Text"] = [[  ]];
-G2L["1f9"]["Position"] = UDim2.new(0.41098, 0, 0, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.DiscordInvite.Click \\ --
+UI["1a8"] = Instance.new("TextButton", UI["1a7"])
+UI["1a8"]["BorderSizePixel"] = 0
+UI["1a8"]["TextSize"] = 14
+UI["1a8"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1a8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1a8"]["ZIndex"] = 6
+UI["1a8"]["Size"] = UDim2.new(0.58902, 0, 1, 0)
+UI["1a8"]["BackgroundTransparency"] = 1
+UI["1a8"]["Name"] = [[Click]]
+UI["1a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1a8"]["Text"] = [[  ]]
+UI["1a8"]["Position"] = UDim2.new(0.41098, 0, 0, 0)
 -- Attributes
-G2L["1f9"]:SetAttribute([[Click]], [[DiscordInvite]]);
+UI["1a8"]:SetAttribute([[Click]], [[DiscordInvite]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.DiscordInvite.Click.UICorner
-G2L["1fa"] = Instance.new("UICorner", G2L["1f9"]);
-G2L["1fa"]["CornerRadius"] = UDim.new(1, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.DiscordInvite.Click.UICorner \\ --
+UI["1a9"] = Instance.new("UICorner", UI["1a8"])
+UI["1a9"]["CornerRadius"] = UDim.new(1, 0)
 -- Attributes
-G2L["1fa"]:SetAttribute([[UICorner]], [[Click]]);
+UI["1a9"]:SetAttribute([[UICorner]], [[Click]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.DiscordInvite.UITextSizeConstraint \\ --
+UI["1aa"] = Instance.new("UITextSizeConstraint", UI["1a7"])
+UI["1aa"]["MaxTextSize"] = 30
 
--- StarterGui.NewAW.KeySystem.Logo.DiscordInvite.UITextSizeConstraint
-G2L["1fb"] = Instance.new("UITextSizeConstraint", G2L["1f8"]);
-G2L["1fb"]["MaxTextSize"] = 30;
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Logo \\ --
+UI["1ab"] = Instance.new("ImageLabel", UI["1a6"])
+UI["1ab"]["BorderSizePixel"] = 0
+UI["1ab"]["ScaleType"] = Enum.ScaleType.Fit
+UI["1ab"]["ImageColor3"] = Color3.fromRGB(143, 163, 221)
+UI["1ab"]["Image"] = [[rbxassetid://95670506030988]]
+UI["1ab"]["Size"] = UDim2.new(0.1198, 0, 0.11325, 0)
+UI["1ab"]["BackgroundTransparency"] = 1
+UI["1ab"]["Name"] = [[Logo]]
+UI["1ab"]["Position"] = UDim2.new(0.45203, 0, 0.17535, 0)
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Logo.UICorner \\ --
+UI["1ac"] = Instance.new("UICorner", UI["1ab"])
+UI["1ac"]["CornerRadius"] = UDim.new(0, 900)
 
--- StarterGui.NewAW.KeySystem.Logo.Logo
-G2L["1fc"] = Instance.new("ImageLabel", G2L["1f7"]);
-G2L["1fc"]["BorderSizePixel"] = 0;
-G2L["1fc"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["1fc"]["ImageColor3"] = Color3.fromRGB(143, 163, 221);
-G2L["1fc"]["Image"] = [[rbxassetid://95670506030988]];
-G2L["1fc"]["Size"] = UDim2.new(0.1198, 0, 0.11325, 0);
-G2L["1fc"]["BackgroundTransparency"] = 1;
-G2L["1fc"]["Name"] = [[Logo]];
-G2L["1fc"]["Position"] = UDim2.new(0.45203, 0, 0.17535, 0);
-
-
--- StarterGui.NewAW.KeySystem.Logo.Logo.UICorner
-G2L["1fd"] = Instance.new("UICorner", G2L["1fc"]);
-G2L["1fd"]["CornerRadius"] = UDim.new(0, 900);
-
-
--- StarterGui.NewAW.KeySystem.Logo.Box
-G2L["1fe"] = Instance.new("Frame", G2L["1f7"]);
-G2L["1fe"]["BorderSizePixel"] = 0;
-G2L["1fe"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1fe"]["Size"] = UDim2.new(0.67647, 0, 0.09507, 0);
-G2L["1fe"]["Position"] = UDim2.new(0.17374, 0, 0.39303, 0);
-G2L["1fe"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1fe"]["Name"] = [[Box]];
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box \\ --
+UI["1ad"] = Instance.new("Frame", UI["1a6"])
+UI["1ad"]["BorderSizePixel"] = 0
+UI["1ad"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1ad"]["Size"] = UDim2.new(0.67647, 0, 0.09507, 0)
+UI["1ad"]["Position"] = UDim2.new(0.17374, 0, 0.39303, 0)
+UI["1ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1ad"]["Name"] = [[Box]]
 -- Attributes
-G2L["1fe"]:SetAttribute([[Input]], [[Logo]]);
-G2L["1fe"]:SetAttribute([[Frame]], [[Frame]]);
+UI["1ad"]:SetAttribute([[Input]], [[Logo]])
+UI["1ad"]:SetAttribute([[Frame]], [[Frame]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Box.KeyTextBox
-G2L["1ff"] = Instance.new("TextBox", G2L["1fe"]);
-G2L["1ff"]["Name"] = [[KeyTextBox]];
-G2L["1ff"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["1ff"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["1ff"]["BorderSizePixel"] = 0;
-G2L["1ff"]["TextWrapped"] = true;
-G2L["1ff"]["TextSize"] = 30;
-G2L["1ff"]["TextColor3"] = Color3.fromRGB(162, 177, 234);
-G2L["1ff"]["TextScaled"] = true;
-G2L["1ff"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1ff"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
-G2L["1ff"]["ClipsDescendants"] = true;
-G2L["1ff"]["PlaceholderText"] = [[Enter Your Key here..]];
-G2L["1ff"]["Size"] = UDim2.new(0.84263, 0, 0.46575, 0);
-G2L["1ff"]["Position"] = UDim2.new(0.05787, 0, 0.25, 0);
-G2L["1ff"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1ff"]["Text"] = [[]];
-G2L["1ff"]["BackgroundTransparency"] = 1;
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.KeyTextBox \\ --
+UI["1ae"] = Instance.new("TextBox", UI["1ad"])
+UI["1ae"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
+UI["1ae"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
+UI["1ae"]["BorderSizePixel"] = 0
+UI["1ae"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["1ae"]["TextWrapped"] = true
+UI["1ae"]["TextSize"] = 30
+UI["1ae"]["Name"] = [[KeyTextBox]]
+UI["1ae"]["TextScaled"] = true
+UI["1ae"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1ae"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["1ae"]["ClipsDescendants"] = true
+UI["1ae"]["PlaceholderText"] = [[Enter Your Key here..]]
+UI["1ae"]["Size"] = UDim2.new(0.84263, 0, 0.46575, 0)
+UI["1ae"]["Position"] = UDim2.new(0.05787, 0, 0.25, 0)
+UI["1ae"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1ae"]["Text"] = [[]]
+UI["1ae"]["BackgroundTransparency"] = 1
 -- Attributes
-G2L["1ff"]:SetAttribute([[KeyTextBox]], [[Input]]);
+UI["1ae"]:SetAttribute([[KeyTextBox]], [[Input]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.KeyTextBox.UITextSizeConstraint \\ --
+UI["1af"] = Instance.new("UITextSizeConstraint", UI["1ae"])
+UI["1af"]["MaxTextSize"] = 30
 
--- StarterGui.NewAW.KeySystem.Logo.Box.KeyTextBox.UITextSizeConstraint
-G2L["200"] = Instance.new("UITextSizeConstraint", G2L["1ff"]);
-G2L["200"]["MaxTextSize"] = 30;
-
-
--- StarterGui.NewAW.KeySystem.Logo.Box.UICorner
-G2L["201"] = Instance.new("UICorner", G2L["1fe"]);
-G2L["201"]["CornerRadius"] = UDim.new(0.22, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.UICorner \\ --
+UI["1b0"] = Instance.new("UICorner", UI["1ad"])
+UI["1b0"]["CornerRadius"] = UDim.new(0.22, 0)
 -- Attributes
-G2L["201"]:SetAttribute([[UICorner]], [[Input]]);
+UI["1b0"]:SetAttribute([[UICorner]], [[Input]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Box.UIGradient
-G2L["202"] = Instance.new("UIGradient", G2L["1fe"]);
-G2L["202"]["Rotation"] = 90;
-G2L["202"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(31, 37, 54)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(24, 28, 41))};
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.UIGradient \\ --
+UI["1b1"] = Instance.new("UIGradient", UI["1ad"])
+UI["1b1"]["Rotation"] = 90
+UI["1b1"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(31, 37, 54)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(24, 28, 41))}
 -- Attributes
-G2L["202"]:SetAttribute([[UIGradient]], [[Input]]);
+UI["1b1"]:SetAttribute([[UIGradient]], [[Input]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Box.UIStroke
-G2L["203"] = Instance.new("UIStroke", G2L["1fe"]);
-G2L["203"]["Color"] = Color3.fromRGB(16, 19, 27);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.UIStroke \\ --
+UI["1b2"] = Instance.new("UIStroke", UI["1ad"])
+UI["1b2"]["Color"] = Color3.fromRGB(16, 19, 27)
 -- Attributes
-G2L["203"]:SetAttribute([[UIStroke]], [[Input]]);
+UI["1b2"]:SetAttribute([[UIStroke]], [[Input]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Box.barIdk1
-G2L["204"] = Instance.new("ImageLabel", G2L["1fe"]);
-G2L["204"]["ZIndex"] = 2;
-G2L["204"]["BorderSizePixel"] = 0;
-G2L["204"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["204"]["Image"] = [[rbxassetid://107516337694688]];
-G2L["204"]["Size"] = UDim2.new(0.01228, 0, 0.63014, 0);
-G2L["204"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["204"]["BackgroundTransparency"] = 1;
-G2L["204"]["Name"] = [[barIdk1]];
-G2L["204"]["Position"] = UDim2.new(0.01395, 0, 0.17446, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.barIdk1 \\ --
+UI["1b3"] = Instance.new("ImageLabel", UI["1ad"])
+UI["1b3"]["ZIndex"] = 2
+UI["1b3"]["BorderSizePixel"] = 0
+UI["1b3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1b3"]["Image"] = [[rbxassetid://107516337694688]]
+UI["1b3"]["Size"] = UDim2.new(0.01228, 0, 0.63014, 0)
+UI["1b3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1b3"]["BackgroundTransparency"] = 1
+UI["1b3"]["Name"] = [[barIdk1]]
+UI["1b3"]["Position"] = UDim2.new(0.01395, 0, 0.17446, 0)
 -- Attributes
-G2L["204"]:SetAttribute([[barIdk1]], [[Input]]);
+UI["1b3"]:SetAttribute([[barIdk1]], [[Input]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Box.barIdk1.UIGradient
-G2L["205"] = Instance.new("UIGradient", G2L["204"]);
-G2L["205"]["Rotation"] = 91.10171;
-G2L["205"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))};
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.barIdk1.UIGradient \\ --
+UI["1b4"] = Instance.new("UIGradient", UI["1b3"])
+UI["1b4"]["Rotation"] = 91.10171
+UI["1b4"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(121, 152, 207))}
 -- Attributes
-G2L["205"]:SetAttribute([[UIGradient]], [[barIdk1]]);
+UI["1b4"]:SetAttribute([[UIGradient]], [[barIdk1]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Box.ShadowBackk
-G2L["206"] = Instance.new("ImageLabel", G2L["1fe"]);
-G2L["206"]["BorderSizePixel"] = 0;
-G2L["206"]["ImageColor3"] = Color3.fromRGB(16, 19, 27);
-G2L["206"]["Image"] = [[rbxassetid://82022759470861]];
-G2L["206"]["Size"] = UDim2.new(0.04353, 0, 1.24658, 0);
-G2L["206"]["BackgroundTransparency"] = 1;
-G2L["206"]["Name"] = [[ShadowBackk]];
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Box.ShadowBackk \\ --
+UI["1b5"] = Instance.new("ImageLabel", UI["1ad"])
+UI["1b5"]["BorderSizePixel"] = 0
+UI["1b5"]["ImageColor3"] = Color3.fromRGB(16, 19, 27)
+UI["1b5"]["Image"] = [[rbxassetid://82022759470861]]
+UI["1b5"]["Size"] = UDim2.new(0.04353, 0, 1.24658, 0)
+UI["1b5"]["BackgroundTransparency"] = 1
+UI["1b5"]["Name"] = [[ShadowBackk]]
 -- Attributes
-G2L["206"]:SetAttribute([[ShadowBackk]], [[Input]]);
+UI["1b5"]:SetAttribute([[ShadowBackk]], [[Input]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Verify
-G2L["207"] = Instance.new("Frame", G2L["1f7"]);
-G2L["207"]["BorderSizePixel"] = 0;
-G2L["207"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["207"]["Size"] = UDim2.new(0.21291, 0, 0.11591, 0);
-G2L["207"]["Position"] = UDim2.new(0.63353, 0, 0.58402, 0);
-G2L["207"]["Name"] = [[Verify]];
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify \\ --
+UI["1b6"] = Instance.new("Frame", UI["1a6"])
+UI["1b6"]["BorderSizePixel"] = 0
+UI["1b6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1b6"]["Size"] = UDim2.new(0.21291, 0, 0.11591, 0)
+UI["1b6"]["Position"] = UDim2.new(0.63353, 0, 0.58402, 0)
+UI["1b6"]["Name"] = [[Verify]]
 -- Attributes
-G2L["207"]:SetAttribute([[UpgradeBtn]], [[Frame]]);
-G2L["207"]:SetAttribute([[Verify]], [[Logo]]);
+UI["1b6"]:SetAttribute([[UpgradeBtn]], [[Frame]])
+UI["1b6"]:SetAttribute([[Verify]], [[Logo]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Verify.UICorner
-G2L["208"] = Instance.new("UICorner", G2L["207"]);
-G2L["208"]["CornerRadius"] = UDim.new(0.22, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.UICorner \\ --
+UI["1b7"] = Instance.new("UICorner", UI["1b6"])
+UI["1b7"]["CornerRadius"] = UDim.new(0.22, 0)
 -- Attributes
-G2L["208"]:SetAttribute([[UICorner]], [[Verify]]);
+UI["1b7"]:SetAttribute([[UICorner]], [[Verify]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Verify.Upgrade Plan
-G2L["209"] = Instance.new("TextLabel", G2L["207"]);
-G2L["209"]["TextWrapped"] = true;
-G2L["209"]["BorderSizePixel"] = 0;
-G2L["209"]["TextSize"] = 28;
-G2L["209"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["209"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["209"]["TextScaled"] = true;
-G2L["209"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["209"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["209"]["BackgroundTransparency"] = 1;
-G2L["209"]["Size"] = UDim2.new(0.64004, 0, 0.35955, 0);
-G2L["209"]["Text"] = [[Verify Key]];
-G2L["209"]["Name"] = [[Upgrade Plan]];
-G2L["209"]["Position"] = UDim2.new(0.35996, 0, 0.32584, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.Upgrade Plan \\ --
+UI["1b8"] = Instance.new("TextLabel", UI["1b6"])
+UI["1b8"]["TextWrapped"] = true
+UI["1b8"]["BorderSizePixel"] = 0
+UI["1b8"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["1b8"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["1b8"]["TextScaled"] = true
+UI["1b8"]["TextSize"] = 28
+UI["1b8"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["1b8"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["1b8"]["BackgroundTransparency"] = 1
+UI["1b8"]["Size"] = UDim2.new(0.64004, 0, 0.35955, 0)
+UI["1b8"]["Text"] = [[Verify Key]]
+UI["1b8"]["Name"] = [[Upgrade Plan]]
+UI["1b8"]["Position"] = UDim2.new(0.35996, 0, 0.32584, 0)
 -- Attributes
-G2L["209"]:SetAttribute([[Upgrade_Plan]], [[Verify]]);
+UI["1b8"]:SetAttribute([[Upgrade_Plan]], [[Verify]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.Upgrade Plan.UITextSizeConstraint \\ --
+UI["1b9"] = Instance.new("UITextSizeConstraint", UI["1b8"])
+UI["1b9"]["MaxTextSize"] = 28
 
--- StarterGui.NewAW.KeySystem.Logo.Verify.Upgrade Plan.UITextSizeConstraint
-G2L["20a"] = Instance.new("UITextSizeConstraint", G2L["209"]);
-G2L["20a"]["MaxTextSize"] = 28;
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.Upgrade Plan.UIAspectRatioConstraint \\ --
+UI["1ba"] = Instance.new("UIAspectRatioConstraint", UI["1b8"])
+UI["1ba"]["AspectRatio"] = 6.0625
 
-
--- StarterGui.NewAW.KeySystem.Logo.Verify.Upgrade Plan.UIAspectRatioConstraint
-G2L["20b"] = Instance.new("UIAspectRatioConstraint", G2L["209"]);
-G2L["20b"]["AspectRatio"] = 6.0625;
-
-
--- StarterGui.NewAW.KeySystem.Logo.Verify.icons8-key-100 145
-G2L["20c"] = Instance.new("ImageLabel", G2L["207"]);
-G2L["20c"]["BorderSizePixel"] = 0;
-G2L["20c"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["20c"]["Image"] = [[rbxassetid://93658735601545]];
-G2L["20c"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0);
-G2L["20c"]["BackgroundTransparency"] = 1;
-G2L["20c"]["Name"] = [[icons8-key-100 145]];
-G2L["20c"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.icons8-key-100 145 \\ --
+UI["1bb"] = Instance.new("ImageLabel", UI["1b6"])
+UI["1bb"]["BorderSizePixel"] = 0
+UI["1bb"]["ScaleType"] = Enum.ScaleType.Fit
+UI["1bb"]["Image"] = [[rbxassetid://93658735601545]]
+UI["1bb"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0)
+UI["1bb"]["BackgroundTransparency"] = 1
+UI["1bb"]["Name"] = [[icons8-key-100 145]]
+UI["1bb"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0)
 -- Attributes
-G2L["20c"]:SetAttribute([[icons8_key_100_145]], [[Verify]]);
+UI["1bb"]:SetAttribute([[icons8_key_100_145]], [[Verify]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Verify.UIGradient
-G2L["20d"] = Instance.new("UIGradient", G2L["207"]);
-G2L["20d"]["Rotation"] = 90;
-G2L["20d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.UIGradient \\ --
+UI["1bc"] = Instance.new("UIGradient", UI["1b6"])
+UI["1bc"]["Rotation"] = 90
+UI["1bc"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
 -- Attributes
-G2L["20d"]:SetAttribute([[UIGradient]], [[Verify]]);
+UI["1bc"]:SetAttribute([[UIGradient]], [[Verify]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.Click \\ --
+UI["1bd"] = Instance.new("TextButton", UI["1b6"])
+UI["1bd"]["BorderSizePixel"] = 0
+UI["1bd"]["TextSize"] = 14
+UI["1bd"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1bd"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1bd"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1bd"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["1bd"]["BackgroundTransparency"] = 1
+UI["1bd"]["Name"] = [[Click]]
+UI["1bd"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1bd"]["Text"] = [[  ]]
 
--- StarterGui.NewAW.KeySystem.Logo.Verify.Click
-G2L["20e"] = Instance.new("TextButton", G2L["207"]);
-G2L["20e"]["BorderSizePixel"] = 0;
-G2L["20e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["20e"]["TextSize"] = 14;
-G2L["20e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["20e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["20e"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["20e"]["BackgroundTransparency"] = 1;
-G2L["20e"]["Name"] = [[Click]];
-G2L["20e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["20e"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.KeySystem.Logo.Verify.Click.UICorner
-G2L["20f"] = Instance.new("UICorner", G2L["20e"]);
-G2L["20f"]["CornerRadius"] = UDim.new(0, 18);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Verify.Click.UICorner \\ --
+UI["1be"] = Instance.new("UICorner", UI["1bd"])
+UI["1be"]["CornerRadius"] = UDim.new(0, 18)
 -- Attributes
-G2L["20f"]:SetAttribute([[UICorner]], [[Click]]);
+UI["1be"]:SetAttribute([[UICorner]], [[Click]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.GetKey
-G2L["210"] = Instance.new("Frame", G2L["1f7"]);
-G2L["210"]["BorderSizePixel"] = 0;
-G2L["210"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["210"]["Size"] = UDim2.new(0.21291, 0, 0.11591, 0);
-G2L["210"]["Position"] = UDim2.new(0.40326, 0, 0.58402, 0);
-G2L["210"]["Name"] = [[GetKey]];
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey \\ --
+UI["1bf"] = Instance.new("Frame", UI["1a6"])
+UI["1bf"]["BorderSizePixel"] = 0
+UI["1bf"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1bf"]["Size"] = UDim2.new(0.21291, 0, 0.11591, 0)
+UI["1bf"]["Position"] = UDim2.new(0.40326, 0, 0.58402, 0)
+UI["1bf"]["Name"] = [[GetKey]]
 -- Attributes
-G2L["210"]:SetAttribute([[GetKey]], [[Logo]]);
+UI["1bf"]:SetAttribute([[GetKey]], [[Logo]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.GetKey.UICorner
-G2L["211"] = Instance.new("UICorner", G2L["210"]);
-G2L["211"]["CornerRadius"] = UDim.new(0.22, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey.UICorner \\ --
+UI["1c0"] = Instance.new("UICorner", UI["1bf"])
+UI["1c0"]["CornerRadius"] = UDim.new(0.22, 0)
 -- Attributes
-G2L["211"]:SetAttribute([[UICorner]], [[GetKey]]);
+UI["1c0"]:SetAttribute([[UICorner]], [[GetKey]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.GetKey.Upgrade Plan
-G2L["212"] = Instance.new("TextLabel", G2L["210"]);
-G2L["212"]["TextWrapped"] = true;
-G2L["212"]["BorderSizePixel"] = 0;
-G2L["212"]["TextSize"] = 28;
-G2L["212"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["212"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["212"]["TextScaled"] = true;
-G2L["212"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["212"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["212"]["BackgroundTransparency"] = 1;
-G2L["212"]["Size"] = UDim2.new(0.85568, 0, 0.35955, 0);
-G2L["212"]["Text"] = [[Gen Key]];
-G2L["212"]["Name"] = [[Upgrade Plan]];
-G2L["212"]["Position"] = UDim2.new(0.39255, 0, 0.32584, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey.Upgrade Plan \\ --
+UI["1c1"] = Instance.new("TextLabel", UI["1bf"])
+UI["1c1"]["TextWrapped"] = true
+UI["1c1"]["BorderSizePixel"] = 0
+UI["1c1"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["1c1"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["1c1"]["TextScaled"] = true
+UI["1c1"]["TextSize"] = 28
+UI["1c1"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["1c1"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["1c1"]["BackgroundTransparency"] = 1
+UI["1c1"]["Size"] = UDim2.new(0.85568, 0, 0.35955, 0)
+UI["1c1"]["Text"] = [[Gen Key]]
+UI["1c1"]["Name"] = [[Upgrade Plan]]
+UI["1c1"]["Position"] = UDim2.new(0.39255, 0, 0.32584, 0)
 -- Attributes
-G2L["212"]:SetAttribute([[Upgrade_Plan]], [[GetKey]]);
+UI["1c1"]:SetAttribute([[Upgrade_Plan]], [[GetKey]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey.Upgrade Plan.UITextSizeConstraint \\ --
+UI["1c2"] = Instance.new("UITextSizeConstraint", UI["1c1"])
+UI["1c2"]["MaxTextSize"] = 28
 
--- StarterGui.NewAW.KeySystem.Logo.GetKey.Upgrade Plan.UITextSizeConstraint
-G2L["213"] = Instance.new("UITextSizeConstraint", G2L["212"]);
-G2L["213"]["MaxTextSize"] = 28;
-
-
--- StarterGui.NewAW.KeySystem.Logo.GetKey.icons8-key-100 145
-G2L["214"] = Instance.new("ImageLabel", G2L["210"]);
-G2L["214"]["BorderSizePixel"] = 0;
-G2L["214"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["214"]["ImageColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["214"]["Image"] = [[rbxassetid://106301500170566]];
-G2L["214"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0);
-G2L["214"]["BackgroundTransparency"] = 1;
-G2L["214"]["Name"] = [[icons8-key-100 145]];
-G2L["214"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey.icons8-key-100 145 \\ --
+UI["1c3"] = Instance.new("ImageLabel", UI["1bf"])
+UI["1c3"]["BorderSizePixel"] = 0
+UI["1c3"]["ScaleType"] = Enum.ScaleType.Fit
+UI["1c3"]["ImageColor3"] = Color3.fromRGB(29, 29, 38)
+UI["1c3"]["Image"] = [[rbxassetid://106301500170566]]
+UI["1c3"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0)
+UI["1c3"]["BackgroundTransparency"] = 1
+UI["1c3"]["Name"] = [[icons8-key-100 145]]
+UI["1c3"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0)
 -- Attributes
-G2L["214"]:SetAttribute([[icons8_key_100_145]], [[GetKey]]);
+UI["1c3"]:SetAttribute([[icons8_key_100_145]], [[GetKey]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.GetKey.UIGradient
-G2L["215"] = Instance.new("UIGradient", G2L["210"]);
-G2L["215"]["Rotation"] = 90;
-G2L["215"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey.UIGradient \\ --
+UI["1c4"] = Instance.new("UIGradient", UI["1bf"])
+UI["1c4"]["Rotation"] = 90
+UI["1c4"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
 -- Attributes
-G2L["215"]:SetAttribute([[UIGradient]], [[GetKey]]);
+UI["1c4"]:SetAttribute([[UIGradient]], [[GetKey]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey.Click \\ --
+UI["1c5"] = Instance.new("TextButton", UI["1bf"])
+UI["1c5"]["BorderSizePixel"] = 0
+UI["1c5"]["TextSize"] = 14
+UI["1c5"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1c5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1c5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1c5"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["1c5"]["BackgroundTransparency"] = 1
+UI["1c5"]["Name"] = [[Click]]
+UI["1c5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1c5"]["Text"] = [[  ]]
 
--- StarterGui.NewAW.KeySystem.Logo.GetKey.Click
-G2L["216"] = Instance.new("TextButton", G2L["210"]);
-G2L["216"]["BorderSizePixel"] = 0;
-G2L["216"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["216"]["TextSize"] = 14;
-G2L["216"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["216"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["216"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["216"]["BackgroundTransparency"] = 1;
-G2L["216"]["Name"] = [[Click]];
-G2L["216"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["216"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.KeySystem.Logo.GetKey.Click.UICorner
-G2L["217"] = Instance.new("UICorner", G2L["216"]);
-G2L["217"]["CornerRadius"] = UDim.new(0, 18);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.GetKey.Click.UICorner \\ --
+UI["1c6"] = Instance.new("UICorner", UI["1c5"])
+UI["1c6"]["CornerRadius"] = UDim.new(0, 18)
 -- Attributes
-G2L["217"]:SetAttribute([[UICorner]], [[Click]]);
+UI["1c6"]:SetAttribute([[UICorner]], [[Click]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Exit
-G2L["218"] = Instance.new("Frame", G2L["1f7"]);
-G2L["218"]["BorderSizePixel"] = 0;
-G2L["218"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["218"]["Size"] = UDim2.new(0.21291, 0, 0.11591, 0);
-G2L["218"]["Position"] = UDim2.new(0.17374, 0, 0.58402, 0);
-G2L["218"]["Name"] = [[Exit]];
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit \\ --
+UI["1c7"] = Instance.new("Frame", UI["1a6"])
+UI["1c7"]["BorderSizePixel"] = 0
+UI["1c7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1c7"]["Size"] = UDim2.new(0.21291, 0, 0.11591, 0)
+UI["1c7"]["Position"] = UDim2.new(0.17374, 0, 0.58402, 0)
+UI["1c7"]["Name"] = [[Exit]]
 -- Attributes
-G2L["218"]:SetAttribute([[Exit]], [[Logo]]);
+UI["1c7"]:SetAttribute([[Exit]], [[Logo]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Exit.UICorner
-G2L["219"] = Instance.new("UICorner", G2L["218"]);
-G2L["219"]["CornerRadius"] = UDim.new(0.22, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.UICorner \\ --
+UI["1c8"] = Instance.new("UICorner", UI["1c7"])
+UI["1c8"]["CornerRadius"] = UDim.new(0.22, 0)
 -- Attributes
-G2L["219"]:SetAttribute([[UICorner]], [[Exit]]);
+UI["1c8"]:SetAttribute([[UICorner]], [[Exit]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Exit.Upgrade Plan
-G2L["21a"] = Instance.new("TextLabel", G2L["218"]);
-G2L["21a"]["TextWrapped"] = true;
-G2L["21a"]["BorderSizePixel"] = 0;
-G2L["21a"]["TextSize"] = 28;
-G2L["21a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-G2L["21a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-G2L["21a"]["TextScaled"] = true;
-G2L["21a"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["21a"]["TextColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["21a"]["BackgroundTransparency"] = 1;
-G2L["21a"]["Size"] = UDim2.new(0.6561, 0, 0.35955, 0);
-G2L["21a"]["Text"] = [[Cancel / Exit]];
-G2L["21a"]["Name"] = [[Upgrade Plan]];
-G2L["21a"]["Position"] = UDim2.new(0.30134, 0, 0.32584, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.Upgrade Plan \\ --
+UI["1c9"] = Instance.new("TextLabel", UI["1c7"])
+UI["1c9"]["TextWrapped"] = true
+UI["1c9"]["BorderSizePixel"] = 0
+UI["1c9"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["1c9"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["1c9"]["TextScaled"] = true
+UI["1c9"]["TextSize"] = 28
+UI["1c9"]["FontFace"] = Font.new([[rbxassetid://12187365364]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["1c9"]["TextColor3"] = Color3.fromRGB(29, 29, 38)
+UI["1c9"]["BackgroundTransparency"] = 1
+UI["1c9"]["Size"] = UDim2.new(0.6561, 0, 0.35955, 0)
+UI["1c9"]["Text"] = [[Cancel / Exit]]
+UI["1c9"]["Name"] = [[Upgrade Plan]]
+UI["1c9"]["Position"] = UDim2.new(0.30134, 0, 0.32584, 0)
 -- Attributes
-G2L["21a"]:SetAttribute([[Upgrade_Plan]], [[Exit]]);
+UI["1c9"]:SetAttribute([[Upgrade_Plan]], [[Exit]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.Upgrade Plan.UITextSizeConstraint \\ --
+UI["1ca"] = Instance.new("UITextSizeConstraint", UI["1c9"])
+UI["1ca"]["MaxTextSize"] = 28
 
--- StarterGui.NewAW.KeySystem.Logo.Exit.Upgrade Plan.UITextSizeConstraint
-G2L["21b"] = Instance.new("UITextSizeConstraint", G2L["21a"]);
-G2L["21b"]["MaxTextSize"] = 28;
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.Upgrade Plan.UIAspectRatioConstraint \\ --
+UI["1cb"] = Instance.new("UIAspectRatioConstraint", UI["1c9"])
+UI["1cb"]["AspectRatio"] = 5.3125
 
-
--- StarterGui.NewAW.KeySystem.Logo.Exit.Upgrade Plan.UIAspectRatioConstraint
-G2L["21c"] = Instance.new("UIAspectRatioConstraint", G2L["21a"]);
-G2L["21c"]["AspectRatio"] = 5.3125;
-
-
--- StarterGui.NewAW.KeySystem.Logo.Exit.icons8-key-100 145
-G2L["21d"] = Instance.new("ImageLabel", G2L["218"]);
-G2L["21d"]["BorderSizePixel"] = 0;
-G2L["21d"]["ScaleType"] = Enum.ScaleType.Fit;
-G2L["21d"]["ImageColor3"] = Color3.fromRGB(29, 29, 38);
-G2L["21d"]["Image"] = [[rbxassetid://108986189876354]];
-G2L["21d"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0);
-G2L["21d"]["BackgroundTransparency"] = 1;
-G2L["21d"]["Name"] = [[icons8-key-100 145]];
-G2L["21d"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.icons8-key-100 145 \\ --
+UI["1cc"] = Instance.new("ImageLabel", UI["1c7"])
+UI["1cc"]["BorderSizePixel"] = 0
+UI["1cc"]["ScaleType"] = Enum.ScaleType.Fit
+UI["1cc"]["ImageColor3"] = Color3.fromRGB(29, 29, 38)
+UI["1cc"]["Image"] = [[rbxassetid://108986189876354]]
+UI["1cc"]["Size"] = UDim2.new(0.14184, 0, 0.35955, 0)
+UI["1cc"]["BackgroundTransparency"] = 1
+UI["1cc"]["Name"] = [[icons8-key-100 145]]
+UI["1cc"]["Position"] = UDim2.new(0.10638, 0, 0.30337, 0)
 -- Attributes
-G2L["21d"]:SetAttribute([[icons8_key_100_145]], [[Exit]]);
+UI["1cc"]:SetAttribute([[icons8_key_100_145]], [[Exit]])
 
-
--- StarterGui.NewAW.KeySystem.Logo.Exit.UIGradient
-G2L["21e"] = Instance.new("UIGradient", G2L["218"]);
-G2L["21e"]["Rotation"] = 90;
-G2L["21e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))};
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.UIGradient \\ --
+UI["1cd"] = Instance.new("UIGradient", UI["1c7"])
+UI["1cd"]["Rotation"] = 90
+UI["1cd"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 190, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(93, 117, 160))}
 -- Attributes
-G2L["21e"]:SetAttribute([[UIGradient]], [[Exit]]);
+UI["1cd"]:SetAttribute([[UIGradient]], [[Exit]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.Click \\ --
+UI["1ce"] = Instance.new("TextButton", UI["1c7"])
+UI["1ce"]["BorderSizePixel"] = 0
+UI["1ce"]["TextSize"] = 14
+UI["1ce"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1ce"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1ce"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1ce"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["1ce"]["BackgroundTransparency"] = 1
+UI["1ce"]["Name"] = [[Click]]
+UI["1ce"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1ce"]["Text"] = [[  ]]
 
--- StarterGui.NewAW.KeySystem.Logo.Exit.Click
-G2L["21f"] = Instance.new("TextButton", G2L["218"]);
-G2L["21f"]["BorderSizePixel"] = 0;
-G2L["21f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["21f"]["TextSize"] = 14;
-G2L["21f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["21f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["21f"]["Size"] = UDim2.new(1, 0, 1, 0);
-G2L["21f"]["BackgroundTransparency"] = 1;
-G2L["21f"]["Name"] = [[Click]];
-G2L["21f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["21f"]["Text"] = [[  ]];
-
-
--- StarterGui.NewAW.KeySystem.Logo.Exit.Click.UICorner
-G2L["220"] = Instance.new("UICorner", G2L["21f"]);
-G2L["220"]["CornerRadius"] = UDim.new(0, 18);
+-- // StarterGui.ApplewareNew.KeySystem.Logo.Exit.Click.UICorner \\ --
+UI["1cf"] = Instance.new("UICorner", UI["1ce"])
+UI["1cf"]["CornerRadius"] = UDim.new(0, 18)
 -- Attributes
-G2L["220"]:SetAttribute([[UICorner]], [[Click]]);
+UI["1cf"]:SetAttribute([[UICorner]], [[Click]])
 
+-- // StarterGui.ApplewareNew.KeySystem.Logo.UIAspectRatioConstraint \\ --
+UI["1d0"] = Instance.new("UIAspectRatioConstraint", UI["1a6"])
+UI["1d0"]["AspectRatio"] = 1.72498
 
--- StarterGui.NewAW.KeySystem.Logo.UIAspectRatioConstraint
-G2L["221"] = Instance.new("UIAspectRatioConstraint", G2L["1f7"]);
-G2L["221"]["AspectRatio"] = 1.72498;
+-- // StarterGui.ApplewareNew.Handler \\ --
+UI["1d1"] = Instance.new("LocalScript", UI["1"])
+UI["1d1"]["Name"] = [[Handler]]
 
+-- // StarterGui.ApplewareNew.Handler.Func \\ --
+UI["1d2"] = Instance.new("ModuleScript", UI["1d1"])
+UI["1d2"]["Name"] = [[Func]]
 
--- StarterGui.NewAW.LocalScript
-G2L["222"] = Instance.new("LocalScript", G2L["1"]);
+-- // StarterGui.ApplewareNew.Handler.Func.Highlighter \\ --
+UI["1d3"] = Instance.new("ModuleScript", UI["1d2"])
+UI["1d3"]["Name"] = [[Highlighter]]
+
+-- // StarterGui.ApplewareNew.Handler.Func.Highlighter.utility \\ --
+UI["1d4"] = Instance.new("ModuleScript", UI["1d3"])
+UI["1d4"]["Name"] = [[utility]]
+
+-- // StarterGui.ApplewareNew.Handler.Func.Highlighter.types \\ --
+UI["1d5"] = Instance.new("ModuleScript", UI["1d3"])
+UI["1d5"]["Name"] = [[types]]
+
+-- // StarterGui.ApplewareNew.Handler.Func.Highlighter.theme \\ --
+UI["1d6"] = Instance.new("ModuleScript", UI["1d3"])
+UI["1d6"]["Name"] = [[theme]]
+
+-- // StarterGui.ApplewareNew.Handler.Func.Highlighter.lexer \\ --
+UI["1d7"] = Instance.new("ModuleScript", UI["1d3"])
+UI["1d7"]["Name"] = [[lexer]]
+
+-- // StarterGui.ApplewareNew.Handler.Func.Highlighter.lexer.language \\ --
+UI["1d8"] = Instance.new("ModuleScript", UI["1d7"])
+UI["1d8"]["Name"] = [[language]]
+
+-- // StarterGui.ApplewareNew.LocalScript \\ --
+UI["1d9"] = Instance.new("LocalScript", UI["1"])
 
 -- Attributes
-G2L["222"]:SetAttribute([[LocalScript]], [[AppleWare]]);
-
+UI["1d9"]:SetAttribute([[LocalScript]], [[AppleWare]])
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
@@ -5286,9 +4138,10 @@ local function require(Module:ModuleScript)
 	return G2L_REQUIRE(Module);
 end
 
-G2L_MODULES[G2L["1e9"]] = {
+G2L_MODULES[UI["1d2"]] = {
 	Closure = function()
-		local script = G2L["1e9"];local module = {}
+		local script = UI["1d2"]
+		local module = {}
 
 		local highlighter = require(script.Highlighter)
 		local textbox2 = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2
@@ -5309,6 +4162,12 @@ G2L_MODULES[G2L["1e9"]] = {
 		local listfiles = listfiles or function(folderName)
 			return ''
 		end
+
+		local service = setmetatable({}, { 
+			__index = function(_, k)
+				return game:GetService(k)
+			end
+		})
 
 		function module.initialize()
 
@@ -5358,7 +4217,7 @@ G2L_MODULES[G2L["1e9"]] = {
 			updateScrollFrameSize()
 		end
 
-		local TS = game:GetService("TweenService")
+		local TS = service.TweenService
 
 		function module.NotificationHandler(message, displayTime)
 			local notification = script.Parent.Parent.UI.MainGui.Alert:Clone()
@@ -5428,7 +4287,7 @@ G2L_MODULES[G2L["1e9"]] = {
 					end
 				end
 
-				local jsonData = game:GetService("HttpService"):JSONEncode({lastPage = selectedButton})
+				local jsonData = service.HttpService:JSONEncode({lastPage = selectedButton})
 				if not isfile("lastPage.json") then
 					writefile("lastPage.json", jsonData)
 				else
@@ -5442,7 +4301,7 @@ G2L_MODULES[G2L["1e9"]] = {
 
 					local success, result = pcall(function()
 						local jsonData = readfile("lastPage.json")
-						local data = game:GetService("HttpService"):JSONDecode(jsonData)
+						local data = service.HttpService:JSONDecode(jsonData)
 						return data.lastPage
 					end)
 					if success then
@@ -5488,16 +4347,20 @@ G2L_MODULES[G2L["1e9"]] = {
 
 		function customLoadstring(scriptCode)
 			if loadstring then
-				local success, result = pcall(loadstring, scriptCode)
+				local success, result = pcall(function()
+					return loadstring(scriptCode)
+				end)
 				if success then
-					return result
+					return loadstring(scriptCode)
 				else
 					module.NotificationHandler("Error: " .. tostring(result), 3)
+					-- Suppress the error from appearing in the console
 				end
 			else
 				module.NotificationHandler("Error from Execute", 3)
 			end
 		end
+
 
 		function EditorPageHandler(Option, source)
 			local Code = textbox2.Parent.Text or source
@@ -5550,39 +4413,42 @@ G2L_MODULES[G2L["1e9"]] = {
 			newList.Parent = Scrolling
 			newList.Visible = true
 			scname.Text = scriptname
-			sdname.Text = Description
+
+			if type(Description) ~= "string" then
+				sdname.Text = tostring(Description)
+			else
+				sdname.Text = Description
+			end
 
 			execute.MouseButton1Click:Connect(function()
 				customLoadstring(source)
 			end)
 		end
 
---[[
-function AddScript(CF, Scrolling, scriptname, source)
-	local scriptFrame = CF
-	local newList = scriptFrame:Clone()
-
-	local execute = newList.Click
-	local scname = newList.ScriptName.ScriptName
-	newList.Name = scriptname
-	newList.Parent = Scrolling
-	newList.Visible = true
-	scname.Text = scriptname
-
-	execute.MouseButton1Click:Connect(function()
-		customLoadstring(source)
-	end)
-end
-]]
-
 		function module.CloudHandler(CloneFrame, SearchButton, MyScriptsButton, Scroller, TextBox, http)
 
 			SearchButton.MouseButton1Click:Connect(function()
 				TextBox.TextEditable = true
-				Scroller.Parent.Parent.CreatePageScripts.Visible = false
-				Scroller.Parent.Visible = true
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = false
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = false
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = true
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = true
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = true
 			end)
-            
+
+			MyScriptsButton.MouseButton1Click:Connect(function()
+				TextBox.TextEditable = false
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = true
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = true
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = false
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = false
+				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = false
+			end)
+			script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.AddBtn.MouseButton1Click:Connect(function()
+				script.Parent.Parent.UI.MainGui.Pages.ScriptSave.Visible = true
+			end)
+
+
 			TextBox.FocusLost:Connect(function()
 				if TextBox.Text == "" or #TextBox.Text > 15 or Scroller.Parent.Visible == false then return end
 				for _, child in ipairs(Scroller:GetChildren()) do
@@ -5614,108 +4480,7 @@ end
 			end)
 		end
 
---[[
-local function loadScripts()
-	if game:GetService("RunService"):IsStudio() then return end
-	local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
-	for _, child in ipairs(scroller9:GetChildren()) do
-		if child:IsA("Frame") then
-			child:Destroy()
-		end
-	end
-
-	for _, file in ipairs(listfiles("scripts")) do
-		local scriptName = file:sub(9, -5)
-		local scriptCode = readfile(file)
-		AddScript(scroller9.C.ScriptFrame, scroller9, scriptName, scriptCode)
-	end
-end
-
-function module.Script_Saver_system(CloseButton, CloseButton2, ScriptNameInput, ScriptCodeInput, button1, button2)
-	local ScriptName = ScriptNameInput
-	local ScriptCode = ScriptCodeInput
-	print(ScriptCode)
-	print(ScriptName)
-
-	CloseButton.MouseButton1Click:Connect(function()
-		CloseButton.Parent.Parent.Visible = false
-	end)
-
-	CloseButton2.MouseButton1Click:Connect(function()
-		CloseButton2.Parent.Parent.Visible = false
-	end)
-
-	button1.MouseButton1Click:Connect(function()
-		CloseButton.Parent.Visible = false
-		CloseButton2.Parent.Parent.Visible = true
-	end)
-
-	button2.MouseButton1Click:Connect(function()
-		CloseButton2.Parent.Parent.Visible = false
-		if ScriptCode == "" then 
-			return module.NotificationHandler("Script Code Empty") 
-		end
-		if ScriptName == "" then 
-			return module.NotificationHandler("Script Name Empty") 
-		end
-
-		local filePath = "scripts/" .. ScriptName .. ".txt"
-
-		if not isfile(filePath) then
-			local success, errorMsg = pcall(function()
-				writefile(filePath, ScriptCode)
-			end)
-
-			if not success then
-				return module.NotificationHandler("Error saving script: " .. errorMsg)
-			else
-				module.NotificationHandler("Script saved successfully!")
-				loadScripts()
-			end
-		else
-			module.NotificationHandler("Script with that name already exists!")
-		end
-	end)
-	
-	local scroller9 = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
-	AddScript(scroller9.C.ScriptFrame, scroller9, "scriptname", "scriptcode")
-end
-]]
-
 		-- console not now
-		local Types = { Toggle = true, OneClick = true }
-		local config = script.Parent.Parent.UI.MainGui.Pages.ConfigPage.ScrollingFrame
-
-		function module.ConfigMakeHandler(Type, Name, Icon, Description, ScriptCode)
-			local ConfigClone = config.Types.Toggle:Clone()
-
-			if Type == Types.Toggle then
-				ConfigClone.descriptionLabel.Text = Description
-				ConfigClone.LoadAnimLabel.Text = Name
-				ConfigClone.Box.Icon.Image = Icon
-				ConfigClone.Parent = config
-				ConfigClone.Visible = true
-				ConfigClone.Name = Name
-				local toggleState = false
-
-				local function setToggleState(state)
-					if state then
-						ConfigClone.ToggleOn.Rotation = 180
-					else
-						ConfigClone.ToggleOn.Rotation = 0
-					end
-				end
-
-				ConfigClone.Click.MouseButton1Click:Connect(function()
-					customLoadstring(ScriptCode)
-					toggleState = not toggleState
-					setToggleState(toggleState)
-				end)
-
-			elseif Type == Types.OneClick then
-			end
-		end
-
 		function module.TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf)
 
 			local function encode(data)
@@ -5754,7 +4519,7 @@ end
 			end
 
 			local currentTab = "tab1"
-			local nextTabIndex = td.Howmuch + 1 or "1"
+			local nextTabIndex = td.Howmuch + 1
 
 			for n, c in pairs(td) do
 				if n ~= "Howmuch" then
@@ -5832,7 +4597,7 @@ end
 		end
 
 		function updateStrokeThickness(uiStroke)
-			local camera = game:GetService("Workspace"):WaitForChild("CurrentCamera") or ''
+			local camera = service.Workspace:WaitForChild("CurrentCamera") or ''
 			local BASE_WIDTH = 1920
 			local BASE_HEIGHT = 1080
 			local initialStrokeThickness = uiStroke.Thickness
@@ -5851,17 +4616,141 @@ end
 			end
 		end
 
+
+		--saving handler
+
+		function makeScript(scriptname, scriptcode)
+			for _, v in pairs(script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling:GetChildren()) do
+				if v:IsA("Frame") then
+					v:Destroy()
+				end
+			end
+			local clonedpage = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame:Clone()
+			local SN = clonedpage.ScriptName.ScriptName
+			local SC = clonedpage.Click
+			clonedpage.Parent = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
+			clonedpage.Visible = true
+			SN.Text = scriptname
+			SC.MouseButton1Click:Connect(function()
+				print(scriptcode)
+				customLoadstring(scriptcode)
+			end)
+		end
+
+		function SavingSystem(name, source)
+			writefile("scripts/" .. (name:match("%.lua$") and name or name .. ".lua"), source)
+			makeScript(name, source)
+		end
+
+		function module.SavingHandler()
+
+			local Page29 = script.Parent.Parent.UI.MainGui.Pages.ScriptSave
+			local NameS = Page29.ScriptPage1
+			local CodeS = Page29.ScriptPage2
+
+			local NInput = NameS.input.InputText
+			local NNext = NameS.NextBtn.Click
+			local NExit = NameS.CloseBtn.Click
+
+			local CInput = CodeS.Input1.InputText1
+			local Saving = CodeS.saveBtn.Click
+			local CExit = CodeS.CloseBtn1.Click
+
+			local Code = CInput
+			local TextName = NInput
+
+			local function closeSaving()
+				Page29.Visible = false
+				NameS.Visible = true
+				CodeS.Visible = false
+			end
+
+			NNext.MouseButton1Click:Connect(function()
+				NameS.Visible = false
+				CodeS.Visible = true
+			end)
+
+			Saving.MouseButton1Click:Connect(function()
+				SavingSystem(TextName.Text, Code.Text)
+				print(TextName.Text, Code.Text)
+				closeSaving()
+			end)
+
+			--close handler
+
+			NExit.MouseButton1Click:Connect(function()
+				closeSaving()
+			end)
+			CExit.MouseButton1Click:Connect(function()
+				closeSaving()
+			end)
+			if game:GetService("RunService"):IsStudio() then return end
+			local oldfiles = {}
+			for _, file in ipairs(listfiles("scripts")) do
+				local scriptName = file:sub(9, -5)
+				local scriptCode = readfile(file)
+				makeScript(scriptName, scriptCode)
+			end
+			while true do
+				local currentFiles = listfiles("scripts")
+				if #currentFiles ~= #oldfiles then
+					oldfiles = currentFiles
+					for _, file in ipairs(currentFiles) do
+						local scriptName = file:sub(9, -5)
+						local scriptCode = readfile(file)
+						makeScript(scriptName, scriptCode)
+					end
+				end
+				wait(2)
+			end
+		end
+
+		function module.drag(frame)
+			local dragging, dragStart, startPos = false, nil, nil
+
+			local function update(input)
+				local delta = input.Position - dragStart
+				frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			end
+
+			frame.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+					dragging = true
+					dragStart = input.Position
+					startPos = frame.Position
+					input.Changed:Connect(function()
+						if input.UserInputState == Enum.UserInputState.End then
+							dragging = false
+						end
+					end)
+				end
+			end)
+
+			frame.InputChanged:Connect(function(input)
+				if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+					update(input)
+				end
+			end)
+
+			service.UserInputService.InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+					dragging = false
+				end
+			end)
+		end
+
 		return module
 
 --[[
 
 ]]
 
-	end;
-};
-G2L_MODULES[G2L["1ea"]] = {
+	end
+}
+G2L_MODULES[UI["1d3"]] = {
 	Closure = function()
-		local script = G2L["1ea"];local types = require(script.types)
+		local script = UI["1d3"]
+		local types = require(script.types)
 		local utility = require(script.utility)
 		local theme = require(script.theme)
 
@@ -6180,11 +5069,12 @@ G2L_MODULES[G2L["1ea"]] = {
 
 		return Highlighter
 
-	end;
-};
-G2L_MODULES[G2L["1eb"]] = {
+	end
+}
+G2L_MODULES[UI["1d4"]] = {
 	Closure = function()
-		local script = G2L["1eb"];local types = require(script.Parent.types)
+		local script = UI["1d4"]
+		local types = require(script.Parent.types)
 
 		local Utility = {}
 
@@ -6236,11 +5126,12 @@ G2L_MODULES[G2L["1eb"]] = {
 
 		return Utility
 
-	end;
-};
-G2L_MODULES[G2L["1ec"]] = {
+	end
+}
+G2L_MODULES[UI["1d5"]] = {
 	Closure = function()
-		local script = G2L["1ec"];export type TextObject = TextLabel | TextBox
+		local script = UI["1d5"]
+		export type TextObject = TextLabel | TextBox
 
 		export type TokenName =
 			"background"
@@ -6289,11 +5180,12 @@ G2L_MODULES[G2L["1ec"]] = {
 
 		return nil
 
-	end;
-};
-G2L_MODULES[G2L["1ed"]] = {
+	end
+}
+G2L_MODULES[UI["1d6"]] = {
 	Closure = function()
-		local script = G2L["1ed"];local DEFAULT_TOKEN_COLORS = {
+		local script = UI["1d6"]
+		local DEFAULT_TOKEN_COLORS = {
 			["background"] = Color3.fromRGB(40, 42, 54),
 			["iden"] = Color3.fromRGB(150, 171, 193),
 			["keyword"] = Color3.fromRGB(102, 102, 219),
@@ -6364,11 +5256,12 @@ G2L_MODULES[G2L["1ed"]] = {
 
 		return Theme
 
-	end;
-};
-G2L_MODULES[G2L["1ee"]] = {
+	end
+}
+G2L_MODULES[UI["1d7"]] = {
 	Closure = function()
-		local script = G2L["1ee"];--[=[
+		local script = UI["1d7"]
+--[=[
 	Lexical scanner for creating a sequence of tokens from Lua source code.
 	This is a heavily modified and Roblox-optimized version of
 	the original Penlight Lexer module:
@@ -6694,11 +5587,12 @@ G2L_MODULES[G2L["1ee"]] = {
 
 		return lexer
 
-	end;
-};
-G2L_MODULES[G2L["1ef"]] = {
+	end
+}
+G2L_MODULES[UI["1d8"]] = {
 	Closure = function()
-		local script = G2L["1ef"];local language = {
+		local script = UI["1d8"]
+		local language = {
 			keyword = {
 				["and"] = "keyword",
 				["break"] = "keyword",
@@ -7234,11 +6128,11 @@ G2L_MODULES[G2L["1ef"]] = {
 
 		return language
 
-	end;
-};
--- StarterGui.NewAW.Handler
-local function C_1e8()
-	local script = G2L["1e8"];
+	end
+}
+-- // StarterGui.ApplewareNew.Handler \\ --
+local function SCRIPT_1d1()
+	local script = UI["1d1"]
 	local service = setmetatable({}, { 
 		__index = function(_, k)
 			return game:GetService(k)
@@ -7250,8 +6144,8 @@ local function C_1e8()
 
 	local MainModule = require(script.Func)
 
-	local SidebarButtons = {"Editor", "Cloud", "Console", "Config"}
-	local Pages = {"EditorPage", "CloudPage", "ConsolePage", "ConfigPage"}
+	local SidebarButtons = {"Editor", "Cloud", "Config"}
+	local Pages = {"EditorPage", "CloudPage", "ConfigPage"}
 
 	local Positions = {
 		SidebarHidden = UDim2.new(-0.3, 0, 0, 0),
@@ -7268,6 +6162,7 @@ local function C_1e8()
 	local Sidebar = UI:FindFirstChild("Sidebar")
 	local Slide = Sidebar:WaitForChild("Close"):WaitForChild("Slide")
 
+	MainModule.drag(open.Parent)
 
 	MainModule.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SidebarButtons, Pages, Positions.SidebarHidden, Positions.SidebarVisible, Positions.PageHidden, Positions.PageVisible)
 	MainModule.initialize()
@@ -7292,17 +6187,7 @@ local function C_1e8()
 	local C_Text = CloudPage.SearchFrame.SearchBox
 	MainModule.CloudHandler(CF, CS, CC, C_Scroller, C_Text, HS)
 
-	--<<Console Page Handler>>--
-	--not now
-
-	MainModule.ConfigMakeHandler(
-		Types.Toggle, 
-		"Unlock FPS",         
-		"rbxassetid://72861080961830",
-		"Gets rid of Roblox's 60FPS Limit.",
-		'setclipboard(240)'
-	)
-
+	--tab system
 	local tc = P.EditorPage.Tabs.Tab1
 	local ts = P.EditorPage.Tabs
 	local ab = tc.AddTab.AddBtn
@@ -7322,64 +6207,68 @@ local function C_1e8()
 
 	MainModule.TabsLoader(tc, ts, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf, tcc)
 
-	local Pageidk = P.ScriptSave
-	local button1 = Pageidk.ScriptPage1.NextBtn.Click
-	local button2 = Pageidk.ScriptPage2.saveBtn.Click
-	local CloseButtonS = Pageidk.ScriptPage1.CloseBtn.Click
-	local CloseButtonS2 = Pageidk.ScriptPage2.CloseBtn1.Click
-	local ScriptNameInput = Pageidk.ScriptPage1.input.InputText.Text
-	local ScriptCode = Pageidk.ScriptPage2.Input1.InputText1.Text
-
 	MainModule.updateAllStrokes()
-end;
-task.spawn(C_1e8);
--- StarterGui.NewAW.LocalScript
-local function C_222()
-	local script = G2L["222"];
-	--Key System Handler
-	
-	local function get(NameOfOBJ, parentName)
-		for _, obj in ipairs(script.Parent:GetDescendants()) do
-			if obj:GetAttribute(NameOfOBJ) == parentName then
-				return obj
-			end
+
+	local ConfigClone = P.ConfigPage.ScrollingFrame.FPS
+	local tSS = false
+
+	local function setn(state)
+		if state then
+			ConfigClone.ToggleOn.Visible = true
+			ConfigClone.ToggleOff.Visible = false
+			setfpscap(240)
+		else
+			ConfigClone.ToggleOn.Visible = false
+			ConfigClone.ToggleOff.Visible = true
+			setfpscap(60)
 		end
-		return nil  
 	end
-	
+
+	ConfigClone.Click.MouseButton1Click:Connect(function()
+		tSS = not tSS
+		setn(tSS)
+	end)
+
+	MainModule.SavingHandler()
+end
+task.spawn(SCRIPT_1d1)
+-- // StarterGui.ApplewareNew.LocalScript \\ --
+local function SCRIPT_1d9()
+	local script = UI["1d9"]
 	local keysyst = script.Parent.KeySystem.Logo
 	local KeyTextBox = keysyst.Box.KeyTextBox
 	local ClickVerify = keysyst.Verify.Click
 	local GetKeyClick = keysyst.GetKey.Click
 	local Exit = keysyst.Exit.Click
-	
+
 	ClickVerify.MouseButton1Click:Connect(function()
 		local key = verify_key(KeyTextBox.Text)
 		if key then
 			script.Parent.KeySystem:Destroy()
 			script.Parent.UI.Visible = false
 			script.Parent.OpenBtn.Visible = true
-	
+
 		else
 			KeyTextBox.Text = "Please activate key"
 		end
 	end)
-	
+
 	GetKeyClick.MouseButton1Click:Connect(function()
 		setclipboard(get_key_link())
 	end)
-	
+
 	Exit.MouseButton1Click:Connect(function()
 		script.Parent.KeySystem:Destroy()
 		script.Parent.UI.Visible = false
-		script.Parent.OpenBtn.Visible = false
+		script.Parent.OpenBtn.Visible = true
 	end)
-	
-	if get_key() ~= "" then
-		KeyTextBox.Text = get_key()
-	end
-	
-end;
-task.spawn(C_222);
 
-return G2L["1"], require;
+	if get_key() ~= "" then
+		KeyTextBox.Text = get_key() or ""
+	end
+
+end
+task.spawn(SCRIPT_1d9)
+
+return UI["1"], require;nce.new("ImageLabel", UI["f4"])
+UI["f7"]["ZIndex"]

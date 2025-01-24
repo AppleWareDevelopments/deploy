@@ -3,7 +3,8 @@
 -- // INSTANCES: 473 | SCRIPTS: 2 | MODULES: 7 \\ --
 
 local UI = {}
-
+print("HIDDEN UI")
+print(gethui())
 -- // StarterGui.ApplewareNew \\ --
 UI["1"] = Instance.new("ScreenGui", gethui())
 UI["1"]["IgnoreGuiInset"] = true

@@ -4518,7 +4518,7 @@ G2L_MODULES[UI["1d2"]] = {
 			end
 
 			local currentTab = "tab1"
-			local nextTabIndex = td.Howmuch + 1
+			local nextTabIndex = 1 + td.Howmuch
 
 			for n, c in pairs(td) do
 				if n ~= "Howmuch" then

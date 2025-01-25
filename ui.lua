@@ -1,7 +1,7 @@
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 472 | SCRIPTS: 2 | MODULES: 6 \\ --
-local code = [[print("table"]]
+local code = [[print("table")]]
 loadstring(code)
 local UI = {}
 

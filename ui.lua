@@ -1,7 +1,6 @@
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 472 | SCRIPTS: 2 | MODULES: 6 \\ --
-loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
 local UI = {}
 
@@ -935,7 +934,6 @@ UI["62"]["ImageTransparency"] = 1
 UI["62"]["ImageColor3"] = Color3.fromRGB(13, 15, 20)
 UI["62"]["Image"] = [[rbxassetid://76734110237026]]
 UI["62"]["Size"] = UDim2.new(1.00073, 0, 1, 0)
-UI["62"]["Visible"] = false
 UI["62"]["ClipsDescendants"] = true
 UI["62"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["62"]["BackgroundTransparency"] = 1
@@ -1102,7 +1100,7 @@ UI["76"]["BackgroundTransparency"] = 1
 -- // StarterGui.ApplewareNew.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.UIListLayout \\ --
 UI["77"] = Instance.new("UIListLayout", UI["76"])
 UI["77"]["Wraps"] = true
-UI["77"]["Padding"] = UDim.new(0, 142)
+UI["77"]["Padding"] = UDim.new(0, 30)
 UI["77"]["SortOrder"] = Enum.SortOrder.LayoutOrder
 UI["77"]["FillDirection"] = Enum.FillDirection.Horizontal
 
@@ -1121,8 +1119,8 @@ UI["7a"]["Visible"] = false
 UI["7a"]["BorderSizePixel"] = 0
 UI["7a"]["BackgroundColor3"] = Color3.fromRGB(26, 31, 43)
 UI["7a"]["ClipsDescendants"] = true
-UI["7a"]["Size"] = UDim2.new(0.225, 0, 0.184, 0)
-UI["7a"]["Position"] = UDim2.new(-0.00002, 0, 0, 0)
+UI["7a"]["Size"] = UDim2.new(0.19425, 0, 0.30081, 0)
+UI["7a"]["Position"] = UDim2.new(0, 0, 0, 0)
 UI["7a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["7a"]["Name"] = [[ScriptFrame]]
 
@@ -3766,6 +3764,7 @@ UI["1ad"]:SetAttribute([[Frame]], [[Frame]])
 
 -- // StarterGui.ApplewareNew.KeySystem.Logo.Box.KeyTextBox \\ --
 UI["1ae"] = Instance.new("TextBox", UI["1ad"])
+UI["1ae"]["CursorPosition"] = -1
 UI["1ae"]["TextColor3"] = Color3.fromRGB(162, 177, 234)
 UI["1ae"]["PlaceholderColor3"] = Color3.fromRGB(162, 177, 234)
 UI["1ae"]["BorderSizePixel"] = 0
@@ -5535,6 +5534,14 @@ local function SCRIPT_1d1()
 		end
 	})
 
+	local function tbHandler(tb) local origSize, tbText, typing = tb.Size, tb.Text, false local function checkFocus() if tb:IsFocused() then tb.Size = origSize + UDim2.new(0, 1, 0, 1) end end game:GetService("UserInputService").InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then checkFocus() end end) tb.Focused:Connect(checkFocus) tb.Changed:Connect(function(prop) if prop == "Text" and tb.Text ~= tbText then tbText = tb.Text tb.Size = origSize + UDim2.new(0, 1, 0, 1) end end) tb:GetPropertyChangedSignal("Text"):Connect(function() if tb.Text ~= tbText then typing = true tbText = tb.Text tb.Size = origSize + UDim2.new(0, 1, 0, 1) else if typing then wait(0.3) tb.Size = origSize typing = false end end end) end
+
+	for _, obj in pairs(script.Parent:GetDescendants()) do
+		if obj:IsA("TextBox") then
+			tbHandler(obj)
+		end
+	end
+
 	function initialize()
 
 		local function getNumberOfLines(str)
@@ -5727,12 +5734,20 @@ local function SCRIPT_1d1()
 
 		end
 	end
-  local Code9 = textbox2.Parent
+    	local function executeCode(code)
+		local func, err = loadstring(code)
 
+		if func then
+			pcall(func)
+		else
+			NotificationHandler(err, 2.5)
+		end
+	end
+    
+	local Code = textbox2.Parent
 	function EditorPageinstaller(Execute, Clear, Paste, Back)
 		Execute.MouseButton1Click:Connect(function()
-    NotificationHandler(Code9.Text, 2.5)
-			loadstring(Code9.Text)
+			executeCode(Code.Text)
 		end)
 		Clear.MouseButton1Click:Connect(function()
 			EditorPageHandler("Clear")
@@ -5770,7 +5785,7 @@ local function SCRIPT_1d1()
 		end
 
 		execute.MouseButton1Click:Connect(function()
-			loadstring(source)
+			executeCode(source)
 		end)
 	end
 
@@ -5829,6 +5844,7 @@ local function SCRIPT_1d1()
 		end)
 	end
 
+
 	-- console not now
 	function TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf)
 
@@ -5868,7 +5884,7 @@ local function SCRIPT_1d1()
 		end
 
 		local currentTab = "tab1"
-    local nextTabIndex = td.Howmuch and td.Howmuch + 1 or 1
+		local nextTabIndex = td.Howmuch and td.Howmuch + 1 or 1
 
 		for n, c in pairs(td) do
 			if n ~= "Howmuch" then
@@ -5969,11 +5985,6 @@ local function SCRIPT_1d1()
 	--saving handler
 
 	function makeScript(scriptname, scriptcode)
-		for _, v in pairs(script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling:GetChildren()) do
-			if v:IsA("Frame") then
-				v:Destroy()
-			end
-		end
 		local clonedpage = script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame:Clone()
 		local SN = clonedpage.ScriptName.ScriptName
 		local SC = clonedpage.Click
@@ -5982,7 +5993,7 @@ local function SCRIPT_1d1()
 		SN.Text = scriptname
 		SC.MouseButton1Click:Connect(function()
 			--print(scriptcode)
-			loadstring(scriptcode)
+			executeCode(scriptcode)
 		end)
 	end
 
@@ -6035,7 +6046,15 @@ local function SCRIPT_1d1()
 		end)
 		if game:GetService("RunService"):IsStudio() then return end
 		local oldfiles = {}
+		if not isfolder("scripts") then
+			makefolder("scripts")
+		end
 		for _, file in ipairs(listfiles("scripts")) do
+			for _, v in pairs(script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling:GetChildren()) do
+				if v:IsA("Frame") then
+					v:Destroy()
+				end
+			end
 			local scriptName = file:sub(9, -5)
 			local scriptCode = readfile(file)
 			makeScript(scriptName, scriptCode)
@@ -6182,7 +6201,6 @@ local function SCRIPT_1d1()
 
 	updateAllStrokes()
 
-
 end
 task.spawn(SCRIPT_1d1)
 -- // StarterGui.ApplewareNew.LocalScript \\ --
@@ -6193,6 +6211,10 @@ local function SCRIPT_1d8()
 	local ClickVerify = keysyst.Verify.Click
 	local GetKeyClick = keysyst.GetKey.Click
 	local Exit = keysyst.Exit.Click
+
+	local function tbHandler(tb) local origSize, tbText, typing = tb.Size, tb.Text, false local function checkFocus() if tb:IsFocused() then tb.Size = origSize + UDim2.new(0, 1, 0, 1) end end game:GetService("UserInputService").InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then checkFocus() end end) tb.Focused:Connect(checkFocus) tb.Changed:Connect(function(prop) if prop == "Text" and tb.Text ~= tbText then tbText = tb.Text tb.Size = origSize + UDim2.new(0, 1, 0, 1) end end) tb:GetPropertyChangedSignal("Text"):Connect(function() if tb.Text ~= tbText then typing = true tbText = tb.Text tb.Size = origSize + UDim2.new(0, 1, 0, 1) else if typing then wait(0.3) tb.Size = origSize typing = false end end end) end
+
+	tbHandler(KeyTextBox)
 
 	ClickVerify.MouseButton1Click:Connect(function()
 		local key = verify_key(KeyTextBox.Text)

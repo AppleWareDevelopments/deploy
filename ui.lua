@@ -4343,28 +4343,10 @@ G2L_MODULES[UI["1d2"]] = {
 			end
 		end
 
-
-		function customLoadstring(scriptCode)
-			if loadstring then
-				local success, result = pcall(function()
-					return loadstring(scriptCode)
-				end)
-				if success then
-					return loadstring(scriptCode)
-				else
-					module.NotificationHandler("Error: " .. tostring(result), 3)
-					-- Suppress the error from appearing in the console
-				end
-			else
-				module.NotificationHandler("Error from Execute", 3)
-			end
-		end
-
-
 		function EditorPageHandler(Option, source)
 			local Code = textbox2.Parent.Text or source
 			if Option == "Execute" then
-				customLoadstring(Code)
+				loadstring(Code)
 			elseif Option == "Paste" then
 				local getclipboard = getclipboard or function() end
 				if getclipboard then
@@ -4420,7 +4402,7 @@ G2L_MODULES[UI["1d2"]] = {
 			end
 
 			execute.MouseButton1Click:Connect(function()
-				customLoadstring(source)
+				loadstring(source)
 			end)
 		end
 
@@ -4510,7 +4492,6 @@ G2L_MODULES[UI["1d2"]] = {
 				writefile(tf, encode(td))
 			else
 				td = decode(readfile(tf))
-				
 				if not td["tab1"] then
 					td["tab1"] = "--Welcome to AppleWareV2"
 					td.Howmuch = 1
@@ -4519,7 +4500,7 @@ G2L_MODULES[UI["1d2"]] = {
 			end
 
 			local currentTab = "tab1"
-			local nextTabIndex = td.Howmuch and 1 + td.Howmuch or 1
+			local nextTabIndex = td.Howmuch + 1
 
 			for n, c in pairs(td) do
 				if n ~= "Howmuch" then
@@ -4632,8 +4613,8 @@ G2L_MODULES[UI["1d2"]] = {
 			clonedpage.Visible = true
 			SN.Text = scriptname
 			SC.MouseButton1Click:Connect(function()
-				print(scriptcode)
-				customLoadstring(scriptcode)
+				--print(scriptcode)
+				loadstring(scriptcode)
 			end)
 		end
 
@@ -4672,7 +4653,7 @@ G2L_MODULES[UI["1d2"]] = {
 
 			Saving.MouseButton1Click:Connect(function()
 				SavingSystem(TextName.Text, Code.Text)
-				print(TextName.Text, Code.Text)
+				--print(TextName.Text, Code.Text)
 				closeSaving()
 			end)
 

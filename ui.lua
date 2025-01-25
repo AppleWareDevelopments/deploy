@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 473 | SCRIPTS: 2 | MODULES: 7 \\ --
+-- // INSTANCES: 471 | SCRIPTS: 1 | MODULES: 6 \\ --
 
 local UI = {}
 
@@ -1481,7 +1481,6 @@ UI["a7"]["ScaleType"] = Enum.ScaleType.Fit
 UI["a7"]["ImageColor3"] = Color3.fromRGB(162, 177, 234)
 UI["a7"]["Image"] = [[http://www.roblox.com/asset/?id=6035047377]]
 UI["a7"]["Size"] = UDim2.new(0.05921, 0, 0.581, 0)
-UI["a7"]["Visible"] = false
 UI["a7"]["BackgroundTransparency"] = 1
 UI["a7"]["Name"] = [[Add]]
 UI["a7"]["Position"] = UDim2.new(0.935, 0, 0.192, 0)
@@ -4084,43 +4083,33 @@ UI["1cf"]:SetAttribute([[UICorner]], [[Click]])
 UI["1d0"] = Instance.new("UIAspectRatioConstraint", UI["1a6"])
 UI["1d0"]["AspectRatio"] = 1.72498
 
--- // StarterGui.ApplewareNew.Handler \\ --
+-- // StarterGui.ApplewareNew.Remake \\ --
 UI["1d1"] = Instance.new("LocalScript", UI["1"])
-UI["1d1"]["Name"] = [[Handler]]
+UI["1d1"]["Name"] = [[Remake]]
 
--- // StarterGui.ApplewareNew.Handler.Func \\ --
+-- // StarterGui.ApplewareNew.Remake.Highlighter \\ --
 UI["1d2"] = Instance.new("ModuleScript", UI["1d1"])
-UI["1d2"]["Name"] = [[Func]]
+UI["1d2"]["Name"] = [[Highlighter]]
 
--- // StarterGui.ApplewareNew.Handler.Func.Highlighter \\ --
+-- // StarterGui.ApplewareNew.Remake.Highlighter.utility \\ --
 UI["1d3"] = Instance.new("ModuleScript", UI["1d2"])
-UI["1d3"]["Name"] = [[Highlighter]]
+UI["1d3"]["Name"] = [[utility]]
 
--- // StarterGui.ApplewareNew.Handler.Func.Highlighter.utility \\ --
-UI["1d4"] = Instance.new("ModuleScript", UI["1d3"])
-UI["1d4"]["Name"] = [[utility]]
+-- // StarterGui.ApplewareNew.Remake.Highlighter.types \\ --
+UI["1d4"] = Instance.new("ModuleScript", UI["1d2"])
+UI["1d4"]["Name"] = [[types]]
 
--- // StarterGui.ApplewareNew.Handler.Func.Highlighter.types \\ --
-UI["1d5"] = Instance.new("ModuleScript", UI["1d3"])
-UI["1d5"]["Name"] = [[types]]
+-- // StarterGui.ApplewareNew.Remake.Highlighter.theme \\ --
+UI["1d5"] = Instance.new("ModuleScript", UI["1d2"])
+UI["1d5"]["Name"] = [[theme]]
 
--- // StarterGui.ApplewareNew.Handler.Func.Highlighter.theme \\ --
-UI["1d6"] = Instance.new("ModuleScript", UI["1d3"])
-UI["1d6"]["Name"] = [[theme]]
+-- // StarterGui.ApplewareNew.Remake.Highlighter.lexer \\ --
+UI["1d6"] = Instance.new("ModuleScript", UI["1d2"])
+UI["1d6"]["Name"] = [[lexer]]
 
--- // StarterGui.ApplewareNew.Handler.Func.Highlighter.lexer \\ --
-UI["1d7"] = Instance.new("ModuleScript", UI["1d3"])
-UI["1d7"]["Name"] = [[lexer]]
-
--- // StarterGui.ApplewareNew.Handler.Func.Highlighter.lexer.language \\ --
-UI["1d8"] = Instance.new("ModuleScript", UI["1d7"])
-UI["1d8"]["Name"] = [[language]]
-
--- // StarterGui.ApplewareNew.LocalScript \\ --
-UI["1d9"] = Instance.new("LocalScript", UI["1"])
-
--- Attributes
-UI["1d9"]:SetAttribute([[LocalScript]], [[AppleWare]])
+-- // StarterGui.ApplewareNew.Remake.Highlighter.lexer.language \\ --
+UI["1d7"] = Instance.new("ModuleScript", UI["1d6"])
+UI["1d7"]["Name"] = [[language]]
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
@@ -4140,597 +4129,6 @@ end
 G2L_MODULES[UI["1d2"]] = {
 	Closure = function()
 		local script = UI["1d2"]
-		local module = {}
-
-		local highlighter = require(script.Highlighter)
-		local textbox2 = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2
-		local minimap = script.Parent.Parent.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source.Source2
-		local sourceLabel = textbox2.Parent.Parent.TextLabel
-
-		local writefile = writefile or function(fileName, content)
-		end
-
-		local readfile = readfile or function(fileName)
-			return ""
-		end
-
-		local isfile = isfile or function(fileName)
-			return ""
-		end
-
-		local listfiles = listfiles or function(folderName)
-			return ''
-		end
-
-		local service = setmetatable({}, { 
-			__index = function(_, k)
-				return game:GetService(k)
-			end
-		})
-
-		function module.initialize()
-
-			local function getNumberOfLines(str)
-				local count = 1
-				for _ in string.gmatch(str, "\n") do
-					count += 1
-				end
-				return count
-			end
-
-			highlighter.highlight({
-				textObject = textbox2,
-				forceUpdate = true,
-				customLang = {"HttpGet", "Players", "CoreGui"},
-			})
-			highlighter.highlight({
-				textObject = minimap,
-				forceUpdate = true,
-				customLang = {"HttpGet", "Players", "CoreGui"},
-			})
-
-			local function syncText()
-				textbox2.Text = textbox2.Parent.Text
-				minimap.Text = textbox2.Parent.Text
-				textbox2.Transparency = 1
-			end
-			textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(syncText)
-			syncText()
-
-			local function updateLineNumbers()
-				local lines = getNumberOfLines(textbox2.Parent.Text)
-				local str = ""
-				for i = 1, lines do
-					str = str .. i .. "\n"
-				end
-				sourceLabel.Text = str
-			end
-			textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(updateLineNumbers)
-			updateLineNumbers()
-
-			local frame = textbox2.Parent.Parent
-			local function updateScrollFrameSize()
-				frame.CanvasSize = UDim2.new(0, 0, 0, textbox2.TextBounds.Y)
-			end
-			textbox2:GetPropertyChangedSignal("Text"):Connect(updateScrollFrameSize)
-			updateScrollFrameSize()
-		end
-
-		local TS = service.TweenService
-
-		function module.NotificationHandler(message, displayTime)
-			local notification = script.Parent.Parent.UI.MainGui.Alert:Clone()
-			local close = notification.Icon
-			notification.Parent = script.Parent.Parent.UI.MainGui.Alerts
-			notification.Visible, notification.TEXTLABEL.Text = true, message
-			local function animationidk(transparency)
-				TS:Create(notification, TweenInfo.new(1.5), { ImageTransparency = transparency }):Play()
-				TS:Create(notification.TEXTLABEL, TweenInfo.new(0.5), { TextTransparency = transparency }):Play()
-				TS:Create(notification.ImageLabel, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
-				TS:Create(notification.ShadowBackk, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
-				TS:Create(notification.Icon, TweenInfo.new(0.8), {ImageTransparency = transparency}):Play()
-			end
-			close.MouseButton1Click:Connect(function()
-				notification.Visible = false
-			end)
-			animationidk(0)
-			task.wait(displayTime)
-			animationidk(1)
-			task.wait(1)
-			notification:Destroy()
-		end
-
-		function module.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SBarButtons, Pages, SBarHiddenPos, SBarVisiPos, PHidepos, PVisipos)
-			local function createTween(object, properties, duration)
-				local tween = TS:Create(object, TweenInfo.new(duration), properties)
-				tween:Play()
-				return tween
-			end
-
-			local function toggleSidebar(isVisible)
-				if isVisible then
-					UI.Parent.Visible = true
-					createTween(UI.Parent, {BackgroundTransparency = 0}, 0.5)
-					createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 0}, 0.5)
-					createTween(UI.Parent.UIStroke, {Transparency = 0}, 0.5)
-
-					wait(0.5)
-					createTween(Sidebar, {Position = SBarVisiPos}, 0.5)
-					createTween(P, {Position = PVisipos}, 0.5)
-					createTween(open.Parent, {ImageTransparency = 1}, 0.5)
-					open.Parent.Visible = false
-				else
-					createTween(Sidebar, {Position = SBarHiddenPos}, 0.5)
-					createTween(P, {Position = PHidepos}, 0.5)
-					wait(0.5)
-					createTween(UI.Parent, {BackgroundTransparency = 1}, 0.5)
-					createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 1}, 0.5)
-					createTween(UI.Parent.UIStroke, {Transparency = 1}, 0.5)
-					UI.Parent.Visible = false
-					open.Parent.Visible = true
-					createTween(open.Parent, {ImageTransparency = 0}, 0.5)
-				end
-			end
-
-			local function switchPage(selectedButton)
-				for i, buttonName in ipairs(SBarButtons) do
-					local button = Sidebar:FindFirstChild(buttonName)
-					local page = P:FindFirstChild(Pages[i])
-
-					if buttonName == selectedButton then
-						createTween(button, {BackgroundTransparency = 0}, 0.5)
-						page.Visible = true
-					else
-						createTween(button, {BackgroundTransparency = 1}, 0.5)
-						page.Visible = false
-					end
-				end
-
-				local jsonData = service.HttpService:JSONEncode({lastPage = selectedButton})
-				if not isfile("lastPage.json") then
-					writefile("lastPage.json", jsonData)
-				else
-					writefile("lastPage.json", jsonData)
-				end
-			end
-
-			local function getlastpage()
-				if isfile("lastPage.json") then
-					local lastPage = ""
-
-					local success, result = pcall(function()
-						local jsonData = readfile("lastPage.json")
-						local data = service.HttpService:JSONDecode(jsonData)
-						return data.lastPage
-					end)
-					if success then
-						lastPage = result or ""
-					end
-
-					return lastPage
-				end
-			end
-
-			local function loadLastPage()
-				if isfile("lastPage.json") then
-					local lastPage = getlastpage()
-
-					if lastPage then
-						switchPage(lastPage)
-					else
-						return 
-					end
-				end
-			end
-
-			loadLastPage()
-
-			open.MouseButton1Click:Connect(function()
-				toggleSidebar(true)
-			end)
-
-			Slide.MouseButton1Click:Connect(function()
-				toggleSidebar(false)
-			end)
-
-			for _, buttonName in ipairs(SBarButtons) do
-				local button = Sidebar:FindFirstChild(buttonName)
-				if button then
-					button:FindFirstChild("Click").MouseButton1Click:Connect(function()
-						switchPage(buttonName)
-					end)
-				end
-			end
-		end
-
-		function EditorPageHandler(Option, source)
-			local Code = textbox2.Parent.Text or source
-			if Option == "Execute" then
-				loadstring(Code)
-			elseif Option == "Paste" then
-				local getclipboard = getclipboard or function() end
-				if getclipboard then
-					textbox2.Parent.Text = getclipboard()
-				else
-					module.NotificationHandler("Error: Cant access clipboard. Open a ticket and report the bug.", 2.5)
-				end
-			elseif Option == "Clear" then
-				textbox2.Parent.Text = ""
-			else
-				module.NotificationHandler("Error: open ticket if u see this bugs", 2.5)
-
-			end
-		end
-
-		function module.EditorPageinstaller(Execute, Clear, Paste, Back)
-			Execute.MouseButton1Click:Connect(function()
-				EditorPageHandler("Execute")
-			end)
-			Clear.MouseButton1Click:Connect(function()
-				EditorPageHandler("Clear")
-			end)
-			Paste.MouseButton1Click:Connect(function()
-				EditorPageHandler("Paste")
-			end)
-			Back.HideBtn.Click.MouseButton1Click:Connect(function()
-				if Back.Minimap.Visible then
-					Back.Minimap.Visible = false
-					Back.HideBtn.Icon.Image = "rbxassetid://116112362871715"
-				else
-					Back.Minimap.Visible = true
-					Back.HideBtn.Icon.Image = "rbxassetid://97345729257968"
-				end
-			end)
-		end
-
-		function AddSearch(CF, Scrolling, Description, scriptname, source)
-			local scriptFrame = CF
-			local newList = scriptFrame:Clone()
-
-			local execute = newList.Click
-			local scname = newList.ScriptName.ScriptName
-			local sdname = newList.ScriptDescription
-			newList.Name = scriptname
-			newList.Parent = Scrolling
-			newList.Visible = true
-			scname.Text = scriptname
-
-			if type(Description) ~= "string" then
-				sdname.Text = tostring(Description)
-			else
-				sdname.Text = Description
-			end
-
-			execute.MouseButton1Click:Connect(function()
-				loadstring(source)
-			end)
-		end
-
-		function module.CloudHandler(CloneFrame, SearchButton, MyScriptsButton, Scroller, TextBox, http)
-
-			SearchButton.MouseButton1Click:Connect(function()
-				TextBox.TextEditable = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = true
-			end)
-
-			MyScriptsButton.MouseButton1Click:Connect(function()
-				TextBox.TextEditable = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = true
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = false
-				script.Parent.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = false
-			end)
-			script.Parent.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.AddBtn.MouseButton1Click:Connect(function()
-				script.Parent.Parent.UI.MainGui.Pages.ScriptSave.Visible = true
-			end)
-
-
-			TextBox.FocusLost:Connect(function()
-				if TextBox.Text == "" or #TextBox.Text > 15 or Scroller.Parent.Visible == false then return end
-				for _, child in ipairs(Scroller:GetChildren()) do
-					if child:IsA("Frame") then child:Destroy() end
-				end
-
-				local url = "https://scriptblox.com/api/script/search?q=" .. string.gsub(TextBox.Text, " ", "%%20")
-				local success, response = pcall(game.HttpGetAsync, game, url)
-				if success then
-					local decodedSuccess, decoded = pcall(http.JSONDecode, http, response)
-
-					if decodedSuccess then
-						if decoded.result and decoded.result.scripts then
-							for _, scriptData in ipairs(decoded.result.scripts or {}) do
-								if not scriptData.isPatched then
-									task.wait(0.1)
-									AddSearch(CloneFrame, Scroller, scriptData.name, scriptData.title, scriptData.script)
-								end
-							end
-						else
-							module.NotificationHandler("No scripts found in API.", 2.5)
-						end
-					else
-						module.NotificationHandler("Failed to Connected with the API")
-					end
-				else
-					module.NotificationHandler((response or "Unknown error"), 2.5)
-				end
-			end)
-		end
-
-		-- console not now
-		function module.TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf)
-
-			local function encode(data)
-				local j = "{"
-				for k, v in pairs(data) do
-					if type(v) == "string" then
-						v = v:gsub("\\", "\\\\"):gsub("\"", "\\\""):gsub("\n", "\\n")
-					end
-					j = j .. string.format("\"%s\":\"%s\",", k, v)
-				end
-				if #j > 1 then
-					j = j:sub(1, -2)
-				end
-				return j .. "}"
-			end
-
-			local function decode(json)
-				local d = {}
-				for k, v in json:gmatch('\"(.-)\":\"(.-)\"') do
-					v = v:gsub("\\\"", "\""):gsub("\\\\", "\\"):gsub("\\n", "\n")
-					d[k] = v
-				end
-				return d
-			end
-
-			if not isfile(tf) then
-				td = { Howmuch = 1, tab1 = "" }
-				writefile(tf, encode(td))
-			else
-				td = decode(readfile(tf))
-				if not td["tab1"] then
-					td["tab1"] = "--Welcome to AppleWareV2"
-					td.Howmuch = 1
-					writefile(tf, encode(td))
-				end
-			end
-
-			local currentTab = "tab1"
-			local nextTabIndex = 1
-
-			for n, c in pairs(td) do
-				if n ~= "Howmuch" then
-					local nt = tc:Clone()
-					nt.Visible = true
-					nt.Main.TabName.Text = n
-					nt.Parent = Tabs
-
-					nt.Click.MouseButton1Click:Connect(function()
-						currentTab = n
-						sc.Text = td[n] or ""
-					end)
-
-					nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
-						tcu.Visible = true
-					end)
-				end
-			end
-
-			ab.MouseButton1Click:Connect(function()
-				tcu.Visible = true
-			end)
-
-			cb.MouseButton1Click:Connect(function()
-				local newTabName = "tab" .. nextTabIndex
-				nextTabIndex = nextTabIndex + 1
-
-				local nt = tc:Clone()
-				nt.Name = newTabName
-				nt.Main.TabName.Text = newTabName
-				nt.Parent = Tabs
-				nt.Visible = true
-
-				td[newTabName] = ""
-				td.Howmuch = td.Howmuch + 1
-				writefile(tf, encode(td))
-
-				nt.Click.MouseButton1Click:Connect(function()
-					currentTab = newTabName
-					sc.Text = td[newTabName] or ""
-				end)
-
-				nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
-					tcu.Visible = true
-				end)
-
-				nt.Del.MouseButton1Click:Connect(function()
-					local uduehf = script.Parent.Parent.UI.MainGui.Pages.TabWarn
-					uduehf.Visible = true
-					uduehf.ClearPage.DeleteBtn.Click.MouseButton1Click:Connect(function()
-						td[newTabName] = nil
-						td.Howmuch = td.Howmuch - 1
-						writefile(tf, encode(td))
-						nt:Destroy()
-						uduehf.Visible = false
-					end)
-					uduehf.ClearPage.CancelBtn.Click.MouseButton1Click:Connect(function()
-						uduehf.Visible = false
-					end)
-				end)
-
-				tcu.Visible = false
-			end)
-
-			cl.MouseButton1Click:Connect(function()
-				tcu.Visible = false
-			end)
-
-			sc:GetPropertyChangedSignal("Text"):Connect(function()
-				if currentTab then
-					td[currentTab] = sc.Text
-					writefile(tf, encode(td))
-				end
-			end)
-		end
-
-		function updateStrokeThickness(uiStroke)
-			local camera = service.Workspace:WaitForChild("CurrentCamera") or ''
-			local BASE_WIDTH = 1920
-			local BASE_HEIGHT = 1080
-			local initialStrokeThickness = uiStroke.Thickness
-			local scaleX = camera.ViewportSize.X / BASE_WIDTH
-			local scaleY = camera.ViewportSize.Y / BASE_HEIGHT
-			local scale = (scaleX + scaleY) / 2 
-
-			uiStroke.Thickness = initialStrokeThickness * scale
-		end
-
-		function module.updateAllStrokes()
-			for _, gui in pairs(script.Parent:GetDescendants()) do
-				if gui:IsA("UIStroke") then
-					updateStrokeThickness(gui)
-				end
-			end
-		end
-
-
-		--saving handler
-
-		function makeScript(scriptname, scriptcode)
-			for _, v in pairs(script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling:GetChildren()) do
-				if v:IsA("Frame") then
-					v:Destroy()
-				end
-			end
-			local clonedpage = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame:Clone()
-			local SN = clonedpage.ScriptName.ScriptName
-			local SC = clonedpage.Click
-			clonedpage.Parent = script.Parent.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
-			clonedpage.Visible = true
-			SN.Text = scriptname
-			SC.MouseButton1Click:Connect(function()
-				--print(scriptcode)
-				loadstring(scriptcode)
-			end)
-		end
-
-		function SavingSystem(name, source)
-			writefile("scripts/" .. (name:match("%.lua$") and name or name .. ".lua"), source)
-			makeScript(name, source)
-		end
-
-		function module.SavingHandler()
-
-			local Page29 = script.Parent.Parent.UI.MainGui.Pages.ScriptSave
-			local NameS = Page29.ScriptPage1
-			local CodeS = Page29.ScriptPage2
-
-			local NInput = NameS.input.InputText
-			local NNext = NameS.NextBtn.Click
-			local NExit = NameS.CloseBtn.Click
-
-			local CInput = CodeS.Input1.InputText1
-			local Saving = CodeS.saveBtn.Click
-			local CExit = CodeS.CloseBtn1.Click
-
-			local Code = CInput
-			local TextName = NInput
-
-			local function closeSaving()
-				Page29.Visible = false
-				NameS.Visible = true
-				CodeS.Visible = false
-			end
-
-			NNext.MouseButton1Click:Connect(function()
-				NameS.Visible = false
-				CodeS.Visible = true
-			end)
-
-			Saving.MouseButton1Click:Connect(function()
-				SavingSystem(TextName.Text, Code.Text)
-				--print(TextName.Text, Code.Text)
-				closeSaving()
-			end)
-
-			--close handler
-
-			NExit.MouseButton1Click:Connect(function()
-				closeSaving()
-			end)
-			CExit.MouseButton1Click:Connect(function()
-				closeSaving()
-			end)
-			if game:GetService("RunService"):IsStudio() then return end
-			local oldfiles = {}
-			for _, file in ipairs(listfiles("scripts")) do
-				local scriptName = file:sub(9, -5)
-				local scriptCode = readfile(file)
-				makeScript(scriptName, scriptCode)
-			end
-			while true do
-				local currentFiles = listfiles("scripts")
-				if #currentFiles ~= #oldfiles then
-					oldfiles = currentFiles
-					for _, file in ipairs(currentFiles) do
-						local scriptName = file:sub(9, -5)
-						local scriptCode = readfile(file)
-						makeScript(scriptName, scriptCode)
-					end
-				end
-				wait(2)
-			end
-		end
-
-		function module.drag(frame)
-			local dragging, dragStart, startPos = false, nil, nil
-
-			local function update(input)
-				local delta = input.Position - dragStart
-				frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-			end
-
-			frame.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-					dragging = true
-					dragStart = input.Position
-					startPos = frame.Position
-					input.Changed:Connect(function()
-						if input.UserInputState == Enum.UserInputState.End then
-							dragging = false
-						end
-					end)
-				end
-			end)
-
-			frame.InputChanged:Connect(function(input)
-				if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-					update(input)
-				end
-			end)
-
-			service.UserInputService.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-					dragging = false
-				end
-			end)
-		end
-
-		return module
-
---[[
-
-]]
-
-	end
-}
-G2L_MODULES[UI["1d3"]] = {
-	Closure = function()
-		local script = UI["1d3"]
 		local types = require(script.types)
 		local utility = require(script.utility)
 		local theme = require(script.theme)
@@ -5052,9 +4450,9 @@ G2L_MODULES[UI["1d3"]] = {
 
 	end
 }
-G2L_MODULES[UI["1d4"]] = {
+G2L_MODULES[UI["1d3"]] = {
 	Closure = function()
-		local script = UI["1d4"]
+		local script = UI["1d3"]
 		local types = require(script.Parent.types)
 
 		local Utility = {}
@@ -5109,9 +4507,9 @@ G2L_MODULES[UI["1d4"]] = {
 
 	end
 }
-G2L_MODULES[UI["1d5"]] = {
+G2L_MODULES[UI["1d4"]] = {
 	Closure = function()
-		local script = UI["1d5"]
+		local script = UI["1d4"]
 		export type TextObject = TextLabel | TextBox
 
 		export type TokenName =
@@ -5163,9 +4561,9 @@ G2L_MODULES[UI["1d5"]] = {
 
 	end
 }
-G2L_MODULES[UI["1d6"]] = {
+G2L_MODULES[UI["1d5"]] = {
 	Closure = function()
-		local script = UI["1d6"]
+		local script = UI["1d5"]
 		local DEFAULT_TOKEN_COLORS = {
 			["background"] = Color3.fromRGB(40, 42, 54),
 			["iden"] = Color3.fromRGB(150, 171, 193),
@@ -5239,9 +4637,9 @@ G2L_MODULES[UI["1d6"]] = {
 
 	end
 }
-G2L_MODULES[UI["1d7"]] = {
+G2L_MODULES[UI["1d6"]] = {
 	Closure = function()
-		local script = UI["1d7"]
+		local script = UI["1d6"]
 --[=[
 	Lexical scanner for creating a sequence of tokens from Lua source code.
 	This is a heavily modified and Roblox-optimized version of
@@ -5570,9 +4968,9 @@ G2L_MODULES[UI["1d7"]] = {
 
 	end
 }
-G2L_MODULES[UI["1d8"]] = {
+G2L_MODULES[UI["1d7"]] = {
 	Closure = function()
-		local script = UI["1d8"]
+		local script = UI["1d7"]
 		local language = {
 			keyword = {
 				["and"] = "keyword",
@@ -6111,19 +5509,581 @@ G2L_MODULES[UI["1d8"]] = {
 
 	end
 }
--- // StarterGui.ApplewareNew.Handler \\ --
+-- // StarterGui.ApplewareNew.Remake \\ --
 local function SCRIPT_1d1()
 	local script = UI["1d1"]
+	local highlighter = require(script.Highlighter)
+	local textbox2 = script.Parent.UI.MainGui.Pages.EditorPage.EditorPage.txtbox.EditorFrame.Source.Source2
+	local minimap = script.Parent.UI.MainGui.Pages.EditorPage.EditorPage.Minimap.Source.Source2
+	local sourceLabel = textbox2.Parent.Parent.TextLabel
+
+	local writefile = writefile or function(fileName, content) end
+	local readfile = readfile or function(fileName) return '' end
+	local isfile = isfile or function(fileName) return '' end
+	local listfiles = listfiles or function(folderName) return '' end
+	local setclipboard = setclipboard or function() return '' end
+	local getclipboard = getclipboard or function() return '' end
+
 	local service = setmetatable({}, { 
 		__index = function(_, k)
 			return game:GetService(k)
 		end
 	})
 
+	function initialize()
+
+		local function getNumberOfLines(str)
+			local count = 1
+			for _ in string.gmatch(str, "\n") do
+				count += 1
+			end
+			return count
+		end
+
+		highlighter.highlight({
+			textObject = textbox2,
+			forceUpdate = true,
+			customLang = {"HttpGet", "Players", "CoreGui"},
+		})
+		highlighter.highlight({
+			textObject = minimap,
+			forceUpdate = true,
+			customLang = {"HttpGet", "Players", "CoreGui"},
+		})
+
+		local function syncText()
+			textbox2.Text = textbox2.Parent.Text
+			minimap.Text = textbox2.Parent.Text
+			textbox2.Transparency = 1
+		end
+		textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(syncText)
+		syncText()
+
+		local function updateLineNumbers()
+			local lines = getNumberOfLines(textbox2.Parent.Text)
+			local str = ""
+			for i = 1, lines do
+				str = str .. i .. "\n"
+			end
+			sourceLabel.Text = str
+		end
+		textbox2.Parent:GetPropertyChangedSignal("Text"):Connect(updateLineNumbers)
+		updateLineNumbers()
+
+		local frame = textbox2.Parent.Parent
+		local function updateScrollFrameSize()
+			frame.CanvasSize = UDim2.new(0, 0, 0, textbox2.TextBounds.Y)
+		end
+		textbox2:GetPropertyChangedSignal("Text"):Connect(updateScrollFrameSize)
+		updateScrollFrameSize()
+	end
+
+	local TS = service.TweenService
+
+	function NotificationHandler(message, displayTime)
+		local notification = script.Parent.UI.MainGui.Alert:Clone()
+		local close = notification.Icon
+		notification.Parent = script.Parent.UI.MainGui.Alerts
+		notification.Visible, notification.TEXTLABEL.Text = true, message
+		local function animationidk(transparency)
+			TS:Create(notification, TweenInfo.new(1.5), { ImageTransparency = transparency }):Play()
+			TS:Create(notification.TEXTLABEL, TweenInfo.new(0.5), { TextTransparency = transparency }):Play()
+			TS:Create(notification.ImageLabel, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
+			TS:Create(notification.ShadowBackk, TweenInfo.new(0.5), { ImageTransparency = transparency }):Play()
+			TS:Create(notification.Icon, TweenInfo.new(0.8), {ImageTransparency = transparency}):Play()
+		end
+		close.MouseButton1Click:Connect(function()
+			notification.Visible = false
+		end)
+		animationidk(0)
+		task.wait(displayTime)
+		animationidk(1)
+		task.wait(1)
+		notification:Destroy()
+	end
+
+	function AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SBarButtons, Pages, SBarHiddenPos, SBarVisiPos, PHidepos, PVisipos)
+		local function createTween(object, properties, duration)
+			local tween = TS:Create(object, TweenInfo.new(duration), properties)
+			tween:Play()
+			return tween
+		end
+
+		local function toggleSidebar(isVisible)
+			if isVisible then
+				UI.Parent.Visible = true
+				createTween(UI.Parent, {BackgroundTransparency = 0}, 0.5)
+				createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 0}, 0.5)
+				createTween(UI.Parent.UIStroke, {Transparency = 0}, 0.5)
+
+				wait(0.5)
+				createTween(Sidebar, {Position = SBarVisiPos}, 0.5)
+				createTween(P, {Position = PVisipos}, 0.5)
+				createTween(open.Parent, {ImageTransparency = 1}, 0.5)
+				open.Parent.Visible = false
+			else
+				createTween(Sidebar, {Position = SBarHiddenPos}, 0.5)
+				createTween(P, {Position = PHidepos}, 0.5)
+				wait(0.5)
+				createTween(UI.Parent, {BackgroundTransparency = 1}, 0.5)
+				createTween(UI.Parent.Parent.Background, {BackgroundTransparency = 1}, 0.5)
+				createTween(UI.Parent.UIStroke, {Transparency = 1}, 0.5)
+				UI.Parent.Visible = false
+				open.Parent.Visible = true
+				createTween(open.Parent, {ImageTransparency = 0}, 0.5)
+			end
+		end
+
+		local function switchPage(selectedButton)
+			for i, buttonName in ipairs(SBarButtons) do
+				local button = Sidebar:FindFirstChild(buttonName)
+				local page = P:FindFirstChild(Pages[i])
+
+				if buttonName == selectedButton then
+					createTween(button, {BackgroundTransparency = 0}, 0.5)
+					page.Visible = true
+				else
+					createTween(button, {BackgroundTransparency = 1}, 0.5)
+					page.Visible = false
+				end
+			end
+
+			local jsonData = service.HttpService:JSONEncode({lastPage = selectedButton})
+			if not isfile("lastPage.json") then
+				writefile("lastPage.json", jsonData)
+			else
+				writefile("lastPage.json", jsonData)
+			end
+		end
+
+		local function getlastpage()
+			if isfile("lastPage.json") then
+				local lastPage = ""
+
+				local success, result = pcall(function()
+					local jsonData = readfile("lastPage.json")
+					local data = service.HttpService:JSONDecode(jsonData)
+					return data.lastPage
+				end)
+				if success then
+					lastPage = result or ""
+				end
+
+				return lastPage
+			end
+		end
+
+		local function loadLastPage()
+			if isfile("lastPage.json") then
+				local lastPage = getlastpage()
+
+				if lastPage then
+					switchPage(lastPage)
+				else
+					return 
+				end
+			end
+		end
+
+		loadLastPage()
+
+		open.MouseButton1Click:Connect(function()
+			toggleSidebar(true)
+		end)
+
+		Slide.MouseButton1Click:Connect(function()
+			toggleSidebar(false)
+		end)
+
+		for _, buttonName in ipairs(SBarButtons) do
+			local button = Sidebar:FindFirstChild(buttonName)
+			if button then
+				button:FindFirstChild("Click").MouseButton1Click:Connect(function()
+					switchPage(buttonName)
+				end)
+			end
+		end
+	end
+
+	function EditorPageHandler(Option, source)
+		local Code = textbox2.Parent.Text or source
+		if Option == "Execute" then
+		elseif Option == "Paste" then
+			local getclipboard = getclipboard or function() end
+			if getclipboard then
+				textbox2.Parent.Text = getclipboard()
+			else
+				NotificationHandler("Error: Cant access clipboard. Open a ticket and report the bug.", 2.5)
+			end
+		elseif Option == "Clear" then
+			textbox2.Parent.Text = ""
+		else
+			NotificationHandler("Error: open ticket if u see this bugs", 2.5)
+
+		end
+	end
+
+	function EditorPageinstaller(Execute, Clear, Paste, Back)
+		Execute.MouseButton1Click:Connect(function()
+			loadstring(Code)
+		end)
+		Clear.MouseButton1Click:Connect(function()
+			EditorPageHandler("Clear")
+		end)
+		Paste.MouseButton1Click:Connect(function()
+			EditorPageHandler("Paste")
+		end)
+		Back.HideBtn.Click.MouseButton1Click:Connect(function()
+			if Back.Minimap.Visible then
+				Back.Minimap.Visible = false
+				Back.HideBtn.Icon.Image = "rbxassetid://116112362871715"
+			else
+				Back.Minimap.Visible = true
+				Back.HideBtn.Icon.Image = "rbxassetid://97345729257968"
+			end
+		end)
+	end
+
+	function AddSearch(CF, Scrolling, Description, scriptname, source)
+		local scriptFrame = CF
+		local newList = scriptFrame:Clone()
+
+		local execute = newList.Click
+		local scname = newList.ScriptName.ScriptName
+		local sdname = newList.ScriptDescription
+		newList.Name = scriptname
+		newList.Parent = Scrolling
+		newList.Visible = true
+		scname.Text = scriptname
+
+		if type(Description) ~= "string" then
+			sdname.Text = tostring(Description)
+		else
+			sdname.Text = Description
+		end
+
+		execute.MouseButton1Click:Connect(function()
+			loadstring(source)
+		end)
+	end
+
+	function CloudHandler(CloneFrame, SearchButton, MyScriptsButton, Scroller, TextBox, http)
+
+		SearchButton.MouseButton1Click:Connect(function()
+			TextBox.TextEditable = true
+			script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = false
+			script.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = false
+			script.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = true
+			script.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = true
+			script.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = true
+		end)
+
+		MyScriptsButton.MouseButton1Click:Connect(function()
+			TextBox.TextEditable = false
+			script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Visible = true
+			script.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.Visible = true
+			script.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.SearchBox.Visible = false
+			script.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Scrolling.Visible = false
+			script.Parent.UI.MainGui.Pages.CloudPage.CloudPageScripts.Visible = false
+		end)
+		script.Parent.UI.MainGui.Pages.CloudPage.SearchFrame.Add.AddBtn.MouseButton1Click:Connect(function()
+			script.Parent.UI.MainGui.Pages.ScriptSave.Visible = true
+		end)
+
+
+		TextBox.FocusLost:Connect(function()
+			if TextBox.Text == "" or #TextBox.Text > 15 or Scroller.Parent.Visible == false then return end
+			for _, child in ipairs(Scroller:GetChildren()) do
+				if child:IsA("Frame") then child:Destroy() end
+			end
+
+			local url = "https://scriptblox.com/api/script/search?q=" .. string.gsub(TextBox.Text, " ", "%%20")
+			local success, response = pcall(game.HttpGetAsync, game, url)
+			if success then
+				local decodedSuccess, decoded = pcall(http.JSONDecode, http, response)
+
+				if decodedSuccess then
+					if decoded.result and decoded.result.scripts then
+						for _, scriptData in ipairs(decoded.result.scripts or {}) do
+							if not scriptData.isPatched then
+								task.wait(0.1)
+								AddSearch(CloneFrame, Scroller, scriptData.name, scriptData.title, scriptData.script)
+							end
+						end
+					else
+						NotificationHandler("No scripts found in API.", 2.5)
+					end
+				else
+					NotificationHandler("Failed to Connected with the API")
+				end
+			else
+				NotificationHandler((response or "Unknown error"), 2.5)
+			end
+		end)
+	end
+
+	-- console not now
+	function TabsLoader(tc, Tabs, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf)
+
+		local function encode(data)
+			local j = "{"
+			for k, v in pairs(data) do
+				if type(v) == "string" then
+					v = v:gsub("\\", "\\\\"):gsub("\"", "\\\""):gsub("\n", "\\n")
+				end
+				j = j .. string.format("\"%s\":\"%s\",", k, v)
+			end
+			if #j > 1 then
+				j = j:sub(1, -2)
+			end
+			return j .. "}"
+		end
+
+		local function decode(json)
+			local d = {}
+			for k, v in json:gmatch('\"(.-)\":\"(.-)\"') do
+				v = v:gsub("\\\"", "\""):gsub("\\\\", "\\"):gsub("\\n", "\n")
+				d[k] = v
+			end
+			return d
+		end
+
+		if not isfile(tf) then
+			td = { Howmuch = 1, tab1 = "" }
+			writefile(tf, encode(td))
+		else
+			td = decode(readfile(tf))
+			if not td["tab1"] then
+				td["tab1"] = "--Welcome to AppleWareV2"
+				td.Howmuch = 1
+				writefile(tf, encode(td))
+			end
+		end
+
+		local currentTab = "tab1"
+		local nextTabIndex = td.Howmuch + 1
+
+		for n, c in pairs(td) do
+			if n ~= "Howmuch" then
+				local nt = tc:Clone()
+				nt.Visible = true
+				nt.Main.TabName.Text = n
+				nt.Parent = Tabs
+
+				nt.Click.MouseButton1Click:Connect(function()
+					currentTab = n
+					sc.Text = td[n] or ""
+				end)
+
+				nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
+					tcu.Visible = true
+				end)
+			end
+		end
+
+		ab.MouseButton1Click:Connect(function()
+			tcu.Visible = true
+		end)
+
+		cb.MouseButton1Click:Connect(function()
+			local newTabName = "tab" .. nextTabIndex
+			nextTabIndex = nextTabIndex + 1
+
+			local nt = tc:Clone()
+			nt.Name = newTabName
+			nt.Main.TabName.Text = newTabName
+			nt.Parent = Tabs
+			nt.Visible = true
+
+			td[newTabName] = ""
+			td.Howmuch = td.Howmuch + 1
+			writefile(tf, encode(td))
+
+			nt.Click.MouseButton1Click:Connect(function()
+				currentTab = newTabName
+				sc.Text = td[newTabName] or ""
+			end)
+
+			nt.AddTab.AddBtn.MouseButton1Click:Connect(function()
+				tcu.Visible = true
+			end)
+
+			nt.Del.MouseButton1Click:Connect(function()
+				local uduehf = script.Parent.UI.MainGui.Pages.TabWarn
+				uduehf.Visible = true
+				uduehf.ClearPage.DeleteBtn.Click.MouseButton1Click:Connect(function()
+					td[newTabName] = nil
+					td.Howmuch = td.Howmuch - 1
+					writefile(tf, encode(td))
+					nt:Destroy()
+					uduehf.Visible = false
+				end)
+				uduehf.ClearPage.CancelBtn.Click.MouseButton1Click:Connect(function()
+					uduehf.Visible = false
+				end)
+			end)
+
+			tcu.Visible = false
+		end)
+
+		cl.MouseButton1Click:Connect(function()
+			tcu.Visible = false
+		end)
+
+		sc:GetPropertyChangedSignal("Text"):Connect(function()
+			if currentTab then
+				td[currentTab] = sc.Text
+				writefile(tf, encode(td))
+			end
+		end)
+	end
+
+	function updateStrokeThickness(uiStroke)
+		local camera = service.Workspace:FindFirstChildWhichIsA("Camera")
+		local BASE_WIDTH = 1920
+		local BASE_HEIGHT = 1080
+		local initialStrokeThickness = uiStroke.Thickness
+		local scaleX = camera.ViewportSize.X / BASE_WIDTH
+		local scaleY = camera.ViewportSize.Y / BASE_HEIGHT
+		local scale = (scaleX + scaleY) / 2 
+
+		uiStroke.Thickness = initialStrokeThickness * scale
+	end
+
+	function updateAllStrokes()
+		for _, gui in pairs(script.Parent:GetDescendants()) do
+			if gui:IsA("UIStroke") then
+				updateStrokeThickness(gui)
+			end
+		end
+	end
+
+
+	--saving handler
+
+	function makeScript(scriptname, scriptcode)
+		for _, v in pairs(script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling:GetChildren()) do
+			if v:IsA("Frame") then
+				v:Destroy()
+			end
+		end
+		local clonedpage = script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling.C.ScriptFrame:Clone()
+		local SN = clonedpage.ScriptName.ScriptName
+		local SC = clonedpage.Click
+		clonedpage.Parent = script.Parent.UI.MainGui.Pages.CloudPage.CreatePageScripts.Scrolling
+		clonedpage.Visible = true
+		SN.Text = scriptname
+		SC.MouseButton1Click:Connect(function()
+			--print(scriptcode)
+			loadstring(scriptcode)
+		end)
+	end
+
+	function SavingSystem(name, source)
+		writefile("scripts/" .. (name:match("%.lua$") and name or name .. ".lua"), source)
+		makeScript(name, source)
+	end
+
+	function SavingHandler()
+
+		local Page29 = script.Parent.UI.MainGui.Pages.ScriptSave
+		local NameS = Page29.ScriptPage1
+		local CodeS = Page29.ScriptPage2
+
+		local NInput = NameS.input.InputText
+		local NNext = NameS.NextBtn.Click
+		local NExit = NameS.CloseBtn.Click
+
+		local CInput = CodeS.Input1.InputText1
+		local Saving = CodeS.saveBtn.Click
+		local CExit = CodeS.CloseBtn1.Click
+
+		local Code = CInput
+		local TextName = NInput
+
+		local function closeSaving()
+			Page29.Visible = false
+			NameS.Visible = true
+			CodeS.Visible = false
+		end
+
+		NNext.MouseButton1Click:Connect(function()
+			NameS.Visible = false
+			CodeS.Visible = true
+		end)
+
+		Saving.MouseButton1Click:Connect(function()
+			SavingSystem(TextName.Text, Code.Text)
+			--print(TextName.Text, Code.Text)
+			closeSaving()
+		end)
+
+		--close handler
+
+		NExit.MouseButton1Click:Connect(function()
+			closeSaving()
+		end)
+		CExit.MouseButton1Click:Connect(function()
+			closeSaving()
+		end)
+		if game:GetService("RunService"):IsStudio() then return end
+		local oldfiles = {}
+		for _, file in ipairs(listfiles("scripts")) do
+			local scriptName = file:sub(9, -5)
+			local scriptCode = readfile(file)
+			makeScript(scriptName, scriptCode)
+		end
+		while true do
+			local currentFiles = listfiles("scripts")
+			if #currentFiles ~= #oldfiles then
+				oldfiles = currentFiles
+				for _, file in ipairs(currentFiles) do
+					local scriptName = file:sub(9, -5)
+					local scriptCode = readfile(file)
+					makeScript(scriptName, scriptCode)
+				end
+			end
+			wait(2)
+		end
+	end
+
+	function drag(frame)
+		local dragging, dragStart, startPos = false, nil, nil
+
+		local function update(input)
+			local delta = input.Position - dragStart
+			frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		end
+
+		frame.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				dragging = true
+				dragStart = input.Position
+				startPos = frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragging = false
+					end
+				end)
+			end
+		end)
+
+		frame.InputChanged:Connect(function(input)
+			if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+				update(input)
+			end
+		end)
+
+		service.UserInputService.InputEnded:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				dragging = false
+			end
+		end)
+	end
+
+
 	local TS = service.TweenService
 	local HS = service.HttpService
-
-	local MainModule = require(script.Func)
 
 	local SidebarButtons = {"Editor", "Cloud", "Config"}
 	local Pages = {"EditorPage", "CloudPage", "ConfigPage"}
@@ -6143,10 +6103,10 @@ local function SCRIPT_1d1()
 	local Sidebar = UI:FindFirstChild("Sidebar")
 	local Slide = Sidebar:WaitForChild("Close"):WaitForChild("Slide")
 
-	MainModule.drag(open.Parent)
+	drag(open.Parent)
 
-	MainModule.AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SidebarButtons, Pages, Positions.SidebarHidden, Positions.SidebarVisible, Positions.PageHidden, Positions.PageVisible)
-	MainModule.initialize()
+	AnimationsHandler(UI, open, P, Sidebar, Slide, TS, SidebarButtons, Pages, Positions.SidebarHidden, Positions.SidebarVisible, Positions.PageHidden, Positions.PageVisible)
+	initialize()
 
 	local premium = Sidebar.UpgradeBtn.Click
 
@@ -6158,7 +6118,7 @@ local function SCRIPT_1d1()
 	local Execute = back.Execute.Click
 	local Paste = back.Paste.Click
 	local Clear = back.Clear.Click
-	MainModule.EditorPageinstaller(Execute, Clear, Paste, back.Parent.EditorPage)
+	EditorPageinstaller(Execute, Clear, Paste, back.Parent.EditorPage)
 	--<<Cloud Page Handler>>--
 	local CloudPage = P.CloudPage
 	local CF = CloudPage.CloudPageScripts.C.ScriptFrame
@@ -6166,7 +6126,7 @@ local function SCRIPT_1d1()
 	local CC = CloudPage.Buttons.CreatePage.Click
 	local C_Scroller = CloudPage.CloudPageScripts.Scrolling
 	local C_Text = CloudPage.SearchFrame.SearchBox
-	MainModule.CloudHandler(CF, CS, CC, C_Scroller, C_Text, HS)
+	CloudHandler(CF, CS, CC, C_Scroller, C_Text, HS)
 
 	--tab system
 	local tc = P.EditorPage.Tabs.Tab1
@@ -6186,9 +6146,7 @@ local function SCRIPT_1d1()
 	local tf = "Tabs.json"
 	local tcc = 2
 
-	MainModule.TabsLoader(tc, ts, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf, tcc)
-
-	MainModule.updateAllStrokes()
+	TabsLoader(tc, ts, ab, tn, db, sb, sc, tcu, tnt, cb, cl, td, tf, tcc)
 
 	local ConfigClone = P.ConfigPage.ScrollingFrame.FPS
 	local tSS = false
@@ -6210,13 +6168,13 @@ local function SCRIPT_1d1()
 		setn(tSS)
 	end)
 
-	MainModule.SavingHandler()
+	SavingHandler()
 
-end
-task.spawn(SCRIPT_1d1)
--- // StarterGui.ApplewareNew.LocalScript \\ --
-local function SCRIPT_1d9()
-	local script = UI["1d9"]
+	local player = service.Players.LocalPlayer
+	repeat task.wait() until player
+
+	updateAllStrokes()
+
 	local keysyst = script.Parent.KeySystem.Logo
 	local KeyTextBox = keysyst.Box.KeyTextBox
 	local ClickVerify = keysyst.Verify.Click
@@ -6244,12 +6202,11 @@ local function SCRIPT_1d9()
 		script.Parent.UI.Visible = false
 		script.Parent.OpenBtn.Visible = true
 	end)
-
 	if get_key() ~= "" then
 		KeyTextBox.Text = get_key() or ""
 	end
 
 end
-task.spawn(SCRIPT_1d9)
+task.spawn(SCRIPT_1d1)
 
 return UI["1"], require;

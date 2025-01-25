@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 471 | SCRIPTS: 1 | MODULES: 6 \\ --
+-- // INSTANCES: 472 | SCRIPTS: 2 | MODULES: 6 \\ --
 
 local UI = {}
 
@@ -4111,6 +4111,10 @@ UI["1d6"]["Name"] = [[lexer]]
 UI["1d7"] = Instance.new("ModuleScript", UI["1d6"])
 UI["1d7"]["Name"] = [[language]]
 
+-- // StarterGui.ApplewareNew.LocalScript \\ --
+UI["1d8"] = Instance.new("LocalScript", UI["1"])
+
+
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
 local G2L_MODULES = {};
@@ -6028,16 +6032,11 @@ local function SCRIPT_1d1()
 		end)
 		if game:GetService("RunService"):IsStudio() then return end
 		local oldfiles = {}
-    if not isfolder("scripts") then
-    makefolder("scripts")
-end
-
-for _, file in ipairs(listfiles("scripts")) do
-    local scriptName = file:sub(9, -5)
-    local scriptCode = readfile(file)
-    makeScript(scriptName, scriptCode)
-end
-
+		for _, file in ipairs(listfiles("scripts")) do
+			local scriptName = file:sub(9, -5)
+			local scriptCode = readfile(file)
+			makeScript(scriptName, scriptCode)
+		end
 		while true do
 			local currentFiles = listfiles("scripts")
 			if #currentFiles ~= #oldfiles then
@@ -6180,6 +6179,12 @@ end
 
 	updateAllStrokes()
 
+
+end
+task.spawn(SCRIPT_1d1)
+-- // StarterGui.ApplewareNew.LocalScript \\ --
+local function SCRIPT_1d8()
+	local script = UI["1d8"]
 	local keysyst = script.Parent.KeySystem.Logo
 	local KeyTextBox = keysyst.Box.KeyTextBox
 	local ClickVerify = keysyst.Verify.Click
@@ -6212,6 +6217,6 @@ end
 	end
 
 end
-task.spawn(SCRIPT_1d1)
+task.spawn(SCRIPT_1d8)
 
 return UI["1"], require;

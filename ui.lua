@@ -5729,7 +5729,8 @@ local function SCRIPT_1d1()
 
 	function EditorPageinstaller(Execute, Clear, Paste, Back)
 		Execute.MouseButton1Click:Connect(function()
-			loadstring(Code)
+			local Code = textbox2.Parent
+			loadstring(Code.Text)
 		end)
 		Clear.MouseButton1Click:Connect(function()
 			EditorPageHandler("Clear")
@@ -5811,7 +5812,7 @@ local function SCRIPT_1d1()
 						for _, scriptData in ipairs(decoded.result.scripts or {}) do
 							if not scriptData.isPatched then
 								task.wait(0.1)
-								AddSearch(CloneFrame, Scroller, scriptData.name, scriptData.title, scriptData.script)
+								AddSearch(CloneFrame, Scroller, scriptData.game.name, scriptData.title, scriptData.script)
 							end
 						end
 					else
@@ -5865,7 +5866,7 @@ local function SCRIPT_1d1()
 		end
 
 		local currentTab = "tab1"
-    local nextTabIndex = td.Howmuch and td.Howmuch + 1 or 1
+		local nextTabIndex = td.Howmuch + 1
 
 		for n, c in pairs(td) do
 			if n ~= "Howmuch" then

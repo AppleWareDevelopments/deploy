@@ -5,7 +5,7 @@
 local UI = {}
 
 -- // StarterGui.ApplewareNew \\ --
-UI["1"] = Instance.new("ScreenGui", gethui()))
+UI["1"] = Instance.new("ScreenGui", gethui())
 UI["1"]["IgnoreGuiInset"] = true
 UI["1"]["DisplayOrder"] = 999999999
 UI["1"]["ScreenInsets"] = Enum.ScreenInsets.None

@@ -5865,7 +5865,7 @@ local function SCRIPT_1d1()
 		end
 
 		local currentTab = "tab1"
-		local nextTabIndex = td.Howmuch + 1
+    local nextTabIndex = td.Howmuch and td.Howmuch + 1 or 1
 
 		for n, c in pairs(td) do
 			if n ~= "Howmuch" then

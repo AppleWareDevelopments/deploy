@@ -5,7 +5,7 @@
 local UI = {}
 
 -- // StarterGui.ApplewareNew \\ --
-UI["1"] = Instance.new("ScreenGui", gethui())
+UI["1"] = Instance.new("ScreenGui", gethui()))
 UI["1"]["IgnoreGuiInset"] = true
 UI["1"]["DisplayOrder"] = 999999999
 UI["1"]["ScreenInsets"] = Enum.ScreenInsets.None
@@ -5729,7 +5729,7 @@ local function SCRIPT_1d1()
 
 	function EditorPageinstaller(Execute, Clear, Paste, Back)
 		Execute.MouseButton1Click:Connect(function()
-			local Code = textbox2.Parent
+    local Code = textbox2.Parent
 			loadstring(Code.Text)
 		end)
 		Clear.MouseButton1Click:Connect(function()
@@ -5866,7 +5866,7 @@ local function SCRIPT_1d1()
 		end
 
 		local currentTab = "tab1"
-		local nextTabIndex = td.Howmuch + 1
+    local nextTabIndex = td.Howmuch and td.Howmuch + 1 or 1
 
 		for n, c in pairs(td) do
 			if n ~= "Howmuch" then

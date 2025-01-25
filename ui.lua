@@ -1,6 +1,7 @@
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 472 | SCRIPTS: 2 | MODULES: 6 \\ --
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
 local UI = {}
 

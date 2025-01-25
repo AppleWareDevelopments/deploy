@@ -4506,9 +4506,11 @@ G2L_MODULES[UI["1d2"]] = {
 			end
 
 			if not isfile(tf) then
+				print("not file")
 				td = { Howmuch = 1, tab1 = "" }
 				writefile(tf, encode(td))
 			else
+				print("got file")
 				td = decode(readfile(tf))
 				if not td["tab1"] then
 					td["tab1"] = "--Welcome to AppleWareV2"

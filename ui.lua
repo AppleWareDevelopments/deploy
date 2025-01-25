@@ -4512,6 +4512,7 @@ G2L_MODULES[UI["1d2"]] = {
 			else
 				print("got file")
 				td = decode(readfile(tf))
+				print(td)
 				if not td["tab1"] then
 					td["tab1"] = "--Welcome to AppleWareV2"
 					td.Howmuch = 1

@@ -6235,7 +6235,6 @@ local function SCRIPT_1d8()
 	Exit.MouseButton1Click:Connect(function()
 		script.Parent.KeySystem:Destroy()
 		script.Parent.UI.Visible = false
-		script.Parent.OpenBtn.Visible = true
 	end)
 	if get_key() ~= "" then
 		KeyTextBox.Text = get_key() or ""

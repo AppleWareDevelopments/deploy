@@ -6028,11 +6028,16 @@ local function SCRIPT_1d1()
 		end)
 		if game:GetService("RunService"):IsStudio() then return end
 		local oldfiles = {}
-		for _, file in ipairs(listfiles("scripts")) do
-			local scriptName = file:sub(9, -5)
-			local scriptCode = readfile(file)
-			makeScript(scriptName, scriptCode)
-		end
+    if not isfolder("scripts") then
+    makefolder("scripts")
+end
+
+for _, file in ipairs(listfiles("scripts")) do
+    local scriptName = file:sub(9, -5)
+    local scriptCode = readfile(file)
+    makeScript(scriptName, scriptCode)
+end
+
 		while true do
 			local currentFiles = listfiles("scripts")
 			if #currentFiles ~= #oldfiles then

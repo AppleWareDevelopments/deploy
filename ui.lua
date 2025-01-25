@@ -1,8 +1,7 @@
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 472 | SCRIPTS: 2 | MODULES: 6 \\ --
-local code = [[print("table")]]
-loadstring(code)
+
 local UI = {}
 
 -- // StarterGui.ApplewareNew \\ --
@@ -5727,11 +5726,12 @@ local function SCRIPT_1d1()
 
 		end
 	end
+  local Code9 = textbox2.Parent
 
 	function EditorPageinstaller(Execute, Clear, Paste, Back)
 		Execute.MouseButton1Click:Connect(function()
-    local Code = textbox2.Parent
-			loadstring(Code.Text)
+    NotificationHandler(Code9.Text, 2.5)
+			loadstring(Code9.Text)
 		end)
 		Clear.MouseButton1Click:Connect(function()
 			EditorPageHandler("Clear")
